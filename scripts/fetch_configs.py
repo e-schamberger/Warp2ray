@@ -26,3 +26,10 @@ def download_configs():
 
 if __name__ == "__main__":
     download_configs()
+
+def download_configs():
+    if not os.path.exists("inputs/links.txt"):
+        print("Error: inputs/links.txt not found!")
+        return
+        
+    # Rest of the function...
