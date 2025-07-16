@@ -1,1 +1,1 @@
-
+https://raw.githubusercontent.com/e-schamberger/free/refs/heads/main/config/vless.json
