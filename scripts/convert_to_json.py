@@ -109,3 +109,10 @@ def process_files():
 
 if __name__ == "__main__":
     process_files()
+
+def process_files():
+    if not os.path.exists("raw_configs"):
+        print("Error: raw_configs folder not found!")
+        return
+        
+    # Rest of the function...
