@@ -1,20 +1,19 @@
 import os
 import requests
 from pathlib import Path
-from bs4 import BeautifulSoup
 
 def download_configs():
     # Create directories
     Path("inputs").mkdir(exist_ok=True)
     Path("raw_configs").mkdir(exist_ok=True)
     
-    # Verify links file exists
+    # Create default links file if missing
     if not os.path.exists("inputs/links.txt"):
         print("Creating default links.txt")
         with open("inputs/links.txt", "w") as f:
-            f.write("# Add one URL per line\n")
             f.write("https://raw.githubusercontent.com/lagzian/new-configs-collector/main/countries/hr/mixed\n")
-        return False
+            f.write("https://raw.githubusercontent.com/hiddify/hiddify-config/main/sample_configs/vmess.txt\n")
+        return True
 
     # Read links
     with open("inputs/links.txt", "r") as f:
@@ -27,18 +26,11 @@ def download_configs():
             response = requests.get(url, timeout=15)
             response.raise_for_status()
             
-            # Clean HTML content if needed
-            if 'text/html' in response.headers.get('Content-Type', ''):
-                soup = BeautifulSoup(response.text, 'html.parser')
-                content = soup.get_text()
-            else:
-                content = response.text
-            
-            # Save cleaned content
+            # Save content
             output_file = f"raw_configs/config_{i}.txt"
-            with open(output_file, "w") as f:
-                f.write(content)
-            print(f"Saved {output_file}")
+            with open(output_file, "w", encoding="utf-8") as f:
+                f.write(response.text)
+            print(f"Saved {output_file} ({len(response.text)} characters)")
             
         except Exception as e:
             print(f"Failed to download {url}: {str(e)}")
