@@ -1,343 +1,5 @@
 [
   {
-    "protocol": "vless",
-    "address": "45.67.215.254",
-    "port": 8880,
-    "id": "34c01e61-f4f3-4afb-a83b-406caf8caa33",
-    "flow": "",
-    "encryption": "none",
-    "security": "none",
-    "type": "ws",
-    "sni": "Telegram-channel-WangCai2",
-    "path": "/Telegram\ud83c\udde8\ud83c\uddf3",
-    "host": "yg.bantony199.top"
-  },
-  {
-    "protocol": "vless",
-    "address": "220.80.8.223",
-    "port": 50000,
-    "id": "ee6774c0-9b19-4ff1-8b30-2da4b71977e2",
-    "flow": "",
-    "encryption": "none",
-    "security": "tls",
-    "type": "ws",
-    "sni": "edmk.aimercc.filegear-sg.me",
-    "path": "/?ed=2560&proxyip=ts.hpc.tw",
-    "host": "edmk.aimercc.filegear-sg.me"
-  },
-  {
-    "protocol": "vless",
-    "address": "5.10.215.208",
-    "port": 8880,
-    "id": "53fa8faf-ba4b-4322-9c69-a3e5b1555049",
-    "flow": "",
-    "encryption": "none",
-    "security": "none",
-    "type": "ws",
-    "sni": "reedfree8mahsang2.redorg.ir",
-    "path": "/TelegramU0001F1E8U0001F1F3",
-    "host": "reedfree8mahsang2.redorg.ir"
-  },
-  {
-    "protocol": "vless",
-    "address": "5.10.214.0",
-    "port": 8880,
-    "id": "53fa8faf-ba4b-4322-9c69-a3e5b1555049",
-    "flow": "",
-    "encryption": "none",
-    "security": "none",
-    "type": "ws",
-    "sni": "reedfree8mahsang2.redorg.ir",
-    "path": "/TelegramU0001F1E8U0001F1F3",
-    "host": "reedfree8mahsang2.redorg.ir"
-  },
-  {
-    "protocol": "vless",
-    "address": "194.76.18.177",
-    "port": 8880,
-    "id": "583ceab3-4022-4553-9158-9bedc625ad4e",
-    "flow": "",
-    "encryption": "none",
-    "security": "none",
-    "type": "ws",
-    "sni": "Telegram-channel-WangCai2",
-    "path": "/Telegram\ud83c\udde8\ud83c\uddf3",
-    "host": "ip.langmanshanxi.top"
-  },
-  {
-    "protocol": "vless",
-    "address": "102.177.189.3",
-    "port": 8880,
-    "id": "b5441b0d-2147-4898-8a6a-9b2c87f58382",
-    "flow": "",
-    "encryption": "none",
-    "security": "none",
-    "type": "ws",
-    "sni": "Telegram-channel-WangCai2",
-    "path": "/Telegram\ud83c\udde8\ud83c\uddf3",
-    "host": "bitget1.asdasd.click"
-  },
-  {
-    "protocol": "vless",
-    "address": "25.26.27.63",
-    "port": 8880,
-    "id": "fab7bf9c-ddb9-4563-8a04-fb01ce6c0fbf",
-    "flow": "",
-    "encryption": "none",
-    "security": "none",
-    "type": "ws",
-    "sni": "jp.laoyoutiao.link",
-    "path": "/Telegram\ud83c\udde8\ud83c\uddf3",
-    "host": "jp.laoyoutiao.link"
-  },
-  {
-    "protocol": "vless",
-    "address": "65.108.231.185",
-    "port": 443,
-    "id": "440766d1-858f-4719-84f5-c2de6f6227ba",
-    "flow": "",
-    "encryption": "none",
-    "security": "tls",
-    "type": "tcp",
-    "sni": "local.rogsoftwaregroup.com",
-    "path": "",
-    "host": ""
-  },
-  {
-    "protocol": "vless",
-    "address": "102.132.188.63",
-    "port": 8880,
-    "id": "fab7bf9c-ddb9-4563-8a04-fb01ce6c0fbf",
-    "flow": "",
-    "encryption": "none",
-    "security": "none",
-    "type": "ws",
-    "sni": "jp.laoyoutiao.link",
-    "path": "/Telegram\ud83c\udde8\ud83c\uddf3 @WangCai2 /?ed=2560fp=chrome",
-    "host": "jp.laoyoutiao.link"
-  },
-  {
-    "protocol": "vless",
-    "address": "199.34.229.94",
-    "port": 443,
-    "id": "9ca79e0a-2c5c-4ac8-90e6-6642e41e6189",
-    "flow": "",
-    "encryption": "none",
-    "security": "tls",
-    "type": "httpupgrade",
-    "sni": "uk1.blackismyfavorite.ir",
-    "path": "/XRAYVPNHTTPUPGRADE",
-    "host": "uk1.blackismyfavorite.ir"
-  },
-  {
-    "protocol": "vless",
-    "address": "102.177.176.13",
-    "port": 8880,
-    "id": "9f3c4ab7-ea26-4d96-91a9-c85ff64ad9a0",
-    "flow": "",
-    "encryption": "none",
-    "security": "none",
-    "type": "ws",
-    "sni": "",
-    "path": "/Telegram\ud83c\udde8\ud83c\uddf3",
-    "host": "c.82313369.xyz"
-  },
-  {
-    "protocol": "vless",
-    "address": "102.177.176.247",
-    "port": 8880,
-    "id": "d60fc3c5-9f07-4cdb-b81f-70af27936bdc",
-    "flow": "",
-    "encryption": "none",
-    "security": "none",
-    "type": "ws",
-    "sni": "ex.sue.x10.mx",
-    "path": "/Telegram\ud83c\udde8\ud83c\uddf3 @WangCai2 /?ed",
-    "host": "ex.sue.x10.mx"
-  },
-  {
-    "protocol": "vless",
-    "address": "199.34.229.68",
-    "port": 443,
-    "id": "9ca79e0a-2c5c-4ac8-90e6-6642e41e6189",
-    "flow": "",
-    "encryption": "none",
-    "security": "tls",
-    "type": "httpupgrade",
-    "sni": "uk1.blackismyfavorite.ir",
-    "path": "/XRAYVPNHTTPUPGRADE",
-    "host": "uk1.blackismyfavorite.ir"
-  },
-  {
-    "protocol": "vless",
-    "address": "25.25.25.29",
-    "port": 8880,
-    "id": "fab7bf9c-ddb9-4563-8a04-fb01ce6c0fbf",
-    "flow": "",
-    "encryption": "none",
-    "security": "none",
-    "type": "ws",
-    "sni": "hk.laoyoutiao.link",
-    "path": "/TelegramU0001F1E8U0001F1F3",
-    "host": "hk.laoyoutiao.link"
-  },
-  {
-    "protocol": "vless",
-    "address": "102.177.189.29",
-    "port": 8880,
-    "id": "fab7bf9c-ddb9-4563-8a04-fb01ce6c0fbf",
-    "flow": "",
-    "encryption": "none",
-    "security": "none",
-    "type": "ws",
-    "sni": "hk.laoyoutiao.link",
-    "path": "/TelegramU0001F1E8U0001F1F3kir",
-    "host": "hk.laoyoutiao.link"
-  },
-  {
-    "protocol": "vless",
-    "address": "102.177.189.251",
-    "port": 443,
-    "id": "401374e6-df77-41fb-f638-dad8184f175b",
-    "flow": "",
-    "encryption": "none",
-    "security": "tls",
-    "type": "grpc",
-    "sni": "pqh23v4.hiddendom.shop",
-    "path": "",
-    "host": ""
-  },
-  {
-    "protocol": "vless",
-    "address": "199.34.230.126",
-    "port": 443,
-    "id": "9ca79e0a-2c5c-4ac8-90e6-6642e41e6189",
-    "flow": "",
-    "encryption": "none",
-    "security": "tls",
-    "type": "httpupgrade",
-    "sni": "uk1.blackismyfavorite.ir",
-    "path": "/XRAYVPNHTTPUPGRADE",
-    "host": "uk1.blackismyfavorite.ir"
-  },
-  {
-    "protocol": "vless",
-    "address": "62.3.12.185",
-    "port": 443,
-    "id": "75fde681-ec64-4654-86fa-30732e8e179c",
-    "flow": "",
-    "encryption": "none",
-    "security": "tls",
-    "type": "ws",
-    "sni": "NGINX-Z.pages.DEV",
-    "path": "/",
-    "host": "nginx-z.pages.dev"
-  },
-  {
-    "protocol": "vless",
-    "address": "199.34.230.125",
-    "port": 443,
-    "id": "9ca79e0a-2c5c-4ac8-90e6-6642e41e6189",
-    "flow": "",
-    "encryption": "none",
-    "security": "tls",
-    "type": "httpupgrade",
-    "sni": "uk1.blackismyfavorite.ir",
-    "path": "/XRAYVPNHTTPUPGRADE",
-    "host": "uk1.blackismyfavorite.ir"
-  },
-  {
-    "protocol": "vless",
-    "address": "25.25.25.247",
-    "port": 8880,
-    "id": "d60fc3c5-9f07-4cdb-b81f-70af27936bdc",
-    "flow": "",
-    "encryption": "none",
-    "security": "none",
-    "type": "ws",
-    "sni": "ex.sue.x10.mx",
-    "path": "/Telegram\ud83c\udde8\ud83c\uddf3",
-    "host": "ex.sue.x10.mx"
-  },
-  {
-    "protocol": "vless",
-    "address": "5.10.214.247",
-    "port": 8880,
-    "id": "d60fc3c5-9f07-4cdb-b81f-70af27936bdc",
-    "flow": "",
-    "encryption": "none",
-    "security": "none",
-    "type": "ws",
-    "sni": "ex.sue.x10.mx",
-    "path": "/Telegram\ud83c\udde8\ud83c\uddf3",
-    "host": "ex.sue.x10.mx"
-  },
-  {
-    "protocol": "vless",
-    "address": "102.177.176.251",
-    "port": 8880,
-    "id": "0132166f-e702-48ed-a9e7-b07af768faf8",
-    "flow": "",
-    "encryption": "none",
-    "security": "none",
-    "type": "ws",
-    "sni": "",
-    "path": "/Telegram\ud83c\udde8\ud83c\uddf3 @WangCai2 /?ed=2560",
-    "host": "cf.d3z.net"
-  },
-  {
-    "protocol": "vless",
-    "address": "5.10.214.254",
-    "port": 8880,
-    "id": "34c01e61-f4f3-4afb-a83b-406caf8caa33",
-    "flow": "",
-    "encryption": "none",
-    "security": "none",
-    "type": "ws",
-    "sni": "",
-    "path": "/",
-    "host": "yg.bantony199.top"
-  },
-  {
-    "protocol": "vless",
-    "address": "209.94.90.13",
-    "port": 8880,
-    "id": "9f3c4ab7-ea26-4d96-91a9-c85ff64ad9a0",
-    "flow": "",
-    "encryption": "none",
-    "security": "none",
-    "type": "ws",
-    "sni": "Telegram-channel-WangCai2",
-    "path": "/Telegram\ud83c\udde8\ud83c\uddf3",
-    "host": "c.82313369.xyz"
-  },
-  {
-    "protocol": "vless",
-    "address": "25.26.27.3",
-    "port": 8880,
-    "id": "b5441b0d-2147-4898-8a6a-9b2c87f58382",
-    "flow": "",
-    "encryption": "none",
-    "security": "none",
-    "type": "ws",
-    "sni": "Telegram-channel-WangCai2",
-    "path": "/Telegram",
-    "host": "bitget1.asdasd.click"
-  },
-  {
-    "protocol": "vless",
-    "address": "5.10.214.144",
-    "port": 8880,
-    "id": "53fa8faf-ba4b-4322-9c69-a3e5b1555049",
-    "flow": "",
-    "encryption": "none",
-    "security": "none",
-    "type": "ws",
-    "sni": "reedfree8mahsang2.redorg.ir",
-    "path": "/TelegramU0001F1E8U0001F1F3",
-    "host": "reedfree8mahsang2.redorg.ir"
-  },
-  {
     "v": "2",
     "ps": "\ud83d\udd12 VM-RAW-NA \ud83c\udde8\ud83c\uddf3 CN-47.92.152.169:50002",
     "add": "47.92.152.169",
@@ -353,580 +15,6 @@
     "sni": "",
     "alpn": "",
     "fp": ""
-  },
-  {
-    "protocol": "ss",
-    "url": "ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpmOGY3YUN6Y1BLYnNGOHAz@181.119.30.20:990#%F0%9F%94%92%20SS-TCP-NA%20%F0%9F%87%A8%F0%9F%87%B4%20CO-181.119.30.20%3A990"
-  },
-  {
-    "protocol": "vless",
-    "address": "154.92.9.176",
-    "port": 443,
-    "id": "ec8a65ad-aafc-4095-9b8c-ea10890ca629",
-    "flow": "",
-    "encryption": "none",
-    "security": "tls",
-    "type": "ws",
-    "sni": "simorgh.hpcode.ir",
-    "path": "/Javid-SHAH-KingRezaPahlavi/?ed",
-    "host": "simorgh.hpcode.ir"
-  },
-  {
-    "protocol": "trojan",
-    "address": "109.234.211.66",
-    "port": 8443,
-    "password": "trojan",
-    "security": "tls",
-    "sni": "store.timimi.dpdns.org",
-    "type": "ws",
-    "host": "store.timimi.dpdns.org",
-    "path": "/"
-  },
-  {
-    "protocol": "vless",
-    "address": "199.34.230.114",
-    "port": 443,
-    "id": "9ca79e0a-2c5c-4ac8-90e6-6642e41e6189",
-    "flow": "",
-    "encryption": "none",
-    "security": "tls",
-    "type": "httpupgrade",
-    "sni": "uk1.blackismyfavorite.ir",
-    "path": "/XRAYVPNHTTPUPGRADE",
-    "host": "uk1.blackismyfavorite.ir"
-  },
-  {
-    "protocol": "vless",
-    "address": "154.92.9.151",
-    "port": 443,
-    "id": "ec8a65ad-aafc-4095-9b8c-ea10890ca629",
-    "flow": "",
-    "encryption": "none",
-    "security": "tls",
-    "type": "ws",
-    "sni": "simorgh.hpcode.ir",
-    "path": "/Javid-SHAH-KingRezaPahlavi/?ed=2560",
-    "host": "simorgh.hpcode.ir"
-  },
-  {
-    "protocol": "vless",
-    "address": "154.194.0.63",
-    "port": 8880,
-    "id": "fab7bf9c-ddb9-4563-8a04-fb01ce6c0fbf",
-    "flow": "",
-    "encryption": "none",
-    "security": "none",
-    "type": "ws",
-    "sni": "jp.laoyoutiao.link",
-    "path": "/Telegram\ud83c\udde8\ud83c\uddf3",
-    "host": "jp.laoyoutiao.link"
-  },
-  {
-    "protocol": "vless",
-    "address": "192.200.160.177",
-    "port": 8880,
-    "id": "583ceab3-4022-4553-9158-9bedc625ad4e",
-    "flow": "",
-    "encryption": "none",
-    "security": "none",
-    "type": "ws",
-    "sni": "Telegram-channel-WangCai2",
-    "path": "/Telegram",
-    "host": "ip.langmanshanxi.top"
-  },
-  {
-    "protocol": "vless",
-    "address": "102.132.188.13",
-    "port": 8880,
-    "id": "9f3c4ab7-ea26-4d96-91a9-c85ff64ad9a0",
-    "flow": "",
-    "encryption": "none",
-    "security": "none",
-    "type": "ws",
-    "sni": "Telegram-channel-WangCai2",
-    "path": "/Telegram\ud83c\udde8\ud83c\uddf3",
-    "host": "c.82313369.xyz"
-  },
-  {
-    "protocol": "vless",
-    "address": "199.34.228.63",
-    "port": 8880,
-    "id": "fab7bf9c-ddb9-4563-8a04-fb01ce6c0fbf",
-    "flow": "",
-    "encryption": "none",
-    "security": "none",
-    "type": "ws",
-    "sni": "jp.laoyoutiao.link",
-    "path": "/Telegram\ud83c\udde8\ud83c\uddf3",
-    "host": "jp.laoyoutiao.link"
-  },
-  {
-    "protocol": "vless",
-    "address": "25.25.25.3",
-    "port": 8880,
-    "id": "b5441b0d-2147-4898-8a6a-9b2c87f58382",
-    "flow": "",
-    "encryption": "none",
-    "security": "none",
-    "type": "ws",
-    "sni": "Telegram-channel-WangCai2",
-    "path": "/Telegram\ud83c\udde8\ud83c\uddf3",
-    "host": "bitget1.asdasd.click"
-  },
-  {
-    "protocol": "vless",
-    "address": "102.177.176.20",
-    "port": 8880,
-    "id": "53fa8faf-ba4b-4322-9c69-a3e5b1555049",
-    "flow": "",
-    "encryption": "none",
-    "security": "none",
-    "type": "ws",
-    "sni": "reedfree8mahsang2.redorg.ir",
-    "path": "/",
-    "host": "reedfree8mahsang2.redorg.ir"
-  },
-  {
-    "protocol": "vless",
-    "address": "5.10.215.213",
-    "port": 8880,
-    "id": "fab7bf9c-ddb9-4563-8a04-fb01ce6c0fbf",
-    "flow": "",
-    "encryption": "none",
-    "security": "none",
-    "type": "ws",
-    "sni": "",
-    "path": "/",
-    "host": "jp.laoyoutiao.link"
-  },
-  {
-    "protocol": "vless",
-    "address": "102.177.176.13",
-    "port": 8880,
-    "id": "9f3c4ab7-ea26-4d96-91a9-c85ff64ad9a0",
-    "flow": "",
-    "encryption": "none",
-    "security": "none",
-    "type": "ws",
-    "sni": "",
-    "path": "/Telegram\ud83c\udde8\ud83c\uddf3 @WangCai2 /?ed=2560",
-    "host": "c.82313369.xyz"
-  },
-  {
-    "protocol": "vless",
-    "address": "102.177.176.29",
-    "port": 8880,
-    "id": "fab7bf9c-ddb9-4563-8a04-fb01ce6c0fbf",
-    "flow": "",
-    "encryption": "none",
-    "security": "none",
-    "type": "ws",
-    "sni": "",
-    "path": "/",
-    "host": "hk.laoyoutiao.link"
-  },
-  {
-    "protocol": "vless",
-    "address": "102.177.176.177",
-    "port": 8880,
-    "id": "583ceab3-4022-4553-9158-9bedc625ad4e",
-    "flow": "",
-    "encryption": "none",
-    "security": "none",
-    "type": "ws",
-    "sni": "Telegram-channel-WangCai2",
-    "path": "/Telegram\ud83c\udde8\ud83c\uddf3",
-    "host": "ip.langmanshanxi.top"
-  },
-  {
-    "protocol": "vless",
-    "address": "160.79.105.13",
-    "port": 8880,
-    "id": "9f3c4ab7-ea26-4d96-91a9-c85ff64ad9a0",
-    "flow": "",
-    "encryption": "none",
-    "security": "none",
-    "type": "ws",
-    "sni": "Telegram-channel-WangCai2",
-    "path": "/Telegram\ud83c\udde8\ud83c\uddf3",
-    "host": "c.82313369.xyz"
-  },
-  {
-    "protocol": "vless",
-    "address": "25.26.27.29",
-    "port": 8880,
-    "id": "fab7bf9c-ddb9-4563-8a04-fb01ce6c0fbf",
-    "flow": "",
-    "encryption": "none",
-    "security": "none",
-    "type": "ws",
-    "sni": "hk.laoyoutiao.link",
-    "path": "/TelegramU0001F1E8U0001F1F3",
-    "host": "hk.laoyoutiao.link"
-  },
-  {
-    "protocol": "vless",
-    "address": "25.26.27.13",
-    "port": 8880,
-    "id": "9f3c4ab7-ea26-4d96-91a9-c85ff64ad9a0",
-    "flow": "",
-    "encryption": "none",
-    "security": "none",
-    "type": "ws",
-    "sni": "Telegram-channel-WangCai2",
-    "path": "/Telegram\ud83c\udde8\ud83c\uddf3",
-    "host": "c.82313369.xyz"
-  },
-  {
-    "protocol": "vless",
-    "address": "88.216.69.247",
-    "port": 8880,
-    "id": "d60fc3c5-9f07-4cdb-b81f-70af27936bdc",
-    "flow": "",
-    "encryption": "none",
-    "security": "none",
-    "type": "ws",
-    "sni": "ex.sue.x10.mx",
-    "path": "/Telegram\ud83c\udde8\ud83c\uddf3",
-    "host": "ex.sue.x10.mx"
-  },
-  {
-    "protocol": "vless",
-    "address": "25.25.25.177",
-    "port": 8880,
-    "id": "583ceab3-4022-4553-9158-9bedc625ad4e",
-    "flow": "",
-    "encryption": "none",
-    "security": "none",
-    "type": "ws",
-    "sni": "Telegram-channel-WangCai2",
-    "path": "/Telegram\ud83c\udde8\ud83c\uddf3",
-    "host": "ip.langmanshanxi.top"
-  },
-  {
-    "protocol": "vless",
-    "address": "185.251.81.177",
-    "port": 8880,
-    "id": "583ceab3-4022-4553-9158-9bedc625ad4e",
-    "flow": "",
-    "encryption": "none",
-    "security": "none",
-    "type": "ws",
-    "sni": "",
-    "path": "/Telegram\ud83c\udde8\ud83c\uddf3@WangCai2/?ed=2560",
-    "host": "ip.langmanshanxi.top"
-  },
-  {
-    "protocol": "vless",
-    "address": "25.26.27.177",
-    "port": 8880,
-    "id": "583ceab3-4022-4553-9158-9bedc625ad4e",
-    "flow": "",
-    "encryption": "none",
-    "security": "none",
-    "type": "ws",
-    "sni": "Telegram-channel-WangCai2",
-    "path": "/Telegram\ud83c\udde8\ud83c\uddf3",
-    "host": "ip.langmanshanxi.top"
-  },
-  {
-    "protocol": "vless",
-    "address": "5.10.214.56",
-    "port": 8880,
-    "id": "53fa8faf-ba4b-4322-9c69-a3e5b1555049",
-    "flow": "",
-    "encryption": "none",
-    "security": "none",
-    "type": "ws",
-    "sni": "",
-    "path": "/",
-    "host": "reedfree8mahsang2.redorg.ir"
-  },
-  {
-    "protocol": "vless",
-    "address": "25.25.25.13",
-    "port": 8880,
-    "id": "9f3c4ab7-ea26-4d96-91a9-c85ff64ad9a0",
-    "flow": "",
-    "encryption": "none",
-    "security": "none",
-    "type": "ws",
-    "sni": "Telegram-channel-WangCai2",
-    "path": "/Telegram\ud83c\udde8\ud83c\uddf3",
-    "host": "c.82313369.xyz"
-  },
-  {
-    "protocol": "vless",
-    "address": "102.177.189.29",
-    "port": 8880,
-    "id": "fab7bf9c-ddb9-4563-8a04-fb01ce6c0fbf",
-    "flow": "",
-    "encryption": "none",
-    "security": "none",
-    "type": "ws",
-    "sni": "hk.laoyoutiao.link",
-    "path": "/TelegramU0001F1E8U0001F1F3",
-    "host": "hk.laoyoutiao.link"
-  },
-  {
-    "protocol": "vless",
-    "address": "102.177.176.213",
-    "port": 8880,
-    "id": "fab7bf9c-ddb9-4563-8a04-fb01ce6c0fbf",
-    "flow": "",
-    "encryption": "none",
-    "security": "none",
-    "type": "ws",
-    "sni": "",
-    "path": "/",
-    "host": "jp.laoyoutiao.link"
-  },
-  {
-    "protocol": "vless",
-    "address": "141.193.213.11",
-    "port": 80,
-    "id": "fab7bf9c-ddb9-4563-8a04-fb01ce6c0fbf",
-    "flow": "",
-    "encryption": "none",
-    "security": "none",
-    "type": "ws",
-    "sni": "",
-    "path": "/Telegram",
-    "host": "cs.laoyoutiao.link"
-  },
-  {
-    "protocol": "vless",
-    "address": "102.132.188.13",
-    "port": 8880,
-    "id": "9f3c4ab7-ea26-4d96-91a9-c85ff64ad9a0",
-    "flow": "",
-    "encryption": "none",
-    "security": "none",
-    "type": "ws",
-    "sni": "Telegram-channel-WangCai2",
-    "path": "/Telegram\ud83c\udde8\ud83c\uddf3",
-    "host": "c.82313369.xyz"
-  },
-  {
-    "protocol": "vless",
-    "address": "25.25.25.177",
-    "port": 8880,
-    "id": "583ceab3-4022-4553-9158-9bedc625ad4e",
-    "flow": "",
-    "encryption": "none",
-    "security": "none",
-    "type": "ws",
-    "sni": "Telegram-channel-WangCai2",
-    "path": "/Telegram\ud83c\udde8\ud83c\uddf3",
-    "host": "ip.langmanshanxi.top"
-  },
-  {
-    "protocol": "vless",
-    "address": "102.132.188.63",
-    "port": 8880,
-    "id": "fab7bf9c-ddb9-4563-8a04-fb01ce6c0fbf",
-    "flow": "",
-    "encryption": "none",
-    "security": "none",
-    "type": "ws",
-    "sni": "jp.laoyoutiao.link",
-    "path": "/Telegram\ud83c\udde8\ud83c\uddf3 @WangCai2 /?ed=2560fp=chrome",
-    "host": "jp.laoyoutiao.link"
-  },
-  {
-    "protocol": "vless",
-    "address": "25.25.25.63",
-    "port": 8880,
-    "id": "fab7bf9c-ddb9-4563-8a04-fb01ce6c0fbf",
-    "flow": "",
-    "encryption": "none",
-    "security": "none",
-    "type": "ws",
-    "sni": "jp.laoyoutiao.link",
-    "path": "/Telegram\ud83c\udde8\ud83c\uddf3",
-    "host": "jp.laoyoutiao.link"
-  },
-  {
-    "protocol": "vless",
-    "address": "25.25.25.247",
-    "port": 8880,
-    "id": "d60fc3c5-9f07-4cdb-b81f-70af27936bdc",
-    "flow": "",
-    "encryption": "none",
-    "security": "none",
-    "type": "ws",
-    "sni": "ex.sue.x10.mx",
-    "path": "/Telegram\ud83c\udde8\ud83c\uddf3",
-    "host": "ex.sue.x10.mx"
-  },
-  {
-    "protocol": "vless",
-    "address": "25.25.25.19",
-    "port": 8880,
-    "id": "fab7bf9c-ddb9-4563-8a04-fb01ce6c0fbf",
-    "flow": "",
-    "encryption": "none",
-    "security": "none",
-    "type": "ws",
-    "sni": "hk.laoyoutiao.link",
-    "path": "telegram\ud83c\udde8\ud83c\uddf3 @pgkj666 /?ed=2560",
-    "host": "hk.laoyoutiao.link"
-  },
-  {
-    "protocol": "vless",
-    "address": "5.10.215.247",
-    "port": 8880,
-    "id": "d60fc3c5-9f07-4cdb-b81f-70af27936bdc",
-    "flow": "",
-    "encryption": "none",
-    "security": "none",
-    "type": "ws",
-    "sni": "ex.sue.x10.mx",
-    "path": "/Telegram\ud83c\udde8\ud83c\uddf3",
-    "host": "ex.sue.x10.mx"
-  },
-  {
-    "protocol": "vless",
-    "address": "102.177.176.29",
-    "port": 8880,
-    "id": "fab7bf9c-ddb9-4563-8a04-fb01ce6c0fbf",
-    "flow": "",
-    "encryption": "none",
-    "security": "none",
-    "type": "ws",
-    "sni": "",
-    "path": "/",
-    "host": "hk.laoyoutiao.link"
-  },
-  {
-    "protocol": "vless",
-    "address": "102.177.176.13",
-    "port": 8880,
-    "id": "9f3c4ab7-ea26-4d96-91a9-c85ff64ad9a0",
-    "flow": "",
-    "encryption": "none",
-    "security": "none",
-    "type": "ws",
-    "sni": "",
-    "path": "/Telegram\ud83c\udde8\ud83c\uddf3",
-    "host": "c.82313369.xyz"
-  },
-  {
-    "protocol": "vless",
-    "address": "102.177.189.13",
-    "port": 8880,
-    "id": "9f3c4ab7-ea26-4d96-91a9-c85ff64ad9a0",
-    "flow": "",
-    "encryption": "none",
-    "security": "none",
-    "type": "ws",
-    "sni": "Telegram-channel-WangCai2",
-    "path": "/Telegram\ud83c\udde8\ud83c\uddf3",
-    "host": "c.82313369.xyz"
-  },
-  {
-    "protocol": "vless",
-    "address": "192.0.63.254",
-    "port": 8880,
-    "id": "34c01e61-f4f3-4afb-a83b-406caf8caa33",
-    "flow": "",
-    "encryption": "none",
-    "security": "none",
-    "type": "ws",
-    "sni": "",
-    "path": "/Telegram\ud83c\udde8\ud83c\uddf3",
-    "host": "yg.bantony199.top"
-  },
-  {
-    "protocol": "vless",
-    "address": "102.177.189.3",
-    "port": 8880,
-    "id": "b5441b0d-2147-4898-8a6a-9b2c87f58382",
-    "flow": "",
-    "encryption": "none",
-    "security": "none",
-    "type": "ws",
-    "sni": "Telegram-channel-WangCai2",
-    "path": "/Telegram\ud83c\udde8\ud83c\uddf3",
-    "host": "bitget1.asdasd.click"
-  },
-  {
-    "protocol": "vless",
-    "address": "5.10.214.103",
-    "port": 8880,
-    "id": "53fa8faf-ba4b-4322-9c69-a3e5b1555049",
-    "flow": "",
-    "encryption": "none",
-    "security": "none",
-    "type": "ws",
-    "sni": "",
-    "path": "/",
-    "host": "reedfree8mahsang2.redorg.ir"
-  },
-  {
-    "protocol": "vless",
-    "address": "192.0.54.247",
-    "port": 8880,
-    "id": "d60fc3c5-9f07-4cdb-b81f-70af27936bdc",
-    "flow": "",
-    "encryption": "none",
-    "security": "none",
-    "type": "ws",
-    "sni": "ex.sue.x10.mx",
-    "path": "/Telegram\ud83c\udde8\ud83c\uddf3",
-    "host": "ex.sue.x10.mx"
-  },
-  {
-    "protocol": "vless",
-    "address": "94.232.170.141",
-    "port": 1501,
-    "id": "2f33cc6f-c80a-4c19-ac4f-66547bfdd33d",
-    "flow": "",
-    "encryption": "none",
-    "security": "none",
-    "type": "tcp",
-    "sni": "",
-    "path": "",
-    "host": "varzesh3.com"
-  },
-  {
-    "protocol": "vless",
-    "address": "146.59.15.81",
-    "port": 443,
-    "id": "c14b2731-7db6-49ee-9271-b1efc56c2630",
-    "flow": "",
-    "encryption": "none",
-    "security": "reality",
-    "type": "tcp",
-    "sni": "dl.google.com",
-    "path": "",
-    "host": ""
-  },
-  {
-    "protocol": "vless",
-    "address": "185.243.49.205",
-    "port": 8444,
-    "id": "ac083fa9-df9a-4722-b70d-24c17bef0516",
-    "flow": "",
-    "encryption": "none",
-    "security": "none",
-    "type": "tcp",
-    "sni": "",
-    "path": "",
-    "host": "speedtest.net"
-  },
-  {
-    "protocol": "vless",
-    "address": "178.20.208.134",
-    "port": 2083,
-    "id": "84cec1f6-8312-40da-b17a-4511e11a6026",
-    "flow": "xtls-rprx-vision",
-    "encryption": "none",
-    "security": "reality",
-    "type": "tcp",
-    "sni": "refersion.com",
-    "path": "",
-    "host": ""
   },
   {
     "v": "2",
@@ -964,496 +52,1745 @@
   },
   {
     "protocol": "vless",
-    "address": "51.38.98.69",
-    "port": 443,
-    "id": "6b690c69-7301-44c4-81e8-9d5d7e8263a6",
-    "flow": "",
-    "encryption": "none",
-    "security": "reality",
-    "type": "tcp",
-    "sni": "yahoo.com",
-    "path": "",
-    "host": ""
-  },
-  {
-    "protocol": "vless",
-    "address": "65.108.231.185",
-    "port": 443,
-    "id": "440766d1-858f-4719-84f5-c2de6f6227ba",
-    "flow": "",
-    "encryption": "none",
-    "security": "tls",
-    "type": "tcp",
-    "sni": "local.rogsoftwaregroup.com",
-    "path": "",
-    "host": ""
-  },
-  {
-    "protocol": "vless",
-    "address": "192.0.63.247",
-    "port": 8880,
-    "id": "d60fc3c5-9f07-4cdb-b81f-70af27936bdc",
-    "flow": "",
-    "encryption": "none",
-    "security": "none",
-    "type": "ws",
-    "sni": "ex.sue.x10.mx",
-    "path": "/Telegram",
-    "host": "ex.sue.x10.mx"
-  },
-  {
-    "protocol": "vless",
-    "address": "5.10.214.36",
-    "port": 8880,
-    "id": "53fa8faf-ba4b-4322-9c69-a3e5b1555049",
-    "flow": "",
-    "encryption": "none",
-    "security": "none",
-    "type": "ws",
-    "sni": "reedfree8mahsang2.redorg.ir",
-    "path": "/TelegramU0001F1E8U0001F1F3",
-    "host": "reedfree8mahsang2.redorg.ir"
-  },
-  {
-    "protocol": "vless",
-    "address": "102.177.189.254",
+    "address": "45.67.215.254",
     "port": 8880,
     "id": "34c01e61-f4f3-4afb-a83b-406caf8caa33",
-    "flow": "",
     "encryption": "none",
     "security": "none",
+    "sni": "Telegram-channel-WangCai2",
     "type": "ws",
-    "sni": "",
-    "path": "/",
-    "host": "yg.bantony199.top"
+    "host": "yg.bantony199.top",
+    "path": "/Telegram\ud83c\udde8\ud83c\uddf3"
   },
   {
     "protocol": "vless",
-    "address": "154.92.9.151",
-    "port": 443,
-    "id": "ec8a65ad-aafc-4095-9b8c-ea10890ca629",
-    "flow": "",
+    "address": "220.80.8.223",
+    "port": 50000,
+    "id": "ee6774c0-9b19-4ff1-8b30-2da4b71977e2",
     "encryption": "none",
     "security": "tls",
+    "sni": "edmk.aimercc.filegear-sg.me",
     "type": "ws",
-    "sni": "simorgh.hpcode.ir",
-    "path": "/Javid-SHAH-KingRezaPahlavi/?ed=2560",
-    "host": "simorgh.hpcode.ir"
+    "host": "edmk.aimercc.filegear-sg.me",
+    "path": "/?ed=2560&proxyip=ts.hpc.tw"
   },
   {
     "protocol": "vless",
-    "address": "5.10.215.63",
+    "address": "5.10.215.208",
     "port": 8880,
-    "id": "fab7bf9c-ddb9-4563-8a04-fb01ce6c0fbf",
-    "flow": "",
+    "id": "53fa8faf-ba4b-4322-9c69-a3e5b1555049",
     "encryption": "none",
     "security": "none",
+    "sni": "reedfree8mahsang2.redorg.ir",
     "type": "ws",
-    "sni": "sg.laoyoutiao.link",
-    "path": "/Telegram\ud83c\udde8\ud83c\uddf3",
-    "host": "sg.laoyoutiao.link"
+    "host": "reedfree8mahsang2.redorg.ir",
+    "path": "/TelegramU0001F1E8U0001F1F3"
   },
   {
     "protocol": "vless",
-    "address": "102.177.189.247",
+    "address": "5.10.214.0",
     "port": 8880,
-    "id": "d60fc3c5-9f07-4cdb-b81f-70af27936bdc",
-    "flow": "",
+    "id": "53fa8faf-ba4b-4322-9c69-a3e5b1555049",
     "encryption": "none",
     "security": "none",
+    "sni": "reedfree8mahsang2.redorg.ir",
     "type": "ws",
-    "sni": "",
-    "path": "/Telegram\ud83c\udde8\ud83c\uddf3+@WangCai2+/?ed",
-    "host": "ex.sue.x10.mx"
+    "host": "reedfree8mahsang2.redorg.ir",
+    "path": "/TelegramU0001F1E8U0001F1F3"
   },
   {
     "protocol": "vless",
-    "address": "185.208.77.113",
-    "port": 14040,
-    "id": "a2691bdd-7989-4e7e-9c44-302e360c021f",
-    "flow": "",
-    "encryption": "none",
-    "security": "none",
-    "type": "ws",
-    "sni": "",
-    "path": "/",
-    "host": ""
-  },
-  {
-    "protocol": "vless",
-    "address": "185.18.184.247",
-    "port": 8880,
-    "id": "d60fc3c5-9f07-4cdb-b81f-70af27936bdc",
-    "flow": "",
-    "encryption": "none",
-    "security": "none",
-    "type": "ws",
-    "sni": "ex.sue.x10.mx",
-    "path": "/Telegram",
-    "host": "ex.sue.x10.mx"
-  },
-  {
-    "protocol": "vless",
-    "address": "25.26.27.177",
+    "address": "194.76.18.177",
     "port": 8880,
     "id": "583ceab3-4022-4553-9158-9bedc625ad4e",
-    "flow": "",
     "encryption": "none",
     "security": "none",
-    "type": "ws",
     "sni": "Telegram-channel-WangCai2",
-    "path": "/Telegram\ud83c\udde8\ud83c\uddf3",
-    "host": "ip.langmanshanxi.top"
-  },
-  {
-    "protocol": "vless",
-    "address": "25.26.27.29",
-    "port": 8880,
-    "id": "fab7bf9c-ddb9-4563-8a04-fb01ce6c0fbf",
-    "flow": "",
-    "encryption": "none",
-    "security": "none",
     "type": "ws",
-    "sni": "hk.laoyoutiao.link",
-    "path": "/TelegramU0001F1E8U0001F1F3",
-    "host": "hk.laoyoutiao.link"
-  },
-  {
-    "protocol": "vless",
-    "address": "25.25.25.29",
-    "port": 8880,
-    "id": "fab7bf9c-ddb9-4563-8a04-fb01ce6c0fbf",
-    "flow": "",
-    "encryption": "none",
-    "security": "none",
-    "type": "ws",
-    "sni": "hk.laoyoutiao.link",
-    "path": "/TelegramU0001F1E8U0001F1F3",
-    "host": "hk.laoyoutiao.link"
-  },
-  {
-    "protocol": "vless",
-    "address": "102.177.176.177",
-    "port": 8880,
-    "id": "583ceab3-4022-4553-9158-9bedc625ad4e",
-    "flow": "",
-    "encryption": "none",
-    "security": "none",
-    "type": "ws",
-    "sni": "Telegram-channel-WangCai2",
-    "path": "/Telegram\ud83c\udde8\ud83c\uddf3",
-    "host": "ip.langmanshanxi.top"
-  },
-  {
-    "protocol": "vless",
-    "address": "5.10.214.16",
-    "port": 8880,
-    "id": "53fa8faf-ba4b-4322-9c69-a3e5b1555049",
-    "flow": "",
-    "encryption": "none",
-    "security": "none",
-    "type": "ws",
-    "sni": "reedfree8mahsang2.redorg.ir",
-    "path": "/TelegramU0001F1E8U0001F1F3",
-    "host": "reedfree8mahsang2.redorg.ir"
-  },
-  {
-    "protocol": "vless",
-    "address": "25.26.27.254",
-    "port": 8880,
-    "id": "34c01e61-f4f3-4afb-a83b-406caf8caa33",
-    "flow": "",
-    "encryption": "none",
-    "security": "none",
-    "type": "ws",
-    "sni": "Telegram-channel-WangCai2",
-    "path": "/Telegram",
-    "host": "yg.bantony199.top"
-  },
-  {
-    "protocol": "vless",
-    "address": "102.177.176.247",
-    "port": 8880,
-    "id": "d60fc3c5-9f07-4cdb-b81f-70af27936bdc",
-    "flow": "",
-    "encryption": "none",
-    "security": "none",
-    "type": "ws",
-    "sni": "ex.sue.x10.mx",
-    "path": "/Telegram\ud83c\udde8\ud83c\uddf3 @WangCai2 /?ed",
-    "host": "ex.sue.x10.mx"
-  },
-  {
-    "protocol": "vless",
-    "address": "102.132.188.63",
-    "port": 8880,
-    "id": "fab7bf9c-ddb9-4563-8a04-fb01ce6c0fbf",
-    "flow": "",
-    "encryption": "none",
-    "security": "none",
-    "type": "ws",
-    "sni": "jp.laoyoutiao.link",
-    "path": "/Telegram\ud83c\udde8\ud83c\uddf3 @WangCai2 /?ed=2560fp=chrome",
-    "host": "jp.laoyoutiao.link"
-  },
-  {
-    "protocol": "vless",
-    "address": "25.25.25.3",
-    "port": 8880,
-    "id": "b5441b0d-2147-4898-8a6a-9b2c87f58382",
-    "flow": "",
-    "encryption": "none",
-    "security": "none",
-    "type": "ws",
-    "sni": "Telegram-channel-WangCai2",
-    "path": "/Telegram\ud83c\udde8\ud83c\uddf3",
-    "host": "bitget1.asdasd.click"
-  },
-  {
-    "protocol": "vless",
-    "address": "5.10.214.75",
-    "port": 8880,
-    "id": "53fa8faf-ba4b-4322-9c69-a3e5b1555049",
-    "flow": "",
-    "encryption": "none",
-    "security": "none",
-    "type": "ws",
-    "sni": "reedfree8mahsang2.redorg.ir",
-    "path": "/TelegramU0001F1E8U0001F1F3",
-    "host": "reedfree8mahsang2.redorg.ir"
-  },
-  {
-    "protocol": "vless",
-    "address": "5.10.214.182",
-    "port": 8880,
-    "id": "53fa8faf-ba4b-4322-9c69-a3e5b1555049",
-    "flow": "",
-    "encryption": "none",
-    "security": "none",
-    "type": "ws",
-    "sni": "reedfree8mahsang2.redorg.ir",
-    "path": "/TelegramU0001F1E8U0001F1F3",
-    "host": "reedfree8mahsang2.redorg.ir"
-  },
-  {
-    "protocol": "vless",
-    "address": "102.177.176.20",
-    "port": 8880,
-    "id": "53fa8faf-ba4b-4322-9c69-a3e5b1555049",
-    "flow": "",
-    "encryption": "none",
-    "security": "none",
-    "type": "ws",
-    "sni": "reedfree8mahsang2.redorg.ir",
-    "path": "/",
-    "host": "reedfree8mahsang2.redorg.ir"
-  },
-  {
-    "protocol": "vless",
-    "address": "5.10.215.67",
-    "port": 8880,
-    "id": "53fa8faf-ba4b-4322-9c69-a3e5b1555049",
-    "flow": "",
-    "encryption": "none",
-    "security": "none",
-    "type": "ws",
-    "sni": "reedfree8mahsang2.redorg.ir",
-    "path": "/TelegramU0001F1E8U0001F1F3",
-    "host": "reedfree8mahsang2.redorg.ir"
-  },
-  {
-    "protocol": "vless",
-    "address": "192.0.54.251",
-    "port": 8880,
-    "id": "0132166f-e702-48ed-a9e7-b07af768faf8",
-    "flow": "",
-    "encryption": "none",
-    "security": "none",
-    "type": "ws",
-    "sni": "",
-    "path": "/Telegram\ud83c\udde8\ud83c\uddf3 @WangCai2 /?ed=2560",
-    "host": "cf.d3z.net"
-  },
-  {
-    "protocol": "vless",
-    "address": "25.25.25.3",
-    "port": 8880,
-    "id": "b5441b0d-2147-4898-8a6a-9b2c87f58382",
-    "flow": "",
-    "encryption": "none",
-    "security": "none",
-    "type": "ws",
-    "sni": "Telegram-channel-WangCai2",
-    "path": "/Telegram\ud83c\udde8\ud83c\uddf3",
-    "host": "bitget1.asdasd.click"
-  },
-  {
-    "protocol": "vless",
-    "address": "102.177.189.29",
-    "port": 8880,
-    "id": "fab7bf9c-ddb9-4563-8a04-fb01ce6c0fbf",
-    "flow": "",
-    "encryption": "none",
-    "security": "none",
-    "type": "ws",
-    "sni": "hk.laoyoutiao.link",
-    "path": "/TelegramU0001F1E8U0001F1F3kir",
-    "host": "hk.laoyoutiao.link"
-  },
-  {
-    "protocol": "vless",
-    "address": "185.18.184.251",
-    "port": 8880,
-    "id": "0132166f-e702-48ed-a9e7-b07af768faf8",
-    "flow": "",
-    "encryption": "none",
-    "security": "none",
-    "type": "ws",
-    "sni": "",
-    "path": "/Telegram\ud83c\udde8\ud83c\uddf3 @WangCai2 /?ed=2560fp=chrome",
-    "host": "cf.d3z.net"
-  },
-  {
-    "protocol": "vless",
-    "address": "130.250.137.251",
-    "port": 8880,
-    "id": "0132166f-e702-48ed-a9e7-b07af768faf8",
-    "flow": "",
-    "encryption": "none",
-    "security": "none",
-    "type": "ws",
-    "sni": "",
-    "path": "/Telegram\ud83c\udde8\ud83c\uddf3 @WangCai2 /?ed=2560",
-    "host": "cf.d3z.net"
-  },
-  {
-    "protocol": "vless",
-    "address": "102.177.189.251",
-    "port": 443,
-    "id": "401374e6-df77-41fb-f638-dad8184f175b",
-    "flow": "",
-    "encryption": "none",
-    "security": "tls",
-    "type": "grpc",
-    "sni": "pqh23v4.hiddendom.shop",
-    "path": "",
-    "host": ""
-  },
-  {
-    "protocol": "vless",
-    "address": "59.153.216.68",
-    "port": 34045,
-    "id": "d8dd94fd-540e-461d-b5d4-acebef02c22a",
-    "flow": "",
-    "encryption": "none",
-    "security": "reality",
-    "type": "tcp",
-    "sni": "visit-this-invitation-link-to-join-tg-enkelte-notif.ekt.me",
-    "path": "",
-    "host": ""
-  },
-  {
-    "protocol": "vless",
-    "address": "199.34.230.254",
-    "port": 8880,
-    "id": "34c01e61-f4f3-4afb-a83b-406caf8caa33",
-    "flow": "",
-    "encryption": "none",
-    "security": "none",
-    "type": "ws",
-    "sni": "",
-    "path": "/",
-    "host": "yg.bantony199.top"
-  },
-  {
-    "protocol": "vless",
-    "address": "109.176.239.177",
-    "port": 8880,
-    "id": "583ceab3-4022-4553-9158-9bedc625ad4e",
-    "flow": "",
-    "encryption": "none",
-    "security": "none",
-    "type": "ws",
-    "sni": "Telegram-channel-WangCai2",
-    "path": "/TelegramU0001F1E8U0001F1F3",
-    "host": "ip.langmanshanxi.top"
+    "host": "ip.langmanshanxi.top",
+    "path": "/Telegram\ud83c\udde8\ud83c\uddf3"
   },
   {
     "protocol": "vless",
     "address": "102.177.189.3",
     "port": 8880,
     "id": "b5441b0d-2147-4898-8a6a-9b2c87f58382",
-    "flow": "",
     "encryption": "none",
     "security": "none",
-    "type": "ws",
     "sni": "Telegram-channel-WangCai2",
-    "path": "/Telegram\ud83c\udde8\ud83c\uddf3",
-    "host": "bitget1.asdasd.click"
+    "type": "ws",
+    "host": "bitget1.asdasd.click",
+    "path": "/Telegram\ud83c\udde8\ud83c\uddf3"
   },
   {
     "protocol": "vless",
-    "address": "25.26.27.3",
-    "port": 8880,
-    "id": "b5441b0d-2147-4898-8a6a-9b2c87f58382",
-    "flow": "",
-    "encryption": "none",
-    "security": "none",
-    "type": "ws",
-    "sni": "Telegram-channel-WangCai2",
-    "path": "/Telegram",
-    "host": "bitget1.asdasd.click"
-  },
-  {
-    "protocol": "vless",
-    "address": "102.177.189.63",
+    "address": "25.26.27.63",
     "port": 8880,
     "id": "fab7bf9c-ddb9-4563-8a04-fb01ce6c0fbf",
-    "flow": "",
     "encryption": "none",
     "security": "none",
+    "sni": "jp.laoyoutiao.link",
     "type": "ws",
-    "sni": "sg.laoyoutiao.link",
-    "path": "/Telegram",
-    "host": "sg.laoyoutiao.link"
+    "host": "jp.laoyoutiao.link",
+    "path": "/Telegram\ud83c\udde8\ud83c\uddf3"
   },
   {
     "protocol": "vless",
-    "address": "25.26.27.29",
+    "address": "65.108.231.185",
+    "port": 443,
+    "id": "440766d1-858f-4719-84f5-c2de6f6227ba",
+    "encryption": "none",
+    "security": "tls",
+    "sni": "local.rogsoftwaregroup.com",
+    "alpn": "h3,h2,http/1.1",
+    "allowInsecure": "1",
+    "type": "tcp",
+    "headerType": "none"
+  },
+  {
+    "protocol": "vless",
+    "address": "102.132.188.63",
     "port": 8880,
     "id": "fab7bf9c-ddb9-4563-8a04-fb01ce6c0fbf",
-    "flow": "",
+    "encryption": "none",
+    "security": "none",
+    "sni": "jp.laoyoutiao.link",
+    "type": "ws",
+    "host": "jp.laoyoutiao.link",
+    "path": "/Telegram\ud83c\udde8\ud83c\uddf3 @WangCai2 /?ed=2560fp=chrome"
+  },
+  {
+    "protocol": "vless",
+    "address": "199.34.229.94",
+    "port": 443,
+    "id": "9ca79e0a-2c5c-4ac8-90e6-6642e41e6189",
+    "encryption": "none",
+    "security": "tls",
+    "sni": "uk1.blackismyfavorite.ir",
+    "alpn": "h3,h2,http/1.1",
+    "fp": "chrome",
+    "type": "httpupgrade",
+    "host": "uk1.blackismyfavorite.ir",
+    "path": "/XRAYVPNHTTPUPGRADE"
+  },
+  {
+    "protocol": "vless",
+    "address": "102.177.176.13",
+    "port": 8880,
+    "id": "9f3c4ab7-ea26-4d96-91a9-c85ff64ad9a0",
     "encryption": "none",
     "security": "none",
     "type": "ws",
+    "host": "c.82313369.xyz",
+    "path": "/Telegram\ud83c\udde8\ud83c\uddf3"
+  },
+  {
+    "protocol": "vless",
+    "address": "102.177.176.247",
+    "port": 8880,
+    "id": "d60fc3c5-9f07-4cdb-b81f-70af27936bdc",
+    "encryption": "none",
+    "security": "none",
+    "sni": "ex.sue.x10.mx",
+    "type": "ws",
+    "host": "ex.sue.x10.mx",
+    "path": "/Telegram\ud83c\udde8\ud83c\uddf3 @WangCai2 /?ed"
+  },
+  {
+    "protocol": "vless",
+    "address": "199.34.229.68",
+    "port": 443,
+    "id": "9ca79e0a-2c5c-4ac8-90e6-6642e41e6189",
+    "encryption": "none",
+    "security": "tls",
+    "sni": "uk1.blackismyfavorite.ir",
+    "alpn": "h3,h2,http/1.1",
+    "fp": "chrome",
+    "type": "httpupgrade",
+    "host": "uk1.blackismyfavorite.ir",
+    "path": "/XRAYVPNHTTPUPGRADE"
+  },
+  {
+    "protocol": "vless",
+    "address": "25.25.25.29",
+    "port": 8880,
+    "id": "fab7bf9c-ddb9-4563-8a04-fb01ce6c0fbf",
+    "encryption": "none",
+    "security": "none",
     "sni": "hk.laoyoutiao.link",
-    "path": "/TelegramU0001F1E8U0001F1F3",
-    "host": "hk.laoyoutiao.link"
+    "type": "ws",
+    "host": "hk.laoyoutiao.link",
+    "path": "/TelegramU0001F1E8U0001F1F3"
+  },
+  {
+    "protocol": "vless",
+    "address": "102.177.189.29",
+    "port": 8880,
+    "id": "fab7bf9c-ddb9-4563-8a04-fb01ce6c0fbf",
+    "encryption": "none",
+    "security": "none",
+    "sni": "hk.laoyoutiao.link",
+    "type": "ws",
+    "host": "hk.laoyoutiao.link",
+    "path": "/TelegramU0001F1E8U0001F1F3kir"
+  },
+  {
+    "protocol": "vless",
+    "address": "102.177.189.251",
+    "port": 443,
+    "id": "401374e6-df77-41fb-f638-dad8184f175b",
+    "encryption": "none",
+    "security": "tls",
+    "sni": "pqh23v4.hiddendom.shop",
+    "alpn": "h2",
+    "type": "grpc"
+  },
+  {
+    "protocol": "vless",
+    "address": "199.34.230.126",
+    "port": 443,
+    "id": "9ca79e0a-2c5c-4ac8-90e6-6642e41e6189",
+    "encryption": "none",
+    "security": "tls",
+    "sni": "uk1.blackismyfavorite.ir",
+    "alpn": "h3,h2,http/1.1",
+    "fp": "chrome",
+    "type": "httpupgrade",
+    "host": "uk1.blackismyfavorite.ir",
+    "path": "/XRAYVPNHTTPUPGRADE"
+  },
+  {
+    "protocol": "vless",
+    "address": "62.3.12.185",
+    "port": 443,
+    "id": "75fde681-ec64-4654-86fa-30732e8e179c",
+    "encryption": "none",
+    "security": "tls",
+    "sni": "NGINX-Z.pages.DEV",
+    "alpn": "h3",
+    "type": "ws",
+    "host": "nginx-z.pages.dev",
+    "path": "/"
+  },
+  {
+    "protocol": "vless",
+    "address": "199.34.230.125",
+    "port": 443,
+    "id": "9ca79e0a-2c5c-4ac8-90e6-6642e41e6189",
+    "encryption": "none",
+    "security": "tls",
+    "sni": "uk1.blackismyfavorite.ir",
+    "alpn": "h3,h2,http/1.1",
+    "fp": "chrome",
+    "type": "httpupgrade",
+    "host": "uk1.blackismyfavorite.ir",
+    "path": "/XRAYVPNHTTPUPGRADE"
   },
   {
     "protocol": "vless",
     "address": "25.25.25.247",
     "port": 8880,
     "id": "d60fc3c5-9f07-4cdb-b81f-70af27936bdc",
-    "flow": "",
+    "encryption": "none",
+    "security": "none",
+    "sni": "ex.sue.x10.mx",
+    "type": "ws",
+    "host": "ex.sue.x10.mx",
+    "path": "/Telegram\ud83c\udde8\ud83c\uddf3"
+  },
+  {
+    "protocol": "vless",
+    "address": "5.10.214.247",
+    "port": 8880,
+    "id": "d60fc3c5-9f07-4cdb-b81f-70af27936bdc",
+    "encryption": "none",
+    "security": "none",
+    "sni": "ex.sue.x10.mx",
+    "allowInsecure": "1",
+    "type": "ws",
+    "host": "ex.sue.x10.mx",
+    "path": "/Telegram\ud83c\udde8\ud83c\uddf3"
+  },
+  {
+    "protocol": "vless",
+    "address": "102.177.176.251",
+    "port": 8880,
+    "id": "0132166f-e702-48ed-a9e7-b07af768faf8",
     "encryption": "none",
     "security": "none",
     "type": "ws",
+    "host": "cf.d3z.net",
+    "path": "/Telegram\ud83c\udde8\ud83c\uddf3 @WangCai2 /?ed=2560"
+  },
+  {
+    "protocol": "vless",
+    "address": "5.10.214.254",
+    "port": 8880,
+    "id": "34c01e61-f4f3-4afb-a83b-406caf8caa33",
+    "encryption": "none",
+    "security": "none",
+    "type": "ws",
+    "host": "yg.bantony199.top",
+    "path": "/"
+  },
+  {
+    "protocol": "vless",
+    "address": "209.94.90.13",
+    "port": 8880,
+    "id": "9f3c4ab7-ea26-4d96-91a9-c85ff64ad9a0",
+    "encryption": "none",
+    "security": "none",
+    "sni": "Telegram-channel-WangCai2",
+    "type": "ws",
+    "host": "c.82313369.xyz",
+    "path": "/Telegram\ud83c\udde8\ud83c\uddf3"
+  },
+  {
+    "protocol": "vless",
+    "address": "25.26.27.3",
+    "port": 8880,
+    "id": "b5441b0d-2147-4898-8a6a-9b2c87f58382",
+    "encryption": "none",
+    "security": "none",
+    "sni": "Telegram-channel-WangCai2",
+    "type": "ws",
+    "host": "bitget1.asdasd.click",
+    "path": "/Telegram"
+  },
+  {
+    "protocol": "vless",
+    "address": "5.10.214.144",
+    "port": 8880,
+    "id": "53fa8faf-ba4b-4322-9c69-a3e5b1555049",
+    "encryption": "none",
+    "security": "none",
+    "sni": "reedfree8mahsang2.redorg.ir",
+    "type": "ws",
+    "host": "reedfree8mahsang2.redorg.ir",
+    "path": "/TelegramU0001F1E8U0001F1F3"
+  },
+  {
+    "protocol": "vless",
+    "address": "154.92.9.176",
+    "port": 443,
+    "id": "ec8a65ad-aafc-4095-9b8c-ea10890ca629",
+    "encryption": "none",
+    "security": "tls",
+    "sni": "simorgh.hpcode.ir",
+    "alpn": "h2,http/1.1",
+    "fp": "firefox",
+    "type": "ws",
+    "host": "simorgh.hpcode.ir",
+    "path": "/Javid-SHAH-KingRezaPahlavi/?ed"
+  },
+  {
+    "protocol": "vless",
+    "address": "199.34.230.114",
+    "port": 443,
+    "id": "9ca79e0a-2c5c-4ac8-90e6-6642e41e6189",
+    "encryption": "none",
+    "security": "tls",
+    "sni": "uk1.blackismyfavorite.ir",
+    "alpn": "h3,h2,http/1.1",
+    "fp": "chrome",
+    "type": "httpupgrade",
+    "host": "uk1.blackismyfavorite.ir",
+    "path": "/XRAYVPNHTTPUPGRADE"
+  },
+  {
+    "protocol": "vless",
+    "address": "154.92.9.151",
+    "port": 443,
+    "id": "ec8a65ad-aafc-4095-9b8c-ea10890ca629",
+    "encryption": "none",
+    "security": "tls",
+    "sni": "simorgh.hpcode.ir",
+    "alpn": "h2,http/1.1",
+    "fp": "firefox",
+    "type": "ws",
+    "host": "simorgh.hpcode.ir",
+    "path": "/Javid-SHAH-KingRezaPahlavi/?ed=2560"
+  },
+  {
+    "protocol": "vless",
+    "address": "154.194.0.63",
+    "port": 8880,
+    "id": "fab7bf9c-ddb9-4563-8a04-fb01ce6c0fbf",
+    "encryption": "none",
+    "security": "none",
+    "sni": "jp.laoyoutiao.link",
+    "type": "ws",
+    "host": "jp.laoyoutiao.link",
+    "path": "/Telegram\ud83c\udde8\ud83c\uddf3"
+  },
+  {
+    "protocol": "vless",
+    "address": "192.200.160.177",
+    "port": 8880,
+    "id": "583ceab3-4022-4553-9158-9bedc625ad4e",
+    "encryption": "none",
+    "security": "none",
+    "sni": "Telegram-channel-WangCai2",
+    "type": "ws",
+    "host": "ip.langmanshanxi.top",
+    "path": "/Telegram"
+  },
+  {
+    "protocol": "vless",
+    "address": "102.132.188.13",
+    "port": 8880,
+    "id": "9f3c4ab7-ea26-4d96-91a9-c85ff64ad9a0",
+    "encryption": "none",
+    "security": "none",
+    "sni": "Telegram-channel-WangCai2",
+    "type": "ws",
+    "host": "c.82313369.xyz",
+    "path": "/Telegram\ud83c\udde8\ud83c\uddf3"
+  },
+  {
+    "protocol": "vless",
+    "address": "199.34.228.63",
+    "port": 8880,
+    "id": "fab7bf9c-ddb9-4563-8a04-fb01ce6c0fbf",
+    "encryption": "none",
+    "security": "none",
+    "sni": "jp.laoyoutiao.link",
+    "type": "ws",
+    "host": "jp.laoyoutiao.link",
+    "path": "/Telegram\ud83c\udde8\ud83c\uddf3"
+  },
+  {
+    "protocol": "vless",
+    "address": "25.25.25.3",
+    "port": 8880,
+    "id": "b5441b0d-2147-4898-8a6a-9b2c87f58382",
+    "encryption": "none",
+    "security": "none",
+    "sni": "Telegram-channel-WangCai2",
+    "type": "ws",
+    "host": "bitget1.asdasd.click",
+    "path": "/Telegram\ud83c\udde8\ud83c\uddf3"
+  },
+  {
+    "protocol": "vless",
+    "address": "102.177.176.20",
+    "port": 8880,
+    "id": "53fa8faf-ba4b-4322-9c69-a3e5b1555049",
+    "encryption": "none",
+    "security": "none",
+    "sni": "reedfree8mahsang2.redorg.ir",
+    "type": "ws",
+    "host": "reedfree8mahsang2.redorg.ir",
+    "path": "/"
+  },
+  {
+    "protocol": "vless",
+    "address": "5.10.215.213",
+    "port": 8880,
+    "id": "fab7bf9c-ddb9-4563-8a04-fb01ce6c0fbf",
+    "encryption": "none",
+    "security": "none",
+    "type": "ws",
+    "host": "jp.laoyoutiao.link",
+    "path": "/"
+  },
+  {
+    "protocol": "vless",
+    "address": "102.177.176.13",
+    "port": 8880,
+    "id": "9f3c4ab7-ea26-4d96-91a9-c85ff64ad9a0",
+    "encryption": "none",
+    "security": "none",
+    "type": "ws",
+    "host": "c.82313369.xyz",
+    "path": "/Telegram\ud83c\udde8\ud83c\uddf3 @WangCai2 /?ed=2560"
+  },
+  {
+    "protocol": "vless",
+    "address": "102.177.176.29",
+    "port": 8880,
+    "id": "fab7bf9c-ddb9-4563-8a04-fb01ce6c0fbf",
+    "encryption": "none",
+    "security": "none",
+    "type": "ws",
+    "host": "hk.laoyoutiao.link",
+    "path": "/"
+  },
+  {
+    "protocol": "vless",
+    "address": "102.177.176.177",
+    "port": 8880,
+    "id": "583ceab3-4022-4553-9158-9bedc625ad4e",
+    "encryption": "none",
+    "security": "none",
+    "sni": "Telegram-channel-WangCai2",
+    "type": "ws",
+    "host": "ip.langmanshanxi.top",
+    "path": "/Telegram\ud83c\udde8\ud83c\uddf3"
+  },
+  {
+    "protocol": "vless",
+    "address": "160.79.105.13",
+    "port": 8880,
+    "id": "9f3c4ab7-ea26-4d96-91a9-c85ff64ad9a0",
+    "encryption": "none",
+    "security": "none",
+    "sni": "Telegram-channel-WangCai2",
+    "type": "ws",
+    "host": "c.82313369.xyz",
+    "path": "/Telegram\ud83c\udde8\ud83c\uddf3"
+  },
+  {
+    "protocol": "vless",
+    "address": "25.26.27.29",
+    "port": 8880,
+    "id": "fab7bf9c-ddb9-4563-8a04-fb01ce6c0fbf",
+    "encryption": "none",
+    "security": "none",
+    "sni": "hk.laoyoutiao.link",
+    "type": "ws",
+    "host": "hk.laoyoutiao.link",
+    "path": "/TelegramU0001F1E8U0001F1F3"
+  },
+  {
+    "protocol": "vless",
+    "address": "25.26.27.13",
+    "port": 8880,
+    "id": "9f3c4ab7-ea26-4d96-91a9-c85ff64ad9a0",
+    "encryption": "none",
+    "security": "none",
+    "sni": "Telegram-channel-WangCai2",
+    "type": "ws",
+    "host": "c.82313369.xyz",
+    "path": "/Telegram\ud83c\udde8\ud83c\uddf3"
+  },
+  {
+    "protocol": "vless",
+    "address": "88.216.69.247",
+    "port": 8880,
+    "id": "d60fc3c5-9f07-4cdb-b81f-70af27936bdc",
+    "encryption": "none",
+    "security": "none",
     "sni": "ex.sue.x10.mx",
-    "path": "/Telegram\ud83c\udde8\ud83c\uddf3",
-    "host": "ex.sue.x10.mx"
+    "type": "ws",
+    "host": "ex.sue.x10.mx",
+    "path": "/Telegram\ud83c\udde8\ud83c\uddf3"
+  },
+  {
+    "protocol": "vless",
+    "address": "25.25.25.177",
+    "port": 8880,
+    "id": "583ceab3-4022-4553-9158-9bedc625ad4e",
+    "encryption": "none",
+    "security": "none",
+    "sni": "Telegram-channel-WangCai2",
+    "type": "ws",
+    "host": "ip.langmanshanxi.top",
+    "path": "/Telegram\ud83c\udde8\ud83c\uddf3"
+  },
+  {
+    "protocol": "vless",
+    "address": "185.251.81.177",
+    "port": 8880,
+    "id": "583ceab3-4022-4553-9158-9bedc625ad4e",
+    "encryption": "none",
+    "security": "none",
+    "type": "ws",
+    "host": "ip.langmanshanxi.top",
+    "path": "/Telegram\ud83c\udde8\ud83c\uddf3@WangCai2/?ed=2560"
+  },
+  {
+    "protocol": "vless",
+    "address": "25.26.27.177",
+    "port": 8880,
+    "id": "583ceab3-4022-4553-9158-9bedc625ad4e",
+    "encryption": "none",
+    "security": "none",
+    "sni": "Telegram-channel-WangCai2",
+    "type": "ws",
+    "host": "ip.langmanshanxi.top",
+    "path": "/Telegram\ud83c\udde8\ud83c\uddf3"
+  },
+  {
+    "protocol": "vless",
+    "address": "5.10.214.56",
+    "port": 8880,
+    "id": "53fa8faf-ba4b-4322-9c69-a3e5b1555049",
+    "encryption": "none",
+    "security": "none",
+    "type": "ws",
+    "host": "reedfree8mahsang2.redorg.ir",
+    "path": "/"
+  },
+  {
+    "protocol": "vless",
+    "address": "25.25.25.13",
+    "port": 8880,
+    "id": "9f3c4ab7-ea26-4d96-91a9-c85ff64ad9a0",
+    "encryption": "none",
+    "security": "none",
+    "sni": "Telegram-channel-WangCai2",
+    "type": "ws",
+    "host": "c.82313369.xyz",
+    "path": "/Telegram\ud83c\udde8\ud83c\uddf3"
+  },
+  {
+    "protocol": "vless",
+    "address": "102.177.189.29",
+    "port": 8880,
+    "id": "fab7bf9c-ddb9-4563-8a04-fb01ce6c0fbf",
+    "encryption": "none",
+    "security": "none",
+    "sni": "hk.laoyoutiao.link",
+    "type": "ws",
+    "host": "hk.laoyoutiao.link",
+    "path": "/TelegramU0001F1E8U0001F1F3"
+  },
+  {
+    "protocol": "vless",
+    "address": "102.177.176.213",
+    "port": 8880,
+    "id": "fab7bf9c-ddb9-4563-8a04-fb01ce6c0fbf",
+    "encryption": "none",
+    "security": "none",
+    "type": "ws",
+    "host": "jp.laoyoutiao.link",
+    "path": "/"
+  },
+  {
+    "protocol": "vless",
+    "address": "141.193.213.11",
+    "port": 80,
+    "id": "fab7bf9c-ddb9-4563-8a04-fb01ce6c0fbf",
+    "encryption": "none",
+    "security": "none",
+    "type": "ws",
+    "host": "cs.laoyoutiao.link",
+    "path": "/Telegram"
+  },
+  {
+    "protocol": "vless",
+    "address": "102.132.188.13",
+    "port": 8880,
+    "id": "9f3c4ab7-ea26-4d96-91a9-c85ff64ad9a0",
+    "encryption": "none",
+    "security": "none",
+    "sni": "Telegram-channel-WangCai2",
+    "type": "ws",
+    "host": "c.82313369.xyz",
+    "path": "/Telegram\ud83c\udde8\ud83c\uddf3"
+  },
+  {
+    "protocol": "vless",
+    "address": "25.25.25.177",
+    "port": 8880,
+    "id": "583ceab3-4022-4553-9158-9bedc625ad4e",
+    "encryption": "none",
+    "security": "none",
+    "sni": "Telegram-channel-WangCai2",
+    "type": "ws",
+    "host": "ip.langmanshanxi.top",
+    "path": "/Telegram\ud83c\udde8\ud83c\uddf3"
+  },
+  {
+    "protocol": "vless",
+    "address": "102.132.188.63",
+    "port": 8880,
+    "id": "fab7bf9c-ddb9-4563-8a04-fb01ce6c0fbf",
+    "encryption": "none",
+    "security": "none",
+    "sni": "jp.laoyoutiao.link",
+    "type": "ws",
+    "host": "jp.laoyoutiao.link",
+    "path": "/Telegram\ud83c\udde8\ud83c\uddf3 @WangCai2 /?ed=2560fp=chrome"
+  },
+  {
+    "protocol": "vless",
+    "address": "25.25.25.63",
+    "port": 8880,
+    "id": "fab7bf9c-ddb9-4563-8a04-fb01ce6c0fbf",
+    "encryption": "none",
+    "security": "none",
+    "sni": "jp.laoyoutiao.link",
+    "type": "ws",
+    "host": "jp.laoyoutiao.link",
+    "path": "/Telegram\ud83c\udde8\ud83c\uddf3"
+  },
+  {
+    "protocol": "vless",
+    "address": "25.25.25.247",
+    "port": 8880,
+    "id": "d60fc3c5-9f07-4cdb-b81f-70af27936bdc",
+    "encryption": "none",
+    "security": "none",
+    "sni": "ex.sue.x10.mx",
+    "type": "ws",
+    "host": "ex.sue.x10.mx",
+    "path": "/Telegram\ud83c\udde8\ud83c\uddf3"
+  },
+  {
+    "protocol": "vless",
+    "address": "25.25.25.19",
+    "port": 8880,
+    "id": "fab7bf9c-ddb9-4563-8a04-fb01ce6c0fbf",
+    "encryption": "none",
+    "security": "none",
+    "sni": "hk.laoyoutiao.link",
+    "type": "ws",
+    "host": "hk.laoyoutiao.link",
+    "path": "telegram\ud83c\udde8\ud83c\uddf3 @pgkj666 /?ed=2560"
+  },
+  {
+    "protocol": "vless",
+    "address": "5.10.215.247",
+    "port": 8880,
+    "id": "d60fc3c5-9f07-4cdb-b81f-70af27936bdc",
+    "encryption": "none",
+    "security": "none",
+    "sni": "ex.sue.x10.mx",
+    "type": "ws",
+    "host": "ex.sue.x10.mx",
+    "path": "/Telegram\ud83c\udde8\ud83c\uddf3"
+  },
+  {
+    "protocol": "vless",
+    "address": "102.177.176.29",
+    "port": 8880,
+    "id": "fab7bf9c-ddb9-4563-8a04-fb01ce6c0fbf",
+    "encryption": "none",
+    "security": "none",
+    "type": "ws",
+    "host": "hk.laoyoutiao.link",
+    "path": "/"
+  },
+  {
+    "protocol": "vless",
+    "address": "102.177.176.13",
+    "port": 8880,
+    "id": "9f3c4ab7-ea26-4d96-91a9-c85ff64ad9a0",
+    "encryption": "none",
+    "security": "none",
+    "type": "ws",
+    "host": "c.82313369.xyz",
+    "path": "/Telegram\ud83c\udde8\ud83c\uddf3"
+  },
+  {
+    "protocol": "vless",
+    "address": "102.177.189.13",
+    "port": 8880,
+    "id": "9f3c4ab7-ea26-4d96-91a9-c85ff64ad9a0",
+    "encryption": "none",
+    "security": "none",
+    "sni": "Telegram-channel-WangCai2",
+    "type": "ws",
+    "host": "c.82313369.xyz",
+    "path": "/Telegram\ud83c\udde8\ud83c\uddf3"
+  },
+  {
+    "protocol": "vless",
+    "address": "192.0.63.254",
+    "port": 8880,
+    "id": "34c01e61-f4f3-4afb-a83b-406caf8caa33",
+    "encryption": "none",
+    "security": "none",
+    "type": "ws",
+    "host": "yg.bantony199.top",
+    "path": "/Telegram\ud83c\udde8\ud83c\uddf3"
+  },
+  {
+    "protocol": "vless",
+    "address": "102.177.189.3",
+    "port": 8880,
+    "id": "b5441b0d-2147-4898-8a6a-9b2c87f58382",
+    "encryption": "none",
+    "security": "none",
+    "sni": "Telegram-channel-WangCai2",
+    "type": "ws",
+    "host": "bitget1.asdasd.click",
+    "path": "/Telegram\ud83c\udde8\ud83c\uddf3"
+  },
+  {
+    "protocol": "vless",
+    "address": "5.10.214.103",
+    "port": 8880,
+    "id": "53fa8faf-ba4b-4322-9c69-a3e5b1555049",
+    "encryption": "none",
+    "security": "none",
+    "type": "ws",
+    "host": "reedfree8mahsang2.redorg.ir",
+    "path": "/"
+  },
+  {
+    "protocol": "vless",
+    "address": "192.0.54.247",
+    "port": 8880,
+    "id": "d60fc3c5-9f07-4cdb-b81f-70af27936bdc",
+    "encryption": "none",
+    "security": "none",
+    "sni": "ex.sue.x10.mx",
+    "type": "ws",
+    "host": "ex.sue.x10.mx",
+    "path": "/Telegram\ud83c\udde8\ud83c\uddf3"
+  },
+  {
+    "protocol": "vless",
+    "address": "94.232.170.141",
+    "port": 1501,
+    "id": "2f33cc6f-c80a-4c19-ac4f-66547bfdd33d",
+    "encryption": "none",
+    "security": "none",
+    "type": "tcp",
+    "headerType": "http",
+    "host": "varzesh3.com"
+  },
+  {
+    "protocol": "vless",
+    "address": "146.59.15.81",
+    "port": 443,
+    "id": "c14b2731-7db6-49ee-9271-b1efc56c2630",
+    "encryption": "none",
+    "security": "reality",
+    "sni": "dl.google.com",
+    "fp": "chrome",
+    "pbk": "l8HS4g_h8xPWlhQm8hmj5ohKNMrMCBcoHSNBFij79Sk",
+    "sid": "5bb805",
+    "type": "tcp",
+    "headerType": "none"
+  },
+  {
+    "protocol": "vless",
+    "address": "185.243.49.205",
+    "port": 8444,
+    "id": "ac083fa9-df9a-4722-b70d-24c17bef0516",
+    "encryption": "none",
+    "security": "none",
+    "type": "tcp",
+    "headerType": "http",
+    "host": "speedtest.net"
+  },
+  {
+    "protocol": "vless",
+    "address": "178.20.208.134",
+    "port": 2083,
+    "id": "84cec1f6-8312-40da-b17a-4511e11a6026",
+    "encryption": "none",
+    "flow": "xtls-rprx-vision",
+    "security": "reality",
+    "sni": "refersion.com",
+    "fp": "chrome",
+    "pbk": "64ZzXuN3BNiYLcliMenVVbjdSX_jCpB-yvW7MTsz2n4",
+    "sid": "4d932424dbe98b",
+    "type": "tcp",
+    "headerType": "none"
+  },
+  {
+    "protocol": "vless",
+    "address": "51.38.98.69",
+    "port": 443,
+    "id": "6b690c69-7301-44c4-81e8-9d5d7e8263a6",
+    "encryption": "none",
+    "security": "reality",
+    "sni": "yahoo.com",
+    "fp": "chrome",
+    "pbk": "-3sZE2OPDhkNtxufF2YqPmoa5hqVna5zalfJfrUiMm0",
+    "sid": "ecd6615548c2bddb",
+    "type": "tcp",
+    "headerType": "none"
+  },
+  {
+    "protocol": "vless",
+    "address": "65.108.231.185",
+    "port": 443,
+    "id": "440766d1-858f-4719-84f5-c2de6f6227ba",
+    "encryption": "none",
+    "security": "tls",
+    "sni": "local.rogsoftwaregroup.com",
+    "alpn": "h3,h2,http/1.1",
+    "allowInsecure": "1",
+    "type": "tcp",
+    "headerType": "none"
+  },
+  {
+    "protocol": "vless",
+    "address": "192.0.63.247",
+    "port": 8880,
+    "id": "d60fc3c5-9f07-4cdb-b81f-70af27936bdc",
+    "encryption": "none",
+    "security": "none",
+    "sni": "ex.sue.x10.mx",
+    "type": "ws",
+    "host": "ex.sue.x10.mx",
+    "path": "/Telegram"
+  },
+  {
+    "protocol": "vless",
+    "address": "5.10.214.36",
+    "port": 8880,
+    "id": "53fa8faf-ba4b-4322-9c69-a3e5b1555049",
+    "encryption": "none",
+    "security": "none",
+    "sni": "reedfree8mahsang2.redorg.ir",
+    "type": "ws",
+    "host": "reedfree8mahsang2.redorg.ir",
+    "path": "/TelegramU0001F1E8U0001F1F3"
+  },
+  {
+    "protocol": "vless",
+    "address": "102.177.189.254",
+    "port": 8880,
+    "id": "34c01e61-f4f3-4afb-a83b-406caf8caa33",
+    "encryption": "none",
+    "security": "none",
+    "type": "ws",
+    "host": "yg.bantony199.top",
+    "path": "/"
+  },
+  {
+    "protocol": "vless",
+    "address": "154.92.9.151",
+    "port": 443,
+    "id": "ec8a65ad-aafc-4095-9b8c-ea10890ca629",
+    "encryption": "none",
+    "security": "tls",
+    "sni": "simorgh.hpcode.ir",
+    "alpn": "h2,http/1.1",
+    "fp": "firefox",
+    "type": "ws",
+    "host": "simorgh.hpcode.ir",
+    "path": "/Javid-SHAH-KingRezaPahlavi/?ed=2560"
+  },
+  {
+    "protocol": "vless",
+    "address": "5.10.215.63",
+    "port": 8880,
+    "id": "fab7bf9c-ddb9-4563-8a04-fb01ce6c0fbf",
+    "encryption": "none",
+    "security": "none",
+    "sni": "sg.laoyoutiao.link",
+    "type": "ws",
+    "host": "sg.laoyoutiao.link",
+    "path": "/Telegram\ud83c\udde8\ud83c\uddf3"
+  },
+  {
+    "protocol": "vless",
+    "address": "102.177.189.247",
+    "port": 8880,
+    "id": "d60fc3c5-9f07-4cdb-b81f-70af27936bdc",
+    "encryption": "none",
+    "security": "none",
+    "type": "ws",
+    "host": "ex.sue.x10.mx",
+    "path": "/Telegram\ud83c\udde8\ud83c\uddf3+@WangCai2+/?ed"
+  },
+  {
+    "protocol": "vless",
+    "address": "185.208.77.113",
+    "port": 14040,
+    "id": "a2691bdd-7989-4e7e-9c44-302e360c021f",
+    "encryption": "none",
+    "security": "none",
+    "fp": "chrome",
+    "type": "ws",
+    "path": "/"
+  },
+  {
+    "protocol": "vless",
+    "address": "185.18.184.247",
+    "port": 8880,
+    "id": "d60fc3c5-9f07-4cdb-b81f-70af27936bdc",
+    "encryption": "none",
+    "security": "none",
+    "sni": "ex.sue.x10.mx",
+    "type": "ws",
+    "host": "ex.sue.x10.mx",
+    "path": "/Telegram"
+  },
+  {
+    "protocol": "vless",
+    "address": "25.26.27.177",
+    "port": 8880,
+    "id": "583ceab3-4022-4553-9158-9bedc625ad4e",
+    "encryption": "none",
+    "security": "none",
+    "sni": "Telegram-channel-WangCai2",
+    "type": "ws",
+    "host": "ip.langmanshanxi.top",
+    "path": "/Telegram\ud83c\udde8\ud83c\uddf3"
+  },
+  {
+    "protocol": "vless",
+    "address": "25.26.27.29",
+    "port": 8880,
+    "id": "fab7bf9c-ddb9-4563-8a04-fb01ce6c0fbf",
+    "encryption": "none",
+    "security": "none",
+    "sni": "hk.laoyoutiao.link",
+    "type": "ws",
+    "host": "hk.laoyoutiao.link",
+    "path": "/TelegramU0001F1E8U0001F1F3"
+  },
+  {
+    "protocol": "vless",
+    "address": "25.25.25.29",
+    "port": 8880,
+    "id": "fab7bf9c-ddb9-4563-8a04-fb01ce6c0fbf",
+    "encryption": "none",
+    "security": "none",
+    "sni": "hk.laoyoutiao.link",
+    "type": "ws",
+    "host": "hk.laoyoutiao.link",
+    "path": "/TelegramU0001F1E8U0001F1F3"
+  },
+  {
+    "protocol": "vless",
+    "address": "102.177.176.177",
+    "port": 8880,
+    "id": "583ceab3-4022-4553-9158-9bedc625ad4e",
+    "encryption": "none",
+    "security": "none",
+    "sni": "Telegram-channel-WangCai2",
+    "type": "ws",
+    "host": "ip.langmanshanxi.top",
+    "path": "/Telegram\ud83c\udde8\ud83c\uddf3"
+  },
+  {
+    "protocol": "vless",
+    "address": "5.10.214.16",
+    "port": 8880,
+    "id": "53fa8faf-ba4b-4322-9c69-a3e5b1555049",
+    "encryption": "none",
+    "security": "none",
+    "sni": "reedfree8mahsang2.redorg.ir",
+    "type": "ws",
+    "host": "reedfree8mahsang2.redorg.ir",
+    "path": "/TelegramU0001F1E8U0001F1F3"
+  },
+  {
+    "protocol": "vless",
+    "address": "25.26.27.254",
+    "port": 8880,
+    "id": "34c01e61-f4f3-4afb-a83b-406caf8caa33",
+    "encryption": "none",
+    "security": "none",
+    "sni": "Telegram-channel-WangCai2",
+    "type": "ws",
+    "host": "yg.bantony199.top",
+    "path": "/Telegram"
+  },
+  {
+    "protocol": "vless",
+    "address": "102.177.176.247",
+    "port": 8880,
+    "id": "d60fc3c5-9f07-4cdb-b81f-70af27936bdc",
+    "encryption": "none",
+    "security": "none",
+    "sni": "ex.sue.x10.mx",
+    "type": "ws",
+    "host": "ex.sue.x10.mx",
+    "path": "/Telegram\ud83c\udde8\ud83c\uddf3 @WangCai2 /?ed"
+  },
+  {
+    "protocol": "vless",
+    "address": "102.132.188.63",
+    "port": 8880,
+    "id": "fab7bf9c-ddb9-4563-8a04-fb01ce6c0fbf",
+    "encryption": "none",
+    "security": "none",
+    "sni": "jp.laoyoutiao.link",
+    "type": "ws",
+    "host": "jp.laoyoutiao.link",
+    "path": "/Telegram\ud83c\udde8\ud83c\uddf3 @WangCai2 /?ed=2560fp=chrome"
+  },
+  {
+    "protocol": "vless",
+    "address": "25.25.25.3",
+    "port": 8880,
+    "id": "b5441b0d-2147-4898-8a6a-9b2c87f58382",
+    "encryption": "none",
+    "security": "none",
+    "sni": "Telegram-channel-WangCai2",
+    "type": "ws",
+    "host": "bitget1.asdasd.click",
+    "path": "/Telegram\ud83c\udde8\ud83c\uddf3"
+  },
+  {
+    "protocol": "vless",
+    "address": "5.10.214.75",
+    "port": 8880,
+    "id": "53fa8faf-ba4b-4322-9c69-a3e5b1555049",
+    "encryption": "none",
+    "security": "none",
+    "sni": "reedfree8mahsang2.redorg.ir",
+    "type": "ws",
+    "host": "reedfree8mahsang2.redorg.ir",
+    "path": "/TelegramU0001F1E8U0001F1F3"
+  },
+  {
+    "protocol": "vless",
+    "address": "5.10.214.182",
+    "port": 8880,
+    "id": "53fa8faf-ba4b-4322-9c69-a3e5b1555049",
+    "encryption": "none",
+    "security": "none",
+    "sni": "reedfree8mahsang2.redorg.ir",
+    "type": "ws",
+    "host": "reedfree8mahsang2.redorg.ir",
+    "path": "/TelegramU0001F1E8U0001F1F3"
+  },
+  {
+    "protocol": "vless",
+    "address": "102.177.176.20",
+    "port": 8880,
+    "id": "53fa8faf-ba4b-4322-9c69-a3e5b1555049",
+    "encryption": "none",
+    "security": "none",
+    "sni": "reedfree8mahsang2.redorg.ir",
+    "type": "ws",
+    "host": "reedfree8mahsang2.redorg.ir",
+    "path": "/"
+  },
+  {
+    "protocol": "vless",
+    "address": "5.10.215.67",
+    "port": 8880,
+    "id": "53fa8faf-ba4b-4322-9c69-a3e5b1555049",
+    "encryption": "none",
+    "security": "none",
+    "sni": "reedfree8mahsang2.redorg.ir",
+    "type": "ws",
+    "host": "reedfree8mahsang2.redorg.ir",
+    "path": "/TelegramU0001F1E8U0001F1F3"
+  },
+  {
+    "protocol": "vless",
+    "address": "192.0.54.251",
+    "port": 8880,
+    "id": "0132166f-e702-48ed-a9e7-b07af768faf8",
+    "encryption": "none",
+    "security": "none",
+    "type": "ws",
+    "host": "cf.d3z.net",
+    "path": "/Telegram\ud83c\udde8\ud83c\uddf3 @WangCai2 /?ed=2560"
+  },
+  {
+    "protocol": "vless",
+    "address": "25.25.25.3",
+    "port": 8880,
+    "id": "b5441b0d-2147-4898-8a6a-9b2c87f58382",
+    "encryption": "none",
+    "security": "none",
+    "sni": "Telegram-channel-WangCai2",
+    "type": "ws",
+    "host": "bitget1.asdasd.click",
+    "path": "/Telegram\ud83c\udde8\ud83c\uddf3"
+  },
+  {
+    "protocol": "vless",
+    "address": "102.177.189.29",
+    "port": 8880,
+    "id": "fab7bf9c-ddb9-4563-8a04-fb01ce6c0fbf",
+    "encryption": "none",
+    "security": "none",
+    "sni": "hk.laoyoutiao.link",
+    "type": "ws",
+    "host": "hk.laoyoutiao.link",
+    "path": "/TelegramU0001F1E8U0001F1F3kir"
+  },
+  {
+    "protocol": "vless",
+    "address": "185.18.184.251",
+    "port": 8880,
+    "id": "0132166f-e702-48ed-a9e7-b07af768faf8",
+    "encryption": "none",
+    "security": "none",
+    "type": "ws",
+    "host": "cf.d3z.net",
+    "path": "/Telegram\ud83c\udde8\ud83c\uddf3 @WangCai2 /?ed=2560fp=chrome"
+  },
+  {
+    "protocol": "vless",
+    "address": "130.250.137.251",
+    "port": 8880,
+    "id": "0132166f-e702-48ed-a9e7-b07af768faf8",
+    "encryption": "none",
+    "security": "none",
+    "type": "ws",
+    "host": "cf.d3z.net",
+    "path": "/Telegram\ud83c\udde8\ud83c\uddf3 @WangCai2 /?ed=2560"
+  },
+  {
+    "protocol": "vless",
+    "address": "102.177.189.251",
+    "port": 443,
+    "id": "401374e6-df77-41fb-f638-dad8184f175b",
+    "encryption": "none",
+    "security": "tls",
+    "sni": "pqh23v4.hiddendom.shop",
+    "alpn": "h2",
+    "type": "grpc"
+  },
+  {
+    "protocol": "vless",
+    "address": "59.153.216.68",
+    "port": 34045,
+    "id": "d8dd94fd-540e-461d-b5d4-acebef02c22a",
+    "encryption": "none",
+    "security": "reality",
+    "sni": "visit-this-invitation-link-to-join-tg-enkelte-notif.ekt.me",
+    "fp": "chrome",
+    "pbk": "cDaDzPr3PlS3NM8lreHZbdo-Mhqz8vMBzMSkHXhGIUA",
+    "sid": "e8ab71d0",
+    "type": "tcp",
+    "headerType": "none"
+  },
+  {
+    "protocol": "vless",
+    "address": "199.34.230.254",
+    "port": 8880,
+    "id": "34c01e61-f4f3-4afb-a83b-406caf8caa33",
+    "encryption": "none",
+    "security": "none",
+    "type": "ws",
+    "host": "yg.bantony199.top",
+    "path": "/"
+  },
+  {
+    "protocol": "vless",
+    "address": "109.176.239.177",
+    "port": 8880,
+    "id": "583ceab3-4022-4553-9158-9bedc625ad4e",
+    "encryption": "none",
+    "security": "none",
+    "sni": "Telegram-channel-WangCai2",
+    "type": "ws",
+    "host": "ip.langmanshanxi.top",
+    "path": "/TelegramU0001F1E8U0001F1F3"
+  },
+  {
+    "protocol": "vless",
+    "address": "102.177.189.3",
+    "port": 8880,
+    "id": "b5441b0d-2147-4898-8a6a-9b2c87f58382",
+    "encryption": "none",
+    "security": "none",
+    "sni": "Telegram-channel-WangCai2",
+    "type": "ws",
+    "host": "bitget1.asdasd.click",
+    "path": "/Telegram\ud83c\udde8\ud83c\uddf3"
+  },
+  {
+    "protocol": "vless",
+    "address": "25.26.27.3",
+    "port": 8880,
+    "id": "b5441b0d-2147-4898-8a6a-9b2c87f58382",
+    "encryption": "none",
+    "security": "none",
+    "sni": "Telegram-channel-WangCai2",
+    "type": "ws",
+    "host": "bitget1.asdasd.click",
+    "path": "/Telegram"
+  },
+  {
+    "protocol": "vless",
+    "address": "102.177.189.63",
+    "port": 8880,
+    "id": "fab7bf9c-ddb9-4563-8a04-fb01ce6c0fbf",
+    "encryption": "none",
+    "security": "none",
+    "sni": "sg.laoyoutiao.link",
+    "type": "ws",
+    "host": "sg.laoyoutiao.link",
+    "path": "/Telegram"
+  },
+  {
+    "protocol": "vless",
+    "address": "25.26.27.29",
+    "port": 8880,
+    "id": "fab7bf9c-ddb9-4563-8a04-fb01ce6c0fbf",
+    "encryption": "none",
+    "security": "none",
+    "sni": "hk.laoyoutiao.link",
+    "type": "ws",
+    "host": "hk.laoyoutiao.link",
+    "path": "/TelegramU0001F1E8U0001F1F3"
+  },
+  {
+    "protocol": "vless",
+    "address": "25.25.25.247",
+    "port": 8880,
+    "id": "d60fc3c5-9f07-4cdb-b81f-70af27936bdc",
+    "encryption": "none",
+    "security": "none",
+    "sni": "ex.sue.x10.mx",
+    "type": "ws",
+    "host": "ex.sue.x10.mx",
+    "path": "/Telegram\ud83c\udde8\ud83c\uddf3"
   },
   {
     "protocol": "vless",
     "address": "25.25.25.213",
     "port": 8880,
     "id": "fab7bf9c-ddb9-4563-8a04-fb01ce6c0fbf",
-    "flow": "",
     "encryption": "none",
     "security": "none",
     "type": "ws",
-    "sni": "",
-    "path": "/",
-    "host": "jp.laoyoutiao.link"
+    "host": "jp.laoyoutiao.link",
+    "path": "/"
+  },
+  {
+    "protocol": "ss",
+    "url": "ss://34c01e61-f4f3-4afb-a83b-406caf8caa33@45.67.215.254:8880?encryption=none&security=none&sni=Telegram-channel-WangCai2&type=ws&host=yg.bantony199.top&path=%2FTelegram%F0%9F%87%A8%F0%9F%87%B3#%F0%9F%94%92%20VL-WS-NA%20%F0%9F%87%B7%F0%9F%87%BA%20RU-45.67.215.254%3A8880"
+  },
+  {
+    "protocol": "ss",
+    "url": "ss://ee6774c0-9b19-4ff1-8b30-2da4b71977e2@220.80.8.223:50000?encryption=none&security=tls&sni=edmk.aimercc.filegear-sg.me&type=ws&host=edmk.aimercc.filegear-sg.me&path=%2F%3Fed%3D2560%26proxyip%3Dts.hpc.tw#%F0%9F%94%92%20VL-WS-TLS%20%F0%9F%87%B0%F0%9F%87%B7%20KR-220.80.8.223%3A50000"
+  },
+  {
+    "protocol": "ss",
+    "url": "ss://53fa8faf-ba4b-4322-9c69-a3e5b1555049@5.10.215.208:8880?encryption=none&security=none&sni=reedfree8mahsang2.redorg.ir&type=ws&host=reedfree8mahsang2.redorg.ir&path=%2FTelegramU0001F1E8U0001F1F3#%F0%9F%94%92%20VL-WS-NA%20%F0%9F%87%A9%F0%9F%87%AA%20DE-5.10.215.208%3A8880"
+  },
+  {
+    "protocol": "ss",
+    "url": "ss://53fa8faf-ba4b-4322-9c69-a3e5b1555049@5.10.214.0:8880?encryption=none&security=none&sni=reedfree8mahsang2.redorg.ir&type=ws&host=reedfree8mahsang2.redorg.ir&path=%2FTelegramU0001F1E8U0001F1F3#%F0%9F%94%92%20VL-WS-NA%20%F0%9F%87%A9%F0%9F%87%AA%20DE-5.10.214.0%3A8880"
+  },
+  {
+    "protocol": "ss",
+    "url": "ss://583ceab3-4022-4553-9158-9bedc625ad4e@194.76.18.177:8880?encryption=none&security=none&sni=Telegram-channel-WangCai2&type=ws&host=ip.langmanshanxi.top&path=%2FTelegram%F0%9F%87%A8%F0%9F%87%B3#%F0%9F%94%92%20VL-WS-NA%20%F0%9F%87%B0%F0%9F%87%BF%20KZ-194.76.18.177%3A8880"
+  },
+  {
+    "protocol": "ss",
+    "url": "ss://b5441b0d-2147-4898-8a6a-9b2c87f58382@102.177.189.3:8880?encryption=none&security=none&sni=Telegram-channel-WangCai2&type=ws&host=bitget1.asdasd.click&path=%2FTelegram%F0%9F%87%A8%F0%9F%87%B3#%F0%9F%94%92%20VL-WS-NA%20%F0%9F%87%AC%F0%9F%87%A7%20GB-102.177.189.3%3A8880"
+  },
+  {
+    "protocol": "ss",
+    "url": "ss://fab7bf9c-ddb9-4563-8a04-fb01ce6c0fbf@25.26.27.63:8880?encryption=none&security=none&sni=jp.laoyoutiao.link&type=ws&host=jp.laoyoutiao.link&path=%2FTelegram%F0%9F%87%A8%F0%9F%87%B3#%F0%9F%94%92%20VL-WS-NA%20%F0%9F%87%AC%F0%9F%87%A7%20GB-25.26.27.63%3A8880"
+  },
+  {
+    "protocol": "ss",
+    "url": "ss://440766d1-858f-4719-84f5-c2de6f6227ba@65.108.231.185:443?encryption=none&security=tls&sni=local.rogsoftwaregroup.com&alpn=h3%2Ch2%2Chttp%2F1.1&allowInsecure=1&type=tcp&headerType=none#%F0%9F%94%92%20VL-TCP-TLS%20%F0%9F%87%AB%F0%9F%87%AE%20FI-65.108.231.185%3A443"
+  },
+  {
+    "protocol": "ss",
+    "url": "ss://fab7bf9c-ddb9-4563-8a04-fb01ce6c0fbf@102.132.188.63:8880?encryption=none&security=none&sni=jp.laoyoutiao.link&type=ws&host=jp.laoyoutiao.link&path=%2FTelegram%F0%9F%87%A8%F0%9F%87%B3%20%40WangCai2%20%2F%3Fed%3D2560fp%3Dchrome#%F0%9F%94%92%20VL-WS-NONE%20%F0%9F%87%BF%F0%9F%87%A6%20ZA-102.132.188.63%3A8880"
+  },
+  {
+    "protocol": "ss",
+    "url": "ss://9ca79e0a-2c5c-4ac8-90e6-6642e41e6189@199.34.229.94:443?encryption=none&security=tls&sni=uk1.blackismyfavorite.ir&alpn=h3%2Ch2%2Chttp%2F1.1&fp=chrome&type=httpupgrade&host=uk1.blackismyfavorite.ir&path=%2FXRAYVPNHTTPUPGRADE#%F0%9F%94%92%20VL-HTTPUPGRADE-TLS%20%F0%9F%87%BA%F0%9F%87%B8%20US-199.34.229.94%3A443"
+  },
+  {
+    "protocol": "ss",
+    "url": "ss://9f3c4ab7-ea26-4d96-91a9-c85ff64ad9a0@102.177.176.13:8880?encryption=none&security=none&type=ws&host=c.82313369.xyz&path=%2FTelegram%F0%9F%87%A8%F0%9F%87%B3#%F0%9F%94%92%20VL-WS-NA%20%F0%9F%87%BF%F0%9F%87%A6%20ZA-102.177.176.13%3A8880"
+  },
+  {
+    "protocol": "ss",
+    "url": "ss://d60fc3c5-9f07-4cdb-b81f-70af27936bdc@102.177.176.247:8880?encryption=none&security=none&sni=ex.sue.x10.mx&type=ws&host=ex.sue.x10.mx&path=%2FTelegram%F0%9F%87%A8%F0%9F%87%B3%20%40WangCai2%20%2F%3Fed#%F0%9F%94%92%20VL-WS-NA%20%F0%9F%87%BF%F0%9F%87%A6%20ZA-102.177.176.247%3A8880"
+  },
+  {
+    "protocol": "ss",
+    "url": "ss://9ca79e0a-2c5c-4ac8-90e6-6642e41e6189@199.34.229.68:443?encryption=none&security=tls&sni=uk1.blackismyfavorite.ir&alpn=h3%2Ch2%2Chttp%2F1.1&fp=chrome&type=httpupgrade&host=uk1.blackismyfavorite.ir&path=%2FXRAYVPNHTTPUPGRADE#%F0%9F%94%92%20VL-HTTPUPGRADE-TLS%20%F0%9F%87%BA%F0%9F%87%B8%20US-199.34.229.68%3A443"
+  },
+  {
+    "protocol": "ss",
+    "url": "ss://fab7bf9c-ddb9-4563-8a04-fb01ce6c0fbf@25.25.25.29:8880?encryption=none&security=none&sni=hk.laoyoutiao.link&type=ws&host=hk.laoyoutiao.link&path=%2FTelegramU0001F1E8U0001F1F3#%F0%9F%94%92%20VL-WS-NA%20%F0%9F%87%AC%F0%9F%87%A7%20GB-25.25.25.29%3A8880"
+  },
+  {
+    "protocol": "ss",
+    "url": "ss://fab7bf9c-ddb9-4563-8a04-fb01ce6c0fbf@102.177.189.29:8880?encryption=none&security=none&sni=hk.laoyoutiao.link&type=ws&host=hk.laoyoutiao.link&path=%2FTelegramU0001F1E8U0001F1F3kir#%F0%9F%94%92%20VL-WS-NONE%20%F0%9F%87%AC%F0%9F%87%A7%20GB-102.177.189.29%3A8880"
+  },
+  {
+    "protocol": "ss",
+    "url": "ss://401374e6-df77-41fb-f638-dad8184f175b@102.177.189.251:443?encryption=none&security=tls&sni=pqh23v4.hiddendom.shop&alpn=h2&type=grpc#%F0%9F%94%92%20VL-GRPC-TLS%20%F0%9F%87%AC%F0%9F%87%A7%20GB-102.177.189.251%3A443"
+  },
+  {
+    "protocol": "ss",
+    "url": "ss://9ca79e0a-2c5c-4ac8-90e6-6642e41e6189@199.34.230.126:443?encryption=none&security=tls&sni=uk1.blackismyfavorite.ir&alpn=h3%2Ch2%2Chttp%2F1.1&fp=chrome&type=httpupgrade&host=uk1.blackismyfavorite.ir&path=%2FXRAYVPNHTTPUPGRADE#%F0%9F%94%92%20VL-HTTPUPGRADE-TLS%20%F0%9F%87%BA%F0%9F%87%B8%20US-199.34.230.126%3A443"
+  },
+  {
+    "protocol": "ss",
+    "url": "ss://75fde681-ec64-4654-86fa-30732e8e179c@62.3.12.185:443?encryption=none&security=tls&sni=NGINX-Z.pages.DEV&alpn=h3&type=ws&host=nginx-z.pages.dev&path=%2F#%F0%9F%94%92%20VL-WS-TLS%20%F0%9F%87%B9%F0%9F%87%B7%20TR-62.3.12.185%3A443"
+  },
+  {
+    "protocol": "ss",
+    "url": "ss://9ca79e0a-2c5c-4ac8-90e6-6642e41e6189@199.34.230.125:443?encryption=none&security=tls&sni=uk1.blackismyfavorite.ir&alpn=h3%2Ch2%2Chttp%2F1.1&fp=chrome&type=httpupgrade&host=uk1.blackismyfavorite.ir&path=%2FXRAYVPNHTTPUPGRADE#%F0%9F%94%92%20VL-HTTPUPGRADE-TLS%20%F0%9F%87%BA%F0%9F%87%B8%20US-199.34.230.125%3A443"
+  },
+  {
+    "protocol": "ss",
+    "url": "ss://d60fc3c5-9f07-4cdb-b81f-70af27936bdc@25.25.25.247:8880?encryption=none&security=none&sni=ex.sue.x10.mx&type=ws&host=ex.sue.x10.mx&path=%2FTelegram%F0%9F%87%A8%F0%9F%87%B3#%F0%9F%94%92%20VL-WS-NA%20%F0%9F%87%AC%F0%9F%87%A7%20GB-25.25.25.247%3A8880"
+  },
+  {
+    "protocol": "ss",
+    "url": "ss://d60fc3c5-9f07-4cdb-b81f-70af27936bdc@5.10.214.247:8880?encryption=none&security=none&sni=ex.sue.x10.mx&allowInsecure=1&type=ws&host=ex.sue.x10.mx&path=%2FTelegram%F0%9F%87%A8%F0%9F%87%B3#%F0%9F%94%92%20VL-WS-NA%20%F0%9F%87%A9%F0%9F%87%AA%20DE-5.10.214.247%3A8880"
+  },
+  {
+    "protocol": "ss",
+    "url": "ss://0132166f-e702-48ed-a9e7-b07af768faf8@102.177.176.251:8880?encryption=none&security=none&type=ws&host=cf.d3z.net&path=%2FTelegram%F0%9F%87%A8%F0%9F%87%B3%20%40WangCai2%20%2F%3Fed%3D2560#%F0%9F%94%92%20VL-WS-NA%20%F0%9F%87%BF%F0%9F%87%A6%20ZA-102.177.176.251%3A8880"
+  },
+  {
+    "protocol": "ss",
+    "url": "ss://34c01e61-f4f3-4afb-a83b-406caf8caa33@5.10.214.254:8880?encryption=none&security=none&type=ws&host=yg.bantony199.top&path=%2F#%F0%9F%94%92%20VL-WS-NA%20%F0%9F%87%A9%F0%9F%87%AA%20DE-5.10.214.254%3A8880"
+  },
+  {
+    "protocol": "ss",
+    "url": "ss://9f3c4ab7-ea26-4d96-91a9-c85ff64ad9a0@209.94.90.13:8880?encryption=none&security=none&sni=Telegram-channel-WangCai2&type=ws&host=c.82313369.xyz&path=%2FTelegram%F0%9F%87%A8%F0%9F%87%B3#%F0%9F%94%92%20VL-WS-NA%20%F0%9F%87%BA%F0%9F%87%B8%20US-209.94.90.13%3A8880"
+  },
+  {
+    "protocol": "ss",
+    "url": "ss://b5441b0d-2147-4898-8a6a-9b2c87f58382@25.26.27.3:8880?encryption=none&security=none&sni=Telegram-channel-WangCai2&type=ws&host=bitget1.asdasd.click&path=%2FTelegram#%F0%9F%94%92%20VL-WS-NA%20%F0%9F%87%AC%F0%9F%87%A7%20GB-25.26.27.3%3A8880"
+  },
+  {
+    "protocol": "ss",
+    "url": "ss://53fa8faf-ba4b-4322-9c69-a3e5b1555049@5.10.214.144:8880?encryption=none&security=none&sni=reedfree8mahsang2.redorg.ir&type=ws&host=reedfree8mahsang2.redorg.ir&path=%2FTelegramU0001F1E8U0001F1F3#%F0%9F%94%92%20VL-WS-NA%20%F0%9F%87%A9%F0%9F%87%AA%20DE-5.10.214.144%3A8880"
+  },
+  {
+    "protocol": "ss",
+    "url": "ss://ew0KICAidiI6ICIyIiwNCiAgInBzIjogIlx1RDgzRFx1REQxMiBWTS1SQVctTkEgXHVEODNDXHVEREU4XHVEODNDXHVEREYzIENOLTQ3LjkyLjE1Mi4xNjk6NTAwMDIiLA0KICAiYWRkIjogIjQ3LjkyLjE1Mi4xNjkiLA0KICAicG9ydCI6ICI1MDAwMiIsDQogICJpZCI6ICI0MTgwNDhhZi1hMjkzLTRiOTktOWIwYy05OGNhMzU4MGRkMjQiLA0KICAiYWlkIjogIjY0IiwNCiAgInNjeSI6ICJhdXRvIiwNCiAgIm5ldCI6ICJ0Y3AiLA0KICAidHlwZSI6ICJub25lIiwNCiAgImhvc3QiOiAiIiwNCiAgInBhdGgiOiAiIiwNCiAgInRscyI6ICIiLA0KICAic25pIjogIiIsDQogICJhbHBuIjogIiIsDQogICJmcCI6ICIiDQp9"
+  },
+  {
+    "protocol": "ss",
+    "url": "ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpmOGY3YUN6Y1BLYnNGOHAz@181.119.30.20:990#%F0%9F%94%92%20SS-TCP-NA%20%F0%9F%87%A8%F0%9F%87%B4%20CO-181.119.30.20%3A990"
+  },
+  {
+    "protocol": "ss",
+    "url": "ss://ec8a65ad-aafc-4095-9b8c-ea10890ca629@154.92.9.176:443?encryption=none&security=tls&sni=simorgh.hpcode.ir&alpn=h2%2Chttp%2F1.1&fp=firefox&type=ws&host=simorgh.hpcode.ir&path=%2FJavid-SHAH-KingRezaPahlavi%2F%3Fed#%F0%9F%94%92%20VL-WS-TLS%20%F0%9F%87%A8%F0%9F%87%BE%20CY-154.92.9.176%3A443"
+  },
+  {
+    "protocol": "ss",
+    "url": "ss://9ca79e0a-2c5c-4ac8-90e6-6642e41e6189@199.34.230.114:443?encryption=none&security=tls&sni=uk1.blackismyfavorite.ir&alpn=h3%2Ch2%2Chttp%2F1.1&fp=chrome&type=httpupgrade&host=uk1.blackismyfavorite.ir&path=%2FXRAYVPNHTTPUPGRADE#%F0%9F%94%92%20VL-HTTPUPGRADE-TLS%20%F0%9F%87%BA%F0%9F%87%B8%20US-199.34.230.114%3A443"
+  },
+  {
+    "protocol": "ss",
+    "url": "ss://ec8a65ad-aafc-4095-9b8c-ea10890ca629@154.92.9.151:443?encryption=none&security=tls&sni=simorgh.hpcode.ir&alpn=h2%2Chttp%2F1.1&fp=firefox&type=ws&host=simorgh.hpcode.ir&path=%2FJavid-SHAH-KingRezaPahlavi%2F%3Fed%3D2560#%F0%9F%94%92%20VL-WS-TLS%20%F0%9F%87%A8%F0%9F%87%BE%20CY-154.92.9.151%3A443"
+  },
+  {
+    "protocol": "ss",
+    "url": "ss://fab7bf9c-ddb9-4563-8a04-fb01ce6c0fbf@154.194.0.63:8880?encryption=none&security=none&sni=jp.laoyoutiao.link&type=ws&host=jp.laoyoutiao.link&path=%2FTelegram%F0%9F%87%A8%F0%9F%87%B3#%F0%9F%94%92%20VL-WS-NA%20%F0%9F%87%B8%F0%9F%87%A8%20SC-154.194.0.63%3A8880"
+  },
+  {
+    "protocol": "ss",
+    "url": "ss://583ceab3-4022-4553-9158-9bedc625ad4e@192.200.160.177:8880?encryption=none&security=none&sni=Telegram-channel-WangCai2&type=ws&host=ip.langmanshanxi.top&path=%2FTelegram#%F0%9F%94%92%20VL-WS-NA%20%F0%9F%87%BA%F0%9F%87%B8%20US-192.200.160.177%3A8880"
+  },
+  {
+    "protocol": "ss",
+    "url": "ss://9f3c4ab7-ea26-4d96-91a9-c85ff64ad9a0@102.132.188.13:8880?encryption=none&security=none&sni=Telegram-channel-WangCai2&type=ws&host=c.82313369.xyz&path=%2FTelegram%F0%9F%87%A8%F0%9F%87%B3#%F0%9F%94%92%20VL-WS-NA%20%F0%9F%87%BF%F0%9F%87%A6%20ZA-102.132.188.13%3A8880"
+  },
+  {
+    "protocol": "ss",
+    "url": "ss://fab7bf9c-ddb9-4563-8a04-fb01ce6c0fbf@199.34.228.63:8880?encryption=none&security=none&sni=jp.laoyoutiao.link&type=ws&host=jp.laoyoutiao.link&path=%2FTelegram%F0%9F%87%A8%F0%9F%87%B3#%F0%9F%94%92%20VL-WS-NA%20%F0%9F%87%BA%F0%9F%87%B8%20US-199.34.228.63%3A8880"
+  },
+  {
+    "protocol": "ss",
+    "url": "ss://b5441b0d-2147-4898-8a6a-9b2c87f58382@25.25.25.3:8880?encryption=none&security=none&sni=Telegram-channel-WangCai2&type=ws&host=bitget1.asdasd.click&path=%2FTelegram%F0%9F%87%A8%F0%9F%87%B3#%F0%9F%94%92%20VL-WS-NA%20%F0%9F%87%AC%F0%9F%87%A7%20GB-25.25.25.3%3A8880"
+  },
+  {
+    "protocol": "ss",
+    "url": "ss://53fa8faf-ba4b-4322-9c69-a3e5b1555049@102.177.176.20:8880?encryption=none&security=none&sni=reedfree8mahsang2.redorg.ir&type=ws&host=reedfree8mahsang2.redorg.ir&path=%2F#%F0%9F%94%92%20VL-WS-NA%20%F0%9F%87%BF%F0%9F%87%A6%20ZA-102.177.176.20%3A8880"
+  },
+  {
+    "protocol": "ss",
+    "url": "ss://fab7bf9c-ddb9-4563-8a04-fb01ce6c0fbf@5.10.215.213:8880?encryption=none&security=none&type=ws&host=jp.laoyoutiao.link&path=%2F#%F0%9F%94%92%20VL-WS-NA%20%F0%9F%87%A9%F0%9F%87%AA%20DE-5.10.215.213%3A8880"
+  },
+  {
+    "protocol": "ss",
+    "url": "ss://9f3c4ab7-ea26-4d96-91a9-c85ff64ad9a0@102.177.176.13:8880?encryption=none&security=none&type=ws&host=c.82313369.xyz&path=%2FTelegram%F0%9F%87%A8%F0%9F%87%B3%20%40WangCai2%20%2F%3Fed%3D2560#%F0%9F%94%92%20VL-WS-NA%20%F0%9F%87%BF%F0%9F%87%A6%20ZA-102.177.176.13%3A8880"
+  },
+  {
+    "protocol": "ss",
+    "url": "ss://fab7bf9c-ddb9-4563-8a04-fb01ce6c0fbf@102.177.176.29:8880?encryption=none&security=none&type=ws&host=hk.laoyoutiao.link&path=%2F#%F0%9F%94%92%20VL-WS-NA%20%F0%9F%87%BF%F0%9F%87%A6%20ZA-102.177.176.29%3A8880"
+  },
+  {
+    "protocol": "ss",
+    "url": "ss://583ceab3-4022-4553-9158-9bedc625ad4e@102.177.176.177:8880?encryption=none&security=none&sni=Telegram-channel-WangCai2&type=ws&host=ip.langmanshanxi.top&path=%2FTelegram%F0%9F%87%A8%F0%9F%87%B3#%F0%9F%94%92%20VL-WS-NA%20%F0%9F%87%BF%F0%9F%87%A6%20ZA-102.177.176.177%3A8880"
+  },
+  {
+    "protocol": "ss",
+    "url": "ss://9f3c4ab7-ea26-4d96-91a9-c85ff64ad9a0@160.79.105.13:8880?encryption=none&security=none&sni=Telegram-channel-WangCai2&type=ws&host=c.82313369.xyz&path=%2FTelegram%F0%9F%87%A8%F0%9F%87%B3#%F0%9F%94%92%20VL-WS-NA%20%F0%9F%87%BA%F0%9F%87%B8%20US-160.79.105.13%3A8880"
+  },
+  {
+    "protocol": "ss",
+    "url": "ss://fab7bf9c-ddb9-4563-8a04-fb01ce6c0fbf@25.26.27.29:8880?encryption=none&security=none&sni=hk.laoyoutiao.link&type=ws&host=hk.laoyoutiao.link&path=%2FTelegramU0001F1E8U0001F1F3#%F0%9F%94%92%20VL-WS-NA%20%F0%9F%87%AC%F0%9F%87%A7%20GB-25.26.27.29%3A8880"
+  },
+  {
+    "protocol": "ss",
+    "url": "ss://9f3c4ab7-ea26-4d96-91a9-c85ff64ad9a0@25.26.27.13:8880?encryption=none&security=none&sni=Telegram-channel-WangCai2&type=ws&host=c.82313369.xyz&path=%2FTelegram%F0%9F%87%A8%F0%9F%87%B3#%F0%9F%94%92%20VL-WS-NA%20%F0%9F%87%AC%F0%9F%87%A7%20GB-25.26.27.13%3A8880"
+  },
+  {
+    "protocol": "ss",
+    "url": "ss://d60fc3c5-9f07-4cdb-b81f-70af27936bdc@88.216.69.247:8880?encryption=none&security=none&sni=ex.sue.x10.mx&type=ws&host=ex.sue.x10.mx&path=%2FTelegram%F0%9F%87%A8%F0%9F%87%B3#%F0%9F%94%92%20VL-WS-NA%20%F0%9F%87%B1%F0%9F%87%B9%20LT-88.216.69.247%3A8880"
+  },
+  {
+    "protocol": "ss",
+    "url": "ss://583ceab3-4022-4553-9158-9bedc625ad4e@25.25.25.177:8880?encryption=none&security=none&sni=Telegram-channel-WangCai2&type=ws&host=ip.langmanshanxi.top&path=%2FTelegram%F0%9F%87%A8%F0%9F%87%B3#%F0%9F%94%92%20VL-WS-NA%20%F0%9F%87%AC%F0%9F%87%A7%20GB-25.25.25.177%3A8880"
+  },
+  {
+    "protocol": "ss",
+    "url": "ss://583ceab3-4022-4553-9158-9bedc625ad4e@185.251.81.177:8880?encryption=none&security=none&type=ws&host=ip.langmanshanxi.top&path=%2FTelegram%F0%9F%87%A8%F0%9F%87%B3%40WangCai2%2F%3Fed%3D2560#%F0%9F%94%92%20VL-WS-NA%20%F0%9F%87%AA%F0%9F%87%B8%20ES-185.251.81.177%3A8880"
+  },
+  {
+    "protocol": "ss",
+    "url": "ss://583ceab3-4022-4553-9158-9bedc625ad4e@25.26.27.177:8880?encryption=none&security=none&sni=Telegram-channel-WangCai2&type=ws&host=ip.langmanshanxi.top&path=%2FTelegram%F0%9F%87%A8%F0%9F%87%B3#%F0%9F%94%92%20VL-WS-NA%20%F0%9F%87%AC%F0%9F%87%A7%20GB-25.26.27.177%3A8880"
+  },
+  {
+    "protocol": "ss",
+    "url": "ss://53fa8faf-ba4b-4322-9c69-a3e5b1555049@5.10.214.56:8880?encryption=none&security=none&type=ws&host=reedfree8mahsang2.redorg.ir&path=%2F#%F0%9F%94%92%20VL-WS-NA%20%F0%9F%87%A9%F0%9F%87%AA%20DE-5.10.214.56%3A8880"
+  },
+  {
+    "protocol": "ss",
+    "url": "ss://9f3c4ab7-ea26-4d96-91a9-c85ff64ad9a0@25.25.25.13:8880?encryption=none&security=none&sni=Telegram-channel-WangCai2&type=ws&host=c.82313369.xyz&path=%2FTelegram%F0%9F%87%A8%F0%9F%87%B3#%F0%9F%94%92%20VL-WS-NA%20%F0%9F%87%AC%F0%9F%87%A7%20GB-25.25.25.13%3A8880"
+  },
+  {
+    "protocol": "ss",
+    "url": "ss://fab7bf9c-ddb9-4563-8a04-fb01ce6c0fbf@102.177.189.29:8880?encryption=none&security=none&sni=hk.laoyoutiao.link&type=ws&host=hk.laoyoutiao.link&path=%2FTelegramU0001F1E8U0001F1F3#%F0%9F%94%92%20VL-WS-NONE%20%F0%9F%87%AC%F0%9F%87%A7%20GB-102.177.189.29%3A8880"
+  },
+  {
+    "protocol": "ss",
+    "url": "ss://fab7bf9c-ddb9-4563-8a04-fb01ce6c0fbf@102.177.176.213:8880?encryption=none&security=none&type=ws&host=jp.laoyoutiao.link&path=%2F#%F0%9F%94%92%20VL-WS-NONE%20%F0%9F%87%BF%F0%9F%87%A6%20ZA-102.177.176.213%3A8880"
+  },
+  {
+    "protocol": "ss",
+    "url": "ss://fab7bf9c-ddb9-4563-8a04-fb01ce6c0fbf@141.193.213.11:80?encryption=none&security=none&type=ws&host=cs.laoyoutiao.link&path=%2FTelegram#%F0%9F%94%92%20VL-WS-NONE%20%F0%9F%87%BA%F0%9F%87%B8%20US-141.193.213.11%3A80"
+  },
+  {
+    "protocol": "ss",
+    "url": "ss://9f3c4ab7-ea26-4d96-91a9-c85ff64ad9a0@102.132.188.13:8880?encryption=none&security=none&sni=Telegram-channel-WangCai2&type=ws&host=c.82313369.xyz&path=%2FTelegram%F0%9F%87%A8%F0%9F%87%B3#%F0%9F%94%92%20VL-WS-NA%20%F0%9F%87%BF%F0%9F%87%A6%20ZA-102.132.188.13%3A8880"
+  },
+  {
+    "protocol": "ss",
+    "url": "ss://583ceab3-4022-4553-9158-9bedc625ad4e@25.25.25.177:8880?encryption=none&security=none&sni=Telegram-channel-WangCai2&type=ws&host=ip.langmanshanxi.top&path=%2FTelegram%F0%9F%87%A8%F0%9F%87%B3#%F0%9F%94%92%20VL-WS-NA%20%F0%9F%87%AC%F0%9F%87%A7%20GB-25.25.25.177%3A8880"
+  },
+  {
+    "protocol": "ss",
+    "url": "ss://fab7bf9c-ddb9-4563-8a04-fb01ce6c0fbf@102.132.188.63:8880?encryption=none&security=none&sni=jp.laoyoutiao.link&type=ws&host=jp.laoyoutiao.link&path=%2FTelegram%F0%9F%87%A8%F0%9F%87%B3%20%40WangCai2%20%2F%3Fed%3D2560fp%3Dchrome#%F0%9F%94%92%20VL-WS-NONE%20%F0%9F%87%BF%F0%9F%87%A6%20ZA-102.132.188.63%3A8880"
+  },
+  {
+    "protocol": "ss",
+    "url": "ss://fab7bf9c-ddb9-4563-8a04-fb01ce6c0fbf@25.25.25.63:8880?encryption=none&security=none&sni=jp.laoyoutiao.link&type=ws&host=jp.laoyoutiao.link&path=%2FTelegram%F0%9F%87%A8%F0%9F%87%B3#%F0%9F%94%92%20VL-WS-NA%20%F0%9F%87%AC%F0%9F%87%A7%20GB-25.25.25.63%3A8880"
+  },
+  {
+    "protocol": "ss",
+    "url": "ss://d60fc3c5-9f07-4cdb-b81f-70af27936bdc@25.25.25.247:8880?encryption=none&security=none&sni=ex.sue.x10.mx&type=ws&host=ex.sue.x10.mx&path=%2FTelegram%F0%9F%87%A8%F0%9F%87%B3#%F0%9F%94%92%20VL-WS-NA%20%F0%9F%87%AC%F0%9F%87%A7%20GB-25.25.25.247%3A8880"
+  },
+  {
+    "protocol": "ss",
+    "url": "ss://fab7bf9c-ddb9-4563-8a04-fb01ce6c0fbf@25.25.25.19:8880?encryption=none&security=none&sni=hk.laoyoutiao.link&type=ws&host=hk.laoyoutiao.link&path=telegram%F0%9F%87%A8%F0%9F%87%B3%20%40pgkj666%20%2F%3Fed%3D2560#%F0%9F%94%92%20VL-WS-NONE%20%F0%9F%87%AC%F0%9F%87%A7%20GB-25.25.25.19%3A8880"
+  },
+  {
+    "protocol": "ss",
+    "url": "ss://d60fc3c5-9f07-4cdb-b81f-70af27936bdc@5.10.215.247:8880?encryption=none&security=none&sni=ex.sue.x10.mx&type=ws&host=ex.sue.x10.mx&path=%2FTelegram%F0%9F%87%A8%F0%9F%87%B3#%F0%9F%94%92%20VL-WS-NA%20%F0%9F%87%A9%F0%9F%87%AA%20DE-5.10.215.247%3A8880"
+  },
+  {
+    "protocol": "ss",
+    "url": "ss://fab7bf9c-ddb9-4563-8a04-fb01ce6c0fbf@102.177.176.29:8880?encryption=none&security=none&type=ws&host=hk.laoyoutiao.link&path=%2F#%F0%9F%94%92%20VL-WS-NA%20%F0%9F%87%BF%F0%9F%87%A6%20ZA-102.177.176.29%3A8880"
+  },
+  {
+    "protocol": "ss",
+    "url": "ss://9f3c4ab7-ea26-4d96-91a9-c85ff64ad9a0@102.177.176.13:8880?encryption=none&security=none&type=ws&host=c.82313369.xyz&path=%2FTelegram%F0%9F%87%A8%F0%9F%87%B3#%F0%9F%94%92%20VL-WS-NA%20%F0%9F%87%BF%F0%9F%87%A6%20ZA-102.177.176.13%3A8880"
+  },
+  {
+    "protocol": "ss",
+    "url": "ss://9f3c4ab7-ea26-4d96-91a9-c85ff64ad9a0@102.177.189.13:8880?encryption=none&security=none&sni=Telegram-channel-WangCai2&type=ws&host=c.82313369.xyz&path=%2FTelegram%F0%9F%87%A8%F0%9F%87%B3#%F0%9F%94%92%20VL-WS-NA%20%F0%9F%87%AC%F0%9F%87%A7%20GB-102.177.189.13%3A8880"
+  },
+  {
+    "protocol": "ss",
+    "url": "ss://34c01e61-f4f3-4afb-a83b-406caf8caa33@192.0.63.254:8880?encryption=none&security=none&type=ws&host=yg.bantony199.top&path=%2FTelegram%F0%9F%87%A8%F0%9F%87%B3#%F0%9F%94%92%20VL-WS-NA%20%F0%9F%87%BA%F0%9F%87%B8%20US-192.0.63.254%3A8880"
+  },
+  {
+    "protocol": "ss",
+    "url": "ss://b5441b0d-2147-4898-8a6a-9b2c87f58382@102.177.189.3:8880?encryption=none&security=none&sni=Telegram-channel-WangCai2&type=ws&host=bitget1.asdasd.click&path=%2FTelegram%F0%9F%87%A8%F0%9F%87%B3#%F0%9F%94%92%20VL-WS-NA%20%F0%9F%87%AC%F0%9F%87%A7%20GB-102.177.189.3%3A8880"
+  },
+  {
+    "protocol": "ss",
+    "url": "ss://53fa8faf-ba4b-4322-9c69-a3e5b1555049@5.10.214.103:8880?encryption=none&security=none&type=ws&host=reedfree8mahsang2.redorg.ir&path=%2F#%F0%9F%94%92%20VL-WS-NONE%20%F0%9F%87%A9%F0%9F%87%AA%20DE-5.10.214.103%3A8880"
+  },
+  {
+    "protocol": "ss",
+    "url": "ss://d60fc3c5-9f07-4cdb-b81f-70af27936bdc@192.0.54.247:8880?encryption=none&security=none&sni=ex.sue.x10.mx&type=ws&host=ex.sue.x10.mx&path=%2FTelegram%F0%9F%87%A8%F0%9F%87%B3#%F0%9F%94%92%20VL-WS-NA%20%F0%9F%87%BA%F0%9F%87%B8%20US-192.0.54.247%3A8880"
+  },
+  {
+    "protocol": "ss",
+    "url": "ss://2f33cc6f-c80a-4c19-ac4f-66547bfdd33d@94.232.170.141:1501?encryption=none&security=none&type=tcp&headerType=http&host=varzesh3.com#%F0%9F%94%92%20VL-TCP-NONE%20%F0%9F%87%AE%F0%9F%87%B7%20IR-94.232.170.141%3A1501"
+  },
+  {
+    "protocol": "ss",
+    "url": "ss://c14b2731-7db6-49ee-9271-b1efc56c2630@146.59.15.81:443?encryption=none&security=reality&sni=dl.google.com&fp=chrome&pbk=l8HS4g_h8xPWlhQm8hmj5ohKNMrMCBcoHSNBFij79Sk&sid=5bb805&type=tcp&headerType=none#%F0%9F%94%92%20VL-TCP-RLT%20%F0%9F%87%AB%F0%9F%87%B7%20FR-146.59.15.81%3A443"
+  },
+  {
+    "protocol": "ss",
+    "url": "ss://ac083fa9-df9a-4722-b70d-24c17bef0516@185.243.49.205:8444?encryption=none&security=none&type=tcp&headerType=http&host=speedtest.net#%F0%9F%94%92%20VL-TCP-NONE%20%F0%9F%87%AE%F0%9F%87%B7%20IR-185.243.49.205%3A8444"
+  },
+  {
+    "protocol": "ss",
+    "url": "ss://84cec1f6-8312-40da-b17a-4511e11a6026@178.20.208.134:2083?encryption=none&flow=xtls-rprx-vision&security=reality&sni=refersion.com&fp=chrome&pbk=64ZzXuN3BNiYLcliMenVVbjdSX_jCpB-yvW7MTsz2n4&sid=4d932424dbe98b&type=tcp&headerType=none#%F0%9F%94%92%20VL-TCP-RLT%20%F0%9F%87%B7%F0%9F%87%BA%20RU-178.20.208.134%3A2083"
+  },
+  {
+    "protocol": "ss",
+    "url": "ss://ew0KICAidiI6ICIyIiwNCiAgInBzIjogIlx1RDgzRFx1REQxMiBWTS1UQ1AtTkEgXHVEODNDXHVEREU4XHVEODNDXHVEREYzIENOLTEyMC4yMTAuMjA1LjU5OjUwMDAyIiwNCiAgImFkZCI6ICIxMjAuMjEwLjIwNS41OSIsDQogICJwb3J0IjogIjUwMDAyIiwNCiAgImlkIjogIjQxODA0OGFmLWEyOTMtNGI5OS05YjBjLTk4Y2EzNTgwZGQyNCIsDQogICJhaWQiOiAiMCIsDQogICJzY3kiOiAiYXV0byIsDQogICJuZXQiOiAidGNwIiwNCiAgInR5cGUiOiAibm9uZSIsDQogICJob3N0IjogIiIsDQogICJwYXRoIjogIiIsDQogICJ0bHMiOiAiIiwNCiAgInNuaSI6ICIiLA0KICAiYWxwbiI6ICIiLA0KICAiZnAiOiAiIg0KfQ=="
+  },
+  {
+    "protocol": "ss",
+    "url": "ss://ew0KICAidiI6ICIyIiwNCiAgInBzIjogIlx1RDgzRFx1REQxMiBWTS1UQ1AtTkEgXHVEODNDXHVEREU4XHVEODNDXHVEREYzIENOLTExMi4xMzIuMjE1LjM0OjUwMDA3IiwNCiAgImFkZCI6ICIxMTIuMTMyLjIxNS4zNCIsDQogICJwb3J0IjogIjUwMDA3IiwNCiAgImlkIjogIjQxODA0OGFmLWEyOTMtNGI5OS05YjBjLTk4Y2EzNTgwZGQyNCIsDQogICJhaWQiOiAiMCIsDQogICJzY3kiOiAiYXV0byIsDQogICJuZXQiOiAidGNwIiwNCiAgInR5cGUiOiAibm9uZSIsDQogICJob3N0IjogIiIsDQogICJwYXRoIjogIiIsDQogICJ0bHMiOiAiIiwNCiAgInNuaSI6ICIiLA0KICAiYWxwbiI6ICIiLA0KICAiZnAiOiAiIg0KfQ=="
+  },
+  {
+    "protocol": "ss",
+    "url": "ss://6b690c69-7301-44c4-81e8-9d5d7e8263a6@51.38.98.69:443?encryption=none&security=reality&sni=yahoo.com&fp=chrome&pbk=-3sZE2OPDhkNtxufF2YqPmoa5hqVna5zalfJfrUiMm0&sid=ecd6615548c2bddb&type=tcp&headerType=none#%F0%9F%94%92%20VL-TCP-RLT%20%F0%9F%87%AB%F0%9F%87%B7%20FR-51.38.98.69%3A443"
+  },
+  {
+    "protocol": "ss",
+    "url": "ss://440766d1-858f-4719-84f5-c2de6f6227ba@65.108.231.185:443?encryption=none&security=tls&sni=local.rogsoftwaregroup.com&alpn=h3%2Ch2%2Chttp%2F1.1&allowInsecure=1&type=tcp&headerType=none#%F0%9F%94%92%20VL-TCP-TLS%20%F0%9F%87%AB%F0%9F%87%AE%20FI-65.108.231.185%3A443"
+  },
+  {
+    "protocol": "ss",
+    "url": "ss://d60fc3c5-9f07-4cdb-b81f-70af27936bdc@192.0.63.247:8880?encryption=none&security=none&sni=ex.sue.x10.mx&type=ws&host=ex.sue.x10.mx&path=%2FTelegram#%F0%9F%94%92%20VL-WS-NA%20%F0%9F%87%BA%F0%9F%87%B8%20US-192.0.63.247%3A8880"
+  },
+  {
+    "protocol": "ss",
+    "url": "ss://53fa8faf-ba4b-4322-9c69-a3e5b1555049@5.10.214.36:8880?encryption=none&security=none&sni=reedfree8mahsang2.redorg.ir&type=ws&host=reedfree8mahsang2.redorg.ir&path=%2FTelegramU0001F1E8U0001F1F3#%F0%9F%94%92%20VL-WS-NA%20%F0%9F%87%A9%F0%9F%87%AA%20DE-5.10.214.36%3A8880"
+  },
+  {
+    "protocol": "ss",
+    "url": "ss://34c01e61-f4f3-4afb-a83b-406caf8caa33@102.177.189.254:8880?encryption=none&security=none&type=ws&host=yg.bantony199.top&path=%2F#%F0%9F%94%92%20VL-WS-NA%20%F0%9F%87%AC%F0%9F%87%A7%20GB-102.177.189.254%3A8880"
+  },
+  {
+    "protocol": "ss",
+    "url": "ss://ec8a65ad-aafc-4095-9b8c-ea10890ca629@154.92.9.151:443?encryption=none&security=tls&sni=simorgh.hpcode.ir&alpn=h2%2Chttp%2F1.1&fp=firefox&type=ws&host=simorgh.hpcode.ir&path=%2FJavid-SHAH-KingRezaPahlavi%2F%3Fed%3D2560#%F0%9F%94%92%20VL-WS-TLS%20%F0%9F%87%A8%F0%9F%87%BE%20CY-154.92.9.151%3A443"
+  },
+  {
+    "protocol": "ss",
+    "url": "ss://fab7bf9c-ddb9-4563-8a04-fb01ce6c0fbf@5.10.215.63:8880?encryption=none&security=none&sni=sg.laoyoutiao.link&type=ws&host=sg.laoyoutiao.link&path=%2FTelegram%F0%9F%87%A8%F0%9F%87%B3#%F0%9F%94%92%20VL-WS-NA%20%F0%9F%87%A9%F0%9F%87%AA%20DE-5.10.215.63%3A8880"
+  },
+  {
+    "protocol": "ss",
+    "url": "ss://d60fc3c5-9f07-4cdb-b81f-70af27936bdc@102.177.189.247:8880?encryption=none&security=none&type=ws&host=ex.sue.x10.mx&path=%2FTelegram%F0%9F%87%A8%F0%9F%87%B3%2B%40WangCai2%2B%2F%3Fed#%F0%9F%94%92%20VL-WS-NONE%20%F0%9F%87%AC%F0%9F%87%A7%20GB-102.177.189.247%3A8880"
+  },
+  {
+    "protocol": "ss",
+    "url": "ss://a2691bdd-7989-4e7e-9c44-302e360c021f@185.208.77.113:14040?encryption=none&security=none&fp=chrome&type=ws&path=%2F#%F0%9F%94%92%20VL-WS-NA%20%F0%9F%87%AE%F0%9F%87%B7%20IR-185.208.77.113%3A14040"
+  },
+  {
+    "protocol": "ss",
+    "url": "ss://d60fc3c5-9f07-4cdb-b81f-70af27936bdc@185.18.184.247:8880?encryption=none&security=none&sni=ex.sue.x10.mx&type=ws&host=ex.sue.x10.mx&path=%2FTelegram#%F0%9F%94%92%20VL-WS-NA%20%F0%9F%87%B3%F0%9F%87%B1%20NL-185.18.184.247%3A8880"
+  },
+  {
+    "protocol": "ss",
+    "url": "ss://583ceab3-4022-4553-9158-9bedc625ad4e@25.26.27.177:8880?encryption=none&security=none&sni=Telegram-channel-WangCai2&type=ws&host=ip.langmanshanxi.top&path=%2FTelegram%F0%9F%87%A8%F0%9F%87%B3#%F0%9F%94%92%20VL-WS-NA%20%F0%9F%87%AC%F0%9F%87%A7%20GB-25.26.27.177%3A8880"
+  },
+  {
+    "protocol": "ss",
+    "url": "ss://fab7bf9c-ddb9-4563-8a04-fb01ce6c0fbf@25.26.27.29:8880?encryption=none&security=none&sni=hk.laoyoutiao.link&type=ws&host=hk.laoyoutiao.link&path=%2FTelegramU0001F1E8U0001F1F3#%F0%9F%94%92%20VL-WS-NA%20%F0%9F%87%AC%F0%9F%87%A7%20GB-25.26.27.29%3A8880"
+  },
+  {
+    "protocol": "ss",
+    "url": "ss://fab7bf9c-ddb9-4563-8a04-fb01ce6c0fbf@25.25.25.29:8880?encryption=none&security=none&sni=hk.laoyoutiao.link&type=ws&host=hk.laoyoutiao.link&path=%2FTelegramU0001F1E8U0001F1F3#%F0%9F%94%92%20VL-WS-NA%20%F0%9F%87%AC%F0%9F%87%A7%20GB-25.25.25.29%3A8880"
+  },
+  {
+    "protocol": "ss",
+    "url": "ss://583ceab3-4022-4553-9158-9bedc625ad4e@102.177.176.177:8880?encryption=none&security=none&sni=Telegram-channel-WangCai2&type=ws&host=ip.langmanshanxi.top&path=%2FTelegram%F0%9F%87%A8%F0%9F%87%B3#%F0%9F%94%92%20VL-WS-NA%20%F0%9F%87%BF%F0%9F%87%A6%20ZA-102.177.176.177%3A8880"
+  },
+  {
+    "protocol": "ss",
+    "url": "ss://53fa8faf-ba4b-4322-9c69-a3e5b1555049@5.10.214.16:8880?encryption=none&security=none&sni=reedfree8mahsang2.redorg.ir&type=ws&host=reedfree8mahsang2.redorg.ir&path=%2FTelegramU0001F1E8U0001F1F3#%F0%9F%94%92%20VL-WS-NA%20%F0%9F%87%A9%F0%9F%87%AA%20DE-5.10.214.16%3A8880"
+  },
+  {
+    "protocol": "ss",
+    "url": "ss://34c01e61-f4f3-4afb-a83b-406caf8caa33@25.26.27.254:8880?encryption=none&security=none&sni=Telegram-channel-WangCai2&type=ws&host=yg.bantony199.top&path=%2FTelegram#%F0%9F%94%92%20VL-WS-NA%20%F0%9F%87%AC%F0%9F%87%A7%20GB-25.26.27.254%3A8880"
+  },
+  {
+    "protocol": "ss",
+    "url": "ss://d60fc3c5-9f07-4cdb-b81f-70af27936bdc@102.177.176.247:8880?encryption=none&security=none&sni=ex.sue.x10.mx&type=ws&host=ex.sue.x10.mx&path=%2FTelegram%F0%9F%87%A8%F0%9F%87%B3%20%40WangCai2%20%2F%3Fed#%F0%9F%94%92%20VL-WS-NA%20%F0%9F%87%BF%F0%9F%87%A6%20ZA-102.177.176.247%3A8880"
+  },
+  {
+    "protocol": "ss",
+    "url": "ss://fab7bf9c-ddb9-4563-8a04-fb01ce6c0fbf@102.132.188.63:8880?encryption=none&security=none&sni=jp.laoyoutiao.link&type=ws&host=jp.laoyoutiao.link&path=%2FTelegram%F0%9F%87%A8%F0%9F%87%B3%20%40WangCai2%20%2F%3Fed%3D2560fp%3Dchrome#%F0%9F%94%92%20VL-WS-NONE%20%F0%9F%87%BF%F0%9F%87%A6%20ZA-102.132.188.63%3A8880"
+  },
+  {
+    "protocol": "ss",
+    "url": "ss://b5441b0d-2147-4898-8a6a-9b2c87f58382@25.25.25.3:8880?encryption=none&security=none&sni=Telegram-channel-WangCai2&type=ws&host=bitget1.asdasd.click&path=%2FTelegram%F0%9F%87%A8%F0%9F%87%B3#%F0%9F%94%92%20VL-WS-NA%20%F0%9F%87%AC%F0%9F%87%A7%20GB-25.25.25.3%3A8880"
+  },
+  {
+    "protocol": "ss",
+    "url": "ss://53fa8faf-ba4b-4322-9c69-a3e5b1555049@5.10.214.75:8880?encryption=none&security=none&sni=reedfree8mahsang2.redorg.ir&type=ws&host=reedfree8mahsang2.redorg.ir&path=%2FTelegramU0001F1E8U0001F1F3#%F0%9F%94%92%20VL-WS-NONE%20%F0%9F%87%A9%F0%9F%87%AA%20DE-5.10.214.75%3A8880"
+  },
+  {
+    "protocol": "ss",
+    "url": "ss://53fa8faf-ba4b-4322-9c69-a3e5b1555049@5.10.214.182:8880?encryption=none&security=none&sni=reedfree8mahsang2.redorg.ir&type=ws&host=reedfree8mahsang2.redorg.ir&path=%2FTelegramU0001F1E8U0001F1F3#%F0%9F%94%92%20VL-WS-NA%20%F0%9F%87%A9%F0%9F%87%AA%20DE-5.10.214.182%3A8880"
+  },
+  {
+    "protocol": "ss",
+    "url": "ss://53fa8faf-ba4b-4322-9c69-a3e5b1555049@102.177.176.20:8880?encryption=none&security=none&sni=reedfree8mahsang2.redorg.ir&type=ws&host=reedfree8mahsang2.redorg.ir&path=%2F#%F0%9F%94%92%20VL-WS-NA%20%F0%9F%87%BF%F0%9F%87%A6%20ZA-102.177.176.20%3A8880"
+  },
+  {
+    "protocol": "ss",
+    "url": "ss://53fa8faf-ba4b-4322-9c69-a3e5b1555049@5.10.215.67:8880?encryption=none&security=none&sni=reedfree8mahsang2.redorg.ir&type=ws&host=reedfree8mahsang2.redorg.ir&path=%2FTelegramU0001F1E8U0001F1F3#%F0%9F%94%92%20VL-WS-NA%20%F0%9F%87%A9%F0%9F%87%AA%20DE-5.10.215.67%3A8880"
+  },
+  {
+    "protocol": "ss",
+    "url": "ss://0132166f-e702-48ed-a9e7-b07af768faf8@192.0.54.251:8880?encryption=none&security=none&type=ws&host=cf.d3z.net&path=%2FTelegram%F0%9F%87%A8%F0%9F%87%B3%20%40WangCai2%20%2F%3Fed%3D2560#%F0%9F%94%92%20VL-WS-NA%20%F0%9F%87%BA%F0%9F%87%B8%20US-192.0.54.251%3A8880"
+  },
+  {
+    "protocol": "ss",
+    "url": "ss://b5441b0d-2147-4898-8a6a-9b2c87f58382@25.25.25.3:8880?encryption=none&security=none&sni=Telegram-channel-WangCai2&type=ws&host=bitget1.asdasd.click&path=%2FTelegram%F0%9F%87%A8%F0%9F%87%B3#%F0%9F%94%92%20VL-WS-NA%20%F0%9F%87%AC%F0%9F%87%A7%20GB-25.25.25.3%3A8880"
+  },
+  {
+    "protocol": "ss",
+    "url": "ss://fab7bf9c-ddb9-4563-8a04-fb01ce6c0fbf@102.177.189.29:8880?encryption=none&security=none&sni=hk.laoyoutiao.link&type=ws&host=hk.laoyoutiao.link&path=%2FTelegramU0001F1E8U0001F1F3kir#%F0%9F%94%92%20VL-WS-NONE%20%F0%9F%87%AC%F0%9F%87%A7%20GB-102.177.189.29%3A8880"
+  },
+  {
+    "protocol": "ss",
+    "url": "ss://0132166f-e702-48ed-a9e7-b07af768faf8@185.18.184.251:8880?encryption=none&security=none&type=ws&host=cf.d3z.net&path=%2FTelegram%F0%9F%87%A8%F0%9F%87%B3%20%40WangCai2%20%2F%3Fed%3D2560fp%3Dchrome#%F0%9F%94%92%20VL-WS-NA%20%F0%9F%87%B3%F0%9F%87%B1%20NL-185.18.184.251%3A8880"
+  },
+  {
+    "protocol": "ss",
+    "url": "ss://0132166f-e702-48ed-a9e7-b07af768faf8@130.250.137.251:8880?encryption=none&security=none&type=ws&host=cf.d3z.net&path=%2FTelegram%F0%9F%87%A8%F0%9F%87%B3%20%40WangCai2%20%2F%3Fed%3D2560#%F0%9F%94%92%20VL-WS-NA%20%F0%9F%87%BA%F0%9F%87%B8%20US-130.250.137.251%3A8880"
+  },
+  {
+    "protocol": "ss",
+    "url": "ss://401374e6-df77-41fb-f638-dad8184f175b@102.177.189.251:443?encryption=none&security=tls&sni=pqh23v4.hiddendom.shop&alpn=h2&type=grpc#%F0%9F%94%92%20VL-GRPC-TLS%20%F0%9F%87%AC%F0%9F%87%A7%20GB-102.177.189.251%3A443"
+  },
+  {
+    "protocol": "ss",
+    "url": "ss://d8dd94fd-540e-461d-b5d4-acebef02c22a@59.153.216.68:34045?encryption=none&security=reality&sni=visit-this-invitation-link-to-join-tg-enkelte-notif.ekt.me&fp=chrome&pbk=cDaDzPr3PlS3NM8lreHZbdo-Mhqz8vMBzMSkHXhGIUA&sid=e8ab71d0&type=tcp&headerType=none#%F0%9F%94%92%20VL-TCP-RLT%20%F0%9F%87%BB%F0%9F%87%B3%20VN-59.153.216.68%3A34045"
+  },
+  {
+    "protocol": "ss",
+    "url": "ss://34c01e61-f4f3-4afb-a83b-406caf8caa33@199.34.230.254:8880?encryption=none&security=none&type=ws&host=yg.bantony199.top&path=%2F#%F0%9F%94%92%20VL-WS-NONE%20%F0%9F%87%BA%F0%9F%87%B8%20US-199.34.230.254%3A8880"
+  },
+  {
+    "protocol": "ss",
+    "url": "ss://583ceab3-4022-4553-9158-9bedc625ad4e@109.176.239.177:8880?encryption=none&security=none&sni=Telegram-channel-WangCai2&type=ws&host=ip.langmanshanxi.top&path=%2FTelegramU0001F1E8U0001F1F3#%F0%9F%94%92%20VL-WS-NA%20%F0%9F%87%AC%F0%9F%87%A7%20GB-109.176.239.177%3A8880"
+  },
+  {
+    "protocol": "ss",
+    "url": "ss://b5441b0d-2147-4898-8a6a-9b2c87f58382@102.177.189.3:8880?encryption=none&security=none&sni=Telegram-channel-WangCai2&type=ws&host=bitget1.asdasd.click&path=%2FTelegram%F0%9F%87%A8%F0%9F%87%B3#%F0%9F%94%92%20VL-WS-NA%20%F0%9F%87%AC%F0%9F%87%A7%20GB-102.177.189.3%3A8880"
+  },
+  {
+    "protocol": "ss",
+    "url": "ss://b5441b0d-2147-4898-8a6a-9b2c87f58382@25.26.27.3:8880?encryption=none&security=none&sni=Telegram-channel-WangCai2&type=ws&host=bitget1.asdasd.click&path=%2FTelegram#%F0%9F%94%92%20VL-WS-NA%20%F0%9F%87%AC%F0%9F%87%A7%20GB-25.26.27.3%3A8880"
+  },
+  {
+    "protocol": "ss",
+    "url": "ss://fab7bf9c-ddb9-4563-8a04-fb01ce6c0fbf@102.177.189.63:8880?encryption=none&security=none&sni=sg.laoyoutiao.link&type=ws&host=sg.laoyoutiao.link&path=%2FTelegram#%F0%9F%94%92%20VL-WS-NA%20%F0%9F%87%AC%F0%9F%87%A7%20GB-102.177.189.63%3A8880"
+  },
+  {
+    "protocol": "ss",
+    "url": "ss://fab7bf9c-ddb9-4563-8a04-fb01ce6c0fbf@25.26.27.29:8880?encryption=none&security=none&sni=hk.laoyoutiao.link&type=ws&host=hk.laoyoutiao.link&path=%2FTelegramU0001F1E8U0001F1F3#%F0%9F%94%92%20VL-WS-NA%20%F0%9F%87%AC%F0%9F%87%A7%20GB-25.26.27.29%3A8880"
+  },
+  {
+    "protocol": "ss",
+    "url": "ss://d60fc3c5-9f07-4cdb-b81f-70af27936bdc@25.25.25.247:8880?encryption=none&security=none&sni=ex.sue.x10.mx&type=ws&host=ex.sue.x10.mx&path=%2FTelegram%F0%9F%87%A8%F0%9F%87%B3#%F0%9F%94%92%20VL-WS-NA%20%F0%9F%87%AC%F0%9F%87%A7%20GB-25.25.25.247%3A8880"
+  },
+  {
+    "protocol": "ss",
+    "url": "ss://fab7bf9c-ddb9-4563-8a04-fb01ce6c0fbf@25.25.25.213:8880?encryption=none&security=none&type=ws&host=jp.laoyoutiao.link&path=%2F#%F0%9F%94%92%20VL-WS-NA%20%F0%9F%87%AC%F0%9F%87%A7%20GB-25.25.25.213%3A8880"
+  },
+  {
+    "protocol": "trojan",
+    "url": "trojan://trojan@109.234.211.66:8443?security=tls&sni=store.timimi.dpdns.org&type=ws&host=store.timimi.dpdns.org&path=%2F#%F0%9F%94%92%20TR-WS-TLS%20%F0%9F%87%AA%F0%9F%87%B8%20ES-109.234.211.66%3A8443"
+  },
+  {
+    "protocol": "hysteria2",
+    "url": "hysteria2://%40JavidnamanIran-Javid-SHAH-KingRezaPahlavi@77.90.52.69:35000?sni=pichondan.com&obfs=salamander&obfs-password=%40JavidnamanIran-Javid-SHAH-KingRezaPahlavi&insecure=0#%F0%9F%94%92%20HYSTERIA-UDP%20%F0%9F%87%A9%F0%9F%87%AA%20DE-77.90.52.69%3A35000"
+  },
+  {
+    "protocol": "hysteria2",
+    "url": "hysteria2://%40JavidnamanIran-Javid-SHAH-KingRezaPahlavi@206.71.158.40:35000?sni=pichondan.com&obfs=salamander&obfs-password=%40JavidnamanIran-Javid-SHAH-KingRezaPahlavi&insecure=0#%F0%9F%94%92%20HYSTERIA-UDP%20%F0%9F%87%B3%F0%9F%87%B1%20NL-206.71.158.40%3A35000"
   }
 ]
