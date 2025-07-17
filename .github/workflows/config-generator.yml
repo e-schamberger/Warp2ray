@@ -19,14 +19,14 @@ jobs:
       run: |
         mkdir -p inputs raw_configs outputs
         sudo apt-get update
-        sudo apt-get install -y jq
+        sudo apt-get install -y jq wget unzip
         
-    - name: Install v2ray-core (for protocol conversion)
+    - name: Install Xray-core (replacement for v2ray)
       run: |
-        wget https://github.com/v2fly/v2ray-core/releases/latest/download/v2ray-linux-64.zip
-        unzip v2ray-linux-64.zip -d v2ray
-        sudo mv v2ray/v2ray /usr/local/bin/
-        sudo mv v2ray/v2ctl /usr/local/bin/
+        wget https://github.com/XTLS/Xray-core/releases/latest/download/Xray-linux-64.zip
+        unzip Xray-linux-64.zip -d xray
+        sudo mv xray/xray /usr/local/bin/
+        sudo chmod +x /usr/local/bin/xray
 
     - name: Install Python dependencies
       run: |
