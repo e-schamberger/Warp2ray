@@ -21,4 +21,4 @@
     if [ -z "$(ls -A outputs/)" ]; then
       echo "Error: No output files generated!"
       exit 1
-    fi
+    fi 
