@@ -6,18 +6,20 @@ import sys
 from urllib.parse import urlparse, parse_qs
 import subprocess
 
-PROTOCOL_HANDLERS = {
-    'vmess': lambda url: handle_vmess(url),
-    'vless': lambda url: handle_vless(url),
-    'ss': lambda url: handle_ss(url),
-    'trojan': lambda url: handle_trojan(url),
-    'hysteria': lambda url: handle_hysteria(url),
-    'hysteria2': lambda url: handle_hysteria2(url)
+# Enhanced protocol patterns
+PROTOCOL_PATTERNS = {
+    'vmess': r'vmess://[A-Za-z0-9+/=]+',
+    'vless': r'vless://[^\s]+',
+    'ss': r'ss://[^\s]+',
+    'trojan': r'trojan://[^\s]+', 
+    'hysteria': r'hysteria://[^\s]+',
+    'hysteria2': r'hysteria2://[^\s]+'
 }
 
-def handle_vmess(url):
+def decode_vmess(url):
     try:
-        b64_data = url.replace("vmess://", "")
+        b64_data = url.replace("vmess://", "").strip()
+        # Add padding if needed
         pad = len(b64_data) % 4
         if pad: b64_data += "=" * (4 - pad)
         json_str = base64.b64decode(b64_data).decode('utf-8')
@@ -26,14 +28,14 @@ def handle_vmess(url):
         print(f"VMess decode error: {str(e)}")
         return None
 
-def handle_vless(url):
+def parse_vless(url):
     try:
         parsed = urlparse(url)
         query = parse_qs(parsed.query)
         return {
             "protocol": "vless",
             "address": parsed.hostname,
-            "port": parsed.port,
+            "port": parsed.port or 443,
             "id": parsed.username,
             **{k: v[0] for k, v in query.items()}
         }
@@ -41,47 +43,7 @@ def handle_vless(url):
         print(f"VLESS parse error: {str(e)}")
         return None
 
-def handle_ss(url):
-    try:
-        # Basic ShadowSocks handler
-        return {"protocol": "ss", "url": url}
-    except Exception as e:
-        print(f"SS parse error: {str(e)}")
-        return None
-
-def handle_trojan(url):
-    try:
-        parsed = urlparse(url)
-        query = parse_qs(parsed.query)
-        return {
-            "protocol": "trojan",
-            "address": parsed.hostname,
-            "port": parsed.port,
-            "password": parsed.username,
-            **{k: v[0] for k, v in query.items()}
-        }
-    except Exception as e:
-        print(f"Trojan parse error: {str(e)}")
-        return None
-
-def handle_hysteria(url):
-    try:
-        # Hysteria v1 handler
-        return {"protocol": "hysteria", "url": url}
-    except Exception as e:
-        print(f"Hysteria parse error: {str(e)}")
-        return None
-
-def handle_hysteria2(url):
-    try:
-        # Hysteria v2 handler
-        return {"protocol": "hysteria2", "url": url}
-    except Exception as e:
-        print(f"Hysteria2 parse error: {str(e)}")
-        return None
-
-def convert_to_xray_format(config):
-    """Convert config using Xray-core"""
+def convert_to_xray(config):
     try:
         result = subprocess.run(
             ['xray', 'api', 'convert', '-json', json.dumps(config)],
@@ -92,37 +54,64 @@ def convert_to_xray_format(config):
         if result.returncode == 0:
             return json.loads(result.stdout)
         print(f"Xray conversion failed: {result.stderr}")
-        return None
+        return config  # Fallback to original config
     except Exception as e:
         print(f"Xray conversion error: {str(e)}")
-        return None
+        return config  # Fallback to original config
 
 def process_file(input_file):
-    with open(input_file, 'r') as f:
-        content = f.read()
+    print(f"\nProcessing {input_file}...")
     
+    # Read file content
+    try:
+        with open(input_file, 'r') as f:
+            content = f.read()
+        
+        if not content.strip():
+            print("Error: Empty input file")
+            return
+    except Exception as e:
+        print(f"File read error: {str(e)}")
+        return
+
+    # Extract and process all configs
     configs = []
-    for proto in PROTOCOL_HANDLERS:
-        pattern = rf'({proto}://[^\s]+)'
-        for url in re.findall(pattern, content):
+    for proto, pattern in PROTOCOL_PATTERNS.items():
+        matches = re.findall(pattern, content)
+        print(f"Found {len(matches)} {proto.upper()} configs")
+        
+        for url in matches:
             try:
-                handler = PROTOCOL_HANDLERS[proto]
-                config = handler(url)
+                # Decode based on protocol
+                if proto == 'vmess':
+                    config = decode_vmess(url)
+                elif proto == 'vless':
+                    config = parse_vless(url)
+                else:
+                    config = {"protocol": proto, "url": url}
+                
                 if config:
-                    xray_config = convert_to_xray_format(config)
+                    # Convert to Xray format
+                    xray_config = convert_to_xray(config)
                     if xray_config:
                         configs.append(xray_config)
             except Exception as e:
-                print(f"Error processing {url}: {str(e)}")
+                print(f"Error processing {url[:50]}...: {str(e)}")
     
+    # Save results
     if configs:
-        output_file = os.path.join('outputs', os.path.basename(input_file).replace('.txt', '.json'))
+        output_file = os.path.join('outputs', 
+                                 os.path.basename(input_file).replace('.txt', '.json'))
         with open(output_file, 'w') as f:
             json.dump(configs, f, indent=2)
-        print(f"Generated {output_file} with {len(configs)} configs")
+        print(f"Success: Saved {len(configs)} configs to {output_file}")
+    else:
+        print("Warning: No valid configs found in this file")
 
 if __name__ == "__main__":
     if len(sys.argv) > 1:
         process_file(sys.argv[1])
     else:
+        print("Error: Please provide an input file")
         print("Usage: python universal_converter.py <input_file>")
+        sys.exit(1)
