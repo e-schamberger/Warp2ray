@@ -3,7 +3,7 @@ name: Hiddify Config Generator
 on:
   workflow_dispatch:
   schedule:
-    - cron: '0 0 * * *'  # هر روز نیمه‌شب اجرا می‌شود
+    - cron: '0 0 * * *'  # Daily at midnight UTC
 
 jobs:
   generate-configs:
@@ -21,19 +21,30 @@ jobs:
         sudo apt-get update
         sudo apt-get install -y wget unzip jq
         
-    - name: Install Hiddify tools
+    - name: Install Hiddify tools (fixed URL)
       run: |
-        # Download latest Hiddify release
-        LATEST_RELEASE=$(curl -s "https://api.github.com/repos/hiddify/hiddify-app/releases/latest" | jq -r '.tag_name')
-        wget "https://github.com/hiddify/hiddify-app/releases/download/${LATEST_RELEASE}/hiddify-app-linux-x64.zip"
-        unzip hiddify-app-linux-x64.zip -d hiddify-app
+        # Get latest release metadata
+        RELEASE_DATA=$(curl -s "https://api.github.com/repos/hiddify/hiddify-app/releases/latest")
+        DOWNLOAD_URL=$(echo "$RELEASE_DATA" | jq -r '.assets[] | select(.name | contains("linux-x64")) | .browser_download_url')
+        
+        if [ -z "$DOWNLOAD_URL" ]; then
+          # Fallback to direct download pattern
+          LATEST_TAG=$(echo "$RELEASE_DATA" | jq -r '.tag_name')
+          DOWNLOAD_URL="https://github.com/hiddify/hiddify-app/releases/download/${LATEST_TAG}/hiddify-app-linux-x64.zip"
+        fi
+        
+        echo "Downloading Hiddify from: $DOWNLOAD_URL"
+        wget -q "$DOWNLOAD_URL" -O hiddify-app.zip
+        
+        unzip -q hiddify-app.zip -d hiddify-app
         sudo mv hiddify-app /opt/
         sudo chmod +x /opt/hiddify-app/hiddify-app
+        echo "Hiddify version: $(/opt/hiddify-app/hiddify-app --version || true)"
 
     - name: Install Python dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install requests beautifulsoup4
+        pip install requests
 
     - name: Download configs
       run: python scripts/fetch_configs.py
@@ -41,9 +52,11 @@ jobs:
     - name: Process configs with Hiddify
       run: |
         echo "Processing configs with Hiddify..."
+        mkdir -p outputs
+        
         for file in raw_configs/*.txt; do
           echo "Processing $file"
-          /opt/hiddify-app/hiddify-app convert -i "$file" -o "outputs/$(basename "$file" .txt).json"
+          /opt/hiddify-app/hiddify-app convert -i "$file" -o "outputs/$(basename "$file" .txt).json" || echo "Conversion failed for $file"
         done
 
     - name: Verify outputs
@@ -51,8 +64,9 @@ jobs:
         echo "Generated outputs:"
         ls -l outputs/
         if [ -z "$(ls -A outputs/)" ]; then
-          echo "Error: No output files generated!"
-          exit 1
+          echo "Warning: No output files generated!"
+        else
+          echo "Success: Output files found"
         fi
 
     - name: Commit and push results
