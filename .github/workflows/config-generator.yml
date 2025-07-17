@@ -19,27 +19,18 @@ jobs:
       run: |
         mkdir -p inputs raw_configs outputs
         sudo apt-get update
-        sudo apt-get install -y wget unzip jq
+        sudo apt-get install -y wget jq
         
-    - name: Install Hiddify tools (fixed URL)
+    - name: Install Hiddify from Debian package
       run: |
-        # Get latest release metadata
-        RELEASE_DATA=$(curl -s "https://api.github.com/repos/hiddify/hiddify-app/releases/latest")
-        DOWNLOAD_URL=$(echo "$RELEASE_DATA" | jq -r '.assets[] | select(.name | contains("linux-x64")) | .browser_download_url')
+        # Download and install Debian package
+        wget -q https://github.com/hiddify/hiddify-next/releases/download/v2.0.5/Hiddify-Debian-x64.deb
+        sudo dpkg -i Hiddify-Debian-x64.deb || true
+        sudo apt-get install -f -y  # Fix dependencies
         
-        if [ -z "$DOWNLOAD_URL" ]; then
-          # Fallback to direct download pattern
-          LATEST_TAG=$(echo "$RELEASE_DATA" | jq -r '.tag_name')
-          DOWNLOAD_URL="https://github.com/hiddify/hiddify-app/releases/download/${LATEST_TAG}/hiddify-app-linux-x64.zip"
-        fi
-        
-        echo "Downloading Hiddify from: $DOWNLOAD_URL"
-        wget -q "$DOWNLOAD_URL" -O hiddify-app.zip
-        
-        unzip -q hiddify-app.zip -d hiddify-app
-        sudo mv hiddify-app /opt/
-        sudo chmod +x /opt/hiddify-app/hiddify-app
-        echo "Hiddify version: $(/opt/hiddify-app/hiddify-app --version || true)"
+        # Verify installation
+        echo "Hiddify version: $(hiddify-app --version || echo 'unknown')"
+        echo "Installation path: $(which hiddify-app)"
 
     - name: Install Python dependencies
       run: |
@@ -56,7 +47,7 @@ jobs:
         
         for file in raw_configs/*.txt; do
           echo "Processing $file"
-          /opt/hiddify-app/hiddify-app convert -i "$file" -o "outputs/$(basename "$file" .txt).json" || echo "Conversion failed for $file"
+          hiddify-app convert -i "$file" -o "outputs/$(basename "$file" .txt).json" || echo "Conversion failed for $file"
         done
 
     - name: Verify outputs
