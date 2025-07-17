@@ -29,20 +29,9 @@ jobs:
       run: git clone https://github.com/hiddify/hiddify-core.git
         
     - name: Fetch and convert configs
-  run: |
-    # Debug: Show directory structure before running
-    ls -la
-    ls -la inputs/
-    
-    python scripts/fetch_configs.py
-    
-    # Debug: Show what was downloaded
-    ls -la raw_configs/
-    
-    python scripts/convert_for_hiddify.py
-    
-    # Debug: Show outputs
-    ls -la outputs/
+      run: |
+        python scripts/fetch_configs.py
+        python scripts/convert_for_hiddify.py
         
     - name: Commit and push changes
       run: |
