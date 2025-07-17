@@ -4,7 +4,6 @@ import base64
 import re
 import sys
 from urllib.parse import urlparse, parse_qs
-import yaml
 import subprocess
 
 PROTOCOL_HANDLERS = {
@@ -17,57 +16,85 @@ PROTOCOL_HANDLERS = {
 }
 
 def handle_vmess(url):
-    b64_data = url.replace("vmess://", "")
-    pad = len(b64_data) % 4
-    if pad: b64_data += "=" * (4 - pad)
-    json_str = base64.b64decode(b64_data).decode('utf-8')
-    return json.loads(json_str)
+    try:
+        b64_data = url.replace("vmess://", "")
+        pad = len(b64_data) % 4
+        if pad: b64_data += "=" * (4 - pad)
+        json_str = base64.b64decode(b64_data).decode('utf-8')
+        return json.loads(json_str)
+    except Exception as e:
+        print(f"VMess decode error: {str(e)}")
+        return None
 
 def handle_vless(url):
-    parsed = urlparse(url)
-    query = parse_qs(parsed.query)
-    return {
-        "protocol": "vless",
-        "address": parsed.hostname,
-        "port": parsed.port,
-        "id": parsed.username,
-        **{k: v[0] for k, v in query.items()}
-    }
+    try:
+        parsed = urlparse(url)
+        query = parse_qs(parsed.query)
+        return {
+            "protocol": "vless",
+            "address": parsed.hostname,
+            "port": parsed.port,
+            "id": parsed.username,
+            **{k: v[0] for k, v in query.items()}
+        }
+    except Exception as e:
+        print(f"VLESS parse error: {str(e)}")
+        return None
 
 def handle_ss(url):
-    # ShadowSocks handler
-    return {"protocol": "ss", "url": url}
+    try:
+        # Basic ShadowSocks handler
+        return {"protocol": "ss", "url": url}
+    except Exception as e:
+        print(f"SS parse error: {str(e)}")
+        return None
 
 def handle_trojan(url):
-    parsed = urlparse(url)
-    query = parse_qs(parsed.query)
-    return {
-        "protocol": "trojan",
-        "address": parsed.hostname,
-        "port": parsed.port,
-        "password": parsed.username,
-        **{k: v[0] for k, v in query.items()}
-    }
+    try:
+        parsed = urlparse(url)
+        query = parse_qs(parsed.query)
+        return {
+            "protocol": "trojan",
+            "address": parsed.hostname,
+            "port": parsed.port,
+            "password": parsed.username,
+            **{k: v[0] for k, v in query.items()}
+        }
+    except Exception as e:
+        print(f"Trojan parse error: {str(e)}")
+        return None
 
 def handle_hysteria(url):
-    # Hysteria v1 handler
-    return {"protocol": "hysteria", "url": url}
+    try:
+        # Hysteria v1 handler
+        return {"protocol": "hysteria", "url": url}
+    except Exception as e:
+        print(f"Hysteria parse error: {str(e)}")
+        return None
 
 def handle_hysteria2(url):
-    # Hysteria v2 handler
-    return {"protocol": "hysteria2", "url": url}
+    try:
+        # Hysteria v2 handler
+        return {"protocol": "hysteria2", "url": url}
+    except Exception as e:
+        print(f"Hysteria2 parse error: {str(e)}")
+        return None
 
-def convert_to_v2ray_format(config):
-    """Convert any config to v2ray standard format using v2ray-core"""
+def convert_to_xray_format(config):
+    """Convert config using Xray-core"""
     try:
         result = subprocess.run(
-            ['v2ray', 'convert', json.dumps(config)],
+            ['xray', 'api', 'convert', '-json', json.dumps(config)],
             capture_output=True,
-            text=True
+            text=True,
+            timeout=10
         )
-        return json.loads(result.stdout)
+        if result.returncode == 0:
+            return json.loads(result.stdout)
+        print(f"Xray conversion failed: {result.stderr}")
+        return None
     except Exception as e:
-        print(f"Conversion error: {str(e)}")
+        print(f"Xray conversion error: {str(e)}")
         return None
 
 def process_file(input_file):
@@ -82,9 +109,9 @@ def process_file(input_file):
                 handler = PROTOCOL_HANDLERS[proto]
                 config = handler(url)
                 if config:
-                    v2ray_config = convert_to_v2ray_format(config)
-                    if v2ray_config:
-                        configs.append(v2ray_config)
+                    xray_config = convert_to_xray_format(config)
+                    if xray_config:
+                        configs.append(xray_config)
             except Exception as e:
                 print(f"Error processing {url}: {str(e)}")
     
