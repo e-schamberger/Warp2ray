@@ -1,4 +1,4 @@
-name: Universal Config Generator
+name: Config Generator
 
 on:
   workflow_dispatch:
@@ -21,32 +21,44 @@ jobs:
         sudo apt-get update
         sudo apt-get install -y jq wget unzip
         
-    - name: Install Xray-core (replacement for v2ray)
+    - name: Install Xray-core
       run: |
-        wget https://github.com/XTLS/Xray-core/releases/latest/download/Xray-linux-64.zip
-        unzip Xray-linux-64.zip -d xray
+        wget -q https://github.com/XTLS/Xray-core/releases/latest/download/Xray-linux-64.zip
+        unzip -q Xray-linux-64.zip -d xray
         sudo mv xray/xray /usr/local/bin/
         sudo chmod +x /usr/local/bin/xray
+        xray version
 
     - name: Install Python dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install requests pybase64 pyyaml
+        pip install requests pybase64
 
     - name: Download configs
-      run: python scripts/fetch_configs.py
+      run: |
+        python scripts/fetch_configs.py
+        echo "Downloaded files:"
+        ls -la raw_configs/
+        echo "File contents:"
+        head -n 5 raw_configs/*.txt || true
 
     - name: Process configs
       run: |
         echo "Processing configs..."
+        mkdir -p outputs
         for file in raw_configs/*.txt; do
           python scripts/universal_converter.py "$file"
         done
+        echo "Generated outputs:"
+        ls -la outputs/
+        [ -z "$(ls -A outputs/)" ] && echo "Warning: No output files generated" || true
 
     - name: Commit and push results
+      if: success()
       run: |
         git config --global user.email "github-actions@example.com"
         git config --global user.name "GitHub Actions"
         git add outputs/
-        git commit -m "Auto-update configs $(date +'%Y-%m-%d')" || echo "No changes to commit"
+        git status
+        git commit -m "Auto-update: $(date +'%Y-%m-%d %H:%M:%S')" || echo "No changes to commit"
         git push
