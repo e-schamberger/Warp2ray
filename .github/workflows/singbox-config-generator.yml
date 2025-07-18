@@ -23,15 +23,12 @@ jobs:
         
     - name: Install Sing-box
       run: |
-        # Get latest sing-box release
         LATEST_VERSION=$(curl -s "https://api.github.com/repos/SagerNet/sing-box/releases/latest" | jq -r '.tag_name')
         DOWNLOAD_URL="https://github.com/SagerNet/sing-box/releases/download/${LATEST_VERSION}/sing-box-${LATEST_VERSION#v}-linux-amd64.tar.gz"
-        
         wget -q "$DOWNLOAD_URL" -O sing-box.tar.gz
         tar -xzf sing-box.tar.gz
         sudo mv sing-box-*/sing-box /usr/local/bin/
         sudo chmod +x /usr/local/bin/sing-box
-        
         echo "Sing-box version: $(sing-box version)"
 
     - name: Install Python dependencies
@@ -42,9 +39,9 @@ jobs:
     - name: Download configs
       run: python scripts/fetch_configs.py
 
-    - name: Process configs with Sing-box
+    - name: Process configs
       run: |
-        echo "Processing configs with Sing-box..."
+        echo "Processing configs..."
         mkdir -p outputs
         
         for file in raw_configs/*.txt; do
@@ -57,7 +54,7 @@ jobs:
         echo "Generated outputs:"
         ls -l outputs/
         if [ -z "$(ls -A outputs/)" ]; then
-          echo "Warning: No output files generated!"
+          echo "Error: No output files generated!"
           exit 1
         fi
 
@@ -67,5 +64,5 @@ jobs:
         git config --global user.name "GitHub Actions"
         git add outputs/
         git status
-        git commit -m "Auto-update Sing-box configs $(date +'%Y-%m-%d')" || echo "No changes to commit"
+        git commit -m "Auto-update configs $(date +'%Y-%m-%d')" || echo "No changes to commit"
         git push
