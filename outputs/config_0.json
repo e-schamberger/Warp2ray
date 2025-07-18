@@ -2,57 +2,49 @@
   "outbounds": [
     {
       "type": "vmess",
-      "tag": "\ud83d\udd12 VM-RAW-NA \ud83c\udde8\ud83c\uddf3 CN-47.92.152.169:50002",
+      "tag": "ð VM-RAW-NA ð¨ð³ CN-47.92.152.169:50002",
       "server": "47.92.152.169",
       "server_port": 50002,
       "uuid": "418048af-a293-4b99-9b0c-98ca3580dd24",
       "security": "auto",
-      "transport": {
-        "type": "tcp"
-      }
+      "alter_id": "64"
     },
     {
       "type": "vmess",
-      "tag": "\ud83d\udd12 VM-TCP-NA \ud83c\udde8\ud83c\uddf3 CN-120.210.205.59:50002",
+      "tag": "ð VM-TCP-NA ð¨ð³ CN-120.210.205.59:50002",
       "server": "120.210.205.59",
       "server_port": 50002,
       "uuid": "418048af-a293-4b99-9b0c-98ca3580dd24",
       "security": "auto",
-      "transport": {
-        "type": "tcp"
-      }
+      "alter_id": "0"
     },
     {
       "type": "vmess",
-      "tag": "\ud83d\udd12 VM-TCP-NA \ud83c\udde8\ud83c\uddf3 CN-112.132.215.34:50007",
+      "tag": "ð VM-TCP-NA ð¨ð³ CN-112.132.215.34:50007",
       "server": "112.132.215.34",
       "server_port": 50007,
       "uuid": "418048af-a293-4b99-9b0c-98ca3580dd24",
       "security": "auto",
-      "transport": {
-        "type": "tcp"
-      }
+      "alter_id": "0"
     },
     {
       "type": "vless",
-      "tag": "vless-connection",
+      "tag": "%F0%9F%94%92%20VL-WS-NA%20%F0%9F%87%B7%F0%9F%87%BA%20RU-45.67.215.254%3A8880",
       "server": "45.67.215.254",
       "server_port": 8880,
       "uuid": "34c01e61-f4f3-4afb-a83b-406caf8caa33",
       "flow": "",
-      "tls": {
-        "enabled": true,
-        "server_name": "Telegram-channel-WangCai2"
-      },
       "transport": {
         "type": "ws",
-        "path": "/Telegram\ud83c\udde8\ud83c\uddf3",
-        "host": "yg.bantony199.top"
+        "path": "/Telegram🇨🇳",
+        "headers": {
+          "Host": "yg.bantony199.top"
+        }
       }
     },
     {
       "type": "vless",
-      "tag": "vless-connection",
+      "tag": "%F0%9F%94%92%20VL-WS-TLS%20%F0%9F%87%B0%F0%9F%87%B7%20KR-220.80.8.223%3A50000",
       "server": "220.80.8.223",
       "server_port": 50000,
       "uuid": "ee6774c0-9b19-4ff1-8b30-2da4b71977e2",
@@ -64,97 +56,89 @@
       "transport": {
         "type": "ws",
         "path": "/?ed=2560&proxyip=ts.hpc.tw",
-        "host": "edmk.aimercc.filegear-sg.me"
+        "headers": {
+          "Host": "edmk.aimercc.filegear-sg.me"
+        }
       }
     },
     {
       "type": "vless",
-      "tag": "vless-connection",
+      "tag": "%F0%9F%94%92%20VL-WS-NA%20%F0%9F%87%A9%F0%9F%87%AA%20DE-5.10.215.208%3A8880",
       "server": "5.10.215.208",
       "server_port": 8880,
       "uuid": "53fa8faf-ba4b-4322-9c69-a3e5b1555049",
       "flow": "",
-      "tls": {
-        "enabled": true,
-        "server_name": "reedfree8mahsang2.redorg.ir"
-      },
       "transport": {
         "type": "ws",
         "path": "/TelegramU0001F1E8U0001F1F3",
-        "host": "reedfree8mahsang2.redorg.ir"
+        "headers": {
+          "Host": "reedfree8mahsang2.redorg.ir"
+        }
       }
     },
     {
       "type": "vless",
-      "tag": "vless-connection",
+      "tag": "%F0%9F%94%92%20VL-WS-NA%20%F0%9F%87%A9%F0%9F%87%AA%20DE-5.10.214.0%3A8880",
       "server": "5.10.214.0",
       "server_port": 8880,
       "uuid": "53fa8faf-ba4b-4322-9c69-a3e5b1555049",
       "flow": "",
-      "tls": {
-        "enabled": true,
-        "server_name": "reedfree8mahsang2.redorg.ir"
-      },
       "transport": {
         "type": "ws",
         "path": "/TelegramU0001F1E8U0001F1F3",
-        "host": "reedfree8mahsang2.redorg.ir"
+        "headers": {
+          "Host": "reedfree8mahsang2.redorg.ir"
+        }
       }
     },
     {
       "type": "vless",
-      "tag": "vless-connection",
+      "tag": "%F0%9F%94%92%20VL-WS-NA%20%F0%9F%87%B0%F0%9F%87%BF%20KZ-194.76.18.177%3A8880",
       "server": "194.76.18.177",
       "server_port": 8880,
       "uuid": "583ceab3-4022-4553-9158-9bedc625ad4e",
       "flow": "",
-      "tls": {
-        "enabled": true,
-        "server_name": "Telegram-channel-WangCai2"
-      },
       "transport": {
         "type": "ws",
-        "path": "/Telegram\ud83c\udde8\ud83c\uddf3",
-        "host": "ip.langmanshanxi.top"
+        "path": "/Telegram🇨🇳",
+        "headers": {
+          "Host": "ip.langmanshanxi.top"
+        }
       }
     },
     {
       "type": "vless",
-      "tag": "vless-connection",
+      "tag": "%F0%9F%94%92%20VL-WS-NA%20%F0%9F%87%AC%F0%9F%87%A7%20GB-102.177.189.3%3A8880",
       "server": "102.177.189.3",
       "server_port": 8880,
       "uuid": "b5441b0d-2147-4898-8a6a-9b2c87f58382",
       "flow": "",
-      "tls": {
-        "enabled": true,
-        "server_name": "Telegram-channel-WangCai2"
-      },
       "transport": {
         "type": "ws",
-        "path": "/Telegram\ud83c\udde8\ud83c\uddf3",
-        "host": "bitget1.asdasd.click"
+        "path": "/Telegram🇨🇳",
+        "headers": {
+          "Host": "bitget1.asdasd.click"
+        }
       }
     },
     {
       "type": "vless",
-      "tag": "vless-connection",
+      "tag": "%F0%9F%94%92%20VL-WS-NA%20%F0%9F%87%AC%F0%9F%87%A7%20GB-25.26.27.63%3A8880",
       "server": "25.26.27.63",
       "server_port": 8880,
       "uuid": "fab7bf9c-ddb9-4563-8a04-fb01ce6c0fbf",
       "flow": "",
-      "tls": {
-        "enabled": true,
-        "server_name": "jp.laoyoutiao.link"
-      },
       "transport": {
         "type": "ws",
-        "path": "/Telegram\ud83c\udde8\ud83c\uddf3",
-        "host": "jp.laoyoutiao.link"
+        "path": "/Telegram🇨🇳",
+        "headers": {
+          "Host": "jp.laoyoutiao.link"
+        }
       }
     },
     {
       "type": "vless",
-      "tag": "vless-connection",
+      "tag": "%F0%9F%94%92%20VL-TCP-TLS%20%F0%9F%87%AB%F0%9F%87%AE%20FI-65.108.231.185%3A443",
       "server": "65.108.231.185",
       "server_port": 443,
       "uuid": "440766d1-858f-4719-84f5-c2de6f6227ba",
@@ -164,31 +148,27 @@
         "server_name": "local.rogsoftwaregroup.com"
       },
       "transport": {
-        "type": "tcp",
-        "path": "",
-        "host": ""
+        "type": "tcp"
       }
     },
     {
       "type": "vless",
-      "tag": "vless-connection",
+      "tag": "%F0%9F%94%92%20VL-WS-NONE%20%F0%9F%87%BF%F0%9F%87%A6%20ZA-102.132.188.63%3A8880",
       "server": "102.132.188.63",
       "server_port": 8880,
       "uuid": "fab7bf9c-ddb9-4563-8a04-fb01ce6c0fbf",
       "flow": "",
-      "tls": {
-        "enabled": true,
-        "server_name": "jp.laoyoutiao.link"
-      },
       "transport": {
         "type": "ws",
-        "path": "/Telegram\ud83c\udde8\ud83c\uddf3 @WangCai2 /?ed=2560fp=chrome",
-        "host": "jp.laoyoutiao.link"
+        "path": "/Telegram🇨🇳 @WangCai2 /?ed=2560fp=chrome",
+        "headers": {
+          "Host": "jp.laoyoutiao.link"
+        }
       }
     },
     {
       "type": "vless",
-      "tag": "vless-connection",
+      "tag": "%F0%9F%94%92%20VL-HTTPUPGRADE-TLS%20%F0%9F%87%BA%F0%9F%87%B8%20US-199.34.229.94%3A443",
       "server": "199.34.229.94",
       "server_port": 443,
       "uuid": "9ca79e0a-2c5c-4ac8-90e6-6642e41e6189",
@@ -198,48 +178,42 @@
         "server_name": "uk1.blackismyfavorite.ir"
       },
       "transport": {
-        "type": "httpupgrade",
-        "path": "/XRAYVPNHTTPUPGRADE",
-        "host": "uk1.blackismyfavorite.ir"
+        "type": "httpupgrade"
       }
     },
     {
       "type": "vless",
-      "tag": "vless-connection",
+      "tag": "%F0%9F%94%92%20VL-WS-NA%20%F0%9F%87%BF%F0%9F%87%A6%20ZA-102.177.176.13%3A8880",
       "server": "102.177.176.13",
       "server_port": 8880,
       "uuid": "9f3c4ab7-ea26-4d96-91a9-c85ff64ad9a0",
       "flow": "",
-      "tls": {
-        "enabled": true,
-        "server_name": ""
-      },
       "transport": {
         "type": "ws",
-        "path": "/Telegram\ud83c\udde8\ud83c\uddf3",
-        "host": "c.82313369.xyz"
+        "path": "/Telegram🇨🇳",
+        "headers": {
+          "Host": "c.82313369.xyz"
+        }
       }
     },
     {
       "type": "vless",
-      "tag": "vless-connection",
+      "tag": "%F0%9F%94%92%20VL-WS-NA%20%F0%9F%87%BF%F0%9F%87%A6%20ZA-102.177.176.247%3A8880",
       "server": "102.177.176.247",
       "server_port": 8880,
       "uuid": "d60fc3c5-9f07-4cdb-b81f-70af27936bdc",
       "flow": "",
-      "tls": {
-        "enabled": true,
-        "server_name": "ex.sue.x10.mx"
-      },
       "transport": {
         "type": "ws",
-        "path": "/Telegram\ud83c\udde8\ud83c\uddf3 @WangCai2 /?ed",
-        "host": "ex.sue.x10.mx"
+        "path": "/Telegram🇨🇳 @WangCai2 /?ed",
+        "headers": {
+          "Host": "ex.sue.x10.mx"
+        }
       }
     },
     {
       "type": "vless",
-      "tag": "vless-connection",
+      "tag": "%F0%9F%94%92%20VL-HTTPUPGRADE-TLS%20%F0%9F%87%BA%F0%9F%87%B8%20US-199.34.229.68%3A443",
       "server": "199.34.229.68",
       "server_port": 443,
       "uuid": "9ca79e0a-2c5c-4ac8-90e6-6642e41e6189",
@@ -249,48 +223,42 @@
         "server_name": "uk1.blackismyfavorite.ir"
       },
       "transport": {
-        "type": "httpupgrade",
-        "path": "/XRAYVPNHTTPUPGRADE",
-        "host": "uk1.blackismyfavorite.ir"
+        "type": "httpupgrade"
       }
     },
     {
       "type": "vless",
-      "tag": "vless-connection",
+      "tag": "%F0%9F%94%92%20VL-WS-NA%20%F0%9F%87%AC%F0%9F%87%A7%20GB-25.25.25.29%3A8880",
       "server": "25.25.25.29",
       "server_port": 8880,
       "uuid": "fab7bf9c-ddb9-4563-8a04-fb01ce6c0fbf",
       "flow": "",
-      "tls": {
-        "enabled": true,
-        "server_name": "hk.laoyoutiao.link"
-      },
       "transport": {
         "type": "ws",
         "path": "/TelegramU0001F1E8U0001F1F3",
-        "host": "hk.laoyoutiao.link"
+        "headers": {
+          "Host": "hk.laoyoutiao.link"
+        }
       }
     },
     {
       "type": "vless",
-      "tag": "vless-connection",
+      "tag": "%F0%9F%94%92%20VL-WS-NONE%20%F0%9F%87%AC%F0%9F%87%A7%20GB-102.177.189.29%3A8880",
       "server": "102.177.189.29",
       "server_port": 8880,
       "uuid": "fab7bf9c-ddb9-4563-8a04-fb01ce6c0fbf",
       "flow": "",
-      "tls": {
-        "enabled": true,
-        "server_name": "hk.laoyoutiao.link"
-      },
       "transport": {
         "type": "ws",
         "path": "/TelegramU0001F1E8U0001F1F3kir",
-        "host": "hk.laoyoutiao.link"
+        "headers": {
+          "Host": "hk.laoyoutiao.link"
+        }
       }
     },
     {
       "type": "vless",
-      "tag": "vless-connection",
+      "tag": "%F0%9F%94%92%20VL-GRPC-TLS%20%F0%9F%87%AC%F0%9F%87%A7%20GB-102.177.189.251%3A443",
       "server": "102.177.189.251",
       "server_port": 443,
       "uuid": "401374e6-df77-41fb-f638-dad8184f175b",
@@ -300,14 +268,12 @@
         "server_name": "pqh23v4.hiddendom.shop"
       },
       "transport": {
-        "type": "grpc",
-        "path": "",
-        "host": ""
+        "type": "grpc"
       }
     },
     {
       "type": "vless",
-      "tag": "vless-connection",
+      "tag": "%F0%9F%94%92%20VL-HTTPUPGRADE-TLS%20%F0%9F%87%BA%F0%9F%87%B8%20US-199.34.230.126%3A443",
       "server": "199.34.230.126",
       "server_port": 443,
       "uuid": "9ca79e0a-2c5c-4ac8-90e6-6642e41e6189",
@@ -317,14 +283,12 @@
         "server_name": "uk1.blackismyfavorite.ir"
       },
       "transport": {
-        "type": "httpupgrade",
-        "path": "/XRAYVPNHTTPUPGRADE",
-        "host": "uk1.blackismyfavorite.ir"
+        "type": "httpupgrade"
       }
     },
     {
       "type": "vless",
-      "tag": "vless-connection",
+      "tag": "%F0%9F%94%92%20VL-WS-TLS%20%F0%9F%87%B9%F0%9F%87%B7%20TR-62.3.12.185%3A443",
       "server": "62.3.12.185",
       "server_port": 443,
       "uuid": "75fde681-ec64-4654-86fa-30732e8e179c",
@@ -336,12 +300,14 @@
       "transport": {
         "type": "ws",
         "path": "/",
-        "host": "nginx-z.pages.dev"
+        "headers": {
+          "Host": "nginx-z.pages.dev"
+        }
       }
     },
     {
       "type": "vless",
-      "tag": "vless-connection",
+      "tag": "%F0%9F%94%92%20VL-HTTPUPGRADE-TLS%20%F0%9F%87%BA%F0%9F%87%B8%20US-199.34.230.125%3A443",
       "server": "199.34.230.125",
       "server_port": 443,
       "uuid": "9ca79e0a-2c5c-4ac8-90e6-6642e41e6189",
@@ -351,133 +317,117 @@
         "server_name": "uk1.blackismyfavorite.ir"
       },
       "transport": {
-        "type": "httpupgrade",
-        "path": "/XRAYVPNHTTPUPGRADE",
-        "host": "uk1.blackismyfavorite.ir"
+        "type": "httpupgrade"
       }
     },
     {
       "type": "vless",
-      "tag": "vless-connection",
+      "tag": "%F0%9F%94%92%20VL-WS-NA%20%F0%9F%87%AC%F0%9F%87%A7%20GB-25.25.25.247%3A8880",
       "server": "25.25.25.247",
       "server_port": 8880,
       "uuid": "d60fc3c5-9f07-4cdb-b81f-70af27936bdc",
       "flow": "",
-      "tls": {
-        "enabled": true,
-        "server_name": "ex.sue.x10.mx"
-      },
       "transport": {
         "type": "ws",
-        "path": "/Telegram\ud83c\udde8\ud83c\uddf3",
-        "host": "ex.sue.x10.mx"
+        "path": "/Telegram🇨🇳",
+        "headers": {
+          "Host": "ex.sue.x10.mx"
+        }
       }
     },
     {
       "type": "vless",
-      "tag": "vless-connection",
+      "tag": "%F0%9F%94%92%20VL-WS-NA%20%F0%9F%87%A9%F0%9F%87%AA%20DE-5.10.214.247%3A8880",
       "server": "5.10.214.247",
       "server_port": 8880,
       "uuid": "d60fc3c5-9f07-4cdb-b81f-70af27936bdc",
       "flow": "",
-      "tls": {
-        "enabled": true,
-        "server_name": "ex.sue.x10.mx"
-      },
       "transport": {
         "type": "ws",
-        "path": "/Telegram\ud83c\udde8\ud83c\uddf3",
-        "host": "ex.sue.x10.mx"
+        "path": "/Telegram🇨🇳",
+        "headers": {
+          "Host": "ex.sue.x10.mx"
+        }
       }
     },
     {
       "type": "vless",
-      "tag": "vless-connection",
+      "tag": "%F0%9F%94%92%20VL-WS-NA%20%F0%9F%87%BF%F0%9F%87%A6%20ZA-102.177.176.251%3A8880",
       "server": "102.177.176.251",
       "server_port": 8880,
       "uuid": "0132166f-e702-48ed-a9e7-b07af768faf8",
       "flow": "",
-      "tls": {
-        "enabled": true,
-        "server_name": ""
-      },
       "transport": {
         "type": "ws",
-        "path": "/Telegram\ud83c\udde8\ud83c\uddf3 @WangCai2 /?ed=2560",
-        "host": "cf.d3z.net"
+        "path": "/Telegram🇨🇳 @WangCai2 /?ed=2560",
+        "headers": {
+          "Host": "cf.d3z.net"
+        }
       }
     },
     {
       "type": "vless",
-      "tag": "vless-connection",
+      "tag": "%F0%9F%94%92%20VL-WS-NA%20%F0%9F%87%A9%F0%9F%87%AA%20DE-5.10.214.254%3A8880",
       "server": "5.10.214.254",
       "server_port": 8880,
       "uuid": "34c01e61-f4f3-4afb-a83b-406caf8caa33",
       "flow": "",
-      "tls": {
-        "enabled": true,
-        "server_name": ""
-      },
       "transport": {
         "type": "ws",
         "path": "/",
-        "host": "yg.bantony199.top"
+        "headers": {
+          "Host": "yg.bantony199.top"
+        }
       }
     },
     {
       "type": "vless",
-      "tag": "vless-connection",
+      "tag": "%F0%9F%94%92%20VL-WS-NA%20%F0%9F%87%BA%F0%9F%87%B8%20US-209.94.90.13%3A8880",
       "server": "209.94.90.13",
       "server_port": 8880,
       "uuid": "9f3c4ab7-ea26-4d96-91a9-c85ff64ad9a0",
       "flow": "",
-      "tls": {
-        "enabled": true,
-        "server_name": "Telegram-channel-WangCai2"
-      },
       "transport": {
         "type": "ws",
-        "path": "/Telegram\ud83c\udde8\ud83c\uddf3",
-        "host": "c.82313369.xyz"
+        "path": "/Telegram🇨🇳",
+        "headers": {
+          "Host": "c.82313369.xyz"
+        }
       }
     },
     {
       "type": "vless",
-      "tag": "vless-connection",
+      "tag": "%F0%9F%94%92%20VL-WS-NA%20%F0%9F%87%AC%F0%9F%87%A7%20GB-25.26.27.3%3A8880",
       "server": "25.26.27.3",
       "server_port": 8880,
       "uuid": "b5441b0d-2147-4898-8a6a-9b2c87f58382",
       "flow": "",
-      "tls": {
-        "enabled": true,
-        "server_name": "Telegram-channel-WangCai2"
-      },
       "transport": {
         "type": "ws",
         "path": "/Telegram",
-        "host": "bitget1.asdasd.click"
+        "headers": {
+          "Host": "bitget1.asdasd.click"
+        }
       }
     },
     {
       "type": "vless",
-      "tag": "vless-connection",
+      "tag": "%F0%9F%94%92%20VL-WS-NA%20%F0%9F%87%A9%F0%9F%87%AA%20DE-5.10.214.144%3A8880",
       "server": "5.10.214.144",
       "server_port": 8880,
       "uuid": "53fa8faf-ba4b-4322-9c69-a3e5b1555049",
       "flow": "",
-      "tls": {
-        "enabled": true,
-        "server_name": "reedfree8mahsang2.redorg.ir"
-      },
       "transport": {
         "type": "ws",
         "path": "/TelegramU0001F1E8U0001F1F3",
-        "host": "reedfree8mahsang2.redorg.ir"
+        "headers": {
+          "Host": "reedfree8mahsang2.redorg.ir"
+        }
       }
     },
     {
       "type": "vless",
-      "tag": "vless-connection",
+      "tag": "%F0%9F%94%92%20VL-WS-TLS%20%F0%9F%87%A8%F0%9F%87%BE%20CY-154.92.9.176%3A443",
       "server": "154.92.9.176",
       "server_port": 443,
       "uuid": "ec8a65ad-aafc-4095-9b8c-ea10890ca629",
@@ -489,12 +439,14 @@
       "transport": {
         "type": "ws",
         "path": "/Javid-SHAH-KingRezaPahlavi/?ed",
-        "host": "simorgh.hpcode.ir"
+        "headers": {
+          "Host": "simorgh.hpcode.ir"
+        }
       }
     },
     {
       "type": "vless",
-      "tag": "vless-connection",
+      "tag": "%F0%9F%94%92%20VL-HTTPUPGRADE-TLS%20%F0%9F%87%BA%F0%9F%87%B8%20US-199.34.230.114%3A443",
       "server": "199.34.230.114",
       "server_port": 443,
       "uuid": "9ca79e0a-2c5c-4ac8-90e6-6642e41e6189",
@@ -504,14 +456,12 @@
         "server_name": "uk1.blackismyfavorite.ir"
       },
       "transport": {
-        "type": "httpupgrade",
-        "path": "/XRAYVPNHTTPUPGRADE",
-        "host": "uk1.blackismyfavorite.ir"
+        "type": "httpupgrade"
       }
     },
     {
       "type": "vless",
-      "tag": "vless-connection",
+      "tag": "%F0%9F%94%92%20VL-WS-TLS%20%F0%9F%87%A8%F0%9F%87%BE%20CY-154.92.9.151%3A443",
       "server": "154.92.9.151",
       "server_port": 443,
       "uuid": "ec8a65ad-aafc-4095-9b8c-ea10890ca629",
@@ -523,709 +473,609 @@
       "transport": {
         "type": "ws",
         "path": "/Javid-SHAH-KingRezaPahlavi/?ed=2560",
-        "host": "simorgh.hpcode.ir"
+        "headers": {
+          "Host": "simorgh.hpcode.ir"
+        }
       }
     },
     {
       "type": "vless",
-      "tag": "vless-connection",
+      "tag": "%F0%9F%94%92%20VL-WS-NA%20%F0%9F%87%B8%F0%9F%87%A8%20SC-154.194.0.63%3A8880",
       "server": "154.194.0.63",
       "server_port": 8880,
       "uuid": "fab7bf9c-ddb9-4563-8a04-fb01ce6c0fbf",
       "flow": "",
-      "tls": {
-        "enabled": true,
-        "server_name": "jp.laoyoutiao.link"
-      },
       "transport": {
         "type": "ws",
-        "path": "/Telegram\ud83c\udde8\ud83c\uddf3",
-        "host": "jp.laoyoutiao.link"
+        "path": "/Telegram🇨🇳",
+        "headers": {
+          "Host": "jp.laoyoutiao.link"
+        }
       }
     },
     {
       "type": "vless",
-      "tag": "vless-connection",
+      "tag": "%F0%9F%94%92%20VL-WS-NA%20%F0%9F%87%BA%F0%9F%87%B8%20US-192.200.160.177%3A8880",
       "server": "192.200.160.177",
       "server_port": 8880,
       "uuid": "583ceab3-4022-4553-9158-9bedc625ad4e",
       "flow": "",
-      "tls": {
-        "enabled": true,
-        "server_name": "Telegram-channel-WangCai2"
-      },
       "transport": {
         "type": "ws",
         "path": "/Telegram",
-        "host": "ip.langmanshanxi.top"
+        "headers": {
+          "Host": "ip.langmanshanxi.top"
+        }
       }
     },
     {
       "type": "vless",
-      "tag": "vless-connection",
+      "tag": "%F0%9F%94%92%20VL-WS-NA%20%F0%9F%87%BF%F0%9F%87%A6%20ZA-102.132.188.13%3A8880",
       "server": "102.132.188.13",
       "server_port": 8880,
       "uuid": "9f3c4ab7-ea26-4d96-91a9-c85ff64ad9a0",
       "flow": "",
-      "tls": {
-        "enabled": true,
-        "server_name": "Telegram-channel-WangCai2"
-      },
       "transport": {
         "type": "ws",
-        "path": "/Telegram\ud83c\udde8\ud83c\uddf3",
-        "host": "c.82313369.xyz"
+        "path": "/Telegram🇨🇳",
+        "headers": {
+          "Host": "c.82313369.xyz"
+        }
       }
     },
     {
       "type": "vless",
-      "tag": "vless-connection",
+      "tag": "%F0%9F%94%92%20VL-WS-NA%20%F0%9F%87%BA%F0%9F%87%B8%20US-199.34.228.63%3A8880",
       "server": "199.34.228.63",
       "server_port": 8880,
       "uuid": "fab7bf9c-ddb9-4563-8a04-fb01ce6c0fbf",
       "flow": "",
-      "tls": {
-        "enabled": true,
-        "server_name": "jp.laoyoutiao.link"
-      },
       "transport": {
         "type": "ws",
-        "path": "/Telegram\ud83c\udde8\ud83c\uddf3",
-        "host": "jp.laoyoutiao.link"
+        "path": "/Telegram🇨🇳",
+        "headers": {
+          "Host": "jp.laoyoutiao.link"
+        }
       }
     },
     {
       "type": "vless",
-      "tag": "vless-connection",
+      "tag": "%F0%9F%94%92%20VL-WS-NA%20%F0%9F%87%AC%F0%9F%87%A7%20GB-25.25.25.3%3A8880",
       "server": "25.25.25.3",
       "server_port": 8880,
       "uuid": "b5441b0d-2147-4898-8a6a-9b2c87f58382",
       "flow": "",
-      "tls": {
-        "enabled": true,
-        "server_name": "Telegram-channel-WangCai2"
-      },
       "transport": {
         "type": "ws",
-        "path": "/Telegram\ud83c\udde8\ud83c\uddf3",
-        "host": "bitget1.asdasd.click"
+        "path": "/Telegram🇨🇳",
+        "headers": {
+          "Host": "bitget1.asdasd.click"
+        }
       }
     },
     {
       "type": "vless",
-      "tag": "vless-connection",
+      "tag": "%F0%9F%94%92%20VL-WS-NA%20%F0%9F%87%BF%F0%9F%87%A6%20ZA-102.177.176.20%3A8880",
       "server": "102.177.176.20",
       "server_port": 8880,
       "uuid": "53fa8faf-ba4b-4322-9c69-a3e5b1555049",
       "flow": "",
-      "tls": {
-        "enabled": true,
-        "server_name": "reedfree8mahsang2.redorg.ir"
-      },
       "transport": {
         "type": "ws",
         "path": "/",
-        "host": "reedfree8mahsang2.redorg.ir"
+        "headers": {
+          "Host": "reedfree8mahsang2.redorg.ir"
+        }
       }
     },
     {
       "type": "vless",
-      "tag": "vless-connection",
+      "tag": "%F0%9F%94%92%20VL-WS-NA%20%F0%9F%87%A9%F0%9F%87%AA%20DE-5.10.215.213%3A8880",
       "server": "5.10.215.213",
       "server_port": 8880,
       "uuid": "fab7bf9c-ddb9-4563-8a04-fb01ce6c0fbf",
       "flow": "",
-      "tls": {
-        "enabled": true,
-        "server_name": ""
-      },
       "transport": {
         "type": "ws",
         "path": "/",
-        "host": "jp.laoyoutiao.link"
+        "headers": {
+          "Host": "jp.laoyoutiao.link"
+        }
       }
     },
     {
       "type": "vless",
-      "tag": "vless-connection",
+      "tag": "%F0%9F%94%92%20VL-WS-NA%20%F0%9F%87%BF%F0%9F%87%A6%20ZA-102.177.176.13%3A8880",
       "server": "102.177.176.13",
       "server_port": 8880,
       "uuid": "9f3c4ab7-ea26-4d96-91a9-c85ff64ad9a0",
       "flow": "",
-      "tls": {
-        "enabled": true,
-        "server_name": ""
-      },
       "transport": {
         "type": "ws",
-        "path": "/Telegram\ud83c\udde8\ud83c\uddf3 @WangCai2 /?ed=2560",
-        "host": "c.82313369.xyz"
+        "path": "/Telegram🇨🇳 @WangCai2 /?ed=2560",
+        "headers": {
+          "Host": "c.82313369.xyz"
+        }
       }
     },
     {
       "type": "vless",
-      "tag": "vless-connection",
+      "tag": "%F0%9F%94%92%20VL-WS-NA%20%F0%9F%87%BF%F0%9F%87%A6%20ZA-102.177.176.29%3A8880",
       "server": "102.177.176.29",
       "server_port": 8880,
       "uuid": "fab7bf9c-ddb9-4563-8a04-fb01ce6c0fbf",
       "flow": "",
-      "tls": {
-        "enabled": true,
-        "server_name": ""
-      },
       "transport": {
         "type": "ws",
         "path": "/",
-        "host": "hk.laoyoutiao.link"
+        "headers": {
+          "Host": "hk.laoyoutiao.link"
+        }
       }
     },
     {
       "type": "vless",
-      "tag": "vless-connection",
+      "tag": "%F0%9F%94%92%20VL-WS-NA%20%F0%9F%87%BF%F0%9F%87%A6%20ZA-102.177.176.177%3A8880",
       "server": "102.177.176.177",
       "server_port": 8880,
       "uuid": "583ceab3-4022-4553-9158-9bedc625ad4e",
       "flow": "",
-      "tls": {
-        "enabled": true,
-        "server_name": "Telegram-channel-WangCai2"
-      },
       "transport": {
         "type": "ws",
-        "path": "/Telegram\ud83c\udde8\ud83c\uddf3",
-        "host": "ip.langmanshanxi.top"
+        "path": "/Telegram🇨🇳",
+        "headers": {
+          "Host": "ip.langmanshanxi.top"
+        }
       }
     },
     {
       "type": "vless",
-      "tag": "vless-connection",
+      "tag": "%F0%9F%94%92%20VL-WS-NA%20%F0%9F%87%BA%F0%9F%87%B8%20US-160.79.105.13%3A8880",
       "server": "160.79.105.13",
       "server_port": 8880,
       "uuid": "9f3c4ab7-ea26-4d96-91a9-c85ff64ad9a0",
       "flow": "",
-      "tls": {
-        "enabled": true,
-        "server_name": "Telegram-channel-WangCai2"
-      },
       "transport": {
         "type": "ws",
-        "path": "/Telegram\ud83c\udde8\ud83c\uddf3",
-        "host": "c.82313369.xyz"
+        "path": "/Telegram🇨🇳",
+        "headers": {
+          "Host": "c.82313369.xyz"
+        }
       }
     },
     {
       "type": "vless",
-      "tag": "vless-connection",
+      "tag": "%F0%9F%94%92%20VL-WS-NA%20%F0%9F%87%AC%F0%9F%87%A7%20GB-25.26.27.29%3A8880",
       "server": "25.26.27.29",
       "server_port": 8880,
       "uuid": "fab7bf9c-ddb9-4563-8a04-fb01ce6c0fbf",
       "flow": "",
-      "tls": {
-        "enabled": true,
-        "server_name": "hk.laoyoutiao.link"
-      },
       "transport": {
         "type": "ws",
         "path": "/TelegramU0001F1E8U0001F1F3",
-        "host": "hk.laoyoutiao.link"
+        "headers": {
+          "Host": "hk.laoyoutiao.link"
+        }
       }
     },
     {
       "type": "vless",
-      "tag": "vless-connection",
+      "tag": "%F0%9F%94%92%20VL-WS-NA%20%F0%9F%87%AC%F0%9F%87%A7%20GB-25.26.27.13%3A8880",
       "server": "25.26.27.13",
       "server_port": 8880,
       "uuid": "9f3c4ab7-ea26-4d96-91a9-c85ff64ad9a0",
       "flow": "",
-      "tls": {
-        "enabled": true,
-        "server_name": "Telegram-channel-WangCai2"
-      },
       "transport": {
         "type": "ws",
-        "path": "/Telegram\ud83c\udde8\ud83c\uddf3",
-        "host": "c.82313369.xyz"
+        "path": "/Telegram🇨🇳",
+        "headers": {
+          "Host": "c.82313369.xyz"
+        }
       }
     },
     {
       "type": "vless",
-      "tag": "vless-connection",
+      "tag": "%F0%9F%94%92%20VL-WS-NA%20%F0%9F%87%B1%F0%9F%87%B9%20LT-88.216.69.247%3A8880",
       "server": "88.216.69.247",
       "server_port": 8880,
       "uuid": "d60fc3c5-9f07-4cdb-b81f-70af27936bdc",
       "flow": "",
-      "tls": {
-        "enabled": true,
-        "server_name": "ex.sue.x10.mx"
-      },
       "transport": {
         "type": "ws",
-        "path": "/Telegram\ud83c\udde8\ud83c\uddf3",
-        "host": "ex.sue.x10.mx"
+        "path": "/Telegram🇨🇳",
+        "headers": {
+          "Host": "ex.sue.x10.mx"
+        }
       }
     },
     {
       "type": "vless",
-      "tag": "vless-connection",
+      "tag": "%F0%9F%94%92%20VL-WS-NA%20%F0%9F%87%AC%F0%9F%87%A7%20GB-25.25.25.177%3A8880",
       "server": "25.25.25.177",
       "server_port": 8880,
       "uuid": "583ceab3-4022-4553-9158-9bedc625ad4e",
       "flow": "",
-      "tls": {
-        "enabled": true,
-        "server_name": "Telegram-channel-WangCai2"
-      },
       "transport": {
         "type": "ws",
-        "path": "/Telegram\ud83c\udde8\ud83c\uddf3",
-        "host": "ip.langmanshanxi.top"
+        "path": "/Telegram🇨🇳",
+        "headers": {
+          "Host": "ip.langmanshanxi.top"
+        }
       }
     },
     {
       "type": "vless",
-      "tag": "vless-connection",
+      "tag": "%F0%9F%94%92%20VL-WS-NA%20%F0%9F%87%AA%F0%9F%87%B8%20ES-185.251.81.177%3A8880",
       "server": "185.251.81.177",
       "server_port": 8880,
       "uuid": "583ceab3-4022-4553-9158-9bedc625ad4e",
       "flow": "",
-      "tls": {
-        "enabled": true,
-        "server_name": ""
-      },
       "transport": {
         "type": "ws",
-        "path": "/Telegram\ud83c\udde8\ud83c\uddf3@WangCai2/?ed=2560",
-        "host": "ip.langmanshanxi.top"
+        "path": "/Telegram🇨🇳@WangCai2/?ed=2560",
+        "headers": {
+          "Host": "ip.langmanshanxi.top"
+        }
       }
     },
     {
       "type": "vless",
-      "tag": "vless-connection",
+      "tag": "%F0%9F%94%92%20VL-WS-NA%20%F0%9F%87%AC%F0%9F%87%A7%20GB-25.26.27.177%3A8880",
       "server": "25.26.27.177",
       "server_port": 8880,
       "uuid": "583ceab3-4022-4553-9158-9bedc625ad4e",
       "flow": "",
-      "tls": {
-        "enabled": true,
-        "server_name": "Telegram-channel-WangCai2"
-      },
       "transport": {
         "type": "ws",
-        "path": "/Telegram\ud83c\udde8\ud83c\uddf3",
-        "host": "ip.langmanshanxi.top"
+        "path": "/Telegram🇨🇳",
+        "headers": {
+          "Host": "ip.langmanshanxi.top"
+        }
       }
     },
     {
       "type": "vless",
-      "tag": "vless-connection",
+      "tag": "%F0%9F%94%92%20VL-WS-NA%20%F0%9F%87%A9%F0%9F%87%AA%20DE-5.10.214.56%3A8880",
       "server": "5.10.214.56",
       "server_port": 8880,
       "uuid": "53fa8faf-ba4b-4322-9c69-a3e5b1555049",
       "flow": "",
-      "tls": {
-        "enabled": true,
-        "server_name": ""
-      },
       "transport": {
         "type": "ws",
         "path": "/",
-        "host": "reedfree8mahsang2.redorg.ir"
+        "headers": {
+          "Host": "reedfree8mahsang2.redorg.ir"
+        }
       }
     },
     {
       "type": "vless",
-      "tag": "vless-connection",
+      "tag": "%F0%9F%94%92%20VL-WS-NA%20%F0%9F%87%AC%F0%9F%87%A7%20GB-25.25.25.13%3A8880",
       "server": "25.25.25.13",
       "server_port": 8880,
       "uuid": "9f3c4ab7-ea26-4d96-91a9-c85ff64ad9a0",
       "flow": "",
-      "tls": {
-        "enabled": true,
-        "server_name": "Telegram-channel-WangCai2"
-      },
       "transport": {
         "type": "ws",
-        "path": "/Telegram\ud83c\udde8\ud83c\uddf3",
-        "host": "c.82313369.xyz"
+        "path": "/Telegram🇨🇳",
+        "headers": {
+          "Host": "c.82313369.xyz"
+        }
       }
     },
     {
       "type": "vless",
-      "tag": "vless-connection",
+      "tag": "%F0%9F%94%92%20VL-WS-NONE%20%F0%9F%87%AC%F0%9F%87%A7%20GB-102.177.189.29%3A8880",
       "server": "102.177.189.29",
       "server_port": 8880,
       "uuid": "fab7bf9c-ddb9-4563-8a04-fb01ce6c0fbf",
       "flow": "",
-      "tls": {
-        "enabled": true,
-        "server_name": "hk.laoyoutiao.link"
-      },
       "transport": {
         "type": "ws",
         "path": "/TelegramU0001F1E8U0001F1F3",
-        "host": "hk.laoyoutiao.link"
+        "headers": {
+          "Host": "hk.laoyoutiao.link"
+        }
       }
     },
     {
       "type": "vless",
-      "tag": "vless-connection",
+      "tag": "%F0%9F%94%92%20VL-WS-NONE%20%F0%9F%87%BF%F0%9F%87%A6%20ZA-102.177.176.213%3A8880",
       "server": "102.177.176.213",
       "server_port": 8880,
       "uuid": "fab7bf9c-ddb9-4563-8a04-fb01ce6c0fbf",
       "flow": "",
-      "tls": {
-        "enabled": true,
-        "server_name": ""
-      },
       "transport": {
         "type": "ws",
         "path": "/",
-        "host": "jp.laoyoutiao.link"
+        "headers": {
+          "Host": "jp.laoyoutiao.link"
+        }
       }
     },
     {
       "type": "vless",
-      "tag": "vless-connection",
+      "tag": "%F0%9F%94%92%20VL-WS-NONE%20%F0%9F%87%BA%F0%9F%87%B8%20US-141.193.213.11%3A80",
       "server": "141.193.213.11",
       "server_port": 80,
       "uuid": "fab7bf9c-ddb9-4563-8a04-fb01ce6c0fbf",
       "flow": "",
-      "tls": {
-        "enabled": true,
-        "server_name": ""
-      },
       "transport": {
         "type": "ws",
         "path": "/Telegram",
-        "host": "cs.laoyoutiao.link"
+        "headers": {
+          "Host": "cs.laoyoutiao.link"
+        }
       }
     },
     {
       "type": "vless",
-      "tag": "vless-connection",
+      "tag": "%F0%9F%94%92%20VL-WS-NA%20%F0%9F%87%BF%F0%9F%87%A6%20ZA-102.132.188.13%3A8880",
       "server": "102.132.188.13",
       "server_port": 8880,
       "uuid": "9f3c4ab7-ea26-4d96-91a9-c85ff64ad9a0",
       "flow": "",
-      "tls": {
-        "enabled": true,
-        "server_name": "Telegram-channel-WangCai2"
-      },
       "transport": {
         "type": "ws",
-        "path": "/Telegram\ud83c\udde8\ud83c\uddf3",
-        "host": "c.82313369.xyz"
+        "path": "/Telegram🇨🇳",
+        "headers": {
+          "Host": "c.82313369.xyz"
+        }
       }
     },
     {
       "type": "vless",
-      "tag": "vless-connection",
+      "tag": "%F0%9F%94%92%20VL-WS-NA%20%F0%9F%87%AC%F0%9F%87%A7%20GB-25.25.25.177%3A8880",
       "server": "25.25.25.177",
       "server_port": 8880,
       "uuid": "583ceab3-4022-4553-9158-9bedc625ad4e",
       "flow": "",
-      "tls": {
-        "enabled": true,
-        "server_name": "Telegram-channel-WangCai2"
-      },
       "transport": {
         "type": "ws",
-        "path": "/Telegram\ud83c\udde8\ud83c\uddf3",
-        "host": "ip.langmanshanxi.top"
+        "path": "/Telegram🇨🇳",
+        "headers": {
+          "Host": "ip.langmanshanxi.top"
+        }
       }
     },
     {
       "type": "vless",
-      "tag": "vless-connection",
+      "tag": "%F0%9F%94%92%20VL-WS-NONE%20%F0%9F%87%BF%F0%9F%87%A6%20ZA-102.132.188.63%3A8880",
       "server": "102.132.188.63",
       "server_port": 8880,
       "uuid": "fab7bf9c-ddb9-4563-8a04-fb01ce6c0fbf",
       "flow": "",
-      "tls": {
-        "enabled": true,
-        "server_name": "jp.laoyoutiao.link"
-      },
       "transport": {
         "type": "ws",
-        "path": "/Telegram\ud83c\udde8\ud83c\uddf3 @WangCai2 /?ed=2560fp=chrome",
-        "host": "jp.laoyoutiao.link"
+        "path": "/Telegram🇨🇳 @WangCai2 /?ed=2560fp=chrome",
+        "headers": {
+          "Host": "jp.laoyoutiao.link"
+        }
       }
     },
     {
       "type": "vless",
-      "tag": "vless-connection",
+      "tag": "%F0%9F%94%92%20VL-WS-NA%20%F0%9F%87%AC%F0%9F%87%A7%20GB-25.25.25.63%3A8880",
       "server": "25.25.25.63",
       "server_port": 8880,
       "uuid": "fab7bf9c-ddb9-4563-8a04-fb01ce6c0fbf",
       "flow": "",
-      "tls": {
-        "enabled": true,
-        "server_name": "jp.laoyoutiao.link"
-      },
       "transport": {
         "type": "ws",
-        "path": "/Telegram\ud83c\udde8\ud83c\uddf3",
-        "host": "jp.laoyoutiao.link"
+        "path": "/Telegram🇨🇳",
+        "headers": {
+          "Host": "jp.laoyoutiao.link"
+        }
       }
     },
     {
       "type": "vless",
-      "tag": "vless-connection",
+      "tag": "%F0%9F%94%92%20VL-WS-NA%20%F0%9F%87%AC%F0%9F%87%A7%20GB-25.25.25.247%3A8880",
       "server": "25.25.25.247",
       "server_port": 8880,
       "uuid": "d60fc3c5-9f07-4cdb-b81f-70af27936bdc",
       "flow": "",
-      "tls": {
-        "enabled": true,
-        "server_name": "ex.sue.x10.mx"
-      },
       "transport": {
         "type": "ws",
-        "path": "/Telegram\ud83c\udde8\ud83c\uddf3",
-        "host": "ex.sue.x10.mx"
+        "path": "/Telegram🇨🇳",
+        "headers": {
+          "Host": "ex.sue.x10.mx"
+        }
       }
     },
     {
       "type": "vless",
-      "tag": "vless-connection",
+      "tag": "%F0%9F%94%92%20VL-WS-NONE%20%F0%9F%87%AC%F0%9F%87%A7%20GB-25.25.25.19%3A8880",
       "server": "25.25.25.19",
       "server_port": 8880,
       "uuid": "fab7bf9c-ddb9-4563-8a04-fb01ce6c0fbf",
       "flow": "",
-      "tls": {
-        "enabled": true,
-        "server_name": "hk.laoyoutiao.link"
-      },
       "transport": {
         "type": "ws",
-        "path": "telegram\ud83c\udde8\ud83c\uddf3 @pgkj666 /?ed=2560",
-        "host": "hk.laoyoutiao.link"
+        "path": "telegram🇨🇳 @pgkj666 /?ed=2560",
+        "headers": {
+          "Host": "hk.laoyoutiao.link"
+        }
       }
     },
     {
       "type": "vless",
-      "tag": "vless-connection",
+      "tag": "%F0%9F%94%92%20VL-WS-NA%20%F0%9F%87%A9%F0%9F%87%AA%20DE-5.10.215.247%3A8880",
       "server": "5.10.215.247",
       "server_port": 8880,
       "uuid": "d60fc3c5-9f07-4cdb-b81f-70af27936bdc",
       "flow": "",
-      "tls": {
-        "enabled": true,
-        "server_name": "ex.sue.x10.mx"
-      },
       "transport": {
         "type": "ws",
-        "path": "/Telegram\ud83c\udde8\ud83c\uddf3",
-        "host": "ex.sue.x10.mx"
+        "path": "/Telegram🇨🇳",
+        "headers": {
+          "Host": "ex.sue.x10.mx"
+        }
       }
     },
     {
       "type": "vless",
-      "tag": "vless-connection",
+      "tag": "%F0%9F%94%92%20VL-WS-NA%20%F0%9F%87%BF%F0%9F%87%A6%20ZA-102.177.176.29%3A8880",
       "server": "102.177.176.29",
       "server_port": 8880,
       "uuid": "fab7bf9c-ddb9-4563-8a04-fb01ce6c0fbf",
       "flow": "",
-      "tls": {
-        "enabled": true,
-        "server_name": ""
-      },
       "transport": {
         "type": "ws",
         "path": "/",
-        "host": "hk.laoyoutiao.link"
+        "headers": {
+          "Host": "hk.laoyoutiao.link"
+        }
       }
     },
     {
       "type": "vless",
-      "tag": "vless-connection",
+      "tag": "%F0%9F%94%92%20VL-WS-NA%20%F0%9F%87%BF%F0%9F%87%A6%20ZA-102.177.176.13%3A8880",
       "server": "102.177.176.13",
       "server_port": 8880,
       "uuid": "9f3c4ab7-ea26-4d96-91a9-c85ff64ad9a0",
       "flow": "",
-      "tls": {
-        "enabled": true,
-        "server_name": ""
-      },
       "transport": {
         "type": "ws",
-        "path": "/Telegram\ud83c\udde8\ud83c\uddf3",
-        "host": "c.82313369.xyz"
+        "path": "/Telegram🇨🇳",
+        "headers": {
+          "Host": "c.82313369.xyz"
+        }
       }
     },
     {
       "type": "vless",
-      "tag": "vless-connection",
+      "tag": "%F0%9F%94%92%20VL-WS-NA%20%F0%9F%87%AC%F0%9F%87%A7%20GB-102.177.189.13%3A8880",
       "server": "102.177.189.13",
       "server_port": 8880,
       "uuid": "9f3c4ab7-ea26-4d96-91a9-c85ff64ad9a0",
       "flow": "",
-      "tls": {
-        "enabled": true,
-        "server_name": "Telegram-channel-WangCai2"
-      },
       "transport": {
         "type": "ws",
-        "path": "/Telegram\ud83c\udde8\ud83c\uddf3",
-        "host": "c.82313369.xyz"
+        "path": "/Telegram🇨🇳",
+        "headers": {
+          "Host": "c.82313369.xyz"
+        }
       }
     },
     {
       "type": "vless",
-      "tag": "vless-connection",
+      "tag": "%F0%9F%94%92%20VL-WS-NA%20%F0%9F%87%BA%F0%9F%87%B8%20US-192.0.63.254%3A8880",
       "server": "192.0.63.254",
       "server_port": 8880,
       "uuid": "34c01e61-f4f3-4afb-a83b-406caf8caa33",
       "flow": "",
-      "tls": {
-        "enabled": true,
-        "server_name": ""
-      },
       "transport": {
         "type": "ws",
-        "path": "/Telegram\ud83c\udde8\ud83c\uddf3",
-        "host": "yg.bantony199.top"
+        "path": "/Telegram🇨🇳",
+        "headers": {
+          "Host": "yg.bantony199.top"
+        }
       }
     },
     {
       "type": "vless",
-      "tag": "vless-connection",
+      "tag": "%F0%9F%94%92%20VL-WS-NA%20%F0%9F%87%AC%F0%9F%87%A7%20GB-102.177.189.3%3A8880",
       "server": "102.177.189.3",
       "server_port": 8880,
       "uuid": "b5441b0d-2147-4898-8a6a-9b2c87f58382",
       "flow": "",
-      "tls": {
-        "enabled": true,
-        "server_name": "Telegram-channel-WangCai2"
-      },
       "transport": {
         "type": "ws",
-        "path": "/Telegram\ud83c\udde8\ud83c\uddf3",
-        "host": "bitget1.asdasd.click"
+        "path": "/Telegram🇨🇳",
+        "headers": {
+          "Host": "bitget1.asdasd.click"
+        }
       }
     },
     {
       "type": "vless",
-      "tag": "vless-connection",
+      "tag": "%F0%9F%94%92%20VL-WS-NONE%20%F0%9F%87%A9%F0%9F%87%AA%20DE-5.10.214.103%3A8880",
       "server": "5.10.214.103",
       "server_port": 8880,
       "uuid": "53fa8faf-ba4b-4322-9c69-a3e5b1555049",
       "flow": "",
-      "tls": {
-        "enabled": true,
-        "server_name": ""
-      },
       "transport": {
         "type": "ws",
         "path": "/",
-        "host": "reedfree8mahsang2.redorg.ir"
+        "headers": {
+          "Host": "reedfree8mahsang2.redorg.ir"
+        }
       }
     },
     {
       "type": "vless",
-      "tag": "vless-connection",
+      "tag": "%F0%9F%94%92%20VL-WS-NA%20%F0%9F%87%BA%F0%9F%87%B8%20US-192.0.54.247%3A8880",
       "server": "192.0.54.247",
       "server_port": 8880,
       "uuid": "d60fc3c5-9f07-4cdb-b81f-70af27936bdc",
       "flow": "",
-      "tls": {
-        "enabled": true,
-        "server_name": "ex.sue.x10.mx"
-      },
       "transport": {
         "type": "ws",
-        "path": "/Telegram\ud83c\udde8\ud83c\uddf3",
-        "host": "ex.sue.x10.mx"
+        "path": "/Telegram🇨🇳",
+        "headers": {
+          "Host": "ex.sue.x10.mx"
+        }
       }
     },
     {
       "type": "vless",
-      "tag": "vless-connection",
+      "tag": "%F0%9F%94%92%20VL-TCP-NONE%20%F0%9F%87%AE%F0%9F%87%B7%20IR-94.232.170.141%3A1501",
       "server": "94.232.170.141",
       "server_port": 1501,
       "uuid": "2f33cc6f-c80a-4c19-ac4f-66547bfdd33d",
       "flow": "",
-      "tls": {
-        "enabled": true,
-        "server_name": ""
-      },
       "transport": {
-        "type": "tcp",
-        "path": "",
-        "host": "varzesh3.com"
+        "type": "tcp"
       }
     },
     {
       "type": "vless",
-      "tag": "vless-connection",
+      "tag": "%F0%9F%94%92%20VL-TCP-RLT%20%F0%9F%87%AB%F0%9F%87%B7%20FR-146.59.15.81%3A443",
       "server": "146.59.15.81",
       "server_port": 443,
       "uuid": "c14b2731-7db6-49ee-9271-b1efc56c2630",
       "flow": "",
-      "tls": {
-        "enabled": true,
-        "server_name": "dl.google.com"
-      },
       "transport": {
-        "type": "tcp",
-        "path": "",
-        "host": ""
+        "type": "tcp"
       }
     },
     {
       "type": "vless",
-      "tag": "vless-connection",
+      "tag": "%F0%9F%94%92%20VL-TCP-NONE%20%F0%9F%87%AE%F0%9F%87%B7%20IR-185.243.49.205%3A8444",
       "server": "185.243.49.205",
       "server_port": 8444,
       "uuid": "ac083fa9-df9a-4722-b70d-24c17bef0516",
       "flow": "",
-      "tls": {
-        "enabled": true,
-        "server_name": ""
-      },
       "transport": {
-        "type": "tcp",
-        "path": "",
-        "host": "speedtest.net"
+        "type": "tcp"
       }
     },
     {
       "type": "vless",
-      "tag": "vless-connection",
+      "tag": "%F0%9F%94%92%20VL-TCP-RLT%20%F0%9F%87%B7%F0%9F%87%BA%20RU-178.20.208.134%3A2083",
       "server": "178.20.208.134",
       "server_port": 2083,
       "uuid": "84cec1f6-8312-40da-b17a-4511e11a6026",
       "flow": "xtls-rprx-vision",
-      "tls": {
-        "enabled": true,
-        "server_name": "refersion.com"
-      },
       "transport": {
-        "type": "tcp",
-        "path": "",
-        "host": ""
+        "type": "tcp"
       }
     },
     {
       "type": "vless",
-      "tag": "vless-connection",
+      "tag": "%F0%9F%94%92%20VL-TCP-RLT%20%F0%9F%87%AB%F0%9F%87%B7%20FR-51.38.98.69%3A443",
       "server": "51.38.98.69",
       "server_port": 443,
       "uuid": "6b690c69-7301-44c4-81e8-9d5d7e8263a6",
       "flow": "",
-      "tls": {
-        "enabled": true,
-        "server_name": "yahoo.com"
-      },
       "transport": {
-        "type": "tcp",
-        "path": "",
-        "host": ""
+        "type": "tcp"
       }
     },
     {
       "type": "vless",
-      "tag": "vless-connection",
+      "tag": "%F0%9F%94%92%20VL-TCP-TLS%20%F0%9F%87%AB%F0%9F%87%AE%20FI-65.108.231.185%3A443",
       "server": "65.108.231.185",
       "server_port": 443,
       "uuid": "440766d1-858f-4719-84f5-c2de6f6227ba",
@@ -1235,65 +1085,57 @@
         "server_name": "local.rogsoftwaregroup.com"
       },
       "transport": {
-        "type": "tcp",
-        "path": "",
-        "host": ""
+        "type": "tcp"
       }
     },
     {
       "type": "vless",
-      "tag": "vless-connection",
+      "tag": "%F0%9F%94%92%20VL-WS-NA%20%F0%9F%87%BA%F0%9F%87%B8%20US-192.0.63.247%3A8880",
       "server": "192.0.63.247",
       "server_port": 8880,
       "uuid": "d60fc3c5-9f07-4cdb-b81f-70af27936bdc",
       "flow": "",
-      "tls": {
-        "enabled": true,
-        "server_name": "ex.sue.x10.mx"
-      },
       "transport": {
         "type": "ws",
         "path": "/Telegram",
-        "host": "ex.sue.x10.mx"
+        "headers": {
+          "Host": "ex.sue.x10.mx"
+        }
       }
     },
     {
       "type": "vless",
-      "tag": "vless-connection",
+      "tag": "%F0%9F%94%92%20VL-WS-NA%20%F0%9F%87%A9%F0%9F%87%AA%20DE-5.10.214.36%3A8880",
       "server": "5.10.214.36",
       "server_port": 8880,
       "uuid": "53fa8faf-ba4b-4322-9c69-a3e5b1555049",
       "flow": "",
-      "tls": {
-        "enabled": true,
-        "server_name": "reedfree8mahsang2.redorg.ir"
-      },
       "transport": {
         "type": "ws",
         "path": "/TelegramU0001F1E8U0001F1F3",
-        "host": "reedfree8mahsang2.redorg.ir"
+        "headers": {
+          "Host": "reedfree8mahsang2.redorg.ir"
+        }
       }
     },
     {
       "type": "vless",
-      "tag": "vless-connection",
+      "tag": "%F0%9F%94%92%20VL-WS-NA%20%F0%9F%87%AC%F0%9F%87%A7%20GB-102.177.189.254%3A8880",
       "server": "102.177.189.254",
       "server_port": 8880,
       "uuid": "34c01e61-f4f3-4afb-a83b-406caf8caa33",
       "flow": "",
-      "tls": {
-        "enabled": true,
-        "server_name": ""
-      },
       "transport": {
         "type": "ws",
         "path": "/",
-        "host": "yg.bantony199.top"
+        "headers": {
+          "Host": "yg.bantony199.top"
+        }
       }
     },
     {
       "type": "vless",
-      "tag": "vless-connection",
+      "tag": "%F0%9F%94%92%20VL-WS-TLS%20%F0%9F%87%A8%F0%9F%87%BE%20CY-154.92.9.151%3A443",
       "server": "154.92.9.151",
       "server_port": 443,
       "uuid": "ec8a65ad-aafc-4095-9b8c-ea10890ca629",
@@ -1305,386 +1147,341 @@
       "transport": {
         "type": "ws",
         "path": "/Javid-SHAH-KingRezaPahlavi/?ed=2560",
-        "host": "simorgh.hpcode.ir"
+        "headers": {
+          "Host": "simorgh.hpcode.ir"
+        }
       }
     },
     {
       "type": "vless",
-      "tag": "vless-connection",
+      "tag": "%F0%9F%94%92%20VL-WS-NA%20%F0%9F%87%A9%F0%9F%87%AA%20DE-5.10.215.63%3A8880",
       "server": "5.10.215.63",
       "server_port": 8880,
       "uuid": "fab7bf9c-ddb9-4563-8a04-fb01ce6c0fbf",
       "flow": "",
-      "tls": {
-        "enabled": true,
-        "server_name": "sg.laoyoutiao.link"
-      },
       "transport": {
         "type": "ws",
-        "path": "/Telegram\ud83c\udde8\ud83c\uddf3",
-        "host": "sg.laoyoutiao.link"
+        "path": "/Telegram🇨🇳",
+        "headers": {
+          "Host": "sg.laoyoutiao.link"
+        }
       }
     },
     {
       "type": "vless",
-      "tag": "vless-connection",
+      "tag": "%F0%9F%94%92%20VL-WS-NONE%20%F0%9F%87%AC%F0%9F%87%A7%20GB-102.177.189.247%3A8880",
       "server": "102.177.189.247",
       "server_port": 8880,
       "uuid": "d60fc3c5-9f07-4cdb-b81f-70af27936bdc",
       "flow": "",
-      "tls": {
-        "enabled": true,
-        "server_name": ""
-      },
       "transport": {
         "type": "ws",
-        "path": "/Telegram\ud83c\udde8\ud83c\uddf3+@WangCai2+/?ed",
-        "host": "ex.sue.x10.mx"
+        "path": "/Telegram🇨🇳+@WangCai2+/?ed",
+        "headers": {
+          "Host": "ex.sue.x10.mx"
+        }
       }
     },
     {
       "type": "vless",
-      "tag": "vless-connection",
+      "tag": "%F0%9F%94%92%20VL-WS-NA%20%F0%9F%87%AE%F0%9F%87%B7%20IR-185.208.77.113%3A14040",
       "server": "185.208.77.113",
       "server_port": 14040,
       "uuid": "a2691bdd-7989-4e7e-9c44-302e360c021f",
       "flow": "",
-      "tls": {
-        "enabled": true,
-        "server_name": ""
-      },
       "transport": {
         "type": "ws",
-        "path": "/",
-        "host": ""
+        "path": "/"
       }
     },
     {
       "type": "vless",
-      "tag": "vless-connection",
+      "tag": "%F0%9F%94%92%20VL-WS-NA%20%F0%9F%87%B3%F0%9F%87%B1%20NL-185.18.184.247%3A8880",
       "server": "185.18.184.247",
       "server_port": 8880,
       "uuid": "d60fc3c5-9f07-4cdb-b81f-70af27936bdc",
       "flow": "",
-      "tls": {
-        "enabled": true,
-        "server_name": "ex.sue.x10.mx"
-      },
       "transport": {
         "type": "ws",
         "path": "/Telegram",
-        "host": "ex.sue.x10.mx"
+        "headers": {
+          "Host": "ex.sue.x10.mx"
+        }
       }
     },
     {
       "type": "vless",
-      "tag": "vless-connection",
+      "tag": "%F0%9F%94%92%20VL-WS-NA%20%F0%9F%87%AC%F0%9F%87%A7%20GB-25.26.27.177%3A8880",
       "server": "25.26.27.177",
       "server_port": 8880,
       "uuid": "583ceab3-4022-4553-9158-9bedc625ad4e",
       "flow": "",
-      "tls": {
-        "enabled": true,
-        "server_name": "Telegram-channel-WangCai2"
-      },
       "transport": {
         "type": "ws",
-        "path": "/Telegram\ud83c\udde8\ud83c\uddf3",
-        "host": "ip.langmanshanxi.top"
+        "path": "/Telegram🇨🇳",
+        "headers": {
+          "Host": "ip.langmanshanxi.top"
+        }
       }
     },
     {
       "type": "vless",
-      "tag": "vless-connection",
+      "tag": "%F0%9F%94%92%20VL-WS-NA%20%F0%9F%87%AC%F0%9F%87%A7%20GB-25.26.27.29%3A8880",
       "server": "25.26.27.29",
       "server_port": 8880,
       "uuid": "fab7bf9c-ddb9-4563-8a04-fb01ce6c0fbf",
       "flow": "",
-      "tls": {
-        "enabled": true,
-        "server_name": "hk.laoyoutiao.link"
-      },
       "transport": {
         "type": "ws",
         "path": "/TelegramU0001F1E8U0001F1F3",
-        "host": "hk.laoyoutiao.link"
+        "headers": {
+          "Host": "hk.laoyoutiao.link"
+        }
       }
     },
     {
       "type": "vless",
-      "tag": "vless-connection",
+      "tag": "%F0%9F%94%92%20VL-WS-NA%20%F0%9F%87%AC%F0%9F%87%A7%20GB-25.25.25.29%3A8880",
       "server": "25.25.25.29",
       "server_port": 8880,
       "uuid": "fab7bf9c-ddb9-4563-8a04-fb01ce6c0fbf",
       "flow": "",
-      "tls": {
-        "enabled": true,
-        "server_name": "hk.laoyoutiao.link"
-      },
       "transport": {
         "type": "ws",
         "path": "/TelegramU0001F1E8U0001F1F3",
-        "host": "hk.laoyoutiao.link"
+        "headers": {
+          "Host": "hk.laoyoutiao.link"
+        }
       }
     },
     {
       "type": "vless",
-      "tag": "vless-connection",
+      "tag": "%F0%9F%94%92%20VL-WS-NA%20%F0%9F%87%BF%F0%9F%87%A6%20ZA-102.177.176.177%3A8880",
       "server": "102.177.176.177",
       "server_port": 8880,
       "uuid": "583ceab3-4022-4553-9158-9bedc625ad4e",
       "flow": "",
-      "tls": {
-        "enabled": true,
-        "server_name": "Telegram-channel-WangCai2"
-      },
       "transport": {
         "type": "ws",
-        "path": "/Telegram\ud83c\udde8\ud83c\uddf3",
-        "host": "ip.langmanshanxi.top"
+        "path": "/Telegram🇨🇳",
+        "headers": {
+          "Host": "ip.langmanshanxi.top"
+        }
       }
     },
     {
       "type": "vless",
-      "tag": "vless-connection",
+      "tag": "%F0%9F%94%92%20VL-WS-NA%20%F0%9F%87%A9%F0%9F%87%AA%20DE-5.10.214.16%3A8880",
       "server": "5.10.214.16",
       "server_port": 8880,
       "uuid": "53fa8faf-ba4b-4322-9c69-a3e5b1555049",
       "flow": "",
-      "tls": {
-        "enabled": true,
-        "server_name": "reedfree8mahsang2.redorg.ir"
-      },
       "transport": {
         "type": "ws",
         "path": "/TelegramU0001F1E8U0001F1F3",
-        "host": "reedfree8mahsang2.redorg.ir"
+        "headers": {
+          "Host": "reedfree8mahsang2.redorg.ir"
+        }
       }
     },
     {
       "type": "vless",
-      "tag": "vless-connection",
+      "tag": "%F0%9F%94%92%20VL-WS-NA%20%F0%9F%87%AC%F0%9F%87%A7%20GB-25.26.27.254%3A8880",
       "server": "25.26.27.254",
       "server_port": 8880,
       "uuid": "34c01e61-f4f3-4afb-a83b-406caf8caa33",
       "flow": "",
-      "tls": {
-        "enabled": true,
-        "server_name": "Telegram-channel-WangCai2"
-      },
       "transport": {
         "type": "ws",
         "path": "/Telegram",
-        "host": "yg.bantony199.top"
+        "headers": {
+          "Host": "yg.bantony199.top"
+        }
       }
     },
     {
       "type": "vless",
-      "tag": "vless-connection",
+      "tag": "%F0%9F%94%92%20VL-WS-NA%20%F0%9F%87%BF%F0%9F%87%A6%20ZA-102.177.176.247%3A8880",
       "server": "102.177.176.247",
       "server_port": 8880,
       "uuid": "d60fc3c5-9f07-4cdb-b81f-70af27936bdc",
       "flow": "",
-      "tls": {
-        "enabled": true,
-        "server_name": "ex.sue.x10.mx"
-      },
       "transport": {
         "type": "ws",
-        "path": "/Telegram\ud83c\udde8\ud83c\uddf3 @WangCai2 /?ed",
-        "host": "ex.sue.x10.mx"
+        "path": "/Telegram🇨🇳 @WangCai2 /?ed",
+        "headers": {
+          "Host": "ex.sue.x10.mx"
+        }
       }
     },
     {
       "type": "vless",
-      "tag": "vless-connection",
+      "tag": "%F0%9F%94%92%20VL-WS-NONE%20%F0%9F%87%BF%F0%9F%87%A6%20ZA-102.132.188.63%3A8880",
       "server": "102.132.188.63",
       "server_port": 8880,
       "uuid": "fab7bf9c-ddb9-4563-8a04-fb01ce6c0fbf",
       "flow": "",
-      "tls": {
-        "enabled": true,
-        "server_name": "jp.laoyoutiao.link"
-      },
       "transport": {
         "type": "ws",
-        "path": "/Telegram\ud83c\udde8\ud83c\uddf3 @WangCai2 /?ed=2560fp=chrome",
-        "host": "jp.laoyoutiao.link"
+        "path": "/Telegram🇨🇳 @WangCai2 /?ed=2560fp=chrome",
+        "headers": {
+          "Host": "jp.laoyoutiao.link"
+        }
       }
     },
     {
       "type": "vless",
-      "tag": "vless-connection",
+      "tag": "%F0%9F%94%92%20VL-WS-NA%20%F0%9F%87%AC%F0%9F%87%A7%20GB-25.25.25.3%3A8880",
       "server": "25.25.25.3",
       "server_port": 8880,
       "uuid": "b5441b0d-2147-4898-8a6a-9b2c87f58382",
       "flow": "",
-      "tls": {
-        "enabled": true,
-        "server_name": "Telegram-channel-WangCai2"
-      },
       "transport": {
         "type": "ws",
-        "path": "/Telegram\ud83c\udde8\ud83c\uddf3",
-        "host": "bitget1.asdasd.click"
+        "path": "/Telegram🇨🇳",
+        "headers": {
+          "Host": "bitget1.asdasd.click"
+        }
       }
     },
     {
       "type": "vless",
-      "tag": "vless-connection",
+      "tag": "%F0%9F%94%92%20VL-WS-NONE%20%F0%9F%87%A9%F0%9F%87%AA%20DE-5.10.214.75%3A8880",
       "server": "5.10.214.75",
       "server_port": 8880,
       "uuid": "53fa8faf-ba4b-4322-9c69-a3e5b1555049",
       "flow": "",
-      "tls": {
-        "enabled": true,
-        "server_name": "reedfree8mahsang2.redorg.ir"
-      },
       "transport": {
         "type": "ws",
         "path": "/TelegramU0001F1E8U0001F1F3",
-        "host": "reedfree8mahsang2.redorg.ir"
+        "headers": {
+          "Host": "reedfree8mahsang2.redorg.ir"
+        }
       }
     },
     {
       "type": "vless",
-      "tag": "vless-connection",
+      "tag": "%F0%9F%94%92%20VL-WS-NA%20%F0%9F%87%A9%F0%9F%87%AA%20DE-5.10.214.182%3A8880",
       "server": "5.10.214.182",
       "server_port": 8880,
       "uuid": "53fa8faf-ba4b-4322-9c69-a3e5b1555049",
       "flow": "",
-      "tls": {
-        "enabled": true,
-        "server_name": "reedfree8mahsang2.redorg.ir"
-      },
       "transport": {
         "type": "ws",
         "path": "/TelegramU0001F1E8U0001F1F3",
-        "host": "reedfree8mahsang2.redorg.ir"
+        "headers": {
+          "Host": "reedfree8mahsang2.redorg.ir"
+        }
       }
     },
     {
       "type": "vless",
-      "tag": "vless-connection",
+      "tag": "%F0%9F%94%92%20VL-WS-NA%20%F0%9F%87%BF%F0%9F%87%A6%20ZA-102.177.176.20%3A8880",
       "server": "102.177.176.20",
       "server_port": 8880,
       "uuid": "53fa8faf-ba4b-4322-9c69-a3e5b1555049",
       "flow": "",
-      "tls": {
-        "enabled": true,
-        "server_name": "reedfree8mahsang2.redorg.ir"
-      },
       "transport": {
         "type": "ws",
         "path": "/",
-        "host": "reedfree8mahsang2.redorg.ir"
+        "headers": {
+          "Host": "reedfree8mahsang2.redorg.ir"
+        }
       }
     },
     {
       "type": "vless",
-      "tag": "vless-connection",
+      "tag": "%F0%9F%94%92%20VL-WS-NA%20%F0%9F%87%A9%F0%9F%87%AA%20DE-5.10.215.67%3A8880",
       "server": "5.10.215.67",
       "server_port": 8880,
       "uuid": "53fa8faf-ba4b-4322-9c69-a3e5b1555049",
       "flow": "",
-      "tls": {
-        "enabled": true,
-        "server_name": "reedfree8mahsang2.redorg.ir"
-      },
       "transport": {
         "type": "ws",
         "path": "/TelegramU0001F1E8U0001F1F3",
-        "host": "reedfree8mahsang2.redorg.ir"
+        "headers": {
+          "Host": "reedfree8mahsang2.redorg.ir"
+        }
       }
     },
     {
       "type": "vless",
-      "tag": "vless-connection",
+      "tag": "%F0%9F%94%92%20VL-WS-NA%20%F0%9F%87%BA%F0%9F%87%B8%20US-192.0.54.251%3A8880",
       "server": "192.0.54.251",
       "server_port": 8880,
       "uuid": "0132166f-e702-48ed-a9e7-b07af768faf8",
       "flow": "",
-      "tls": {
-        "enabled": true,
-        "server_name": ""
-      },
       "transport": {
         "type": "ws",
-        "path": "/Telegram\ud83c\udde8\ud83c\uddf3 @WangCai2 /?ed=2560",
-        "host": "cf.d3z.net"
+        "path": "/Telegram🇨🇳 @WangCai2 /?ed=2560",
+        "headers": {
+          "Host": "cf.d3z.net"
+        }
       }
     },
     {
       "type": "vless",
-      "tag": "vless-connection",
+      "tag": "%F0%9F%94%92%20VL-WS-NA%20%F0%9F%87%AC%F0%9F%87%A7%20GB-25.25.25.3%3A8880",
       "server": "25.25.25.3",
       "server_port": 8880,
       "uuid": "b5441b0d-2147-4898-8a6a-9b2c87f58382",
       "flow": "",
-      "tls": {
-        "enabled": true,
-        "server_name": "Telegram-channel-WangCai2"
-      },
       "transport": {
         "type": "ws",
-        "path": "/Telegram\ud83c\udde8\ud83c\uddf3",
-        "host": "bitget1.asdasd.click"
+        "path": "/Telegram🇨🇳",
+        "headers": {
+          "Host": "bitget1.asdasd.click"
+        }
       }
     },
     {
       "type": "vless",
-      "tag": "vless-connection",
+      "tag": "%F0%9F%94%92%20VL-WS-NONE%20%F0%9F%87%AC%F0%9F%87%A7%20GB-102.177.189.29%3A8880",
       "server": "102.177.189.29",
       "server_port": 8880,
       "uuid": "fab7bf9c-ddb9-4563-8a04-fb01ce6c0fbf",
       "flow": "",
-      "tls": {
-        "enabled": true,
-        "server_name": "hk.laoyoutiao.link"
-      },
       "transport": {
         "type": "ws",
         "path": "/TelegramU0001F1E8U0001F1F3kir",
-        "host": "hk.laoyoutiao.link"
+        "headers": {
+          "Host": "hk.laoyoutiao.link"
+        }
       }
     },
     {
       "type": "vless",
-      "tag": "vless-connection",
+      "tag": "%F0%9F%94%92%20VL-WS-NA%20%F0%9F%87%B3%F0%9F%87%B1%20NL-185.18.184.251%3A8880",
       "server": "185.18.184.251",
       "server_port": 8880,
       "uuid": "0132166f-e702-48ed-a9e7-b07af768faf8",
       "flow": "",
-      "tls": {
-        "enabled": true,
-        "server_name": ""
-      },
       "transport": {
         "type": "ws",
-        "path": "/Telegram\ud83c\udde8\ud83c\uddf3 @WangCai2 /?ed=2560fp=chrome",
-        "host": "cf.d3z.net"
+        "path": "/Telegram🇨🇳 @WangCai2 /?ed=2560fp=chrome",
+        "headers": {
+          "Host": "cf.d3z.net"
+        }
       }
     },
     {
       "type": "vless",
-      "tag": "vless-connection",
+      "tag": "%F0%9F%94%92%20VL-WS-NA%20%F0%9F%87%BA%F0%9F%87%B8%20US-130.250.137.251%3A8880",
       "server": "130.250.137.251",
       "server_port": 8880,
       "uuid": "0132166f-e702-48ed-a9e7-b07af768faf8",
       "flow": "",
-      "tls": {
-        "enabled": true,
-        "server_name": ""
-      },
       "transport": {
         "type": "ws",
-        "path": "/Telegram\ud83c\udde8\ud83c\uddf3 @WangCai2 /?ed=2560",
-        "host": "cf.d3z.net"
+        "path": "/Telegram🇨🇳 @WangCai2 /?ed=2560",
+        "headers": {
+          "Host": "cf.d3z.net"
+        }
       }
     },
     {
       "type": "vless",
-      "tag": "vless-connection",
+      "tag": "%F0%9F%94%92%20VL-GRPC-TLS%20%F0%9F%87%AC%F0%9F%87%A7%20GB-102.177.189.251%3A443",
       "server": "102.177.189.251",
       "server_port": 443,
       "uuid": "401374e6-df77-41fb-f638-dad8184f175b",
@@ -1694,162 +1491,194 @@
         "server_name": "pqh23v4.hiddendom.shop"
       },
       "transport": {
-        "type": "grpc",
-        "path": "",
-        "host": ""
+        "type": "grpc"
       }
     },
     {
       "type": "vless",
-      "tag": "vless-connection",
+      "tag": "%F0%9F%94%92%20VL-TCP-RLT%20%F0%9F%87%BB%F0%9F%87%B3%20VN-59.153.216.68%3A34045",
       "server": "59.153.216.68",
       "server_port": 34045,
       "uuid": "d8dd94fd-540e-461d-b5d4-acebef02c22a",
       "flow": "",
-      "tls": {
-        "enabled": true,
-        "server_name": "visit-this-invitation-link-to-join-tg-enkelte-notif.ekt.me"
-      },
       "transport": {
-        "type": "tcp",
-        "path": "",
-        "host": ""
+        "type": "tcp"
       }
     },
     {
       "type": "vless",
-      "tag": "vless-connection",
+      "tag": "%F0%9F%94%92%20VL-WS-NONE%20%F0%9F%87%BA%F0%9F%87%B8%20US-199.34.230.254%3A8880",
       "server": "199.34.230.254",
       "server_port": 8880,
       "uuid": "34c01e61-f4f3-4afb-a83b-406caf8caa33",
       "flow": "",
-      "tls": {
-        "enabled": true,
-        "server_name": ""
-      },
       "transport": {
         "type": "ws",
         "path": "/",
-        "host": "yg.bantony199.top"
+        "headers": {
+          "Host": "yg.bantony199.top"
+        }
       }
     },
     {
       "type": "vless",
-      "tag": "vless-connection",
+      "tag": "%F0%9F%94%92%20VL-WS-NA%20%F0%9F%87%AC%F0%9F%87%A7%20GB-109.176.239.177%3A8880",
       "server": "109.176.239.177",
       "server_port": 8880,
       "uuid": "583ceab3-4022-4553-9158-9bedc625ad4e",
       "flow": "",
-      "tls": {
-        "enabled": true,
-        "server_name": "Telegram-channel-WangCai2"
-      },
       "transport": {
         "type": "ws",
         "path": "/TelegramU0001F1E8U0001F1F3",
-        "host": "ip.langmanshanxi.top"
+        "headers": {
+          "Host": "ip.langmanshanxi.top"
+        }
       }
     },
     {
       "type": "vless",
-      "tag": "vless-connection",
+      "tag": "%F0%9F%94%92%20VL-WS-NA%20%F0%9F%87%AC%F0%9F%87%A7%20GB-102.177.189.3%3A8880",
       "server": "102.177.189.3",
       "server_port": 8880,
       "uuid": "b5441b0d-2147-4898-8a6a-9b2c87f58382",
       "flow": "",
-      "tls": {
-        "enabled": true,
-        "server_name": "Telegram-channel-WangCai2"
-      },
       "transport": {
         "type": "ws",
-        "path": "/Telegram\ud83c\udde8\ud83c\uddf3",
-        "host": "bitget1.asdasd.click"
+        "path": "/Telegram🇨🇳",
+        "headers": {
+          "Host": "bitget1.asdasd.click"
+        }
       }
     },
     {
       "type": "vless",
-      "tag": "vless-connection",
+      "tag": "%F0%9F%94%92%20VL-WS-NA%20%F0%9F%87%AC%F0%9F%87%A7%20GB-25.26.27.3%3A8880",
       "server": "25.26.27.3",
       "server_port": 8880,
       "uuid": "b5441b0d-2147-4898-8a6a-9b2c87f58382",
       "flow": "",
-      "tls": {
-        "enabled": true,
-        "server_name": "Telegram-channel-WangCai2"
-      },
       "transport": {
         "type": "ws",
         "path": "/Telegram",
-        "host": "bitget1.asdasd.click"
+        "headers": {
+          "Host": "bitget1.asdasd.click"
+        }
       }
     },
     {
       "type": "vless",
-      "tag": "vless-connection",
+      "tag": "%F0%9F%94%92%20VL-WS-NA%20%F0%9F%87%AC%F0%9F%87%A7%20GB-102.177.189.63%3A8880",
       "server": "102.177.189.63",
       "server_port": 8880,
       "uuid": "fab7bf9c-ddb9-4563-8a04-fb01ce6c0fbf",
       "flow": "",
-      "tls": {
-        "enabled": true,
-        "server_name": "sg.laoyoutiao.link"
-      },
       "transport": {
         "type": "ws",
         "path": "/Telegram",
-        "host": "sg.laoyoutiao.link"
+        "headers": {
+          "Host": "sg.laoyoutiao.link"
+        }
       }
     },
     {
       "type": "vless",
-      "tag": "vless-connection",
+      "tag": "%F0%9F%94%92%20VL-WS-NA%20%F0%9F%87%AC%F0%9F%87%A7%20GB-25.26.27.29%3A8880",
       "server": "25.26.27.29",
       "server_port": 8880,
       "uuid": "fab7bf9c-ddb9-4563-8a04-fb01ce6c0fbf",
       "flow": "",
-      "tls": {
-        "enabled": true,
-        "server_name": "hk.laoyoutiao.link"
-      },
       "transport": {
         "type": "ws",
         "path": "/TelegramU0001F1E8U0001F1F3",
-        "host": "hk.laoyoutiao.link"
+        "headers": {
+          "Host": "hk.laoyoutiao.link"
+        }
       }
     },
     {
       "type": "vless",
-      "tag": "vless-connection",
+      "tag": "%F0%9F%94%92%20VL-WS-NA%20%F0%9F%87%AC%F0%9F%87%A7%20GB-25.25.25.247%3A8880",
       "server": "25.25.25.247",
       "server_port": 8880,
       "uuid": "d60fc3c5-9f07-4cdb-b81f-70af27936bdc",
       "flow": "",
-      "tls": {
-        "enabled": true,
-        "server_name": "ex.sue.x10.mx"
-      },
       "transport": {
         "type": "ws",
-        "path": "/Telegram\ud83c\udde8\ud83c\uddf3",
-        "host": "ex.sue.x10.mx"
+        "path": "/Telegram🇨🇳",
+        "headers": {
+          "Host": "ex.sue.x10.mx"
+        }
       }
     },
     {
       "type": "vless",
-      "tag": "vless-connection",
+      "tag": "%F0%9F%94%92%20VL-WS-NA%20%F0%9F%87%AC%F0%9F%87%A7%20GB-25.25.25.213%3A8880",
       "server": "25.25.25.213",
       "server_port": 8880,
       "uuid": "fab7bf9c-ddb9-4563-8a04-fb01ce6c0fbf",
       "flow": "",
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "jp.laoyoutiao.link"
+        }
+      }
+    },
+    {
+      "type": "shadowsocks",
+      "tag": "%F0%9F%94%92%20SS-TCP-NA%20%F0%9F%87%A8%F0%9F%87%B4%20CO-181.119.30.20%3A990",
+      "server": "181.119.30.20",
+      "server_port": 990,
+      "method": "chacha20-ietf-poly1305",
+      "password": "f8f7aCzcPKbsF8p3"
+    },
+    {
+      "type": "trojan",
+      "tag": "%F0%9F%94%92%20TR-WS-TLS%20%F0%9F%87%AA%F0%9F%87%B8%20ES-109.234.211.66%3A8443",
+      "server": "109.234.211.66",
+      "server_port": 8443,
+      "password": "trojan",
       "tls": {
         "enabled": true,
-        "server_name": ""
+        "server_name": "store.timimi.dpdns.org"
       },
       "transport": {
         "type": "ws",
         "path": "/",
-        "host": "jp.laoyoutiao.link"
+        "headers": {
+          "Host": "store.timimi.dpdns.org"
+        }
+      }
+    },
+    {
+      "type": "hysteria",
+      "tag": "%F0%9F%94%92%20HYSTERIA-UDP%20%F0%9F%87%A9%F0%9F%87%AA%20DE-77.90.52.69%3A35000",
+      "server": "77.90.52.69",
+      "server_port": 35000,
+      "up_mbps": 100,
+      "down_mbps": 100,
+      "obfs": "salamander",
+      "auth_str": "",
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "pichondan.com"
+      }
+    },
+    {
+      "type": "hysteria",
+      "tag": "%F0%9F%94%92%20HYSTERIA-UDP%20%F0%9F%87%B3%F0%9F%87%B1%20NL-206.71.158.40%3A35000",
+      "server": "206.71.158.40",
+      "server_port": 35000,
+      "up_mbps": 100,
+      "down_mbps": 100,
+      "obfs": "salamander",
+      "auth_str": "",
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "pichondan.com"
       }
     }
   ]
