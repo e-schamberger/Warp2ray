@@ -18,7 +18,7 @@ def download_configs():
     for i, url in enumerate(links):
         try:
             print(f"Downloading {url}...")
-            response = requests.get(url, timeout=10)
+            response = requests.get(url, timeout=15)
             response.raise_for_status()
             
             with open(f"raw_configs/config_{i}.txt", "w", encoding="utf-8") as f:
