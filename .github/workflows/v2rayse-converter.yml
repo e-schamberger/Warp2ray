@@ -3,14 +3,24 @@ name: V2raySE Config Converter
 on:
   workflow_dispatch:
   schedule:
-    - cron: '0 0 * * *'  # هر روز نیمه‌شب اجرا می‌شود
+    - cron: '0 0 * * *'
 
 jobs:
   convert-configs:
     runs-on: ubuntu-latest
+    # این بخش را اضافه کنید
+    permissions:
+      contents: write  # اعطای دسترسی نوشتن
+      
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4
+      with:
+        # این تنظیمات را اضافه کنید
+        token: ${{ secrets.GITHUB_TOKEN }}
+        fetch-depth: 0
+
+    # بقیه مراحل بدون تغییر...
 
     - name: Set up Python
       uses: actions/setup-python@v4
