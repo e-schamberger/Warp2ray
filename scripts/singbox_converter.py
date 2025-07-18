@@ -5,23 +5,49 @@ import re
 import sys
 import html
 import urllib.parse
-from urllib.parse import urlparse, parse_qs
+from urllib.parse import urlparse, parse_qs, unquote
 
 def clean_tag(tag):
-    """پاکسازی تگ و تبدیل کدهای Unicode به کاراکترهای خوانا"""
+    """پاکسازی و تبدیل تگ به فرمت صحیح"""
+    if not tag:
+        return ""
+    
+    # تبدیل کدهای URL-encoded به کاراکترهای خوانا
+    decoded = unquote(tag)
+    
     # تبدیل کدهای HTML به کاراکتر (مثل &#x1F1E8;&#x1F1F3; به 🇨🇳)
-    cleaned = html.unescape(tag)
+    cleaned = html.unescape(decoded)
     
-    # حذف کاراکترهای غیر ضروری
-    cleaned = re.sub(r'§\s*\d+', '', cleaned)  # حذف § و اعداد بعدی
+    # حذف کاراکترهای کنترل و نمادهای غیر ضروری
+    cleaned = ''.join(c for c in cleaned if ord(c) > 31 and c not in ['§', '|'])
     
-    # جایگزینی کدهای یونیکد با کاراکترهای واقعی
-    cleaned = bytes(cleaned, 'utf-8').decode('unicode_escape')
-    
-    # حذف کاراکترهای کنترل
-    cleaned = ''.join(c for c in cleaned if ord(c) > 31)
+    # حذف اعداد انتهایی
+    cleaned = re.sub(r'\s*\d+$', '', cleaned)
     
     return cleaned.strip()
+
+def extract_params(url):
+    """استخراج پارامترها از URL با مدیریت کاراکترهای خاص"""
+    parsed = urlparse(url)
+    query = {}
+    
+    # پارامترهای اصلی
+    for key, values in parse_qs(parsed.query).items():
+        # دیکد کردن مقادیر با مدیریت کاراکترهای خاص
+        decoded_values = [unquote(v) for v in values]
+        query[key] = decoded_values[0] if len(decoded_values) == 1 else decoded_values
+    
+    # fragment (تگ)
+    tag = clean_tag(parsed.fragment) if parsed.fragment else ""
+    
+    return {
+        "hostname": parsed.hostname,
+        "port": parsed.port,
+        "username": parsed.username,
+        "path": unquote(parsed.path) if parsed.path else "",
+        "query": query,
+        "tag": tag
+    }
 
 def vmess_to_singbox(url):
     try:
@@ -29,42 +55,44 @@ def vmess_to_singbox(url):
         pad = len(b64_data) % 4
         if pad: b64_data += "=" * (4 - pad)
         json_str = base64.b64decode(b64_data).decode('utf-8')
-        vmess_config = json.loads(json_str)
+        vmess = json.loads(json_str)
         
         # پاکسازی تگ
-        tag = clean_tag(vmess_config.get("ps", "vmess-connection"))
+        tag = clean_tag(vmess.get("ps", "vmess-connection"))
         
         # ساختار اصلی
         config = {
             "type": "vmess",
             "tag": tag,
-            "server": vmess_config["add"],
-            "server_port": int(vmess_config["port"]),
-            "uuid": vmess_config["id"],
-            "security": vmess_config.get("scy", "auto"),
-            "alter_id": vmess_config.get("aid", 0)
+            "server": vmess["add"],
+            "server_port": int(vmess["port"]),
+            "uuid": vmess["id"],
+            "security": vmess.get("scy", "auto"),
+            "alter_id": vmess.get("aid", 0),
+            "authenticated_length": True,
+            "packet_encoding": "xudp"
         }
         
         # افزودن TLS اگر نیاز باشد
-        tls = vmess_config.get("tls", "")
+        tls = vmess.get("tls", "")
         if tls == "tls":
             config["tls"] = {
                 "enabled": True,
-                "server_name": vmess_config.get("sni", "")
+                "server_name": vmess.get("sni", "")
             }
         
-        # افزودن بخش transport فقط اگر tcp نباشد
-        net = vmess_config.get("net", "tcp")
+        # افزودن بخش transport فقط برای انواع غیر tcp
+        net = vmess.get("net", "tcp")
         if net != "tcp":
             transport = {"type": net}
             
             if net == "ws":
                 # تنظیمات WebSocket
-                path = vmess_config.get("path", "")
+                path = vmess.get("path", "")
                 if path:
-                    transport["path"] = path
+                    transport["path"] = unquote(path)
                 
-                headers = vmess_config.get("headers", {})
+                headers = vmess.get("headers", {})
                 if headers:
                     transport["headers"] = headers
             
@@ -77,45 +105,49 @@ def vmess_to_singbox(url):
 
 def vless_to_singbox(url):
     try:
-        parsed = urlparse(url)
-        query = parse_qs(parsed.query)
-        
-        # پاکسازی تگ از fragment
-        tag = clean_tag(parsed.fragment) if parsed.fragment else "vless-connection"
+        params = extract_params(url)
         
         # ساختار اصلی
         config = {
             "type": "vless",
-            "tag": tag,
-            "server": parsed.hostname,
-            "server_port": int(parsed.port),
-            "uuid": parsed.username,
-            "flow": query.get("flow", [""])[0]
+            "tag": params["tag"],
+            "server": params["hostname"],
+            "server_port": int(params["port"]),
+            "uuid": params["username"],
+            "packet_encoding": "xudp"
         }
         
+        # افزودن flow اگر وجود داشته باشد
+        if params["query"].get("flow"):
+            config["flow"] = params["query"]["flow"]
+        
         # افزودن TLS
-        tls_enabled = query.get("security", ["tls"])[0] == "tls"
+        tls_enabled = params["query"].get("security", ["tls"])[0] == "tls"
         if tls_enabled:
             config["tls"] = {
                 "enabled": True,
-                "server_name": query.get("sni", [""])[0]
+                "server_name": params["query"].get("sni", [""])[0]
             }
         
         # افزودن بخش transport
-        transport_type = query.get("type", ["tcp"])[0]
+        transport_type = params["query"].get("type", ["tcp"])[0]
         transport = {"type": transport_type}
         
         if transport_type == "ws":
             # تنظیمات WebSocket
-            path = query.get("path", [""])[0]
+            path = params["query"].get("path", [""])[0]
             if path:
-                transport["path"] = path
+                transport["path"] = unquote(path)
             
-            headers_host = query.get("host", [""])[0]
+            headers_host = params["query"].get("host", [""])[0]
             if headers_host:
                 transport["headers"] = {
-                    "Host": headers_host
+                    "Host": unquote(headers_host)
                 }
+            
+            # افزودن early_data_header_name اگر وجود داشته باشد
+            if params["query"].get("early_data_header_name"):
+                transport["early_data_header_name"] = params["query"]["early_data_header_name"]
         
         config["transport"] = transport
         
@@ -135,7 +167,13 @@ def ss_to_singbox(url):
         pad = len(userinfo_b64) % 4
         if pad: userinfo_b64 += "=" * (4 - pad)
         userinfo = base64.b64decode(userinfo_b64).decode('utf-8')
-        method, password = userinfo.split(':', 1)
+        
+        # شناسایی روش رمزنگاری و پسورد
+        if ':' in userinfo:
+            method, password = userinfo.split(':', 1)
+        else:
+            method = userinfo
+            password = ""
         
         return {
             "type": "shadowsocks",
@@ -151,44 +189,54 @@ def ss_to_singbox(url):
 
 def trojan_to_singbox(url):
     try:
-        parsed = urlparse(url)
-        query = parse_qs(parsed.query)
-        
-        # پاکسازی تگ
-        tag = clean_tag(parsed.fragment) if parsed.fragment else "trojan-connection"
+        params = extract_params(url)
         
         # ساختار اصلی
         config = {
             "type": "trojan",
-            "tag": tag,
-            "server": parsed.hostname,
-            "server_port": int(parsed.port),
-            "password": parsed.username
+            "tag": params["tag"],
+            "server": params["hostname"],
+            "server_port": int(params["port"]),
+            "password": params["username"]
         }
         
         # افزودن TLS
-        tls_enabled = query.get("security", ["tls"])[0] == "tls"
+        tls_enabled = params["query"].get("security", ["tls"])[0] == "tls"
         if tls_enabled:
-            config["tls"] = {
+            tls_config = {
                 "enabled": True,
-                "server_name": query.get("sni", [""])[0]
+                "server_name": params["query"].get("sni", [""])[0]
             }
+            
+            # افزودن تنظیمات uTLS اگر وجود داشته باشد
+            if params["query"].get("fp") or params["query"].get("fingerprint"):
+                fingerprint = params["query"].get("fp", params["query"].get("fingerprint", [""]))[0]
+                tls_config["utls"] = {
+                    "enabled": True,
+                    "fingerprint": fingerprint
+                }
+            
+            config["tls"] = tls_config
         
         # افزودن بخش transport
-        transport_type = query.get("type", ["tcp"])[0]
+        transport_type = params["query"].get("type", ["tcp"])[0]
         transport = {"type": transport_type}
         
         if transport_type == "ws":
             # تنظیمات WebSocket
-            path = query.get("path", [""])[0]
+            path = params["query"].get("path", [""])[0]
             if path:
-                transport["path"] = path
+                transport["path"] = unquote(path)
             
-            headers_host = query.get("host", [""])[0]
+            headers_host = params["query"].get("host", [""])[0]
             if headers_host:
                 transport["headers"] = {
-                    "Host": headers_host
+                    "Host": unquote(headers_host)
                 }
+            
+            # افزودن early_data_header_name اگر وجود داشته باشد
+            if params["query"].get("early_data_header_name"):
+                transport["early_data_header_name"] = params["query"]["early_data_header_name"]
         
         config["transport"] = transport
         
@@ -197,32 +245,39 @@ def trojan_to_singbox(url):
         print(f"Trojan conversion error: {str(e)}")
         return None
 
-def hysteria_to_singbox(url):
+def hysteria_to_singbox(url, is_v2=False):
     try:
-        parsed = urlparse(url)
-        query = parse_qs(parsed.query)
-        
-        # پاکسازی تگ
-        tag = clean_tag(parsed.fragment) if parsed.fragment else "hysteria-connection"
+        params = extract_params(url)
+        protocol = "hysteria2" if is_v2 else "hysteria"
         
         # ساختار اصلی
         config = {
-            "type": "hysteria",
-            "tag": tag,
-            "server": parsed.hostname,
-            "server_port": int(parsed.port),
+            "type": protocol,
+            "tag": params["tag"],
+            "server": params["hostname"],
+            "server_port": int(params["port"]),
             "up_mbps": 100,
-            "down_mbps": 100,
-            "obfs": query.get("obfs", [""])[0],
-            "auth_str": query.get("auth", [""])[0]
+            "down_mbps": 100
         }
         
+        # افزودن obfs اگر وجود داشته باشد
+        obfs_password = params["query"].get("obfs-password", params["query"].get("obfsPassword", [""]))[0]
+        if obfs_password:
+            config["obfs"] = {
+                "type": params["query"].get("obfs", ["salamander"])[0],
+                "password": unquote(obfs_password)
+            }
+        
+        # افزودن پسورد اصلی
+        if params["username"]:
+            config["password"] = unquote(params["username"])
+        
         # افزودن TLS
-        insecure = query.get("insecure", ["0"])[0] == "1"
+        insecure = params["query"].get("insecure", ["0"])[0] == "1"
         config["tls"] = {
             "enabled": True,
             "insecure": insecure,
-            "server_name": query.get("sni", [""])[0]
+            "server_name": params["query"].get("sni", [""])[0]
         }
         
         return config
@@ -268,8 +323,7 @@ def process_file(input_file):
     
     # پردازش Hysteria2
     for url in re.findall(r'hysteria2://[^\s]+', content):
-        # Hysteria2 از همان فرمت Hysteria استفاده می‌کند
-        config = hysteria_to_singbox(url.replace("hysteria2://", "hysteria://"))
+        config = hysteria_to_singbox(url, is_v2=True)
         if config:
             configs.append(config)
     
