@@ -3,7 +3,7 @@ name: Sing-box Config Generator
 on:
   workflow_dispatch:
   schedule:
-    - cron: '0 0 * * *'  # هر روز نیمه‌شب اجرا می‌شود
+    - cron: '0 0 * * *'
 
 jobs:
   generate-configs:
@@ -34,7 +34,7 @@ jobs:
     - name: Install Python dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install requests pybase64
+        pip install requests
 
     - name: Download configs
       run: python scripts/fetch_configs.py
