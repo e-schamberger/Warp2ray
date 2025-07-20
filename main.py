@@ -15,7 +15,7 @@ driver = webdriver.Chrome(options=chrome_options)
 
 try:
     # 1. دریافت محتوای RAW از گیتهاب
-    raw_url = "https://raw.githubusercontent.com/your-account/your-repo/main/your-file.txt"  # جایگزین کنید
+    raw_url = "https://raw.githubusercontent.com/e-schamberger/free/refs/heads/main/config/vless.json"  # جایگزین کنید
     raw_content = requests.get(raw_url).text
 
     # 2. ورود به سایت
