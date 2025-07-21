@@ -4,7 +4,6 @@ on:
   workflow_dispatch:  # این خط باید وجود داشته باشد
   schedule:
     - cron: '0 */12 * * *'
-  workflow_dispatch:
 
 jobs:
   convert:
