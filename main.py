@@ -23,7 +23,7 @@ try:
     )
     
     # 1. دریافت محتوای RAW
-    raw_url = "https://raw.githubusercontent.com/your-account/your-repo/main/your-file.txt"
+    raw_url = "https://raw.githubusercontent.com/e-schamberger/free/refs/heads/main/config/vless.json"
     raw_content = requests.get(raw_url).text
 
     # 2. ورود به سایت
