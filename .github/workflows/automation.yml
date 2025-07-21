@@ -1,9 +1,9 @@
 name: Auto Node Conversion
 
 on:
-  workflow_dispatch:  # این خط باید وجود داشته باشد
   schedule:
-    - cron: '0 */12 * * *'
+    - cron: '0 */12 * * *'  # هر 12 ساعت اجرا شود
+  workflow_dispatch:
 
 jobs:
   convert:
@@ -23,14 +23,10 @@ jobs:
         python -m pip install --upgrade pip
         pip install selenium webdriver-manager requests
         
-- name: Run conversion
-  run: |
-    sudo apt-get update
-    sudo apt-get install -y chromium-browser chromium-chromedriver
-    python -m pip install --upgrade pip
-    pip install selenium webdriver-manager requests
-    python main.py
-         
+    - name: Run conversion
+      run: |
+        python main.py
+        
     - name: Commit and push result
       run: |
         git config --global user.name "GitHub Actions"
