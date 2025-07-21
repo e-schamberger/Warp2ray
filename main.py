@@ -8,42 +8,40 @@ from selenium.webdriver.support import expected_conditions as EC
 import time
 import requests
 
-# تنظیمات کروم برای GitHub Actions
+# تنظیمات
 chrome_options = Options()
 chrome_options.add_argument("--headless")
 chrome_options.add_argument("--disable-gpu")
-chrome_options.add_argument("--no-sandbox")
-chrome_options.add_argument("--disable-dev-shm-usage")
+service = Service(ChromeDriverManager().install())
 
 try:
-    # راه اندازی خودکار درایور
-    driver = webdriver.Chrome(
-        service=Service(ChromeDriverManager().install()),
-        options=chrome_options
-    )
+    driver = webdriver.Chrome(service=service, options=chrome_options)
     
-    # 1. دریافت محتوای RAW
-    raw_url = "https://raw.githubusercontent.com/e-schamberger/free/refs/heads/main/config/vless.json"
-    raw_content = requests.get(raw_url).text
-
-    # 2. ورود به سایت
+    # 1. دریافت محتوا
+    raw_content = requests.get("https://raw.githubusercontent.com/e-schamberger/free/refs/heads/main/config/vless.json").text
+    
+    # 2. عملیات تبدیل
     driver.get("https://v2rayse.com/node-convert")
-    
-    # 3. تعامل با صفحه (این بخش مشکل داشت)
-    input_box = WebDriverWait(driver, 20).until(
+    WebDriverWait(driver, 20).until(
         EC.presence_of_element_located((By.XPATH, '//textarea'))
-    )
-    input_box.clear()
-    input_box.send_keys(raw_content)
+    ).send_keys(raw_content)
     
-    # بقیه مراحل...
-    with open("output.txt", "w") as f:
-        f.write("Result will be here")
+    # 3. دریافت نتیجه
+    result = WebDriverWait(driver, 30).until(
+        EC.visibility_of_element_located((By.XPATH, '//div[contains(@class,"output")]'))
+    ).text
+    
+    # 4. ذخیره‌سازی با چک‌های اضافه
+    if result.strip():
+        with open("output.txt", "w", encoding="utf-8") as f:
+            f.write(result)
+            print(f"ذخیره شد! حجم محتوا: {len(result)} کاراکتر")
+    else:
+        print("هشدار: محتوای خروجی خالی است!")
+        driver.save_screenshot("empty_output.png")
 
 except Exception as e:
-    print(f"Error: {str(e)}")
-    if 'driver' in locals():
-        driver.save_screenshot("error.png")
+    print(f"خطا: {str(e)}")
+    driver.save_screenshot("error.png")
 finally:
-    if 'driver' in locals():
-        driver.quit()
+    driver.quit()
