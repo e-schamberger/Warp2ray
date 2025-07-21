@@ -23,27 +23,25 @@ try:
     )
     
     # 1. دریافت محتوای RAW
-    raw_url = "https://raw.githubusercontent.com/e-schamberger/free/refs/heads/main/config/vless.json"  # این را اصلاح کنید
+    raw_url = "https://raw.githubusercontent.com/your-account/your-repo/main/your-file.txt"
     raw_content = requests.get(raw_url).text
 
     # 2. ورود به سایت
     driver.get("https://v2rayse.com/node-convert")
     
-    # 3. تعامل با صفحه
+    # 3. تعامل با صفحه (این بخش مشکل داشت)
     input_box = WebDriverWait(driver, 20).until(
         EC.presence_of_element_located((By.XPATH, '//textarea'))
+    )
     input_box.clear()
     input_box.send_keys(raw_content)
     
-    # بقیه مراحل تبدیل...
-    # (کدهای مربوط به دکمه‌ها و عملیات تبدیل را اینجا قرار دهید)
-
-    # ذخیره نتیجه
+    # بقیه مراحل...
     with open("output.txt", "w") as f:
-        f.write("نتیجه تبدیل اینجا قرار می‌گیرد")
+        f.write("Result will be here")
 
 except Exception as e:
-    print(f"خطا: {str(e)}")
+    print(f"Error: {str(e)}")
     if 'driver' in locals():
         driver.save_screenshot("error.png")
 finally:
