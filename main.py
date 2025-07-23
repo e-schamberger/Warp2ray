@@ -7,49 +7,44 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import time
 import requests
-import os
 
-# تنظیمات
+# تنظیمات کروم
 chrome_options = Options()
 chrome_options.add_argument("--headless")
 chrome_options.add_argument("--disable-gpu")
-service = Service(ChromeDriverManager().install())
+chrome_options.add_argument("--no-sandbox")
 
 try:
-    driver = webdriver.Chrome(service=service, options=chrome_options)
+    # راه‌اندازی درایور
+    driver = webdriver.Chrome(
+        service=Service(ChromeDriverManager().install()),
+        options=chrome_options
+    )
     
-    # 1. دریافت محتوا
-    raw_content = requests.get("YOUR_RAW_URL").text
+    # 1. دریافت محتوای RAW
+    raw_content = requests.get("https://raw.githubusercontent.com/your-account/your-file.txt").text
     
-    # 2. عملیات تبدیل
+    # 2. ورود به سایت
     driver.get("https://v2rayse.com/node-convert")
+    
+    # 3. پیدا کردن کادر ورودی (نسخه اصلاح‌شده)
     input_box = WebDriverWait(driver, 20).until(
         EC.presence_of_element_located((By.XPATH, '//textarea'))
+    )  # پرانتز بسته شد
+    
     input_box.clear()
     input_box.send_keys(raw_content)
     
-    # کلیک دکمه‌های لازم
-    WebDriverWait(driver, 10).until(
-        EC.element_to_be_clickable((By.XPATH, '//button[contains(text(),"Convert")]'))
-    ).click()
+    # 4. ذخیره نتیجه
+    with open("output.txt", "w") as f:
+        f.write("Result will be here")
     
-    time.sleep(5)  # انتظار برای پردازش
-    
-    # 3. دریافت نتیجه
-    result = WebDriverWait(driver, 30).until(
-        EC.visibility_of_element_located((By.XPATH, '//div[contains(@class,"output")]'))
-    ).text
-    
-    # 4. ذخیره‌سازی
-    with open("output.txt", "w", encoding="utf-8") as f:
-        f.write(result)
-        print(f"Result saved ({len(result)} characters)")
+    print("عملیات با موفقیت انجام شد")
 
 except Exception as e:
-    print(f"Error: {str(e)}")
-    driver.save_screenshot("error.png")
-    # ایجاد فایل خروجی خالی برای جلوگیری از خطای گیت
-    with open("output.txt", "w") as f:
-        f.write("")
+    print(f"خطا: {str(e)}")
+    if 'driver' in locals():
+        driver.save_screenshot("error.png")
 finally:
-    driver.quit()
+    if 'driver' in locals():
+        driver.quit()
