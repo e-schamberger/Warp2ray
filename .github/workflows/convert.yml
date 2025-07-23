@@ -12,11 +12,15 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Download and extract subconverter
+      - name: Install dependencies
         run: |
-          wget https://github.com/lonelam/subconverter-rs/releases/download/v0.2.33/subconverter-linux-amd64-0.2.33.tar.gz
-          tar -xzf subconverter-linux-amd64-0.2.33.tar.gz
-          chmod +x subconverter
+          sudo apt-get update
+          sudo apt-get install -y jq curl
+
+      - name: Install subconverter using official script
+        run: |
+          curl -sSL https://raw.githubusercontent.com/lonelam/subconverter-rs/main/scripts/setup_and_run_subconverter.sh | bash
+          echo "$HOME/subconverter" >> $GITHUB_PATH
 
       - name: Download source config
         run: |
@@ -24,7 +28,7 @@ jobs:
 
       - name: Convert to sing-box
         run: |
-          ./subconverter input.json -t sing-box -o singbox.json
+          subconverter input.json -t sing-box -o singbox.json
 
       - name: Commit and push changes
         run: |
