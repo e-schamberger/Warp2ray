@@ -7,6 +7,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import time
 import requests
+import os
 
 # تنظیمات
 chrome_options = Options()
@@ -18,30 +19,37 @@ try:
     driver = webdriver.Chrome(service=service, options=chrome_options)
     
     # 1. دریافت محتوا
-    raw_content = requests.get("https://raw.githubusercontent.com/e-schamberger/free/refs/heads/main/config/vless.json").text
+    raw_content = requests.get("YOUR_RAW_URL").text
     
     # 2. عملیات تبدیل
     driver.get("https://v2rayse.com/node-convert")
-    WebDriverWait(driver, 20).until(
+    input_box = WebDriverWait(driver, 20).until(
         EC.presence_of_element_located((By.XPATH, '//textarea'))
-    ).send_keys(raw_content)
+    input_box.clear()
+    input_box.send_keys(raw_content)
+    
+    # کلیک دکمه‌های لازم
+    WebDriverWait(driver, 10).until(
+        EC.element_to_be_clickable((By.XPATH, '//button[contains(text(),"Convert")]'))
+    ).click()
+    
+    time.sleep(5)  # انتظار برای پردازش
     
     # 3. دریافت نتیجه
     result = WebDriverWait(driver, 30).until(
         EC.visibility_of_element_located((By.XPATH, '//div[contains(@class,"output")]'))
     ).text
     
-    # 4. ذخیره‌سازی با چک‌های اضافه
-    if result.strip():
-        with open("output.txt", "w", encoding="utf-8") as f:
-            f.write(result)
-            print(f"ذخیره شد! حجم محتوا: {len(result)} کاراکتر")
-    else:
-        print("هشدار: محتوای خروجی خالی است!")
-        driver.save_screenshot("empty_output.png")
+    # 4. ذخیره‌سازی
+    with open("output.txt", "w", encoding="utf-8") as f:
+        f.write(result)
+        print(f"Result saved ({len(result)} characters)")
 
 except Exception as e:
-    print(f"خطا: {str(e)}")
+    print(f"Error: {str(e)}")
     driver.save_screenshot("error.png")
+    # ایجاد فایل خروجی خالی برای جلوگیری از خطای گیت
+    with open("output.txt", "w") as f:
+        f.write("")
 finally:
     driver.quit()
