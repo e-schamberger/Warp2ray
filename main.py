@@ -22,7 +22,7 @@ try:
     )
     
     # 1. دریافت محتوای RAW
-    raw_content = requests.get("https://raw.githubusercontent.com/your-account/your-file.txt").text
+    raw_content = requests.get("https://raw.githubusercontent.com/e-schamberger/free/refs/heads/main/config/vless.json").json
     
     # 2. ورود به سایت
     driver.get("https://v2rayse.com/node-convert")
