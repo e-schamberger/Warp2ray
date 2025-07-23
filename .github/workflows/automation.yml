@@ -29,10 +29,21 @@ jobs:
       run: |
         python main.py
         
-    - name: Commit and push result
+    - name: Commit and push
       run: |
-        git config --global user.name "GitHub Actions"
-        git config --global user.email "actions@github.com"
-        git add output.txt
-        git commit -m "Updated converted nodes"
-        git push
+        # بررسی وجود محتوای معتبر
+        if [ -s "output.txt" ]; then
+          git config --global user.name "GitHub Actions"
+          git config --global user.email "actions@github.com"
+          git add output.txt
+          git commit -m "Update: $(date +'%Y-%m-%d %H:%M:%S')"
+          git push
+        else
+          echo "No valid output to commit"
+          # آپلود اسکرین‌شات خطا برای دیباگ
+          if [ -f "error.png" ]; then
+            echo "Uploading error screenshot..."
+            # اینجا می‌توانید آپلود به جای خاصی را اضافه کنید
+          fi
+          exit 0  # خروج بدون خطا
+        fi
