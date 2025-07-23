@@ -12,15 +12,11 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Set up Rust
-        uses: actions-rs/toolchain@v1
-        with:
-          toolchain: stable
-          profile: minimal
-          override: true
-
-      - name: Install subconverter-rs
-        run: cargo install --git https://github.com/lonelam/subconverter-rs
+      - name: Download and extract subconverter
+        run: |
+          wget https://github.com/lonelam/subconverter-rs/releases/download/v0.2.33/subconverter-linux-amd64-0.2.33.tar.gz
+          tar -xzf subconverter-linux-amd64-0.2.33.tar.gz
+          chmod +x subconverter
 
       - name: Download source config
         run: |
@@ -28,7 +24,7 @@ jobs:
 
       - name: Convert to sing-box
         run: |
-          subconverter input.json -t sing-box -o singbox.json
+          ./subconverter input.json -t sing-box -o singbox.json
 
       - name: Commit and push changes
         run: |
