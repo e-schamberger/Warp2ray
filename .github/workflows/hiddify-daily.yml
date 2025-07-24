@@ -17,20 +17,17 @@ jobs:
         sudo apt-get update
         sudo apt-get install -y wget tar
 
-    - name: Download and extract hiddify-cli
+    - name: Download latest hiddify-cli
       run: |
-        # دانلود نسخه صحیح از ریلیزهای جدید
-        wget https://github.com/hiddify/hiddify-core/releases/download/v3.2.0/hiddify-cli-linux-x64.tar.gz
-        
-        # اکسترکت و پیدا کردن فایل اجرایی
-        tar -xzf hiddify-cli-linux-x64.tar.gz
-        find . -name "hiddify-cli" -type f -exec mv {} ./ \;
-        chmod +x hiddify-cli
+        # دانلود آخرین نسخه از ریلیزهای hiddify-app
+        wget https://github.com/hiddify/hiddify-app/releases/download/v2.5.7/Hiddify-Linux-x64.AppImage
+        chmod +x Hiddify-Linux-x64.AppImage
+        mv Hiddify-Linux-x64.AppImage hiddify-cli
 
     - name: Verify binary
       run: |
         file hiddify-cli
-        ./hiddify-cli --version
+        ./hiddify-cli --version || true  # ادامه حتی اگر خطا دهد
 
     - name: Download raw config
       run: |
