@@ -12,34 +12,31 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v4
       
-    - name: Download hiddify-cli
+    - name: Install FUSE dependencies
       run: |
-        # دانلود نسخه مناسب برای GitHub Actions
-        wget https://github.com/hiddify/hiddify-core/releases/download/v3.2.0/hiddify-cli-linux-amd64.tar.gz
-        
-        # اکسترکت و تغییر نام
-        tar -xzf hiddify-cli-linux-amd64.tar.gz
-        mv hiddify-cli-* hiddify-cli
-        chmod +x hiddify-cli
-
-    - name: Install dependencies
-      run: |
-        # نصب وابستگی‌های لازم
+        # نصب وابستگی‌های لازم برای AppImage
         sudo apt-get update
-        sudo apt-get install -y ca-certificates
+        sudo apt-get install -y fuse libfuse2
         
+    - name: Download hiddify-cli AppImage
+      run: |
+        # دانلود نسخه AppImage
+        wget https://github.com/hiddify/hiddify-core/releases/download/v3.2.0/hiddify-cli-linux-amd64.AppImage
+        chmod +x hiddify-cli-linux-amd64.AppImage
+        mv hiddify-cli-linux-amd64.AppImage hiddify-cli
+
     - name: Download raw config
       run: |
         wget -O input.json https://raw.githubusercontent.com/e-schamberger/free/refs/heads/main/config/vless.json
 
     - name: Process config
       run: |
-        # ایمپورت و اکسپورت تنظیمات
+        # ایمپورت و اکسپورت تنظیمات با AppImage
         ./hiddify-cli import --file input.json
         ./hiddify-cli export --output output.txt
         
         # کدگذاری base64
-        base64 output.txt > encoded_config.txt
+        base64 -w 0 output.txt > encoded_config.txt
 
     - name: Save config to repository
       run: |
