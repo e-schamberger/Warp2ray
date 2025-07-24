@@ -17,12 +17,12 @@ jobs:
         sudo apt-get update
         sudo apt-get install -y wget tar
 
-    - name: Download and extract CLI
+    - name: Download latest CLI from official source
       run: |
-        # دانلود نسخه جدید از ریلیزهای اصلی
-        wget https://github.com/hiddify/hiddify-next/releases/download/v0.0.1/hiddify-cli-linux-x86_64.tar.gz
-        tar -xzf hiddify-cli-linux-x86_64.tar.gz
-        chmod +x hiddify-cli
+        # دانلود از آخرین ریلیز پایدار
+        wget https://github.com/hiddify/hiddify-config/releases/download/v10.5.0/hiddify-panel-linux-x86_64.tar.gz
+        tar -xzf hiddify-panel-linux-x86_64.tar.gz
+        chmod +x hiddify-panel
 
     - name: Download config
       run: |
@@ -30,8 +30,8 @@ jobs:
 
     - name: Process config
       run: |
-        ./hiddify-cli import --file input.json
-        ./hiddify-cli export --output output.txt
+        ./hiddify-panel import --file input.json
+        ./hiddify-panel export --output output.txt
         base64 -w 0 output.txt > encoded_config.txt
 
     - name: Save results
