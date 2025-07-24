@@ -12,22 +12,21 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v4
       
-    - name: Install dependencies
+    - name: Install FUSE and dependencies
       run: |
         sudo apt-get update
-        sudo apt-get install -y wget tar
+        sudo apt-get install -y fuse libfuse2 wget tar
 
-    - name: Download latest hiddify-cli
+    - name: Download and prepare hiddify-cli
       run: |
-        # دانلود آخرین نسخه از ریلیزهای hiddify-app
+        # روش 1: استفاده از AppImage با FUSE
         wget https://github.com/hiddify/hiddify-app/releases/download/v2.5.7/Hiddify-Linux-x64.AppImage
         chmod +x Hiddify-Linux-x64.AppImage
-        mv Hiddify-Linux-x64.AppImage hiddify-cli
-
-    - name: Verify binary
-      run: |
-        file hiddify-cli
-        ./hiddify-cli --version || true  # ادامه حتی اگر خطا دهد
+        
+        # روش جایگزین: استخراج AppImage بدون نیاز به FUSE
+        ./Hiddify-Linux-x64.AppImage --appimage-extract
+        mv squashfs-root/usr/bin/hiddify-cli ./hiddify-cli
+        chmod +x hiddify-cli
 
     - name: Download raw config
       run: |
@@ -35,6 +34,7 @@ jobs:
 
     - name: Process config
       run: |
+        # استفاده از فایل اجرایی استخراج شده
         ./hiddify-cli import --file input.json
         ./hiddify-cli export --output output.txt
         base64 -w 0 output.txt > encoded_config.txt
