@@ -12,21 +12,22 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v4
       
-    - name: Setup Go environment
-      uses: actions/setup-go@v4
-      with:
-        go-version: '1.20'  # نسخه مورد نیاز برای hiddify-cli
-
-    - name: Install hiddify-cli with Go
+    - name: Download hiddify-cli
       run: |
-        # نصب مستقیم از طریق Go
-        go install github.com/hiddify/hiddify-core@latest
+        # دانلود نسخه مناسب برای GitHub Actions
+        wget https://github.com/hiddify/hiddify-core/releases/download/v3.2.0/hiddify-cli-linux-amd64.tar.gz
         
-        # پیدا کردن مسیر باینری
-        CLI_PATH=$(go env GOPATH)/bin/hiddify-core
-        mv $CLI_PATH ./hiddify-cli
+        # اکسترکت و تغییر نام
+        tar -xzf hiddify-cli-linux-amd64.tar.gz
+        mv hiddify-cli-* hiddify-cli
         chmod +x hiddify-cli
 
+    - name: Install dependencies
+      run: |
+        # نصب وابستگی‌های لازم
+        sudo apt-get update
+        sudo apt-get install -y ca-certificates
+        
     - name: Download raw config
       run: |
         wget -O input.json https://raw.githubusercontent.com/e-schamberger/free/refs/heads/main/config/vless.json
