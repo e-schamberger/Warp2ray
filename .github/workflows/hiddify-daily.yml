@@ -11,38 +11,33 @@ jobs:
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4
-      
-    - name: Install FUSE and dependencies
+
+    - name: Install dependencies
       run: |
         sudo apt-get update
-        sudo apt-get install -y fuse libfuse2 wget tar
+        sudo apt-get install -y wget tar
 
-    - name: Download and prepare hiddify-cli
+    - name: Download and extract CLI
       run: |
-        # روش 1: استفاده از AppImage با FUSE
-        wget https://github.com/hiddify/hiddify-app/releases/download/v2.5.7/Hiddify-Linux-x64.AppImage
-        chmod +x Hiddify-Linux-x64.AppImage
-        
-        # روش جایگزین: استخراج AppImage بدون نیاز به FUSE
-        ./Hiddify-Linux-x64.AppImage --appimage-extract
-        mv squashfs-root/usr/bin/hiddify-cli ./hiddify-cli
+        # دانلود نسخه جدید از ریلیزهای اصلی
+        wget https://github.com/hiddify/hiddify-next/releases/download/v0.0.1/hiddify-cli-linux-x86_64.tar.gz
+        tar -xzf hiddify-cli-linux-x86_64.tar.gz
         chmod +x hiddify-cli
 
-    - name: Download raw config
+    - name: Download config
       run: |
         wget -O input.json https://raw.githubusercontent.com/e-schamberger/free/refs/heads/main/config/vless.json
 
     - name: Process config
       run: |
-        # استفاده از فایل اجرایی استخراج شده
         ./hiddify-cli import --file input.json
         ./hiddify-cli export --output output.txt
         base64 -w 0 output.txt > encoded_config.txt
 
-    - name: Save config to repository
+    - name: Save results
       run: |
         git config user.name "GitHub Actions"
         git config user.email "actions@github.com"
         git add encoded_config.txt
-        git commit -m "Auto-update config: $(date +'%Y-%m-%d %H:%M:%S')"
+        git commit -m "Auto-updated config $(date +'%Y-%m-%d %H:%M:%S')"
         git push
