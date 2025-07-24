@@ -1,0 +1,41 @@
+name: Daily Hiddify Config Export
+
+on:
+  schedule:
+    - cron: '0 0 * * *'  # هر روز ساعت 00:00 UTC (24 ساعت یکبار)
+  workflow_dispatch:      # امکان اجرای دستی
+
+jobs:
+  process-config:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      
+    - name: Download hiddify-cli
+      run: |
+        # دانلود نسخه مناسب برای GitHub Actions (linux-amd64)
+        wget https://github.com/hiddify/hiddify-core/releases/download/v3.2.0/hiddify-cli-linux-amd64.tar.gz
+        tar -xzf hiddify-cli-linux-amd64.tar.gz
+        chmod +x hiddify-cli
+
+    - name: Download raw config
+      run: |
+        wget -O input.json https://raw.githubusercontent.com/e-schamberger/free/refs/heads/main/config/vless.json
+
+    - name: Process config
+      run: |
+        # ایمپورت فایل و اکسپورت خروجی
+        ./hiddify-cli import --file input.json
+        ./hiddify-cli export --output output.txt
+        
+        # تبدیل به base64 برای ذخیره ایمن
+        base64 output.txt > encoded_config.txt
+
+    - name: Save config to repository
+      run: |
+        git config user.name "GitHub Actions"
+        git config user.email "actions@github.com"
+        git add encoded_config.txt
+        git commit -m "Auto-update config: $(date +'%Y-%m-%d %H:%M:%S')"
+        git push
