@@ -2,7 +2,7 @@ name: Daily Hiddify Config Export
 
 on:
   schedule:
-    - cron: '0 0 * * *'  # هر روز ساعت 00:00 UTC (24 ساعت یکبار)
+    - cron: '0 0 * * *'  # هر روز ساعت 00:00 UTC
   workflow_dispatch:      # امکان اجرای دستی
 
 jobs:
@@ -14,9 +14,12 @@ jobs:
       
     - name: Download hiddify-cli
       run: |
-        # دانلود نسخه مناسب برای GitHub Actions (linux-amd64)
-        wget https://github.com/hiddify/hiddify-core/releases/download/v3.2.0/hiddify-cli-linux-amd64.tar.gz
-        tar -xzf hiddify-cli-linux-amd64.tar.gz
+        # دانلود نسخه مناسب برای GitHub Actions (linux-amd64-v3)
+        wget https://github.com/hiddify/hiddify-core/releases/download/v3.2.0/hiddify-cli-linux-amd64-v3.tar.gz
+        
+        # اکسترکت و تغییر نام فایل اجرایی
+        tar -xzf hiddify-cli-linux-amd64-v3.tar.gz
+        mv hiddify-cli* hiddify-cli
         chmod +x hiddify-cli
 
     - name: Download raw config
@@ -25,11 +28,11 @@ jobs:
 
     - name: Process config
       run: |
-        # ایمپورت فایل و اکسپورت خروجی
+        # ایمپورت و اکسپورت تنظیمات
         ./hiddify-cli import --file input.json
         ./hiddify-cli export --output output.txt
         
-        # تبدیل به base64 برای ذخیره ایمن
+        # کدگذاری base64
         base64 output.txt > encoded_config.txt
 
     - name: Save config to repository
