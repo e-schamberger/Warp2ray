@@ -1,0 +1,49 @@
+name: VNC via Cloudflare Tunnel
+on: workflow_dispatch
+
+jobs:
+  vnc-setup:
+    runs-on: ubuntu-latest
+    timeout-minutes: 360  # 6 ساعت
+
+    steps:
+    - name: Install dependencies
+      run: |
+        sudo apt update
+        sudo apt install -y xfce4 tightvncserver
+        
+        # تنظیم رمز عبور VNC
+        mkdir -p ~/.vnc
+        echo -e "MySecurePass123\nMySecurePass123\nn" | vncpasswd
+        
+        # راه‌اندازی VNC Server
+        vncserver :1 -geometry 1280x800 -localhost
+
+    - name: Setup Cloudflare Tunnel
+      env:
+        CLOUDFLARE_TUNNEL_TOKEN: ${{ secrets.CLOUDFLARE_TUNNEL_TOKEN }}
+      run: |
+        # دانلود cloudflared
+        wget https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64 -O cloudflared
+        chmod +x cloudflared
+        
+        # راه‌اندازی تونل
+        nohup ./cloudflared tunnel --no-autoupdate run --token $CLOUDFLARE_TUNNEL_TOKEN > tunnel.log 2>&1 &
+        sleep 10
+        
+        # نمایش آدرس عمومی
+        echo "======================================"
+        echo "VNC Connection Details:"
+        echo "1. Install Cloudflare WARP client on your device"
+        echo "2. Connect to your Zero Trust organization"
+        echo "3. Use VNC Viewer with:"
+        echo "   Address: localhost:5901"
+        echo "   Password: MySecurePass123"
+        echo "======================================"
+
+    - name: Keep alive
+      run: |
+        while true; do
+          echo "$(date): VNC session is active"
+          sleep 60
+        done
