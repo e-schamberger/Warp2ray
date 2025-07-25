@@ -4,7 +4,7 @@ on: workflow_dispatch
 jobs:
   deploy-vnc:
     runs-on: ubuntu-latest
-    timeout-minutes: 360  # 6 ساعت
+    timeout-minutes: 360
 
     steps:
     # مرحله 1: نصب VNC
@@ -16,27 +16,24 @@ jobs:
         echo -e "1aq2sw@3de\n1aq2sw@3de\nn" | vncpasswd
         vncserver :1 -geometry 1280x800 -localhost
 
-    # مرحله 2: تنظیم تونل
+    # مرحله 2: تنظیم تونل (اصلاح شده)
     - name: Configure Cloudflare Tunnel
       env:
-        CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
         CLOUDFLARE_TUNNEL_TOKEN: ${{ secrets.CLOUDFLARE_TUNNEL_TOKEN }}
-        CLOUDFLARE_TUNNEL_ID: ${{ secrets.CLOUDFLARE_TUNNEL_ID }}
       run: |
         wget https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64
         chmod +x cloudflared
-        ./cloudflared tunnel --url tcp://localhost:5901 --credentials-file ./tunnel.json run --token $CLOUDFLARE_TUNNEL_TOKEN &
-        sleep 10
+        
+        # استفاده از نام تونل به جای UUID
+        ./cloudflared tunnel --url tcp://localhost:5901 --name github-vnc-tunnel --credentials-file ./tunnel.json run --token $CLOUDFLARE_TUNNEL_TOKEN &
+        sleep 15
 
     # مرحله 3: نگه داشتن جاب فعال
     - name: Keep Job Alive
       run: |
         echo "✅ VNC Active at vnc.net2ray.dpdns.org:5901"
         echo "🔑 Password: 1aq2sw@3de"
-        echo "🔄 Job will remain active for 6 hours..."
-        
-        # حلقه بی‌نهایت برای فعال نگه داشتن جاب
         while true; do
-          echo "$(date): Job heartbeat"
+          echo "$(date): Job is active"
           sleep 60
         done
