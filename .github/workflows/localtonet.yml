@@ -13,10 +13,7 @@ jobs:
           echo -e "123456\n123456\nn" | vncpasswd
           vncserver :1 -geometry 1280x800 -localhost
 
-      - name: Download and run Localtonet
-        run: |
-          wget https://localtonet.com/download/linux -O localtonet
-          chmod +x localtonet
-          ./localtonet -p 5901 > localtonet.log 2>&1 &
-          sleep 5
-          cat localtonet.log | grep -o "https://[^ ]*"
+      - name: Download Localtonet (alternative)
+         run: |
+           wget https://cdn.localtonet.com/static/localtunnel/latest/linux -O localtonet || wget https://github.com/portmapper-io/localtonet/releases/download/v1.0.0/localtonet_linux -O localtonet
+           chmod +x localtonet
