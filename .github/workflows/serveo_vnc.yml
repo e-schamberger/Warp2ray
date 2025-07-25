@@ -1,63 +1,62 @@
-name: Stable VNC Connection
+name: VNC with Serveo (Complete Info)
 on: workflow_dispatch
 
 jobs:
-  vnc-connection:
+  vnc-session:
     runs-on: ubuntu-latest
     timeout-minutes: 360  # 6 ساعت
 
     steps:
-    - name: Install and configure VNC
+    - name: Install dependencies
       run: |
         sudo apt update
-        sudo apt install -y xfce4 xfce4-goodies tightvncserver
-        
-        # تنظیم رمز عبور امن
-        mkdir -p ~/.vnc
-        echo -e "MySecurePass123!\nMySecurePass123!\nn" | vncpasswd
-        
-        # تنظیمات بهینه برای اتصال پایدار
-        cat > ~/.vnc/xstartup <<EOL
-        #!/bin/sh
-        unset SESSION_MANAGER
-        exec /bin/sh /etc/X11/xinit/xinitrc
-        [ -x /etc/vnc/xstartup ] && exec /etc/vnc/xstartup
-        [ -r \$HOME/.Xresources ] && xrdb \$HOME/.Xresources
-        xsetroot -solid grey
-        export XKL_XMODMAP_DISABLE=1
-        exec startxfce4
-        EOL
-        
-        chmod +x ~/.vnc/xstartup
-        vncserver :1 -geometry 1280x800 -depth 24 -localhost
+        sudo apt install -y xfce4 tightvncserver autossh curl jq
 
-    - name: Establish stable tunnel
+    - name: Set up VNC
       run: |
-        sudo apt install -y autossh
+        # تنظیم رمز عبور
+        mkdir -p ~/.vnc
+        VNC_PASSWORD="MySecurePass$(date +%s | cut -c 6-10)"
+        echo -e "$VNC_PASSWORD\n$VNC_PASSWORD\nn" | vncpasswd
         
-        # ایجاد تونل با کنترل بهتر
+        # راه اندازی VNC Server
+        vncserver :1 -geometry 1280x800 -localhost
+        
+        # ذخیره اطلاعات در env
+        echo "VNC_PASSWORD=$VNC_PASSWORD" >> $GITHUB_ENV
+        echo "VNC_PORT=5901" >> $GITHUB_ENV
+
+    - name: Start Serveo tunnel
+      run: |
+        # تولید آدرس تصادفی
+        SUBDOMAIN="vnc-$(openssl rand -hex 3)"
+        
+        # راه اندازی تونل
         autossh -M 0 -f -N \
-          -o "ServerAliveInterval 30" \
-          -o "ServerAliveCountMax 3" \
           -o "ExitOnForwardFailure=yes" \
-          -R vnc-$(date +%s).serveo.net:80:localhost:5901 serveo.net
+          -R $SUBDOMAIN.serveo.net:80:localhost:${{ env.VNC_PORT }} serveo.net
         
-        # مانیتورینگ وضعیت اتصال
+        # دریافت آدرس عمومی
+        sleep 5
+        PUBLIC_URL=$(curl -s http://serveo.net/api/tunnels | jq -r '.tunnels[0].public_url')
+        
+        # نمایش اطلاعات اتصال
+        echo "=========================================="
+        echo "VNC Connection Details:"
+        echo "Address: $PUBLIC_URL"
+        echo "Port: ${{ env.VNC_PORT }}"
+        echo "Password: ${{ env.VNC_PASSWORD }}"
+        echo "=========================================="
+        
+        # ذخیره اطلاعات در خروجی
+        echo "VNC_ADDRESS=$PUBLIC_URL" >> $GITHUB_ENV
+
+    - name: Keep connection alive
+      run: |
         while true; do
-          if ! pgrep -x "Xtightvnc" >/dev/null; then
-            echo "VNC server crashed! Restarting..."
-            vncserver :1 -geometry 1280x800 -depth 24 -localhost
-          fi
-          
-          if ! pgrep -x "autossh" >/dev/null; then
-            echo "Tunnel connection lost! Reconnecting..."
-            autossh -M 0 -f -N \
-              -o "ServerAliveInterval 30" \
-              -o "ServerAliveCountMax 3" \
-              -o "ExitOnForwardFailure=yes" \
-              -R vnc-$(date +%s).serveo.net:80:localhost:5901 serveo.net
-          fi
-          
-          sleep 30
-          echo "$(date): Connection check passed"
+          echo "$(date): VNC Session is active"
+          echo "Connection Info:"
+          echo "Address: ${{ env.VNC_ADDRESS }}"
+          echo "Password: ${{ env.VNC_PASSWORD }}"
+          sleep 60
         done
