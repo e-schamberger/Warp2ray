@@ -1,21 +1,41 @@
-name: GUI Access via Serveo
+name: Persistent VNC via Serveo
 on: workflow_dispatch
 
 jobs:
-  vnc-access:
+  vnc-session:
     runs-on: ubuntu-latest
+    timeout-minutes: 360  # حداکثر زمان اجرا (6 ساعت)
+    
     steps:
-      - name: Install XFCE + VNC Server
+      - name: Install XFCE & VNC
         run: |
           sudo apt update
-          sudo apt install -y xfce4 xfce4-goodies tightvncserver
+          sudo apt install -y xfce4 xfce4-goodies tightvncserver novnc websockify
           mkdir -p ~/.vnc
-          echo -e "123456\n123456\nn" | vncpasswd  # تنظیم رمز عبور
+          echo -e "my_secure_password\nmy_secure_password\nn" | vncpasswd  # رمز خود را جایگزین کنید
           vncserver :1 -geometry 1280x800 -localhost
 
-      - name: Expose VNC via Serveo
+      - name: Start Serveo Tunnel
         run: |
           sudo apt install -y autossh
-          autossh -M 0 -f -N -R vnc.serveo.net:80:localhost:5901 serveo.net
-          sleep 5
-          echo "VNC Address: vnc.serveo.net"
+          autossh -M 0 -f -N -R vnc-$(date +%s).serveo.net:80:localhost:5901 serveo.net
+          echo "VNC Server is running on port 5901"
+          echo "Use this address in VNC Viewer: vnc-*.serveo.net"
+
+      - name: Keep Alive Monitor
+        run: |
+          echo "=== VNC Session Started ==="
+          echo "Connect using:"
+          echo "Address: vnc-*.serveo.net"
+          echo "Password: my_secure_password"
+          echo "=========================="
+          
+          # مانیتور وضعیت هر 1 دقیقه
+          while true; do
+            if ! pgrep -x "Xtightvnc" > /dev/null; then
+              echo "VNC crashed! Restarting..."
+              vncserver :1 -geometry 1280x800 -localhost
+            fi
+            sleep 60
+            echo "$(date): Session is active"
+          done
