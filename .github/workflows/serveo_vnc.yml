@@ -1,0 +1,21 @@
+name: GUI Access via Serveo
+on: workflow_dispatch
+
+jobs:
+  vnc-access:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install XFCE + VNC Server
+        run: |
+          sudo apt update
+          sudo apt install -y xfce4 xfce4-goodies tightvncserver
+          mkdir -p ~/.vnc
+          echo -e "123456\n123456\nn" | vncpasswd  # تنظیم رمز عبور
+          vncserver :1 -geometry 1280x800 -localhost
+
+      - name: Expose VNC via Serveo
+        run: |
+          sudo apt install -y autossh
+          autossh -M 0 -f -N -R vnc.serveo.net:80:localhost:5901 serveo.net
+          sleep 5
+          echo "VNC Address: vnc.serveo.net"
