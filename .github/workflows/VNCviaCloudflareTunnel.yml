@@ -1,0 +1,67 @@
+name: VNC via Cloudflare Tunnel
+on: workflow_dispatch
+
+jobs:
+  deploy-vnc:
+    runs-on: ubuntu-latest
+    timeout-minutes: 360  # 6 ساعت حداکثر اجرا
+
+    steps:
+    # مرحله 1: نصب و تنظیم VNC
+    - name: Setup VNC Server
+      run: |
+        sudo apt update
+        sudo apt install -y xfce4 tightvncserver
+        
+        # تنظیم رمز عبور شما
+        mkdir -p ~/.vnc
+        echo -e "1aq2sw@3de\n1aq2sw@3de\nn" | vncpasswd
+        
+        # راه اندازی سرویس
+        vncserver :1 -geometry 1280x800 -localhost
+
+    # مرحله 2: تنظیم Cloudflare Tunnel
+    - name: Configure Cloudflare
+      env:
+        CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        CLOUDFLARE_TUNNEL_TOKEN: ${{ secrets.CLOUDFLARE_TUNNEL_TOKEN }}
+        CLOUDFLARE_TUNNEL_ID: ${{ secrets.CLOUDFLARE_TUNNEL_ID }}
+      run: |
+        wget https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64
+        chmod +x cloudflared
+        
+        # فایل کانفیگ با دامنه شما
+        cat > config.yml <<EOL
+        tunnel: $CLOUDFLARE_TUNNEL_ID
+        credentials-file: ./tunnel.json
+        ingress:
+          - hostname: vnc.net2ray.dpdns.org
+            service: tcp://localhost:5901
+            originRequest:
+              connectTimeout: 30s
+          - service: http_status:404
+        EOL
+        
+        # اجرای تونل
+        ./cloudflared tunnel --config config.yml run > tunnel.log 2>&1 &
+        sleep 15
+
+    # مرحله 3: نمایش اطلاعات
+    - name: Show Connection Info
+      run: |
+        echo "===================================="
+        echo "🖥️ VNC Connection Details:"
+        echo ""
+        echo "🔗 Address: vnc.net2ray.dpdns.org:5901"
+        echo "🔑 Password: 1aq2sw@3de"
+        echo ""
+        echo "⚠️ Note: Auto-terminates after 6 hours"
+        echo "===================================="
+
+    # مرحله 4: نگهداری اتصال
+    - name: Keep Alive
+      run: |
+        while true; do
+          echo "$(date): Connection active"
+          sleep 60
+        done
