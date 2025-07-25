@@ -8,7 +8,7 @@ jobs:
 
     steps:
     # مرحله 1: نصب VNC
-    - name: Setup VNC Server
+    - name: Install VNC Server
       run: |
         sudo apt update
         sudo apt install -y xfce4 tightvncserver
@@ -16,19 +16,29 @@ jobs:
         echo -e "1aq2sw@3de\n1aq2sw@3de\nn" | vncpasswd
         vncserver :1 -geometry 1280x800 -localhost
 
-    # مرحله 2: احراز هویت Cloudflare
-    - name: Authenticate Cloudflared
+    # مرحله 2: دانلود و تنظیم cloudflared (اصلاح شده)
+    - name: Setup Cloudflared
+      run: |
+        # دانلود با نام مشخص و مسیر کامل
+        wget https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64 -O /tmp/cloudflared
+        # تنظیم مجوزها
+        chmod +x /tmp/cloudflared
+        # انتقال به مسیر اجرایی
+        sudo mv /tmp/cloudflared /usr/local/bin/
+        # تست نصب
+        cloudflared --version
+
+    # مرحله 3: احراز هویت
+    - name: Authenticate
       env:
         CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
       run: |
-        wget https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64
-        chmod +x cloudflared
-        ./cloudflared tunnel login
         mkdir -p ~/.cloudflared
+        cloudflared tunnel login
         cp ~/.cloudflared/cert.pem ./
 
-    # مرحله 3: راه‌اندازی تونل
-    - name: Start Cloudflare Tunnel
+    # مرحله 4: راه اندازی تونل
+    - name: Start Tunnel
       env:
         CLOUDFLARE_TUNNEL_TOKEN: ${{ secrets.CLOUDFLARE_TUNNEL_TOKEN }}
       run: |
@@ -44,11 +54,11 @@ jobs:
           - service: http_status:404
         EOL
         
-        nohup ./cloudflared tunnel --config config.yml run > tunnel.log 2>&1 &
+        nohup cloudflared tunnel --config config.yml run > tunnel.log 2>&1 &
         sleep 20
         cat tunnel.log
 
-    # مرحله 4: نگهداشت اتصال
+    # مرحله 5: نگهداشت اتصال
     - name: Keep Alive
       run: |
         echo "✅ VNC Ready at vnc.net2ray.dpdns.org:5901"
