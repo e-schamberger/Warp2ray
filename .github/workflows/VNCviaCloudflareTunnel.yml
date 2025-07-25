@@ -1,4 +1,4 @@
-name: VNC via Cloudflare Tunnel
+name: VNC via Cloudflare
 on: workflow_dispatch
 
 jobs:
@@ -7,63 +7,72 @@ jobs:
     timeout-minutes: 360
 
     steps:
-    # مرحله 1: نصب VNC
-    - name: Install VNC Server
+    # مرحله 1: تنظیم DNS و شبکه
+    - name: Configure DNS
       run: |
+        # تنظیم DNS سرورهای معتبر
+        echo "nameserver 1.1.1.1" | sudo tee /etc/resolv.conf
+        echo "nameserver 8.8.8.8" | sudo tee -a /etc/resolv.conf
+        sudo systemctl restart systemd-resolved
+        
+        # نصب ابزارهای شبکه
         sudo apt update
+        sudo apt install -y dnsutils net-tools
+
+    # مرحله 2: نصب VNC
+    - name: Install VNC
+      run: |
         sudo apt install -y xfce4 tightvncserver
         mkdir -p ~/.vnc
         echo -e "1aq2sw@3de\n1aq2sw@3de\nn" | vncpasswd
         vncserver :1 -geometry 1280x800 -localhost
 
-    # مرحله 2: دانلود و تنظیم cloudflared (اصلاح شده)
-    - name: Setup Cloudflared
-      run: |
-        # دانلود با نام مشخص و مسیر کامل
-        wget https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64 -O /tmp/cloudflared
-        # تنظیم مجوزها
-        chmod +x /tmp/cloudflared
-        # انتقال به مسیر اجرایی
-        sudo mv /tmp/cloudflared /usr/local/bin/
-        # تست نصب
-        cloudflared --version
-
-    # مرحله 3: احراز هویت
-    - name: Authenticate
-      env:
-        CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-      run: |
-        mkdir -p ~/.cloudflared
-        cloudflared tunnel login
-        cp ~/.cloudflared/cert.pem ./
-
-    # مرحله 4: راه اندازی تونل
-    - name: Start Tunnel
+    # مرحله 3: راه‌اندازی تونل (نسخه پایدار)
+    - name: Start Cloudflare Tunnel
       env:
         CLOUDFLARE_TUNNEL_TOKEN: ${{ secrets.CLOUDFLARE_TUNNEL_TOKEN }}
       run: |
+        # دانلود با مسیر مطلق
+        wget https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64 -O /usr/local/bin/cloudflared
+        chmod +x /usr/local/bin/cloudflared
+        
+        # ساخت کانفیگ با DNS داخلی
         cat > config.yml <<EOL
-        tunnel: github-vnc-tunnel
+        tunnel: github-vnc
         credentials-file: ./tunnel.json
-        originCert: ./cert.pem
+        dns:
+          enabled: true
+          upstream:
+            - "https://1.1.1.1/dns-query"
+            - "https://8.8.8.8/dns-query"
         ingress:
           - hostname: vnc.net2ray.dpdns.org
             service: tcp://localhost:5901
             originRequest:
               connectTimeout: 30s
+              noTLSVerify: true
           - service: http_status:404
         EOL
         
+        # اجرا با لاگ کامل
         nohup cloudflared tunnel --config config.yml run > tunnel.log 2>&1 &
-        sleep 20
-        cat tunnel.log
+        sleep 30
+        
+        # تست اتصال
+        nslookup vnc.net2ray.dpdns.org
+        nc -zv vnc.net2ray.dpdns.org 5901
 
-    # مرحله 5: نگهداشت اتصال
-    - name: Keep Alive
+    # مرحله 4: مانیتورینگ
+    - name: Monitor Connection
       run: |
-        echo "✅ VNC Ready at vnc.net2ray.dpdns.org:5901"
+        echo "✅ VNC Ready!"
+        echo "🌐 Address: vnc.net2ray.dpdns.org:5901"
         echo "🔑 Password: 1aq2sw@3de"
+        
         while true; do
+          if ! nc -zv localhost 5901 &>/dev/null; then
+            echo "🔄 Restarting VNC..."
+            vncserver :1 -geometry 1280x800 -localhost
+          fi
           sleep 60
-          echo "[$(date)] Connection active"
         done
