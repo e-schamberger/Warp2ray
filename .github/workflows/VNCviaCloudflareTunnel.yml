@@ -4,10 +4,10 @@ on: workflow_dispatch
 jobs:
   deploy-vnc:
     runs-on: ubuntu-latest
-    timeout-minutes: 360
+    timeout-minutes: 360  # 6 ساعت
 
     steps:
-    # مرحله 1: نصب و راه‌اندازی VNC
+    # مرحله 1: نصب VNC
     - name: Setup VNC Server
       run: |
         sudo apt update
@@ -16,69 +16,27 @@ jobs:
         echo -e "1aq2sw@3de\n1aq2sw@3de\nn" | vncpasswd
         vncserver :1 -geometry 1280x800 -localhost
 
-    # مرحله 2: تنظیم Cloudflare Tunnel (نسخه پایدار)
+    # مرحله 2: تنظیم تونل
     - name: Configure Cloudflare Tunnel
       env:
         CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
         CLOUDFLARE_TUNNEL_TOKEN: ${{ secrets.CLOUDFLARE_TUNNEL_TOKEN }}
         CLOUDFLARE_TUNNEL_ID: ${{ secrets.CLOUDFLARE_TUNNEL_ID }}
       run: |
-        # دانلود و نصب cloudflared
-        wget https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64 -O cloudflared
+        wget https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64
         chmod +x cloudflared
-        sudo mv cloudflared /usr/local/bin/
-        
-        # احراز هویت
-        cloudflared tunnel login
-        
-        # ساخت تونل (اگر قبلا نساخته‌اید)
-        cloudflared tunnel create $CLOUDFLARE_TUNNEL_ID
-        
-        # تنظیم DNS
-        cloudflared tunnel route dns $CLOUDFLARE_TUNNEL_ID vnc.net2ray.dpdns.org
-        
-        # ساخت فایل کانفیگ
-        cat > config.yml <<EOL
-        tunnel: $CLOUDFLARE_TUNNEL_ID
-        credentials-file: ./tunnel.json
-        ingress:
-          - hostname: vnc.net2ray.dpdns.org
-            service: tcp://localhost:5901
-            originRequest:
-              connectTimeout: 30s
-              keepAlive: 30s
-          - service: http_status:404
-        EOL
-        
-        # اجرای تونل در پس‌زمینه با nohup
-        nohup cloudflared tunnel --config config.yml run > tunnel.log 2>&1 &
-        
-        # انتظار برای راه‌اندازی
-        sleep 30
-        
-        # نمایش لاگ برای بررسی
-        cat tunnel.log
-        echo "تونل در حال اجراست..."
+        ./cloudflared tunnel --url tcp://localhost:5901 --credentials-file ./tunnel.json run --token $CLOUDFLARE_TUNNEL_TOKEN &
+        sleep 10
 
-    # مرحله 3: مانیتورینگ
-    - name: Monitor Connection
+    # مرحله 3: نگه داشتن جاب فعال
+    - name: Keep Job Alive
       run: |
-        echo "✅ VNC Ready!"
-        echo "🔗 آدرس: vnc.net2ray.dpdns.org:5901"
-        echo "🔑 رمز: 1aq2sw@3de"
-        echo "🔄 در حال مانیتورینگ اتصال..."
+        echo "✅ VNC Active at vnc.net2ray.dpdns.org:5901"
+        echo "🔑 Password: 1aq2sw@3de"
+        echo "🔄 Job will remain active for 6 hours..."
         
-        # چک مداوم وضعیت
+        # حلقه بی‌نهایت برای فعال نگه داشتن جاب
         while true; do
-          if ! pgrep -x "cloudflared" >/dev/null; then
-            echo "❌ تونل قطع شده! تلاش برای راه‌اندازی مجدد..."
-            nohup cloudflared tunnel --config config.yml run > tunnel.log 2>&1 &
-          fi
-          
-          if ! pgrep -x "Xtightvnc" >/dev/null; then
-            echo "❌ VNC قطع شده! راه‌اندازی مجدد..."
-            vncserver :1 -geometry 1280x800 -localhost
-          fi
-          
-          sleep 30
+          echo "$(date): Job heartbeat"
+          sleep 60
         done
