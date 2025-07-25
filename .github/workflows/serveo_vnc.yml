@@ -1,41 +1,41 @@
-name: Persistent VNC via Serveo
+name: VNC with Serveo
 on: workflow_dispatch
 
 jobs:
-  vnc-session:
+  vnc-setup:
     runs-on: ubuntu-latest
-    timeout-minutes: 360  # حداکثر زمان اجرا (6 ساعت)
-    
     steps:
-      - name: Install XFCE & VNC
-        run: |
-          sudo apt update
-          sudo apt install -y xfce4 xfce4-goodies tightvncserver novnc websockify
-          mkdir -p ~/.vnc
-          echo -e "my_secure_password\nmy_secure_password\nn" | vncpasswd  # رمز خود را جایگزین کنید
-          vncserver :1 -geometry 1280x800 -localhost
+    - name: Install dependencies
+      run: |
+        sudo apt update
+        sudo apt install -y xfce4 tightvncserver autossh curl
 
-      - name: Start Serveo Tunnel
-        run: |
-          sudo apt install -y autossh
-          autossh -M 0 -f -N -R vnc-$(date +%s).serveo.net:80:localhost:5901 serveo.net
-          echo "VNC Server is running on port 5901"
-          echo "Use this address in VNC Viewer: vnc-*.serveo.net"
+    - name: Set up VNC password
+      run: |
+        mkdir -p ~/.vnc
+        echo -e "123456\n123456\nn" | vncpasswd
+        vncserver :1 -geometry 1280x800 -localhost
 
-      - name: Keep Alive Monitor
-        run: |
-          echo "=== VNC Session Started ==="
-          echo "Connect using:"
-          echo "Address: vnc-*.serveo.net"
-          echo "Password: my_secure_password"
-          echo "=========================="
-          
-          # مانیتور وضعیت هر 1 دقیقه
-          while true; do
-            if ! pgrep -x "Xtightvnc" > /dev/null; then
-              echo "VNC crashed! Restarting..."
-              vncserver :1 -geometry 1280x800 -localhost
-            fi
-            sleep 60
-            echo "$(date): Session is active"
-          done
+    - name: Start Serveo tunnel and get URL
+      run: |
+        # Generate random subdomain
+        SUBDOMAIN="vnc-$(date +%s)"
+        
+        # Start autossh in background
+        autossh -M 0 -f -N -R $SUBDOMAIN.serveo.net:80:localhost:5901 serveo.net
+        
+        # Wait for connection
+        sleep 5
+        
+        # Get public URL
+        echo "VNC Address: $SUBDOMAIN.serveo.net:5901"
+        echo "VNC Password: 123456"
+        
+        # Keep checking connection
+        while true; do
+          if ! pgrep -x "autossh" > /dev/null; then
+            echo "Connection lost! Reconnecting..."
+            autossh -M 0 -f -N -R $SUBDOMAIN.serveo.net:80:localhost:5901 serveo.net
+          fi
+          sleep 60
+        done
