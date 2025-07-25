@@ -1,0 +1,22 @@
+name: GUI with Localtonet
+on: workflow_dispatch
+
+jobs:
+  gui-access:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install GUI and VNC
+        run: |
+          sudo apt update
+          sudo apt install -y xfce4 xfce4-goodies tightvncserver
+          mkdir -p ~/.vnc
+          echo -e "123456\n123456\nn" | vncpasswd
+          vncserver :1 -geometry 1280x800 -localhost
+
+      - name: Download and run Localtonet
+        run: |
+          wget https://localtonet.com/download/linux -O localtonet
+          chmod +x localtonet
+          ./localtonet -p 5901 > localtonet.log 2>&1 &
+          sleep 5
+          cat localtonet.log | grep -o "https://[^ ]*"
