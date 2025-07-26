@@ -1,4 +1,4 @@
-name: VNC via Cloudflare (IPv4 Fix)
+name: VNC via Cloudflare (Final Fix)
 on: workflow_dispatch
 
 jobs:
@@ -7,68 +7,69 @@ jobs:
     timeout-minutes: 360
 
     steps:
-    # مرحله 1: تنظیم شبکه
-    - name: Network Configuration
+    # مرحله 1: تنظیمات شبکه
+    - name: Network Setup
       run: |
-        # غیرفعال کردن موقت IPv6
         sudo sysctl -w net.ipv6.conf.all.disable_ipv6=1
         sudo sysctl -w net.ipv6.conf.default.disable_ipv6=1
-        
-        # تنظیم DNS
         echo "nameserver 1.1.1.1" | sudo tee /etc/resolv.conf
-        echo "nameserver 8.8.8.8" | sudo tee -a /etc/resolv.conf
-        sudo apt update
-        sudo apt install -y net-tools
+        echo "nameserver 8.8.4.4" | sudo tee -a /etc/resolv.conf
 
     # مرحله 2: نصب VNC
-    - name: Install VNC Server
+    - name: Install VNC
       run: |
+        sudo apt update
         sudo apt install -y xfce4 tightvncserver
         mkdir -p ~/.vnc
         echo -e "1aq2sw@3de\n1aq2sw@3de\nn" | vncpasswd
         vncserver :1 -geometry 1280x800 -localhost
 
-    # مرحله 3: تنظیم تونل (نسخه IPv4)
-    - name: Configure Cloudflare Tunnel
+    # مرحله 3: راه‌اندازی تونل (نسخه نهایی)
+    - name: Start Cloudflare Tunnel
       env:
         CLOUDFLARE_TUNNEL_TOKEN: ${{ secrets.CLOUDFLARE_TUNNEL_TOKEN }}
       run: |
-        wget https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64 -O /usr/local/bin/cloudflared
-        chmod +x /usr/local/bin/cloudflared
+        wget https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64 -O cloudflared
+        chmod +x cloudflared
         
-        # ساخت کانفیگ با اجبار به IPv4
+        # ساخت کانفیگ با تنظیمات ویژه
         cat > config.yml <<EOL
         tunnel: github-vnc
         credentials-file: ./tunnel.json
         protocol: http2
+        warp-routing:
+          enabled: true
         originRequest:
           connectTimeout: 30s
-          noHappyEyeballs: true  # غیرفعال کردن IPv6
-          ipv4: true  # اجبار به IPv4
+          noHappyEyeballs: true
+          http2Origin: true
+          originServerName: vnc.net2ray.dpdns.org
         ingress:
           - hostname: vnc.net2ray.dpdns.org
             service: tcp://localhost:5901
           - service: http_status:404
         EOL
         
-        # اجرای تونل
-        nohup cloudflared tunnel --config config.yml run > tunnel.log 2>&1 &
+        # اجرا با لاگ کامل
+        nohup ./cloudflared tunnel --config config.yml run > tunnel.log 2>&1 &
         sleep 30
         
-        # تست با IPv4
-        nslookup -type=A vnc.net2ray.dpdns.org
-        nc -zv $(dig +short vnc.net2ray.dpdns.org A) 5901
+        # تست اتصال با روش جایگزین
+        IP=$(getent hosts vnc.net2ray.dpdns.org | awk '{ print $1 }' | head -n1)
+        echo "Resolved IP: $IP"
+        nc -zv $IP 5901 || true
 
     # مرحله 4: مانیتورینگ
     - name: Monitor Connection
       run: |
-        echo "✅ VNC Ready!"
-        echo "🔗 Connect via: vnc.net2ray.dpdns.org:5901"
-        echo "🔑 Password: 1aq2sw@3de"
+        echo "✅ VNC Service is Running"
+        echo "🌐 Connect using:"
+        echo "Address: vnc.net2ray.dpdns.org:5901"
+        echo "Password: 1aq2sw@3de"
         
         while true; do
-          if ! nc -zv localhost 5901; then
-            echo "🔄 Restarting VNC..."
+          if ! pgrep -x "Xtightvnc" >/dev/null; then
+            echo "🔄 Restarting VNC Server..."
             vncserver :1 -geometry 1280x800 -localhost
           fi
           sleep 60
