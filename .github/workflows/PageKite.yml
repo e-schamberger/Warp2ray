@@ -5,25 +5,29 @@ on:
 jobs:
   remote-access:
     runs-on: windows-latest
-    timeout-minutes: 360  # 6 ساعت
+    timeout-minutes: 360
     steps:
-    - name: Setup PageKite
+    - name: Setup Remote Access
       run: |
-        # Download PageKite
-        Invoke-WebRequest -Uri "https://pagekite.net/pk/pagekite.py" -OutFile "pagekite.py"
-        
-        # Start PageKite for SSH (2222) and RDP (3389)
-        Start-Process python -ArgumentList "pagekite.py --clean --frontend=pagekite.net 2222 ${{ secrets.PAGEKITE_USERNAME }}.pagekite.me:${{ secrets.PAGEKITE_SECRET }}" -NoNewWindow
-        Start-Process python -ArgumentList "pagekite.py --clean --frontend=pagekite.net 3389 ${{ secrets.PAGEKITE_USERNAME }}-rdp.pagekite.me:${{ secrets.PAGEKITE_SECRET }}" -NoNewWindow
-        
-        # Enable RDP
+        # ایجاد کاربر جدید یا استفاده از کاربر موجود
+        $securePassword = ConvertTo-SecureString "YourStrongPass123!" -AsPlainText -Force
+        try {
+            Set-LocalUser -Name "runneradmin" -Password $securePassword -ErrorAction Stop
+            $username = "runneradmin"
+        } catch {
+            New-LocalUser -Name "remoteuser" -Password $securePassword
+            Add-LocalGroupMember -Group "Administrators" -Member "remoteuser"
+            $username = "remoteuser"
+        }
+
+        # فعال کردن RDP
         Set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\Terminal Server' -name "fDenyTSConnections" -Value 0
         Enable-NetFirewallRule -DisplayGroup "Remote Desktop"
+
+        # دانلود و تنظیم PageKite
+        Invoke-WebRequest -Uri "https://pagekite.net/pk/pagekite.py" -OutFile "pagekite.py"
+        Start-Process python -ArgumentList "pagekite.py --clean --frontend=pagekite.net 3389 ${{ secrets.PAGEKITE_USERNAME }}-rdp.pagekite.me:${{ secrets.PAGEKITE_SECRET }}" -NoNewWindow
         
-        # Set password for runner user
-        $password = ConvertTo-SecureString "YourStrongPass123!" -AsPlainText -Force
-        Set-LocalUser -Name "runner" -Password $password
-        
-        # Wait for 6 hours
+        # انتظار برای 6 ساعت
         Start-Sleep -Seconds 21600
       shell: powershell
