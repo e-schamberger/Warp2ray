@@ -1,33 +1,56 @@
-name: Windows Remote Access via PageKite
+name: Windows Remote Server via PageKite
 on: 
   workflow_dispatch:
 
 jobs:
   remote-access:
     runs-on: windows-latest
-    timeout-minutes: 360
+    timeout-minutes: 360  # 6 ساعت
     steps:
     - name: Setup Remote Access
       run: |
-        # ایجاد کاربر جدید یا استفاده از کاربر موجود
-        $securePassword = ConvertTo-SecureString "YourStrongPass123!" -AsPlainText -Force
-        try {
-            Set-LocalUser -Name "runneradmin" -Password $securePassword -ErrorAction Stop
-            $username = "runneradmin"
-        } catch {
-            New-LocalUser -Name "remoteuser" -Password $securePassword
-            Add-LocalGroupMember -Group "Administrators" -Member "remoteuser"
-            $username = "remoteuser"
+        # تنظیم کاربر و رمز عبور
+        $username = "gituser"
+        $password = "YourStrongPassword123!"
+        
+        # ایجاد کاربر جدید اگر وجود نداشته باشد
+        if (-not (Get-LocalUser -Name $username -ErrorAction SilentlyContinue)) {
+            $securePassword = ConvertTo-SecureString $password -AsPlainText -Force
+            New-LocalUser -Name $username -Password $securePassword
+            Add-LocalGroupMember -Group "Administrators" -Member $username
+            Write-Host "User $username created and added to Administrators group"
+        } else {
+            $securePassword = ConvertTo-SecureString $password -AsPlainText -Force
+            Set-LocalUser -Name $username -Password $securePassword
+            Write-Host "Password updated for existing user $username"
         }
 
         # فعال کردن RDP
-        Set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\Terminal Server' -name "fDenyTSConnections" -Value 0
+        Set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\Terminal Server' -Name "fDenyTSConnections" -Value 0
         Enable-NetFirewallRule -DisplayGroup "Remote Desktop"
+        Write-Host "RDP enabled successfully"
 
         # دانلود و تنظیم PageKite
         Invoke-WebRequest -Uri "https://pagekite.net/pk/pagekite.py" -OutFile "pagekite.py"
-        Start-Process python -ArgumentList "pagekite.py --clean --frontend=pagekite.net 3389 ${{ secrets.PAGEKITE_USERNAME }}-rdp.pagekite.me:${{ secrets.PAGEKITE_SECRET }}" -NoNewWindow
         
-        # انتظار برای 6 ساعت
+        # اجرای PageKite برای RDP (پورت 3389)
+        $pagekite_cmd = "pagekite.py --clean --frontend=pagekite.net 3389 $env:PAGEKITE_USERNAME-rdp.pagekite.me:$env:PAGEKITE_SECRET"
+        Write-Host "Starting PageKite with command: $pagekite_cmd"
+        
+        Start-Process python -ArgumentList $pagekite_cmd -NoNewWindow -PassThru
+        Write-Host "PageKite started for RDP access"
+
+        # اطلاعات اتصال
+        Write-Host "`n=== Connection Information ==="
+        Write-Host "RDP Address: $env:PAGEKITE_USERNAME-rdp.pagekite.me"
+        Write-Host "Username: $username"
+        Write-Host "Password: $password"
+        Write-Host "===========================`n"
+
+        # نگه داشتن رانر فعال برای 6 ساعت
+        Write-Host "Server will be available for 6 hours..."
         Start-Sleep -Seconds 21600
+      env:
+        PAGEKITE_USERNAME: ${{ secrets.PAGEKITE_USERNAME }}
+        PAGEKITE_SECRET: ${{ secrets.PAGEKITE_SECRET }}
       shell: powershell
