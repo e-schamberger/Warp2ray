@@ -25,7 +25,7 @@ ingress:
   - hostname: win.net2ray.dpdns.org
     service: rdp://localhost:3389
   - service: http_status:404
-    "@ | Out-File "$env:USERPROFILE\.cloudflared\config.yml"
+       "@ | Out-File "$env:USERPROFILE\.cloudflared\config.yml"
 
     - name: Run Tunnel
       run: Start-Process -FilePath ".\cloudflared.exe" -ArgumentList "tunnel run" -WindowStyle Hidden
