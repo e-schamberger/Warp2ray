@@ -34,9 +34,12 @@ jobs:
         # 3. تنظیمات PageKite
         Invoke-WebRequest -Uri "https://pagekite.net/pk/pagekite.py" -OutFile "pagekite.py"
         
-        # فرمت صحیح دستور PageKite:
-        $kite_name = "$env:PAGEKITE_USERNAME-rdp.pagekite.me"
-        $command = "pagekite.py --clean --frontend=pagekite.net 3389 $kite_name:$env:PAGEKITE_SECRET"
+        # اصلاح مهم: فرمت صحیح متغیرهای محیطی در PowerShell
+        $kite_name = "${{ secrets.PAGEKITE_USERNAME }}-rdp.pagekite.me"
+        $kite_secret = "${{ secrets.PAGEKITE_SECRET }}"
+        
+        # دستور اصلاح شده با استفاده از متغیرهای محلی
+        $command = "pagekite.py --clean --frontend=pagekite.net 3389 ${kite_name}:${kite_secret}"
         
         Write-Host "Executing: python $command"
         Start-Process python -ArgumentList $command -NoNewWindow -Wait
@@ -51,7 +54,4 @@ jobs:
         # 5. نگه داشتن session فعال
         Write-Host "Server will remain active for 6 hours..."
         Start-Sleep -Seconds 21600
-      env:
-        PAGEKITE_USERNAME: ${{ secrets.PAGEKITE_USERNAME }}
-        PAGEKITE_SECRET: ${{ secrets.PAGEKITE_SECRET }}
       shell: powershell
