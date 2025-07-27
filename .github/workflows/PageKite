@@ -1,0 +1,32 @@
+name: Windows Remote Server with PageKite
+
+on:
+  workflow_dispatch:
+
+jobs:
+  remote-access:
+    runs-on: windows-latest
+    timeout-minutes: 360  # 6 ساعت
+    steps:
+    - name: Download and install PageKite
+      run: |
+        # دانلود PageKite
+        Invoke-WebRequest -Uri "https://pagekite.net/pk/pagekite.py" -OutFile "pagekite.py"
+        
+        # اجرای PageKite برای SSH (پورت 2222)
+        python pagekite.py --clean --frontend=pagekite.net 2222 ${{ secrets.PAGEKITE_USERNAME }}.pagekite.me:${{ secrets.PAGEKITE_SECRET }}
+        
+        # اجرای PageKite برای RDP (پورت 3389)
+        python pagekite.py --clean --frontend=pagekite.net 3389 ${{ secrets.PAGEKITE_USERNAME }}-rdp.pagekite.me:${{ secrets.PAGEKITE_SECRET }}
+        
+        # فعال کردن RDP
+        Set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\Terminal Server' -name "fDenyTSConnections" -Value 0
+        Enable-NetFirewallRule -DisplayGroup "Remote Desktop"
+        
+        # تنظیم رمز عبور برای کاربر runner
+        $password = ConvertTo-SecureString "YourStrongPassword123!" -AsPlainText -Force
+        Set-LocalUser -Name "runner" -Password $password
+        
+        # نگه داشتن رانر فعال برای 6 ساعت
+        Start-Sleep -Seconds 21600
+      shell: powershell
