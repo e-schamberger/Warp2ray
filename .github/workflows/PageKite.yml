@@ -5,7 +5,7 @@ on:
 jobs:
   remote-access:
     runs-on: windows-latest
-    timeout-minutes: 360  # 6 ساعت
+    timeout-minutes: 360
     steps:
     - name: Setup Remote Access
       run: |
@@ -34,15 +34,15 @@ jobs:
         # 3. تنظیمات PageKite
         Invoke-WebRequest -Uri "https://pagekite.net/pk/pagekite.py" -OutFile "pagekite.py"
         
-        # اصلاح مهم: فرمت صحیح متغیرهای محیطی در PowerShell
+        # فرمت صحیح دستور PageKite
         $kite_name = "${{ secrets.PAGEKITE_USERNAME }}-rdp.pagekite.me"
         $kite_secret = "${{ secrets.PAGEKITE_SECRET }}"
         
-        # دستور اصلاح شده با استفاده از متغیرهای محلی
-        $command = "pagekite.py --clean --frontend=pagekite.net 3389 ${kite_name}:${kite_secret}"
+        # دستور اصلاح شده با فرمت صحیح
+        $command = "--clean --frontend=pagekite.net --service_on=raw:${kite_name}:localhost:3389:$kite_secret"
         
-        Write-Host "Executing: python $command"
-        Start-Process python -ArgumentList $command -NoNewWindow -Wait
+        Write-Host "Executing: python pagekite.py $command"
+        Start-Process python -ArgumentList "pagekite.py", "--clean", "--frontend=pagekite.net", "--service_on=raw:${kite_name}:localhost:3389:$kite_secret" -NoNewWindow
         
         # 4. نمایش اطلاعات اتصال
         Write-Host "`n=== CONNECTION DETAILS ==="
