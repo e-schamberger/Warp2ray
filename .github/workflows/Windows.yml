@@ -1,76 +1,40 @@
-name: VNC via Cloudflare (Final Fix)
-on: workflow_dispatch
+name: Windows RDP Manual
+on: 
+  workflow_dispatch: # فقط اجرای دستی
+permissions:
+  contents: read
 
 jobs:
-  deploy-vnc:
-    runs-on: ubuntu-latest
-    timeout-minutes: 360
-
+  setup-rdp:
+    runs-on: windows-latest
+    timeout-minutes: 360 # 6 ساعت
+    
     steps:
-    # مرحله 1: تنظیمات شبکه
-    - name: Network Setup
+    - name: Download cloudflared
       run: |
-        sudo sysctl -w net.ipv6.conf.all.disable_ipv6=1
-        sudo sysctl -w net.ipv6.conf.default.disable_ipv6=1
-        echo "nameserver 1.1.1.1" | sudo tee /etc/resolv.conf
-        echo "nameserver 8.8.4.4" | sudo tee -a /etc/resolv.conf
+        iwr -Uri "https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-windows-amd64.exe" -OutFile "cloudflared.exe"
 
-    # مرحله 2: نصب VNC
-    - name: Install VNC
+    - name: Enable RDP
       run: |
-        sudo apt update
-        sudo apt install -y xfce4 tightvncserver
-        mkdir -p ~/.vnc
-        echo -e "1aq2sw@3de\n1aq2sw@3de\nn" | vncpasswd
-        vncserver :1 -geometry 1280x800 -localhost
+        reg add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Terminal Server" /v fDenyTSConnections /t REG_DWORD /d 0 /f
+        netsh advfirewall firewall set rule group="Remote Desktop" new enable=Yes
+        $pass = ConvertTo-SecureString "YourPassword123!" -AsPlainText -Force
+        Set-LocalUser -Name "runner" -Password $pass
 
-    # مرحله 3: راه‌اندازی تونل (نسخه نهایی)
-    - name: Start Cloudflare Tunnel
+    - name: Configure Tunnel
       env:
-        CLOUDFLARE_TUNNEL_TOKEN: ${{ secrets.CLOUDFLARE_TUNNEL_TOKEN }}
+        TUNNEL_JSON: ${{ secrets.CLOUDFLARE_TUNNEL_JSON }}
       run: |
-        wget https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64 -O cloudflared
-        chmod +x cloudflared
-        
-        # ساخت کانفیگ با تنظیمات ویژه
-        cat > config.yml <<EOL
-        tunnel: github-vnc
-        credentials-file: ./tunnel.json
-        protocol: http2
-        warp-routing:
-          enabled: true
-        originRequest:
-          connectTimeout: 30s
-          noHappyEyeballs: true
-          http2Origin: true
-          originServerName: vnc.net2ray.dpdns.org
-        ingress:
-          - hostname: vnc.net2ray.dpdns.org
-            service: tcp://localhost:5901
-          - service: http_status:404
-        EOL
-        
-        # اجرا با لاگ کامل
-        nohup ./cloudflared tunnel --config config.yml run > tunnel.log 2>&1 &
-        sleep 30
-        
-        # تست اتصال با روش جایگزین
-        IP=$(getent hosts vnc.net2ray.dpdns.org | awk '{ print $1 }' | head -n1)
-        echo "Resolved IP: $IP"
-        nc -zv $IP 5901 || true
+        md "$env:USERPROFILE\.cloudflared" -Force
+        [System.IO.File]::WriteAllText("$env:USERPROFILE\.cloudflared\credentials.json", $env:TUNNEL_JSON)
+        @"
+tunnel: ${{ secrets.CLOUDFLARE_TUNNEL_ID }}
+credentials-file: $env:USERPROFILE\.cloudflared\credentials.json
+ingress:
+  - hostname: win.net2ray.dpdns.org
+    service: rdp://localhost:3389
+  - service: http_status:404
+"@ | Out-File "$env:USERPROFILE\.cloudflared\config.yml"
 
-    # مرحله 4: مانیتورینگ
-    - name: Monitor Connection
-      run: |
-        echo "✅ VNC Service is Running"
-        echo "🌐 Connect using:"
-        echo "Address: vnc.net2ray.dpdns.org:5901"
-        echo "Password: 1aq2sw@3de"
-        
-        while true; do
-          if ! pgrep -x "Xtightvnc" >/dev/null; then
-            echo "🔄 Restarting VNC Server..."
-            vncserver :1 -geometry 1280x800 -localhost
-          fi
-          sleep 60
-        done
+    - name: Run Tunnel
+      run: Start-Process -FilePath ".\cloudflared.exe" -ArgumentList "tunnel run" -WindowStyle Hidden
