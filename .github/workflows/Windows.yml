@@ -1,63 +1,42 @@
-name: 🚀 Windows RDP (Manual Run)
-
-on:
-  workflow_dispatch: # فقط اجرای دستی
-
+name: Windows RDP Manual
+on: 
+  workflow_dispatch: {}
+  
 jobs:
-  windows-rdp:
+  rdp-tunnel:
     runs-on: windows-latest
-    timeout-minutes: 360 # 6 ساعت
-
+    timeout-minutes: 360
+    
     steps:
-    - name: 🔻 Checkout repository
+    - name: Checkout
       uses: actions/checkout@v4
 
-    - name: ⬇️ Download cloudflared
+    - name: Install cloudflared
       run: |
-        Invoke-WebRequest -Uri "https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-windows-amd64.exe" -OutFile "cloudflared.exe"
+        iwr https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-windows-amd64.exe -OutFile cloudflared.exe
 
-    - name: 🛠️ Configure RDP Settings
+    - name: Enable RDP
       run: |
-        # فعال کردن RDP
-        Set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\Terminal Server' -name "fDenyTSConnections" -Value 0
-        Enable-NetFirewallRule -DisplayGroup "Remote Desktop"
-        
-        # تنظیم رمز عبور برای کاربر runner
-        $password = ConvertTo-SecureString "YourStrongPassword123!" -AsPlainText -Force
-        Set-LocalUser -Name "runner" -Password $password
-        Write-Output "✔️ RDP configured successfully"
+        reg add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Terminal Server" /v fDenyTSConnections /t REG_DWORD /d 0 /f
+        netsh advfirewall firewall set rule group="Remote Desktop" new enable=Yes
+        $pass = ConvertTo-SecureString "${{ secrets.RDP_PASS }}" -AsPlainText -Force
+        Set-LocalUser -Name runner -Password $pass
 
-    - name: 🔐 Setup Cloudflare Tunnel
+    - name: Configure Tunnel
       env:
-        TUNNEL_CREDENTIALS: ${{ secrets.CLOUDFLARE_TUNNEL_CREDENTIALS }}
+        TUNNEL_JSON: ${{ secrets.CLOUDFLARE_TUNNEL_JSON }}
         TUNNEL_ID: ${{ secrets.CLOUDFLARE_TUNNEL_ID }}
       run: |
-        # ایجاد پوشه تنظیمات
-        New-Item -ItemType Directory -Path "$env:USERPROFILE\.cloudflared" -Force
-        
-        # ذخیره credentials
-        [IO.File]::WriteAllText("$env:USERPROFILE\.cloudflared\credentials.json", $env:TUNNEL_CREDENTIALS)
-        
-        # ایجاد فایل config
-        $config = @"
+        md "$env:USERPROFILE\.cloudflared" -Force
+        [System.IO.File]::WriteAllText("$env:USERPROFILE\.cloudflared\credentials.json", $env:TUNNEL_JSON)
+        @"
 tunnel: $env:TUNNEL_ID
 credentials-file: $env:USERPROFILE\.cloudflared\credentials.json
 ingress:
   - hostname: win.net2ray.dpdns.org
     service: rdp://localhost:3389
   - service: http_status:404
-"@
-        [IO.File]::WriteAllText("$env:USERPROFILE\.cloudflared\config.yml", $config)
-        Write-Output "✔️ Cloudflare Tunnel configured"
+"@ | Out-File "$env:USERPROFILE\.cloudflared\config.yml"
 
-    - name: 🚀 Run Cloudflare Tunnel
-      run: Start-Process -FilePath ".\cloudflared.exe" -ArgumentList "tunnel run" -WindowStyle Hidden
-      continue-on-error: true
-
-    - name: ℹ️ Display Connection Info
-      run: |
-        Write-Output "✅ RDP Server is ready!"
-        Write-Output "▸ Connect to: win.net2ray.dpdns.org"
-        Write-Output "▸ Username: runner"
-        Write-Output "▸ Password: YourStrongPassword123!"
-        Write-Output "▸ This session will auto-terminate after 6 hours"
+    - name: Run Tunnel
+      run: Start-Process .\cloudflared.exe -ArgumentList "tunnel run" -WindowStyle Hidden
