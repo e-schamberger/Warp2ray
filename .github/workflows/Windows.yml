@@ -22,11 +22,12 @@ jobs:
     - name: Configure Tunnel
       env:
         TUNNEL_JSON: ${{ secrets.CLOUDFLARE_TUNNEL_JSON }}
+        TUNNEL_ID: ${{ secrets.CLOUDFLARE_TUNNEL_ID }}
       run: |
         New-Item -ItemType Directory -Path "$env:USERPROFILE\.cloudflared" -Force
         [System.IO.File]::WriteAllText("$env:USERPROFILE\.cloudflared\credentials.json", $env:TUNNEL_JSON)
         @"
-tunnel: ${{ secrets.CLOUDFLARE_TUNNEL_ID }}
+tunnel: $env:TUNNEL_ID
 credentials-file: $env:USERPROFILE\.cloudflared\credentials.json
 ingress:
   - hostname: win.net2ray.dpdns.org
