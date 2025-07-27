@@ -30,13 +30,13 @@ jobs:
         md "$env:USERPROFILE\.cloudflared" -Force
         [System.IO.File]::WriteAllText("$env:USERPROFILE\.cloudflared\credentials.json", $env:TUNNEL_JSON)
         @"
-tunnel: $env:TUNNEL_ID
-credentials-file: $env:USERPROFILE\.cloudflared\credentials.json
-ingress:
-  - hostname: win.net2ray.dpdns.org
-    service: rdp://localhost:3389
-  - service: http_status:404
-"@ | Out-File "$env:USERPROFILE\.cloudflared\config.yml"
-
-    - name: Run Tunnel
-      run: Start-Process .\cloudflared.exe -ArgumentList "tunnel run" -WindowStyle Hidden
+      tunnel: $env:TUNNEL_ID
+      credentials-file: $env:USERPROFILE\.cloudflared\credentials.json
+      ingress:
+        - hostname: win.net2ray.dpdns.org
+          service: rdp://localhost:3389
+        - service: http_status:404
+      "@ | Out-File "$env:USERPROFILE\.cloudflared\config.yml"
+      
+          - name: Run Tunnel
+            run: Start-Process .\cloudflared.exe -ArgumentList "tunnel run" -WindowStyle Hidden
