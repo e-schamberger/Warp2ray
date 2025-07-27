@@ -1,23 +1,15 @@
 name: Windows RDP Manual
-on: 
-  workflow_dispatch: # فقط اجرای دستی
+on: workflow_dispatch
 
 jobs:
   setup-rdp:
     runs-on: windows-latest
-    timeout-minutes: 360 # 6 ساعت
+    timeout-minutes: 360
     
     steps:
     - name: Download cloudflared
       run: |
         Invoke-WebRequest -Uri "https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-windows-amd64.exe" -OutFile "cloudflared.exe"
-
-    - name: Enable RDP
-      run: |
-        Set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\Terminal Server' -name "fDenyTSConnections" -Value 0
-        Enable-NetFirewallRule -DisplayGroup "Remote Desktop"
-        $pass = ConvertTo-SecureString "${{ secrets.RDP_PASSWORD }}" -AsPlainText -Force
-        Set-LocalUser -Name "runner" -Password $pass
 
     - name: Configure Tunnel
       env:
