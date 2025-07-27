@@ -1,9 +1,7 @@
-name: Windows RDP Server via Cloudflare
+name: 🚀 Windows RDP (Manual Run)
 
 on:
-  workflow_dispatch:
-  schedule:
-    - cron: '0 */6 * * *' # هر 6 ساعت اجرا شود
+  workflow_dispatch: # فقط اجرای دستی
 
 jobs:
   windows-rdp:
@@ -11,14 +9,14 @@ jobs:
     timeout-minutes: 360 # 6 ساعت
 
     steps:
-    - name: Checkout
+    - name: 🔻 Checkout repository
       uses: actions/checkout@v4
 
-    - name: Download cloudflared
+    - name: ⬇️ Download cloudflared
       run: |
         Invoke-WebRequest -Uri "https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-windows-amd64.exe" -OutFile "cloudflared.exe"
 
-    - name: Configure RDP
+    - name: 🛠️ Configure RDP Settings
       run: |
         # فعال کردن RDP
         Set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\Terminal Server' -name "fDenyTSConnections" -Value 0
@@ -27,8 +25,9 @@ jobs:
         # تنظیم رمز عبور برای کاربر runner
         $password = ConvertTo-SecureString "YourStrongPassword123!" -AsPlainText -Force
         Set-LocalUser -Name "runner" -Password $password
+        Write-Output "✔️ RDP configured successfully"
 
-    - name: Setup Cloudflare Tunnel
+    - name: 🔐 Setup Cloudflare Tunnel
       env:
         TUNNEL_CREDENTIALS: ${{ secrets.CLOUDFLARE_TUNNEL_CREDENTIALS }}
         TUNNEL_ID: ${{ secrets.CLOUDFLARE_TUNNEL_ID }}
@@ -49,6 +48,16 @@ ingress:
   - service: http_status:404
 "@
         [IO.File]::WriteAllText("$env:USERPROFILE\.cloudflared\config.yml", $config)
+        Write-Output "✔️ Cloudflare Tunnel configured"
 
-    - name: Run Cloudflare Tunnel
+    - name: 🚀 Run Cloudflare Tunnel
       run: Start-Process -FilePath ".\cloudflared.exe" -ArgumentList "tunnel run" -WindowStyle Hidden
+      continue-on-error: true
+
+    - name: ℹ️ Display Connection Info
+      run: |
+        Write-Output "✅ RDP Server is ready!"
+        Write-Output "▸ Connect to: win.net2ray.dpdns.org"
+        Write-Output "▸ Username: runner"
+        Write-Output "▸ Password: YourStrongPassword123!"
+        Write-Output "▸ This session will auto-terminate after 6 hours"
