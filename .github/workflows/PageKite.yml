@@ -34,17 +34,23 @@ jobs:
         # 3. Setup PageKite
         Invoke-WebRequest -Uri "https://pagekite.net/pk/pagekite.py" -OutFile "pagekite.py"
         
-        # Correct PageKite command format
+        # Correct variable handling for PowerShell
         $kite_name = "${{ secrets.PAGEKITE_USERNAME }}-rdp.pagekite.me"
         $kite_secret = "${{ secrets.PAGEKITE_SECRET }}"
         
-        # Using the new recommended format
-        $command = "--clean --frontend=pagekite.net 3389 $kite_name:$kite_secret"
+        # Build the connection string separately
+        $connection_string = "${kite_name}:${kite_secret}"
         
-        Write-Host "Executing: python pagekite.py $command"
+        Write-Host "Starting PageKite with connection: $connection_string"
         
-        # Start PageKite in background
-        Start-Process python -ArgumentList "pagekite.py", "--clean", "--frontend=pagekite.net", "3389", "${kite_name}:${kite_secret}" -NoNewWindow
+        # Start PageKite with proper argument formatting
+        Start-Process python -ArgumentList @(
+            "pagekite.py",
+            "--clean",
+            "--frontend=pagekite.net",
+            "3389",
+            $connection_string
+        ) -NoNewWindow
         
         # 4. Show connection details
         Write-Host "`n=== CONNECTION DETAILS ==="
