@@ -9,10 +9,10 @@ jobs:
     steps:
     - name: Setup Remote Access
       run: |
-        # تنظیمات اولیه
+        # Basic setup
         $ErrorActionPreference = "Stop"
         
-        # 1. ایجاد کاربر
+        # 1. Create or update user
         $username = "remoteadmin"
         $password = "SecurePass123!"
         $securePassword = ConvertTo-SecureString $password -AsPlainText -Force
@@ -26,32 +26,34 @@ jobs:
             Write-Host "User password updated"
         }
 
-        # 2. فعال کردن RDP
+        # 2. Enable RDP
         Set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\Terminal Server' -Name "fDenyTSConnections" -Value 0
         Enable-NetFirewallRule -DisplayGroup "Remote Desktop"
         Write-Host "RDP enabled"
 
-        # 3. تنظیمات PageKite
+        # 3. Setup PageKite
         Invoke-WebRequest -Uri "https://pagekite.net/pk/pagekite.py" -OutFile "pagekite.py"
         
-        # فرمت صحیح دستور PageKite
+        # Correct PageKite command format
         $kite_name = "${{ secrets.PAGEKITE_USERNAME }}-rdp.pagekite.me"
         $kite_secret = "${{ secrets.PAGEKITE_SECRET }}"
         
-        # دستور اصلاح شده با فرمت صحیح
-        $command = "--clean --frontend=pagekite.net --service_on=raw:${kite_name}:localhost:3389:$kite_secret"
+        # Using the new recommended format
+        $command = "--clean --frontend=pagekite.net 3389 $kite_name:$kite_secret"
         
         Write-Host "Executing: python pagekite.py $command"
-        Start-Process python -ArgumentList "pagekite.py", "--clean", "--frontend=pagekite.net", "--service_on=raw:${kite_name}:localhost:3389:$kite_secret" -NoNewWindow
         
-        # 4. نمایش اطلاعات اتصال
+        # Start PageKite in background
+        Start-Process python -ArgumentList "pagekite.py", "--clean", "--frontend=pagekite.net", "3389", "${kite_name}:${kite_secret}" -NoNewWindow
+        
+        # 4. Show connection details
         Write-Host "`n=== CONNECTION DETAILS ==="
         Write-Host "RDP Address: $kite_name"
         Write-Host "Username: $username"
         Write-Host "Password: $password"
         Write-Host "=========================`n"
         
-        # 5. نگه داشتن session فعال
+        # 5. Keep alive for 6 hours
         Write-Host "Server will remain active for 6 hours..."
         Start-Sleep -Seconds 21600
       shell: powershell
