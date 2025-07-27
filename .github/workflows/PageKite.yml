@@ -9,46 +9,47 @@ jobs:
     steps:
     - name: Setup Remote Access
       run: |
-        # تنظیم کاربر و رمز عبور
-        $username = "gituser"
-        $password = "YourStrongPassword123!"
+        # تنظیمات اولیه
+        $ErrorActionPreference = "Stop"
         
-        # ایجاد کاربر جدید اگر وجود نداشته باشد
-        if (-not (Get-LocalUser -Name $username -ErrorAction SilentlyContinue)) {
-            $securePassword = ConvertTo-SecureString $password -AsPlainText -Force
-            New-LocalUser -Name $username -Password $securePassword
+        # 1. ایجاد کاربر
+        $username = "remoteadmin"
+        $password = "SecurePass123!"
+        $securePassword = ConvertTo-SecureString $password -AsPlainText -Force
+        
+        try {
+            New-LocalUser -Name $username -Password $securePassword -ErrorAction SilentlyContinue
             Add-LocalGroupMember -Group "Administrators" -Member $username
-            Write-Host "User $username created and added to Administrators group"
-        } else {
-            $securePassword = ConvertTo-SecureString $password -AsPlainText -Force
+            Write-Host "User created successfully"
+        } catch {
             Set-LocalUser -Name $username -Password $securePassword
-            Write-Host "Password updated for existing user $username"
+            Write-Host "User password updated"
         }
 
-        # فعال کردن RDP
+        # 2. فعال کردن RDP
         Set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\Terminal Server' -Name "fDenyTSConnections" -Value 0
         Enable-NetFirewallRule -DisplayGroup "Remote Desktop"
-        Write-Host "RDP enabled successfully"
+        Write-Host "RDP enabled"
 
-        # دانلود و تنظیم PageKite
+        # 3. تنظیمات PageKite
         Invoke-WebRequest -Uri "https://pagekite.net/pk/pagekite.py" -OutFile "pagekite.py"
         
-        # اجرای PageKite برای RDP (پورت 3389)
-        $pagekite_cmd = "pagekite.py --clean --frontend=pagekite.net 3389 $env:PAGEKITE_USERNAME-rdp.pagekite.me:$env:PAGEKITE_SECRET"
-        Write-Host "Starting PageKite with command: $pagekite_cmd"
+        # فرمت صحیح دستور PageKite:
+        $kite_name = "$env:PAGEKITE_USERNAME-rdp.pagekite.me"
+        $command = "pagekite.py --clean --frontend=pagekite.net 3389 $kite_name:$env:PAGEKITE_SECRET"
         
-        Start-Process python -ArgumentList $pagekite_cmd -NoNewWindow -PassThru
-        Write-Host "PageKite started for RDP access"
-
-        # اطلاعات اتصال
-        Write-Host "`n=== Connection Information ==="
-        Write-Host "RDP Address: $env:PAGEKITE_USERNAME-rdp.pagekite.me"
+        Write-Host "Executing: python $command"
+        Start-Process python -ArgumentList $command -NoNewWindow -Wait
+        
+        # 4. نمایش اطلاعات اتصال
+        Write-Host "`n=== CONNECTION DETAILS ==="
+        Write-Host "RDP Address: $kite_name"
         Write-Host "Username: $username"
         Write-Host "Password: $password"
-        Write-Host "===========================`n"
-
-        # نگه داشتن رانر فعال برای 6 ساعت
-        Write-Host "Server will be available for 6 hours..."
+        Write-Host "=========================`n"
+        
+        # 5. نگه داشتن session فعال
+        Write-Host "Server will remain active for 6 hours..."
         Start-Sleep -Seconds 21600
       env:
         PAGEKITE_USERNAME: ${{ secrets.PAGEKITE_USERNAME }}
