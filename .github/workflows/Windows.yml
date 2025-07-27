@@ -1,8 +1,6 @@
 name: Windows RDP Manual
 on: 
   workflow_dispatch: # فقط اجرای دستی
-permissions:
-  contents: read
 
 jobs:
   setup-rdp:
@@ -12,20 +10,20 @@ jobs:
     steps:
     - name: Download cloudflared
       run: |
-        iwr -Uri "https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-windows-amd64.exe" -OutFile "cloudflared.exe"
+        Invoke-WebRequest -Uri "https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-windows-amd64.exe" -OutFile "cloudflared.exe"
 
     - name: Enable RDP
       run: |
-        reg add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Terminal Server" /v fDenyTSConnections /t REG_DWORD /d 0 /f
-        netsh advfirewall firewall set rule group="Remote Desktop" new enable=Yes
-        $pass = ConvertTo-SecureString "YourPassword123!" -AsPlainText -Force
+        Set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\Terminal Server' -name "fDenyTSConnections" -Value 0
+        Enable-NetFirewallRule -DisplayGroup "Remote Desktop"
+        $pass = ConvertTo-SecureString "${{ secrets.RDP_PASSWORD }}" -AsPlainText -Force
         Set-LocalUser -Name "runner" -Password $pass
 
     - name: Configure Tunnel
       env:
         TUNNEL_JSON: ${{ secrets.CLOUDFLARE_TUNNEL_JSON }}
       run: |
-        md "$env:USERPROFILE\.cloudflared" -Force
+        New-Item -ItemType Directory -Path "$env:USERPROFILE\.cloudflared" -Force
         [System.IO.File]::WriteAllText("$env:USERPROFILE\.cloudflared\credentials.json", $env:TUNNEL_JSON)
         @"
 tunnel: ${{ secrets.CLOUDFLARE_TUNNEL_ID }}
