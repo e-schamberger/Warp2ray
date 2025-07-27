@@ -1,6 +1,5 @@
-name: Windows Remote Server with PageKite
-
-on:
+name: Windows Remote Access via PageKite
+on: 
   workflow_dispatch:
 
 jobs:
@@ -8,25 +7,23 @@ jobs:
     runs-on: windows-latest
     timeout-minutes: 360  # 6 ساعت
     steps:
-    - name: Download and install PageKite
+    - name: Setup PageKite
       run: |
-        # دانلود PageKite
+        # Download PageKite
         Invoke-WebRequest -Uri "https://pagekite.net/pk/pagekite.py" -OutFile "pagekite.py"
         
-        # اجرای PageKite برای SSH (پورت 2222)
-        python pagekite.py --clean --frontend=pagekite.net 2222 ${{ secrets.PAGEKITE_USERNAME }}.pagekite.me:${{ secrets.PAGEKITE_SECRET }}
+        # Start PageKite for SSH (2222) and RDP (3389)
+        Start-Process python -ArgumentList "pagekite.py --clean --frontend=pagekite.net 2222 ${{ secrets.PAGEKITE_USERNAME }}.pagekite.me:${{ secrets.PAGEKITE_SECRET }}" -NoNewWindow
+        Start-Process python -ArgumentList "pagekite.py --clean --frontend=pagekite.net 3389 ${{ secrets.PAGEKITE_USERNAME }}-rdp.pagekite.me:${{ secrets.PAGEKITE_SECRET }}" -NoNewWindow
         
-        # اجرای PageKite برای RDP (پورت 3389)
-        python pagekite.py --clean --frontend=pagekite.net 3389 ${{ secrets.PAGEKITE_USERNAME }}-rdp.pagekite.me:${{ secrets.PAGEKITE_SECRET }}
-        
-        # فعال کردن RDP
+        # Enable RDP
         Set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\Terminal Server' -name "fDenyTSConnections" -Value 0
         Enable-NetFirewallRule -DisplayGroup "Remote Desktop"
         
-        # تنظیم رمز عبور برای کاربر runner
-        $password = ConvertTo-SecureString "YourStrongPassword123!" -AsPlainText -Force
+        # Set password for runner user
+        $password = ConvertTo-SecureString "YourStrongPass123!" -AsPlainText -Force
         Set-LocalUser -Name "runner" -Password $password
         
-        # نگه داشتن رانر فعال برای 6 ساعت
+        # Wait for 6 hours
         Start-Sleep -Seconds 21600
       shell: powershell
