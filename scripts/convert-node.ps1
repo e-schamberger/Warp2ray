@@ -20,9 +20,9 @@ $chromePath = @(
 ) | Where-Object { Test-Path $_ } | Select-Object -First 1
 
 if (-not $chromePath) {
-    Write-Host "Chrome not found! Installing Chrome..."
+    Write-Host "Installing Chrome..."
     $chromeInstaller = "$env:TEMP\chrome_installer.exe"
-    Invoke-WebRequest "https://dl.google.com/chrome/install/latest/chrome_installer.exe" -OutFile $chromeInstaller
+    Invoke-WebRequest "https://edgedl.me.gvt1.com/edgedl/chrome/chrome-for-testing/120.0.6099.109/win64/chrome-installer.exe" -OutFile $chromeInstaller
     Start-Process -FilePath $chromeInstaller -ArgumentList "/silent /install" -Wait
     Remove-Item $chromeInstaller
     $chromePath = "${env:ProgramFiles(x86)}\Google\Chrome\Application\chrome.exe"
@@ -65,15 +65,68 @@ try {
     $driver = New-Object OpenQA.Selenium.Chrome.ChromeDriver($chromeDriverDir, $chromeOptions)
     Write-Host "ChromeDriver started successfully"
 
-    # Automation steps (same as before)
+    # Open website
     $driver.Navigate().GoToUrl("https://v2rayse.com/node-convert")
+    Write-Host "Opened website"
     Start-Sleep -Seconds 10
 
-    # ... rest of your automation code ...
+    # Click first button
+    $button1 = $driver.FindElement([OpenQA.Selenium.By]::XPath("//button[.//i[contains(@class, 'mdi-content-copy')]]"))
+    $button1.Click()
+    Write-Host "Clicked first button"
+    Start-Sleep -Seconds 5
+
+    # Click second button
+    $button2 = $driver.FindElement([OpenQA.Selenium.By]::XPath("//button[.//i[contains(@class, 'mdi-dots-vertical')]]"))
+    $button2.Click()
+    Write-Host "Clicked second button"
+    Start-Sleep -Seconds 5
+
+    # Select middle option
+    $option = $driver.FindElement([OpenQA.Selenium.By]::XPath("//div[contains(text(), 'VLESS')]"))
+    $option.Click()
+    Write-Host "Selected VLESS option"
+    Start-Sleep -Seconds 3
+
+    # Click confirm button
+    $confirmBtn = $driver.FindElement([OpenQA.Selenium.By]::XPath("//button[.//i[contains(@class, 'mdi-check')]]"))
+    $confirmBtn.Click()
+    Write-Host "Clicked confirm button"
+    Start-Sleep -Seconds 3
+
+    # Enter URL
+    $inputField = $driver.FindElement([OpenQA.Selenium.By]::XPath("//input"))
+    $inputField.SendKeys("https://raw.githubusercontent.com/e-schamberger/free/refs/heads/main/config/vless.json")
+    Write-Host "Entered URL"
+    Start-Sleep -Seconds 3
+
+    # Click conversion buttons
+    $convertBtn1 = $driver.FindElement([OpenQA.Selenium.By]::XPath("(//button[.//i[contains(@class, 'mdi-content-copy')]])[last()]"))
+    $convertBtn1.Click()
+    Write-Host "Clicked first conversion button"
+    Start-Sleep -Seconds 8
+
+    $convertBtn2 = $driver.FindElement([OpenQA.Selenium.By]::XPath("(//button[.//i[contains(@class, 'mdi-arrow-right-bold-hexagon-outline')]])[2]"))
+    $convertBtn2.Click()
+    Write-Host "Clicked second conversion button"
+    Start-Sleep -Seconds 8
+
+    # Select third option
+    $thirdOption = $driver.FindElement([OpenQA.Selenium.By]::XPath("(//div[@class='v-list-item__title'])[3]"))
+    $thirdOption.Click()
+    Write-Host "Selected third option"
+    Start-Sleep -Seconds 5
+
+    # Generate result
+    $generateBtn = $driver.FindElement([OpenQA.Selenium.By]::XPath("//button[.//i[contains(@class, 'mdi-download')]]"))
+    $generateBtn.Click()
+    Write-Host "Clicked generate button"
+    Start-Sleep -Seconds 8
 
     # Get result text
     $resultModal = $driver.FindElement([OpenQA.Selenium.By]::TagName("textarea"))
     $resultText = $resultModal.GetAttribute("value")
+    Write-Host "Retrieved result text"
 
     # Save to file
     $resultText | Out-File -FilePath "converted-node.txt" -Encoding utf8
@@ -81,8 +134,15 @@ try {
 }
 catch {
     Write-Host "Error encountered: $_"
-    $driver.GetScreenshot().SaveAsFile("$env:TEMP\selenium_error.png")
-    Write-Host "Screenshot saved to $env:TEMP\selenium_error.png"
+    # Take screenshot for debugging
+    try {
+        $screenshot = $driver.GetScreenshot()
+        $screenshot.SaveAsFile("$env:TEMP\selenium_error.png")
+        Write-Host "Screenshot saved to $env:TEMP\selenium_error.png"
+    }
+    catch {
+        Write-Host "Failed to capture screenshot: $_"
+    }
     exit 1
 }
 finally {
