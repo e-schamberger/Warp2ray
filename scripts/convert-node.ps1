@@ -75,63 +75,111 @@ try {
     # Open website
     $driver.Navigate().GoToUrl("https://v2rayse.com/node-convert")
     Write-Host "Opened website"
-    Start-Sleep -Seconds 10
+    
+    # Wait for page to load completely
+    $wait = New-Object OpenQA.Selenium.Support.UI.WebDriverWait($driver, (New-TimeSpan -Seconds 30))
+    $wait.Until([Func[OpenQA.Selenium.IWebDriver, Boolean]]{
+        param($d)
+        try {
+            $d.FindElement([OpenQA.Selenium.By]::XPath("//h1[contains(text(),'V2ray Node Convert')]"))
+            return $true
+        }
+        catch {
+            return $false
+        }
+    })
+    Write-Host "Page loaded successfully"
+    Start-Sleep -Seconds 3
 
-    # Click first button
-    $button1 = $driver.FindElement([OpenQA.Selenium.By]::XPath("//button[.//i[contains(@class, 'mdi-content-copy')]]"))
-    $button1.Click()
-    Write-Host "Clicked first button"
-    Start-Sleep -Seconds 5
+    # More reliable element finding with retries
+    function Find-ElementWithRetry {
+        param(
+            [Parameter(Mandatory=$true)]
+            [OpenQA.Selenium.By]$By,
+            [int]$Retries = 3,
+            [int]$Delay = 2
+        )
+        $attempt = 0
+        while ($attempt -lt $Retries) {
+            try {
+                $element = $driver.FindElement($By)
+                return $element
+            }
+            catch {
+                $attempt++
+                if ($attempt -ge $Retries) {
+                    throw
+                }
+                Start-Sleep -Seconds $Delay
+            }
+        }
+    }
+
+    # Click first button - updated selector
+    try {
+        $button1 = Find-ElementWithRetry -By ([OpenQA.Selenium.By]::XPath("//button[.//i[contains(@class, 'mdi-content-copy')]]")) -Retries 5
+        $button1.Click()
+        Write-Host "Clicked first button"
+        Start-Sleep -Seconds 2
+    }
+    catch {
+        # Try alternative selector
+        $button1 = Find-ElementWithRetry -By ([OpenQA.Selenium.By]::XPath("//button[contains(@class, 'v-btn') and .//i[contains(@class, 'mdi')]]")) -Retries 5
+        $button1.Click()
+        Write-Host "Clicked first button (using alternative selector)"
+        Start-Sleep -Seconds 2
+    }
 
     # Click second button
-    $button2 = $driver.FindElement([OpenQA.Selenium.By]::XPath("//button[.//i[contains(@class, 'mdi-dots-vertical')]]"))
+    $button2 = Find-ElementWithRetry -By ([OpenQA.Selenium.By]::XPath("//button[.//i[contains(@class, 'mdi-dots-vertical')]]")) -Retries 5
     $button2.Click()
     Write-Host "Clicked second button"
-    Start-Sleep -Seconds 5
+    Start-Sleep -Seconds 2
 
     # Select middle option
-    $option = $driver.FindElement([OpenQA.Selenium.By]::XPath("//div[contains(text(), 'VLESS')]"))
+    $option = Find-ElementWithRetry -By ([OpenQA.Selenium.By]::XPath("//div[contains(text(), 'VLESS')]")) -Retries 5
     $option.Click()
     Write-Host "Selected VLESS option"
-    Start-Sleep -Seconds 3
+    Start-Sleep -Seconds 2
 
     # Click confirm button
-    $confirmBtn = $driver.FindElement([OpenQA.Selenium.By]::XPath("//button[.//i[contains(@class, 'mdi-check')]]"))
+    $confirmBtn = Find-ElementWithRetry -By ([OpenQA.Selenium.By]::XPath("//button[.//i[contains(@class, 'mdi-check')]]")) -Retries 5
     $confirmBtn.Click()
     Write-Host "Clicked confirm button"
-    Start-Sleep -Seconds 3
+    Start-Sleep -Seconds 2
 
     # Enter URL
-    $inputField = $driver.FindElement([OpenQA.Selenium.By]::XPath("//input"))
+    $inputField = Find-ElementWithRetry -By ([OpenQA.Selenium.By]::XPath("//input")) -Retries 5
+    $inputField.Clear()
     $inputField.SendKeys("https://raw.githubusercontent.com/e-schamberger/free/refs/heads/main/config/vless.json")
     Write-Host "Entered URL"
-    Start-Sleep -Seconds 3
+    Start-Sleep -Seconds 2
 
-    # Click conversion buttons
-    $convertBtn1 = $driver.FindElement([OpenQA.Selenium.By]::XPath("(//button[.//i[contains(@class, 'mdi-content-copy')]])[last()]"))
+    # Click conversion buttons - updated selectors
+    $convertBtn1 = Find-ElementWithRetry -By ([OpenQA.Selenium.By]::XPath("//button[.//i[contains(@class, 'mdi-content-copy') and not(ancestor::div[contains(@class, 'v-menu')]]")) -Retries 5
     $convertBtn1.Click()
     Write-Host "Clicked first conversion button"
-    Start-Sleep -Seconds 8
-
-    $convertBtn2 = $driver.FindElement([OpenQA.Selenium.By]::XPath("(//button[.//i[contains(@class, 'mdi-arrow-right-bold-hexagon-outline')]])[2]"))
-    $convertBtn2.Click()
-    Write-Host "Clicked second conversion button"
-    Start-Sleep -Seconds 8
-
-    # Select third option
-    $thirdOption = $driver.FindElement([OpenQA.Selenium.By]::XPath("(//div[@class='v-list-item__title'])[3]"))
-    $thirdOption.Click()
-    Write-Host "Selected third option"
     Start-Sleep -Seconds 5
 
+    $convertBtn2 = Find-ElementWithRetry -By ([OpenQA.Selenium.By]::XPath("(//button[.//i[contains(@class, 'mdi-arrow-right-bold-hexagon-outline')])[2]")) -Retries 5
+    $convertBtn2.Click()
+    Write-Host "Clicked second conversion button"
+    Start-Sleep -Seconds 5
+
+    # Select third option
+    $thirdOption = Find-ElementWithRetry -By ([OpenQA.Selenium.By]::XPath("(//div[contains(@class, 'v-list-item__title')])[3]")) -Retries 5
+    $thirdOption.Click()
+    Write-Host "Selected third option"
+    Start-Sleep -Seconds 3
+
     # Generate result
-    $generateBtn = $driver.FindElement([OpenQA.Selenium.By]::XPath("//button[.//i[contains(@class, 'mdi-download')]]"))
+    $generateBtn = Find-ElementWithRetry -By ([OpenQA.Selenium.By]::XPath("//button[.//i[contains(@class, 'mdi-download')]]")) -Retries 5
     $generateBtn.Click()
     Write-Host "Clicked generate button"
-    Start-Sleep -Seconds 8
+    Start-Sleep -Seconds 5
 
     # Get result text
-    $resultModal = $driver.FindElement([OpenQA.Selenium.By]::TagName("textarea"))
+    $resultModal = Find-ElementWithRetry -By ([OpenQA.Selenium.By]::TagName("textarea")) -Retries 5
     $resultText = $resultModal.GetAttribute("value")
     Write-Host "Retrieved result text"
 
@@ -143,9 +191,9 @@ catch {
     Write-Host "Error encountered: $_"
     # Take screenshot for debugging
     try {
-        $screenshot = $driver.GetScreenshot()
-        $screenshotPath = "$env:TEMP\selenium_error.png"
-        $screenshot.SaveAsFile($screenshotPath)
+        $timestamp = Get-Date -Format "yyyyMMdd-HHmmss"
+        $screenshotPath = "$env:TEMP\selenium_error_$timestamp.png"
+        $driver.GetScreenshot().SaveAsFile($screenshotPath)
         Write-Host "Screenshot saved to $screenshotPath"
     }
     catch {
