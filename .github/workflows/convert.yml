@@ -16,7 +16,7 @@ jobs:
         .\scripts\convert-node.ps1
         
     - name: Upload result
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: converted-node
         path: converted-node.txt
@@ -26,5 +26,5 @@ jobs:
         git config user.name "GitHub Actions"
         git config user.email "actions@github.com"
         git add converted-node.txt
-        git commit -m "Add converted node" || echo "No changes to commit"
-        git push || echo "Nothing to push"
+        git diff-index --quiet HEAD || git commit -m "Add converted node"
+        git push
