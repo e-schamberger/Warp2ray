@@ -9,24 +9,15 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v4
       
+    - name: Set up ChromeDriver
+      uses: actions/setup-chromedriver@v1
+      
     - name: Run conversion script
       shell: pwsh
       run: |
+        Set-ExecutionPolicy Bypass -Scope Process -Force
         .\scripts\convert-node.ps1
         
-    - name: Save result
-      run: |
-        $content = Get-Content .\result.txt -Raw
-        echo "::set-output name=content::$content"
-      id: save-result
-      
-    - name: Create output file
-      uses: actions/github-script@v6
-      with:
-        script: |
-          const fs = require('fs');
-          fs.writeFileSync('converted-node.txt', '${{ steps.save-result.outputs.content }}');
-          
     - name: Commit result
       run: |
         git config user.name "GitHub Actions"
