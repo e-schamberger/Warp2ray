@@ -18,7 +18,7 @@ jobs:
       run: |
         Expand-Archive -Path "Hiddify-Windows-Portable-x64.zip" -DestinationPath .
 
-    - name: Set clipboard content (لینک کانفیگ)
+    - name: Set clipboard content
       run: |
         $configUrl = "https://raw.githubusercontent.com/e-schamberger/free/refs/heads/main/config/vless.json"
         Set-Clipboard -Value $configUrl
@@ -31,24 +31,25 @@ jobs:
 
         # Start Hiddify
         Start-Process "Hiddify.exe" -PassThru
-        Start-Sleep -Seconds 15
+        Start-Sleep -Seconds 20
 
         # Click 'Start' button
         [Microsoft.VisualBasic.Interaction]::AppActivate("Hiddify")
-        [System.Windows.Forms.SendKeys]::SendWait("{TAB 5}")  # 5 بار تب
+        Start-Sleep -Seconds 3
+        [System.Windows.Forms.SendKeys]::SendWait("{TAB 5}")  # 5 times tab
         [System.Windows.Forms.SendKeys]::SendWait("{ENTER}")
-        Start-Sleep -Seconds 8
+        Start-Sleep -Seconds 10
 
         # Click '+' button
-        [System.Windows.Forms.SendKeys]::SendWait("%{TAB}")   # Alt+Tab برای فوکوس
-        [System.Windows.Forms.SendKeys]::SendWait("{TAB 10}") # 10 بار تب
+        [System.Windows.Forms.SendKeys]::SendWait("%{TAB}")   # Alt+Tab to focus
+        [System.Windows.Forms.SendKeys]::SendWait("{TAB 10}") # 10 times tab
         [System.Windows.Forms.SendKeys]::SendWait("{ENTER}")
         Start-Sleep -Seconds 5
 
         # Select 'Add from clipboard'
-        [System.Windows.Forms.SendKeys]::SendWait("{DOWN 4}") # 4 بار پایین
+        [System.Windows.Forms.SendKeys]::SendWait("{DOWN 4}") # 4 times down
         [System.Windows.Forms.SendKeys]::SendWait("{ENTER}")
-        Start-Sleep -Seconds 20  # زمان برای دانلود و ذخیره کانفیگ
+        Start-Sleep -Seconds 30  # Wait for download and save
 
         # Close application
         Get-Process -Name "Hiddify" | Stop-Process -Force
@@ -58,38 +59,34 @@ jobs:
       run: |
         powershell -ExecutionPolicy Bypass -File "automation.ps1"
 
-    - name: Find config directory
+    - name: Find config file
       run: |
-        # جستجوی هوشمند مسیر کانفیگ
-        Write-Host "Searching for Hiddify config directory..."
-        $foundPath = Get-ChildItem -Path "C:\" -Filter "configs" -Recurse -Directory -ErrorAction SilentlyContinue | 
-                     Where-Object { $_.FullName -match "Hiddify[\\/]hiddify[\\/]configs" } |
-                     Select-Object -First 1 -ExpandProperty FullName
+        # Search for config file recursively
+        $configFile = Get-ChildItem -Path "C:\" -Filter "*.json" -Recurse -ErrorAction SilentlyContinue | 
+                      Where-Object { $_.FullName -match "Hiddify[\\/]hiddify[\\/]configs" } |
+                      Select-Object -First 1 -ExpandProperty FullName
         
-        if ($foundPath) {
-            Write-Host "Found config directory at: $foundPath"
-            $env:HIDDIFY_CONFIG_PATH = $foundPath
-            Add-Content -Path $env:GITHUB_ENV -Value "HIDDIFY_CONFIG_PATH=$foundPath"
+        if ($configFile) {
+            Write-Host "Found config file at: $configFile"
+            $env:CONFIG_FILE_PATH = $configFile
+            Add-Content -Path $env:GITHUB_ENV -Value "CONFIG_FILE_PATH=$configFile"
         } else {
-            Write-Error "Hiddify config directory not found!"
+            Write-Error "Config file not found!"
+            # List possible directories for debugging
+            Write-Host "Listing possible config directories:"
+            Get-ChildItem -Path "$env:APPDATA" -Recurse -Filter "Hiddify" -Directory | Select-Object FullName
             exit 1
         }
 
     - name: Save config file
       run: |
-        $configPath = $env:HIDDIFY_CONFIG_PATH
-        Write-Host "Using config path: $configPath"
+        $sourcePath = $env:CONFIG_FILE_PATH
+        $destDir = "hiddify-config"
+        New-Item -ItemType Directory -Path $destDir -Force
         
-        $dest = "hiddify-config"
-        New-Item -ItemType Directory -Path $dest -Force
-        
-        # کپی فایل‌های کانفیگ
-        if (Test-Path $configPath) {
-            Copy-Item -Path "$configPath\*" -Destination $dest -Recurse -Force
-            Write-Host "Config files copied successfully"
-        } else {
-            Write-Error "Config directory not accessible!"
-        }
+        # Copy config file
+        Copy-Item -Path $sourcePath -Destination "$destDir/config.json" -Force
+        Write-Host "Config file copied successfully"
 
     - name: Upload config to GitHub
       uses: actions/upload-artifact@v4
