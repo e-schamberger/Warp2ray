@@ -18,14 +18,10 @@ jobs:
       run: |
         Expand-Archive -Path "Hiddify-Windows-Portable-x64.zip" -DestinationPath .
 
-    - name: Set clipboard content
+    - name: Set clipboard content (لینک کانفیگ)
       run: |
-        $configContent = @"
-        {
-          "config": "محتویات کانفیگ شما اینجا قرار میگیرد"
-        }
-        "@
-        Set-Clipboard -Value $configContent
+        $configUrl = "https://raw.githubusercontent.com/e-schamberger/free/refs/heads/main/config/vless.json"
+        Set-Clipboard -Value $configUrl
 
     - name: Create automation script
       run: |
@@ -35,7 +31,7 @@ jobs:
 
         # Start Hiddify
         Start-Process "Hiddify.exe" -PassThru
-        Start-Sleep -Seconds 15  # افزایش زمان برای اجرای برنامه
+        Start-Sleep -Seconds 15
 
         # Click 'Start' button
         [Microsoft.VisualBasic.Interaction]::AppActivate("Hiddify")
@@ -52,7 +48,7 @@ jobs:
         # Select 'Add from clipboard'
         [System.Windows.Forms.SendKeys]::SendWait("{DOWN 4}") # 4 بار پایین
         [System.Windows.Forms.SendKeys]::SendWait("{ENTER}")
-        Start-Sleep -Seconds 20  # افزایش زمان برای ذخیره فایل
+        Start-Sleep -Seconds 20  # زمان برای دانلود و ذخیره کانفیگ
 
         # Close application
         Get-Process -Name "Hiddify" | Stop-Process -Force
@@ -62,49 +58,37 @@ jobs:
       run: |
         powershell -ExecutionPolicy Bypass -File "automation.ps1"
 
-    - name: Verify config directory
+    - name: Find config directory
       run: |
-        # استفاده از مسیر صحیح با متغیر محیطی
-        $configPath = "$env:APPDATA\Hiddify\hiddify\configs"
-        Write-Host "Checking config path: $configPath"
+        # جستجوی هوشمند مسیر کانفیگ
+        Write-Host "Searching for Hiddify config directory..."
+        $foundPath = Get-ChildItem -Path "C:\" -Filter "configs" -Recurse -Directory -ErrorAction SilentlyContinue | 
+                     Where-Object { $_.FullName -match "Hiddify[\\/]hiddify[\\/]configs" } |
+                     Select-Object -First 1 -ExpandProperty FullName
         
-        # بررسی وجود دایرکتوری
-        if (Test-Path $configPath) {
-            Write-Host "Config directory exists"
-            Get-ChildItem $configPath
+        if ($foundPath) {
+            Write-Host "Found config directory at: $foundPath"
+            $env:HIDDIFY_CONFIG_PATH = $foundPath
+            Add-Content -Path $env:GITHUB_ENV -Value "HIDDIFY_CONFIG_PATH=$foundPath"
         } else {
-            Write-Error "Config directory not found!"
-            # جستجو در کل درایو C برای یافتن مسیر
-            Write-Host "Searching for Hiddify config directory..."
-            $foundPath = Get-ChildItem -Path "C:\" -Filter "configs" -Recurse -Directory -ErrorAction SilentlyContinue | 
-                         Where-Object { $_.FullName -like "*Hiddify*hiddify*configs" } |
-                         Select-Object -First 1 -ExpandProperty FullName
-            
-            if ($foundPath) {
-                Write-Host "Found config directory at: $foundPath"
-                $env:HIDDIFY_CONFIG_PATH = $foundPath
-                Add-Content -Path $env:GITHUB_ENV -Value "HIDDIFY_CONFIG_PATH=$foundPath"
-            } else {
-                Write-Error "Hiddify config directory not found anywhere!"
-                exit 1
-            }
+            Write-Error "Hiddify config directory not found!"
+            exit 1
         }
 
     - name: Save config file
       run: |
-        # استفاده از مسیر یافت شده یا مسیر پیش‌فرض
-        $configPath = $env:HIDDIFY_CONFIG_PATH ?? "$env:APPDATA\Hiddify\hiddify\configs"
+        $configPath = $env:HIDDIFY_CONFIG_PATH
         Write-Host "Using config path: $configPath"
         
         $dest = "hiddify-config"
         New-Item -ItemType Directory -Path $dest -Force
         
-        # کپی تمام فایل‌های کانفیگ
+        # کپی فایل‌های کانفیگ
         if (Test-Path $configPath) {
             Copy-Item -Path "$configPath\*" -Destination $dest -Recurse -Force
             Write-Host "Config files copied successfully"
         } else {
-            Write-Error "Config directory still not accessible!"
+            Write-Error "Config directory not accessible!"
         }
 
     - name: Upload config to GitHub
