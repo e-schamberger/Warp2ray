@@ -30,51 +30,86 @@ jobs:
         Add-Type -AssemblyName Microsoft.VisualBasic
 
         # Start Hiddify
-        Start-Process "Hiddify.exe" -PassThru
-        Start-Sleep -Seconds 20
+        $process = Start-Process "Hiddify.exe" -PassThru
+        Start-Sleep -Seconds 30
 
         # Click 'Start' button
-        [Microsoft.VisualBasic.Interaction]::AppActivate("Hiddify")
-        Start-Sleep -Seconds 3
-        [System.Windows.Forms.SendKeys]::SendWait("{TAB 5}")  # 5 times tab
+        [Microsoft.VisualBasic.Interaction]::AppActivate($process.Id)
+        Start-Sleep -Seconds 5
+        [System.Windows.Forms.SendKeys]::SendWait("{TAB 5}")
+        [System.Windows.Forms.SendKeys]::SendWait("{ENTER}")
+        Start-Sleep -Seconds 15
+
+        # Click '+' button
+        [System.Windows.Forms.SendKeys]::SendWait("%{TAB}")
+        Start-Sleep -Seconds 2
+        [System.Windows.Forms.SendKeys]::SendWait("{TAB 10}")
         [System.Windows.Forms.SendKeys]::SendWait("{ENTER}")
         Start-Sleep -Seconds 10
 
-        # Click '+' button
-        [System.Windows.Forms.SendKeys]::SendWait("%{TAB}")   # Alt+Tab to focus
-        [System.Windows.Forms.SendKeys]::SendWait("{TAB 10}") # 10 times tab
-        [System.Windows.Forms.SendKeys]::SendWait("{ENTER}")
-        Start-Sleep -Seconds 5
-
         # Select 'Add from clipboard'
-        [System.Windows.Forms.SendKeys]::SendWait("{DOWN 4}") # 4 times down
+        [System.Windows.Forms.SendKeys]::SendWait("{DOWN 4}")
         [System.Windows.Forms.SendKeys]::SendWait("{ENTER}")
-        Start-Sleep -Seconds 30  # Wait for download and save
+        Start-Sleep -Seconds 60  # Wait for download
 
         # Close application
-        Get-Process -Name "Hiddify" | Stop-Process -Force
+        $process | Stop-Process -Force
         '@ | Out-File -FilePath "automation.ps1" -Encoding UTF8
 
     - name: Run Hiddify with automation
       run: |
         powershell -ExecutionPolicy Bypass -File "automation.ps1"
 
+    - name: Show hidden files (نمایش فایل‌های مخفی)
+      run: |
+        # فعال‌سازی نمایش فایل‌های مخفی برای کل سیستم
+        Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "Hidden" -Value 1
+        Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "ShowSuperHidden" -Value 1
+        
+        # ریستارت اکسپلورر برای اعمال تغییرات
+        Stop-Process -Name explorer -Force
+
     - name: Find config file
       run: |
-        # Search for config file recursively
-        $configFile = Get-ChildItem -Path "C:\" -Filter "*.json" -Recurse -ErrorAction SilentlyContinue | 
-                      Where-Object { $_.FullName -match "Hiddify[\\/]hiddify[\\/]configs" } |
-                      Select-Object -First 1 -ExpandProperty FullName
+        # جستجو در مسیرهای اصلی با نمایش فایل‌های مخفی
+        $searchPaths = @(
+            "$env:APPDATA\Hiddify\hiddify\configs",
+            "$env:LOCALAPPDATA\Hiddify\hiddify\configs",
+            "C:\ProgramData\Hiddify\hiddify\configs",
+            "C:\Hiddify\configs"
+        )
+        
+        $configFile = $null
+        foreach ($path in $searchPaths) {
+            Write-Host "Checking path: $path"
+            if (Test-Path -Path $path -Force) {  # -Force برای نمایش فایل‌های مخفی
+                $files = Get-ChildItem -Path $path -Filter *.json -Force
+                if ($files) {
+                    $configFile = $files[0].FullName
+                    Write-Host "Found config file at: $configFile"
+                    break
+                }
+            }
+        }
+        
+        # اگر در مسیرهای اصلی پیدا نشد، جستجوی عمیق‌تر
+        if (-not $configFile) {
+            Write-Host "Performing deep search..."
+            $configFile = Get-ChildItem -Path "C:\" -Filter *.json -Recurse -Force -ErrorAction SilentlyContinue | 
+                          Where-Object { $_.FullName -match "Hiddify[\\/]hiddify[\\/]configs" } |
+                          Select-Object -First 1 -ExpandProperty FullName
+        }
         
         if ($configFile) {
-            Write-Host "Found config file at: $configFile"
+            Write-Host "Config file found: $configFile"
             $env:CONFIG_FILE_PATH = $configFile
             Add-Content -Path $env:GITHUB_ENV -Value "CONFIG_FILE_PATH=$configFile"
         } else {
             Write-Error "Config file not found!"
-            # List possible directories for debugging
-            Write-Host "Listing possible config directories:"
-            Get-ChildItem -Path "$env:APPDATA" -Recurse -Filter "Hiddify" -Directory | Select-Object FullName
+            # ایجاد لاگ برای دیباگ
+            Write-Host "Listing all Hiddify directories:"
+            Get-ChildItem -Path "C:\" -Filter "Hiddify" -Recurse -Directory -Force -ErrorAction SilentlyContinue | 
+                Select-Object FullName
             exit 1
         }
 
@@ -84,7 +119,7 @@ jobs:
         $destDir = "hiddify-config"
         New-Item -ItemType Directory -Path $destDir -Force
         
-        # Copy config file
+        # کپی فایل کانفیگ
         Copy-Item -Path $sourcePath -Destination "$destDir/config.json" -Force
         Write-Host "Config file copied successfully"
 
