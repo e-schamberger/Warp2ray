@@ -13,38 +13,30 @@ if (-not (Get-Module -ListAvailable -Name Selenium)) {
 
 Import-Module Selenium
 
-# Find Chrome installation path
-$chromePath = @(
-    "${env:ProgramFiles}\Google\Chrome\Application\chrome.exe",
-    "${env:ProgramFiles(x86)}\Google\Chrome\Application\chrome.exe"
-) | Where-Object { Test-Path $_ } | Select-Object -First 1
+# Get latest stable Chrome for Testing version
+$cftData = Invoke-RestMethod -Uri "https://googlechromelabs.github.io/chrome-for-testing/latest-patch-versions-per-build.json"
+$stableVersion = $cftData.channels.Stable.version
+Write-Host "Latest stable Chrome for Testing version: $stableVersion"
 
-if (-not $chromePath) {
-    Write-Host "Installing Chrome..."
-    $chromeInstaller = "$env:TEMP\chrome_installer.exe"
-    Invoke-WebRequest "https://edgedl.me.gvt1.com/edgedl/chrome/chrome-for-testing/120.0.6099.109/win64/chrome-installer.exe" -OutFile $chromeInstaller
-    Start-Process -FilePath $chromeInstaller -ArgumentList "/silent /install" -Wait
-    Remove-Item $chromeInstaller
-    $chromePath = "${env:ProgramFiles(x86)}\Google\Chrome\Application\chrome.exe"
-}
+# Download Chrome for Testing
+$chromeDir = "$env:TEMP\chrome"
+New-Item -Path $chromeDir -ItemType Directory -Force | Out-Null
+$chromeZipUrl = "https://edgedl.me.gvt1.com/edgedl/chrome/chrome-for-testing/$stableVersion/win64/chrome-win64.zip"
+$chromeZipPath = "$chromeDir\chrome.zip"
 
-Write-Host "Using Chrome at: $chromePath"
+Write-Host "Downloading Chrome for Testing..."
+Invoke-WebRequest -Uri $chromeZipUrl -OutFile $chromeZipPath
+Expand-Archive -Path $chromeZipPath -DestinationPath $chromeDir -Force
+$chromePath = "$chromeDir\chrome-win64\chrome.exe"
+Write-Host "Chrome path: $chromePath"
 
-# Get Chrome version
-$chromeVersion = [System.Diagnostics.FileVersionInfo]::GetVersionInfo($chromePath).ProductVersion
-$chromeMajorVersion = $chromeVersion.Split('.')[0]
-Write-Host "Chrome version: $chromeVersion"
-
-# Get matching ChromeDriver version
-$chromeDriverVersion = (Invoke-WebRequest -Uri "https://chromedriver.storage.googleapis.com/LATEST_RELEASE_$chromeMajorVersion" -UseBasicParsing).Content
-Write-Host "Matching ChromeDriver version: $chromeDriverVersion"
-
-# Download and setup ChromeDriver
+# Download ChromeDriver
 $chromeDriverDir = "$env:TEMP\chromedriver"
 New-Item -Path $chromeDriverDir -ItemType Directory -Force | Out-Null
-$chromeDriverZipUrl = "https://chromedriver.storage.googleapis.com/$chromeDriverVersion/chromedriver_win32.zip"
+$chromeDriverZipUrl = "https://edgedl.me.gvt1.com/edgedl/chrome/chrome-for-testing/$stableVersion/win64/chromedriver-win64.zip"
 $chromeDriverZipPath = "$chromeDriverDir\chromedriver.zip"
 
+Write-Host "Downloading ChromeDriver..."
 Invoke-WebRequest -Uri $chromeDriverZipUrl -OutFile $chromeDriverZipPath
 Expand-Archive -Path $chromeDriverZipPath -DestinationPath $chromeDriverDir -Force
 $env:PATH = "$chromeDriverDir;$env:PATH"
@@ -52,7 +44,7 @@ $env:PATH = "$chromeDriverDir;$env:PATH"
 # Configure Chrome options
 $chromeOptions = New-Object OpenQA.Selenium.Chrome.ChromeOptions
 $chromeOptions.BinaryLocation = $chromePath
-$chromeOptions.AddArgument("--headless")
+$chromeOptions.AddArgument("--headless=new")
 $chromeOptions.AddArgument("--disable-gpu")
 $chromeOptions.AddArgument("--no-sandbox")
 $chromeOptions.AddArgument("--disable-dev-shm-usage")
