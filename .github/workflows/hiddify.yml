@@ -18,6 +18,16 @@ jobs:
       run: |
         Expand-Archive -Path "Hiddify-Windows-Portable-x64.zip" -DestinationPath .
 
+    - name: Set clipboard content (اضافه کردن کانفیگ به کلیپبورد)
+      run: |
+        # محتوای کانفیگ خود را اینجا قرار دهید
+        $configContent = @"
+        {
+          "config": "محتویات کانفیگ شما اینجا قرار میگیرد"
+        }
+        "@
+        Set-Clipboard -Value $configContent
+
     - name: Create automation script
       run: |
         @"
@@ -26,23 +36,26 @@ jobs:
 
         # Start Hiddify
         Start-Process "Hiddify.exe" -PassThru
-        Start-Sleep -Seconds 5
+        Start-Sleep -Seconds 10  # افزایش زمان انتظار
 
-        # Find window and click 'Start'
+        # Click 'Start' button
         [Microsoft.VisualBasic.Interaction]::AppActivate("Hiddify")
-        [System.Windows.Forms.SendKeys]::SendWait("{TAB}{TAB}{TAB}{TAB}{TAB}{ENTER}")
-        Start-Sleep -Seconds 3
+        [System.Windows.Forms.SendKeys]::SendWait("{TAB 5}")  # 5 بار تب
+        [System.Windows.Forms.SendKeys]::SendWait("{ENTER}")
+        Start-Sleep -Seconds 5
 
         # Click '+' button
-        [System.Windows.Forms.SendKeys]::SendWait("%{TAB}")
-        [System.Windows.Forms.SendKeys]::SendWait("{TAB}{TAB}{TAB}{TAB}{TAB}{TAB}{TAB}{TAB}{TAB}{TAB}{ENTER}")
-        Start-Sleep -Seconds 2
+        [System.Windows.Forms.SendKeys]::SendWait("%{TAB}")   # Alt+Tab برای فوکوس
+        [System.Windows.Forms.SendKeys]::SendWait("{TAB 10}") # 10 بار تب
+        [System.Windows.Forms.SendKeys]::SendWait("{ENTER}")
+        Start-Sleep -Seconds 3
 
         # Select 'Add from clipboard'
-        [System.Windows.Forms.SendKeys]::SendWait("{DOWN}{DOWN}{DOWN}{DOWN}{ENTER}")
-        Start-Sleep -Seconds 5
+        [System.Windows.Forms.SendKeys]::SendWait("{DOWN 4}") # 4 بار پایین
+        [System.Windows.Forms.SendKeys]::SendWait("{ENTER}")
+        Start-Sleep -Seconds 10  # افزایش زمان برای ذخیره فایل
 
-        # Exit application
+        # Close application
         Get-Process -Name "Hiddify" | Stop-Process -Force
         "@ | Out-File -FilePath "automation.ps1" -Encoding UTF8
 
@@ -55,10 +68,10 @@ jobs:
         $configPath = "$env:APPDATA\Hiddify\hiddify\configs"
         $dest = "hiddify-config"
         New-Item -ItemType Directory -Path $dest -Force
-        Copy-Item -Path "$configPath\*" -Destination $dest -Recurse -Force
+        Get-ChildItem -Path $configPath | Copy-Item -Destination $dest -Force
 
     - name: Upload config to GitHub
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: hiddify-config
         path: hiddify-config/
