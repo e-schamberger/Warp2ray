@@ -1,34 +1,64 @@
-name: Node Conversion
+name: Hiddify Windows Setup
+
 on:
   workflow_dispatch:
 
 jobs:
-  convert:
+  hiddify-setup:
     runs-on: windows-latest
+
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v4
-      
-    - name: Run conversion script
-      shell: pwsh
+    - name: Download Hiddify Portable
       run: |
-        Set-ExecutionPolicy Bypass -Scope Process -Force
-        .\scripts\convert-node.ps1
-        
-    - name: Upload artifacts
-      if: always()
-      uses: actions/upload-artifact@v4
+        $url = "https://github.com/hiddify/hiddify-app/releases/download/v2.0.5/Hiddify-Windows-Portable-x64.zip"
+        $output = "Hiddify-Windows-Portable-x64.zip"
+        Invoke-WebRequest -Uri $url -OutFile $output
+
+    - name: Extract Files
+      run: |
+        Expand-Archive -Path "Hiddify-Windows-Portable-x64.zip" -DestinationPath .
+
+    - name: Create automation script
+      run: |
+        @"
+        Add-Type -AssemblyName System.Windows.Forms
+        Add-Type -AssemblyName Microsoft.VisualBasic
+
+        # Start Hiddify
+        Start-Process "Hiddify.exe" -PassThru
+        Start-Sleep -Seconds 5
+
+        # Find window and click 'Start'
+        [Microsoft.VisualBasic.Interaction]::AppActivate("Hiddify")
+        [System.Windows.Forms.SendKeys]::SendWait("{TAB}{TAB}{TAB}{TAB}{TAB}{ENTER}")
+        Start-Sleep -Seconds 3
+
+        # Click '+' button
+        [System.Windows.Forms.SendKeys]::SendWait("%{TAB}")
+        [System.Windows.Forms.SendKeys]::SendWait("{TAB}{TAB}{TAB}{TAB}{TAB}{TAB}{TAB}{TAB}{TAB}{TAB}{ENTER}")
+        Start-Sleep -Seconds 2
+
+        # Select 'Add from clipboard'
+        [System.Windows.Forms.SendKeys]::SendWait("{DOWN}{DOWN}{DOWN}{DOWN}{ENTER}")
+        Start-Sleep -Seconds 5
+
+        # Exit application
+        Get-Process -Name "Hiddify" | Stop-Process -Force
+        "@ | Out-File -FilePath "automation.ps1" -Encoding UTF8
+
+    - name: Run Hiddify with automation
+      run: |
+        powershell -ExecutionPolicy Bypass -File "automation.ps1"
+
+    - name: Save config file
+      run: |
+        $configPath = "$env:APPDATA\Hiddify\hiddify\configs"
+        $dest = "hiddify-config"
+        New-Item -ItemType Directory -Path $dest -Force
+        Copy-Item -Path "$configPath\*" -Destination $dest -Recurse -Force
+
+    - name: Upload config to GitHub
+      uses: actions/upload-artifact@v3
       with:
-        name: automation-results
-        path: |
-          ${{ github.workspace }}/converted-node.txt
-          ${{ runner.temp }}/selenium_error_*.png
-        
-    - name: Commit result
-      if: success()
-      run: |
-        git config user.name "GitHub Actions"
-        git config user.email "actions@github.com"
-        git add converted-node.txt
-        git diff-index --quiet HEAD || git commit -m "Add converted node"
-        git push
+        name: hiddify-config
+        path: hiddify-config/
