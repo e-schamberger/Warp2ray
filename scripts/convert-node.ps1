@@ -3,17 +3,31 @@
 
 # Install NuGet provider
 if (-not (Get-PackageProvider -Name NuGet -ErrorAction SilentlyContinue -ListAvailable)) {
-    [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
     Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Force -ForceBootstrap | Out-Null
 }
 
 # Install Selenium module
 if (-not (Get-Module -ListAvailable -Name Selenium)) {
-    Set-PSRepository -Name PSGallery -InstallationPolicy Trusted
     Install-Module -Name Selenium -Force -SkipPublisherCheck -AllowClobber
 }
 
 Import-Module Selenium
+
+# Download and setup ChromeDriver
+$chromeDriverDir = "$env:TEMP\chromedriver"
+New-Item -Path $chromeDriverDir -ItemType Directory -Force | Out-Null
+
+# Get latest ChromeDriver version
+$chromeDriverVersion = (Invoke-WebRequest -Uri "https://chromedriver.storage.googleapis.com/LATEST_RELEASE" -UseBasicParsing).Content
+$chromeDriverZipUrl = "https://chromedriver.storage.googleapis.com/$chromeDriverVersion/chromedriver_win32.zip"
+$chromeDriverZipPath = "$chromeDriverDir\chromedriver.zip"
+
+# Download and extract ChromeDriver
+Invoke-WebRequest -Uri $chromeDriverZipUrl -OutFile $chromeDriverZipPath
+Expand-Archive -Path $chromeDriverZipPath -DestinationPath $chromeDriverDir -Force
+
+# Add to PATH
+$env:PATH = "$chromeDriverDir;$env:PATH"
 
 # Start Chrome in headless mode
 $chromeOptions = New-Object OpenQA.Selenium.Chrome.ChromeOptions
@@ -25,7 +39,6 @@ $chromeOptions.AddArgument("--window-size=1920,1080")
 $chromeOptions.AddArgument("--start-maximized")
 
 try {
-    # Use ChromeDriver from PATH
     $driver = New-Object OpenQA.Selenium.Chrome.ChromeDriver($chromeOptions)
     Write-Host "ChromeDriver started successfully"
 
