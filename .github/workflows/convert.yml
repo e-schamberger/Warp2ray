@@ -15,10 +15,16 @@ jobs:
         Set-ExecutionPolicy Bypass -Scope Process -Force
         .\scripts\convert-node.ps1
         
+    - name: Upload result
+      uses: actions/upload-artifact@v3
+      with:
+        name: converted-node
+        path: converted-node.txt
+        
     - name: Commit result
       run: |
         git config user.name "GitHub Actions"
         git config user.email "actions@github.com"
         git add converted-node.txt
-        git commit -m "Add converted node"
-        git push
+        git commit -m "Add converted node" || echo "No changes to commit"
+        git push || echo "Nothing to push"
