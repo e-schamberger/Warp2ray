@@ -15,13 +15,17 @@ jobs:
         Set-ExecutionPolicy Bypass -Scope Process -Force
         .\scripts\convert-node.ps1
         
-    - name: Upload result
+    - name: Upload artifacts
+      if: always()
       uses: actions/upload-artifact@v4
       with:
-        name: converted-node
-        path: converted-node.txt
+        name: automation-results
+        path: |
+          ${{ github.workspace }}/converted-node.txt
+          ${{ runner.temp }}/selenium_error_*.png
         
     - name: Commit result
+      if: success()
       run: |
         git config user.name "GitHub Actions"
         git config user.email "actions@github.com"
