@@ -18,9 +18,8 @@ jobs:
       run: |
         Expand-Archive -Path "Hiddify-Windows-Portable-x64.zip" -DestinationPath .
 
-    - name: Set clipboard content (اضافه کردن کانفیگ به کلیپبورد)
+    - name: Set clipboard content
       run: |
-        # محتوای کانفیگ خود را اینجا قرار دهید
         $configContent = @"
         {
           "config": "محتویات کانفیگ شما اینجا قرار میگیرد"
@@ -30,45 +29,83 @@ jobs:
 
     - name: Create automation script
       run: |
-        @"
+        @'
         Add-Type -AssemblyName System.Windows.Forms
         Add-Type -AssemblyName Microsoft.VisualBasic
 
         # Start Hiddify
         Start-Process "Hiddify.exe" -PassThru
-        Start-Sleep -Seconds 10  # افزایش زمان انتظار
+        Start-Sleep -Seconds 15  # افزایش زمان برای اجرای برنامه
 
         # Click 'Start' button
         [Microsoft.VisualBasic.Interaction]::AppActivate("Hiddify")
         [System.Windows.Forms.SendKeys]::SendWait("{TAB 5}")  # 5 بار تب
         [System.Windows.Forms.SendKeys]::SendWait("{ENTER}")
-        Start-Sleep -Seconds 5
+        Start-Sleep -Seconds 8
 
         # Click '+' button
         [System.Windows.Forms.SendKeys]::SendWait("%{TAB}")   # Alt+Tab برای فوکوس
         [System.Windows.Forms.SendKeys]::SendWait("{TAB 10}") # 10 بار تب
         [System.Windows.Forms.SendKeys]::SendWait("{ENTER}")
-        Start-Sleep -Seconds 3
+        Start-Sleep -Seconds 5
 
         # Select 'Add from clipboard'
         [System.Windows.Forms.SendKeys]::SendWait("{DOWN 4}") # 4 بار پایین
         [System.Windows.Forms.SendKeys]::SendWait("{ENTER}")
-        Start-Sleep -Seconds 10  # افزایش زمان برای ذخیره فایل
+        Start-Sleep -Seconds 20  # افزایش زمان برای ذخیره فایل
 
         # Close application
         Get-Process -Name "Hiddify" | Stop-Process -Force
-        "@ | Out-File -FilePath "automation.ps1" -Encoding UTF8
+        '@ | Out-File -FilePath "automation.ps1" -Encoding UTF8
 
     - name: Run Hiddify with automation
       run: |
         powershell -ExecutionPolicy Bypass -File "automation.ps1"
 
+    - name: Verify config directory
+      run: |
+        # استفاده از مسیر صحیح با متغیر محیطی
+        $configPath = "$env:APPDATA\Hiddify\hiddify\configs"
+        Write-Host "Checking config path: $configPath"
+        
+        # بررسی وجود دایرکتوری
+        if (Test-Path $configPath) {
+            Write-Host "Config directory exists"
+            Get-ChildItem $configPath
+        } else {
+            Write-Error "Config directory not found!"
+            # جستجو در کل درایو C برای یافتن مسیر
+            Write-Host "Searching for Hiddify config directory..."
+            $foundPath = Get-ChildItem -Path "C:\" -Filter "configs" -Recurse -Directory -ErrorAction SilentlyContinue | 
+                         Where-Object { $_.FullName -like "*Hiddify*hiddify*configs" } |
+                         Select-Object -First 1 -ExpandProperty FullName
+            
+            if ($foundPath) {
+                Write-Host "Found config directory at: $foundPath"
+                $env:HIDDIFY_CONFIG_PATH = $foundPath
+                Add-Content -Path $env:GITHUB_ENV -Value "HIDDIFY_CONFIG_PATH=$foundPath"
+            } else {
+                Write-Error "Hiddify config directory not found anywhere!"
+                exit 1
+            }
+        }
+
     - name: Save config file
       run: |
-        $configPath = "$env:APPDATA\Hiddify\hiddify\configs"
+        # استفاده از مسیر یافت شده یا مسیر پیش‌فرض
+        $configPath = $env:HIDDIFY_CONFIG_PATH ?? "$env:APPDATA\Hiddify\hiddify\configs"
+        Write-Host "Using config path: $configPath"
+        
         $dest = "hiddify-config"
         New-Item -ItemType Directory -Path $dest -Force
-        Get-ChildItem -Path $configPath | Copy-Item -Destination $dest -Force
+        
+        # کپی تمام فایل‌های کانفیگ
+        if (Test-Path $configPath) {
+            Copy-Item -Path "$configPath\*" -Destination $dest -Recurse -Force
+            Write-Host "Config files copied successfully"
+        } else {
+            Write-Error "Config directory still not accessible!"
+        }
 
     - name: Upload config to GitHub
       uses: actions/upload-artifact@v4
