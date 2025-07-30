@@ -13,30 +13,35 @@ if (-not (Get-Module -ListAvailable -Name Selenium)) {
 
 Import-Module Selenium
 
-# Get latest stable Chrome for Testing version
-$cftData = Invoke-RestMethod -Uri "https://googlechromelabs.github.io/chrome-for-testing/latest-patch-versions-per-build.json"
-$stableVersion = $cftData.channels.Stable.version
-Write-Host "Latest stable Chrome for Testing version: $stableVersion"
+# Get latest stable Chrome version
+$cftData = Invoke-RestMethod -Uri "https://googlechromelabs.github.io/chrome-for-testing/latest-versions-per-milestone-with-downloads.json"
+$stableVersion = $cftData.milestones.PSObject.Properties | 
+    Where-Object { $_.Name -ne 'dev' } | 
+    Sort-Object { [int]$_.Name } -Descending | 
+    Select-Object -First 1 -ExpandProperty Value
+
+$chromeVersion = $stableVersion.version
+Write-Host "Latest stable Chrome version: $chromeVersion"
 
 # Download Chrome for Testing
 $chromeDir = "$env:TEMP\chrome"
 New-Item -Path $chromeDir -ItemType Directory -Force | Out-Null
-$chromeZipUrl = "https://edgedl.me.gvt1.com/edgedl/chrome/chrome-for-testing/$stableVersion/win64/chrome-win64.zip"
+$chromeZipUrl = ($stableVersion.downloads.chrome | Where-Object platform -eq 'win64').url
 $chromeZipPath = "$chromeDir\chrome.zip"
 
-Write-Host "Downloading Chrome for Testing..."
+Write-Host "Downloading Chrome for Testing from: $chromeZipUrl"
 Invoke-WebRequest -Uri $chromeZipUrl -OutFile $chromeZipPath
 Expand-Archive -Path $chromeZipPath -DestinationPath $chromeDir -Force
-$chromePath = "$chromeDir\chrome-win64\chrome.exe"
+$chromePath = (Get-ChildItem -Path $chromeDir -Filter "chrome.exe" -Recurse | Select-Object -First 1).FullName
 Write-Host "Chrome path: $chromePath"
 
 # Download ChromeDriver
 $chromeDriverDir = "$env:TEMP\chromedriver"
 New-Item -Path $chromeDriverDir -ItemType Directory -Force | Out-Null
-$chromeDriverZipUrl = "https://edgedl.me.gvt1.com/edgedl/chrome/chrome-for-testing/$stableVersion/win64/chromedriver-win64.zip"
+$chromeDriverZipUrl = ($stableVersion.downloads.chromedriver | Where-Object platform -eq 'win64').url
 $chromeDriverZipPath = "$chromeDriverDir\chromedriver.zip"
 
-Write-Host "Downloading ChromeDriver..."
+Write-Host "Downloading ChromeDriver from: $chromeDriverZipUrl"
 Invoke-WebRequest -Uri $chromeDriverZipUrl -OutFile $chromeDriverZipPath
 Expand-Archive -Path $chromeDriverZipPath -DestinationPath $chromeDriverDir -Force
 $env:PATH = "$chromeDriverDir;$env:PATH"
