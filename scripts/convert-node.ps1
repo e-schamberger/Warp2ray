@@ -44,7 +44,17 @@ $chromeDriverZipPath = "$chromeDriverDir\chromedriver.zip"
 Write-Host "Downloading ChromeDriver from: $chromeDriverZipUrl"
 Invoke-WebRequest -Uri $chromeDriverZipUrl -OutFile $chromeDriverZipPath
 Expand-Archive -Path $chromeDriverZipPath -DestinationPath $chromeDriverDir -Force
-$env:PATH = "$chromeDriverDir;$env:PATH"
+
+# Find chromedriver.exe
+$chromeDriverExe = Get-ChildItem -Path $chromeDriverDir -Filter "chromedriver.exe" -Recurse | Select-Object -First 1
+if (-not $chromeDriverExe) {
+    Write-Host "ERROR: chromedriver.exe not found in $chromeDriverDir"
+    exit 1
+}
+
+$chromeDriverPath = $chromeDriverExe.DirectoryName
+Write-Host "ChromeDriver path: $chromeDriverPath"
+$env:PATH = "$chromeDriverPath;$env:PATH"
 
 # Configure Chrome options
 $chromeOptions = New-Object OpenQA.Selenium.Chrome.ChromeOptions
@@ -59,7 +69,7 @@ $chromeOptions.AddArgument("--log-level=3")
 
 try {
     Write-Host "Starting ChromeDriver..."
-    $driver = New-Object OpenQA.Selenium.Chrome.ChromeDriver($chromeDriverDir, $chromeOptions)
+    $driver = New-Object OpenQA.Selenium.Chrome.ChromeDriver($chromeDriverPath, $chromeOptions)
     Write-Host "ChromeDriver started successfully"
 
     # Open website
@@ -134,8 +144,9 @@ catch {
     # Take screenshot for debugging
     try {
         $screenshot = $driver.GetScreenshot()
-        $screenshot.SaveAsFile("$env:TEMP\selenium_error.png")
-        Write-Host "Screenshot saved to $env:TEMP\selenium_error.png"
+        $screenshotPath = "$env:TEMP\selenium_error.png"
+        $screenshot.SaveAsFile($screenshotPath)
+        Write-Host "Screenshot saved to $screenshotPath"
     }
     catch {
         Write-Host "Failed to capture screenshot: $_"
