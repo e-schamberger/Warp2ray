@@ -1,28 +1,57 @@
-name: Hiddify Windows Setup
+name: Hiddify Windows Setup with RDP Access
 
 on:
   workflow_dispatch:
 
 jobs:
-  hiddify-setup:
+  setup:
     runs-on: windows-latest
 
     steps:
+    # مرحله 1: تنظیمات RDP و ngrok برای دسترسی به محیط ویندوز
+    - name: Download ngrok
+      run: |
+        Invoke-WebRequest https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-windows-amd64.zip -OutFile ngrok.zip
+        
+    - name: Extract ngrok
+      run: |
+        Expand-Archive ngrok.zip -DestinationPath ngrok
+        
+    - name: Authenticate ngrok
+      run: .\ngrok\ngrok.exe authtoken $Env:NGROK_AUTH_TOKEN
+      env:
+        NGROK_AUTH_TOKEN: ${{ secrets.NGROK_AUTH_TOKEN }}
+        
+    - name: Enable Remote Desktop
+      run: |
+        Set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\Terminal Server' -Name "fDenyTSConnections" -Value 0
+        Enable-NetFirewallRule -DisplayGroup "Remote Desktop"
+        Set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp' -Name "UserAuthentication" -Value 1
+        
+    - name: Set password for runneradmin
+      run: |
+        $password = ConvertTo-SecureString -String "Shahid@123" -AsPlainText -Force
+        Set-LocalUser -Name "runneradmin" -Password $password
+        
+    - name: Create ngrok tunnel
+      run: Start-Process -NoNewWindow -FilePath ".\ngrok\ngrok.exe" -ArgumentList "tcp 3389"
+      
+    # مرحله 2: تنظیم و اجرای Hiddify
     - name: Download Hiddify Portable
       run: |
         $url = "https://github.com/hiddify/hiddify-app/releases/download/v2.0.5/Hiddify-Windows-Portable-x64.zip"
         $output = "Hiddify-Windows-Portable-x64.zip"
         Invoke-WebRequest -Uri $url -OutFile $output
-
-    - name: Extract Files
+        
+    - name: Extract Hiddify Files
       run: |
         Expand-Archive -Path "Hiddify-Windows-Portable-x64.zip" -DestinationPath .
-
+        
     - name: Set clipboard content
       run: |
         $configUrl = "https://raw.githubusercontent.com/e-schamberger/free/refs/heads/main/config/vless.json"
         Set-Clipboard -Value $configUrl
-
+        
     - name: Create automation script
       run: |
         @'
@@ -55,22 +84,21 @@ jobs:
         # Close application
         $process | Stop-Process -Force
         '@ | Out-File -FilePath "automation.ps1" -Encoding UTF8
-
+        
     - name: Run Hiddify with automation
       run: |
         powershell -ExecutionPolicy Bypass -File "automation.ps1"
-
+        
     - name: Show hidden files
       run: |
         # فعال‌سازی نمایش فایل‌های مخفی
         reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v Hidden /t REG_DWORD /d 1 /f
         reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v ShowSuperHidden /t REG_DWORD /d 1 /f
-        # ریستارت اکسپلورر برای اعمال تغییرات
         Stop-Process -Name explorer -Force -ErrorAction SilentlyContinue
-
+        
     - name: Find config file
       run: |
-        # جستجو در مسیرهای اصلی با نمایش فایل‌های مخفی
+        # جستجو در مسیرهای اصلی
         $searchPaths = @(
             "$env:APPDATA\Hiddify\hiddify\configs",
             "$env:LOCALAPPDATA\Hiddify\hiddify\configs",
@@ -81,7 +109,6 @@ jobs:
         $configFile = $null
         foreach ($path in $searchPaths) {
             Write-Host "Checking path: $path"
-            # استفاده از Get-Item به جای Test-Path با پارامتر Force
             try {
                 $dir = Get-Item -Path $path -Force -ErrorAction Stop
                 $files = Get-ChildItem -Path $path -Filter *.json -Force
@@ -95,7 +122,7 @@ jobs:
             }
         }
         
-        # اگر در مسیرهای اصلی پیدا نشد، جستجوی عمیق‌تر
+        # جستجوی عمیق‌تر در صورت نیاز
         if (-not $configFile) {
             Write-Host "Performing deep search..."
             $configFile = Get-ChildItem -Path "C:\" -Filter *.json -Recurse -Force -ErrorAction SilentlyContinue | 
@@ -109,23 +136,19 @@ jobs:
             Add-Content -Path $env:GITHUB_ENV -Value "CONFIG_FILE_PATH=$configFile"
         } else {
             Write-Error "Config file not found!"
-            # ایجاد لاگ برای دیباگ
-            Write-Host "Listing all Hiddify directories:"
             Get-ChildItem -Path "C:\" -Filter "Hiddify" -Recurse -Directory -Force -ErrorAction SilentlyContinue | 
                 Select-Object FullName
             exit 1
         }
-
+        
     - name: Save config file
       run: |
         $sourcePath = $env:CONFIG_FILE_PATH
         $destDir = "hiddify-config"
         New-Item -ItemType Directory -Path $destDir -Force
-        
-        # کپی فایل کانفیگ
         Copy-Item -Path $sourcePath -Destination "$destDir/config.json" -Force
         Write-Host "Config file copied successfully"
-
+        
     - name: Upload config to GitHub
       uses: actions/upload-artifact@v4
       with:
