@@ -9,9 +9,6 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v4
       
-    - name: Set up ChromeDriver
-      uses: browser-actions/setup-chromedriver@v2
-      
     - name: Run conversion script
       shell: pwsh
       run: |
