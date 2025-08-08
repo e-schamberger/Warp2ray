@@ -1,0 +1,115 @@
+//profile-title: base64:4pyoR3JlZWNlIPCfh6zwn4e3
+//profile-update-interval: 1
+
+{
+  "outbounds": [ 
+    { 
+      "type": "custom", 
+      "tag": "✨WARP 🇮🇷", 
+      "warp": { 
+        "detour": "", 
+        "fake_packets": "40-80", 
+        "fake_packets_delay": "4-8", 
+        "fake_packets_mode": "m4", 
+        "fake_packets_size": "40-100", 
+        "host": "8.47.69.239", 
+        "key": "p1", 
+        "port": "auto" 
+      } 
+    }, 
+    { 
+      "type": "custom", 
+      "tag": "✨WARP 🇩🇪", 
+      "warp": { 
+        "detour": "✨WARP 🇮🇷", 
+        "fake_packets": "", 
+        "fake_packets_delay": "", 
+        "fake_packets_mode": "", 
+        "fake_packets_size": "", 
+        "host": "auto", 
+        "key": "p2", 
+        "port": "auto" 
+      } 
+    },
+    {
+      "detour": "✨WARP 🇮🇷",
+      "type": "shadowsocks",
+      "tag": "🔥Join+Telegram:@Farah_VPN🟣 § 0",
+      "server": "192.71.166.102",
+      "server_port": 990,
+      "method": "chacha20-ietf-poly1305",
+      "password": "f8f7aCzcPKbsF8p3"
+    },
+    {
+      "detour": "✨WARP 🇮🇷",
+      "type": "shadowsocks",
+      "tag": "🔥Join+Telegram:@Farah_VPN🟣 § 1",
+      "server": "185.39.207.60",
+      "server_port": 443,
+      "method": "chacha20-ietf-poly1305",
+      "password": "Z0UurGkG6iJa"
+    },
+    {
+      "detour": "✨WARP 🇮🇷",
+      "type": "shadowsocks",
+      "tag": "🔥Join+Telegram:@Farah_VPN🟣 § 2",
+      "server": "194.150.167.52",
+      "server_port": 47121,
+      "method": "aes-256-gcm",
+      "password": "CTK8GXFQgKYQErrghPJfZ6tk"
+    },
+    {
+      "detour": "✨WARP 🇮🇷",
+      "type": "shadowsocks",
+      "tag": "🔥Join+Telegram:@Farah_VPN🟣 § 3",
+      "server": "94.131.8.19",
+      "server_port": 45448,
+      "method": "96fcf8cc-535d-46c4-b8f9-76058df48e3b",
+      "password": ""
+    },
+    {
+      "detour": "✨WARP 🇮🇷",
+      "type": "vless",
+      "tag": "🔥Join+Telegram:@Farah_VPN🟣 § 4",
+      "server": "94.131.8.19",
+      "server_port": 45448,
+      "uuid": "96fcf8cc-535d-46c4-b8f9-76058df48e3b",
+      "tls": {
+        "enabled": true,
+        "server_name": "yahoo.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        },
+        "reality": {
+          "enabled": true,
+          "public_key": "MmEVCRy11fz67vYJQWyA2a_ZPMBzv2le2cus1XSSI0E",
+          "short_id": "958639bf55e679"
+        }
+      },
+      "packet_encoding": "xudp"
+    },
+    {
+      "detour": "✨WARP 🇮🇷",
+      "type": "vless",
+      "tag": "🔥Join+Telegram:@Farah_VPN🟣 § 5",
+      "server": "94.131.8.19",
+      "server_port": 45448,
+      "uuid": "96fcf8cc-535d-46c4-b8f9-76058df48e3b",
+      "tls": {
+        "enabled": true,
+        "server_name": "yahoo.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        },
+        "reality": {
+          "enabled": true,
+          "public_key": "MmEVCRy11fz67vYJQWyA2a_ZPMBzv2le2cus1XSSI0E",
+          "short_id": "958639bf55e679"
+        }
+      },
+      "packet_encoding": "xudp"
+    }
+  ]
+}

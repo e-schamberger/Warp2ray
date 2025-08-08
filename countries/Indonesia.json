@@ -1,0 +1,153 @@
+//profile-title: base64:4pyoSW5kb25lc2lhIPCfh67wn4ep
+//profile-update-interval: 1
+
+{
+  "outbounds": [ 
+    { 
+      "type": "custom", 
+      "tag": "✨WARP 🇮🇷", 
+      "warp": { 
+        "detour": "", 
+        "fake_packets": "40-80", 
+        "fake_packets_delay": "4-8", 
+        "fake_packets_mode": "m4", 
+        "fake_packets_size": "40-100", 
+        "host": "8.47.69.239", 
+        "key": "p1", 
+        "port": "auto" 
+      } 
+    }, 
+    { 
+      "type": "custom", 
+      "tag": "✨WARP 🇩🇪", 
+      "warp": { 
+        "detour": "✨WARP 🇮🇷", 
+        "fake_packets": "", 
+        "fake_packets_delay": "", 
+        "fake_packets_mode": "", 
+        "fake_packets_size": "", 
+        "host": "auto", 
+        "key": "p2", 
+        "port": "auto" 
+      } 
+    },
+    {
+      "detour": "✨WARP 🇮🇷",
+      "type": "shadowsocks",
+      "tag": "🔥Join+Telegram:@Farah_VPN🟣 § 0",
+      "server": "218.33.84.142",
+      "server_port": 26518,
+      "method": "52395e5e-40db-4c24-c32e-57954697f906",
+      "password": ""
+    },
+    {
+      "detour": "✨WARP 🇮🇷",
+      "type": "shadowsocks",
+      "tag": "🔥Join+Telegram:@Farah_VPN🟣 § 1",
+      "server": "154.205.159.100",
+      "server_port": 990,
+      "method": "chacha20-ietf-poly1305",
+      "password": "f8f7aCzcPKbsF8p3"
+    },
+    {
+      "detour": "✨WARP 🇮🇷",
+      "type": "vless",
+      "tag": "🔥Join+Telegram:@Farah_VPN🟣 § 2",
+      "server": "172.235.251.52",
+      "server_port": 321,
+      "uuid": "1a18e79a-ff9c-43b5-90e1-1c43561364f2",
+      "packet_encoding": "xudp"
+    },
+    {
+      "detour": "✨WARP 🇮🇷",
+      "type": "vless",
+      "tag": "🔥Join+Telegram:@Farah_VPN🟣 § 3",
+      "server": "172.235.251.52",
+      "server_port": 321,
+      "uuid": "1a18e79a-ff9c-43b5-90e1-1c43561364f2",
+      "packet_encoding": "xudp"
+    },
+    {
+      "detour": "✨WARP 🇮🇷",
+      "type": "vless",
+      "tag": "🔥Join+Telegram:@Farah_VPN🟣 § 4",
+      "server": "218.33.84.142",
+      "server_port": 26518,
+      "uuid": "52395e5e-40db-4c24-c32e-57954697f906",
+      "tls": {
+        "enabled": true,
+        "server_name": "www.lovelive-anime.jp",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        },
+        "reality": {
+          "enabled": true,
+          "public_key": "rwpbqas_HY8knlW0fFSIeUrjgBXHBzSNboflsLD8elA"
+        }
+      },
+      "packet_encoding": "xudp"
+    },
+    {
+      "detour": "✨WARP 🇮🇷",
+      "type": "vless",
+      "tag": "🔥Join+Telegram:@Farah_VPN🟣 § 5",
+      "server": "172.232.237.24",
+      "server_port": 2321,
+      "uuid": "89ae5e18-3b81-4e5d-a645-d85012c602b1",
+      "packet_encoding": "xudp"
+    },
+    {
+      "detour": "✨WARP 🇮🇷",
+      "type": "vless",
+      "tag": "🔥Join+Telegram:@Farah_VPN🟣 § 6",
+      "server": "218.33.84.142",
+      "server_port": 26518,
+      "uuid": "52395e5e-40db-4c24-c32e-57954697f906",
+      "tls": {
+        "enabled": true,
+        "server_name": "www.lovelive-anime.jp",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        },
+        "reality": {
+          "enabled": true,
+          "public_key": "rwpbqas_HY8knlW0fFSIeUrjgBXHBzSNboflsLD8elA"
+        }
+      },
+      "packet_encoding": "xudp"
+    },
+    {
+      "detour": "✨WARP 🇮🇷",
+      "type": "vless",
+      "tag": "🔥Join+Telegram:@Farah_VPN🟣 § 7",
+      "server": "172.232.237.24",
+      "server_port": 2321,
+      "uuid": "89ae5e18-3b81-4e5d-a645-d85012c602b1",
+      "packet_encoding": "xudp"
+    },
+    {
+      "detour": "✨WARP 🇮🇷",
+      "type": "vmess",
+      "tag": "🔥Join+Telegram:@Farah_VPN🟣 § 8",
+      "server": "154.90.49.57",
+      "server_port": 58868,
+      "uuid": "fbffeb6b-b5e5-4f77-8888-c7919fbeb0ad",
+      "security": "auto",
+      "authenticated_length": true,
+      "packet_encoding": "xudp"
+    },
+    {
+      "detour": "✨WARP 🇮🇷",
+      "type": "vmess",
+      "tag": "🔥Join+Telegram:@Farah_VPN🟣 § 9",
+      "server": "154.90.49.57",
+      "server_port": 58868,
+      "uuid": "fbffeb6b-b5e5-4f77-8888-c7919fbeb0ad",
+      "security": "auto",
+      "authenticated_length": true,
+      "packet_encoding": "xudp"
+    }
+  ]
+}
