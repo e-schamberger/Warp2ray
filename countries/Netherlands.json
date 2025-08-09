@@ -5,7 +5,7 @@
   "outbounds": [ 
     { 
       "type": "custom", 
-      "tag": "?WARP ????", 
+      "tag": "✨WARP 🇮🇷", 
       "warp": { 
         "detour": "", 
         "fake_packets": "40-80", 
@@ -19,9 +19,9 @@
     }, 
     { 
       "type": "custom", 
-      "tag": "?WARP ????", 
+      "tag": "✨WARP 🇩🇪", 
       "warp": { 
-        "detour": "?WARP ????", 
+        "detour": "✨WARP 🇮🇷", 
         "fake_packets": "", 
         "fake_packets_delay": "", 
         "fake_packets_mode": "", 
